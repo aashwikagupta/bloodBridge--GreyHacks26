@@ -1351,8 +1351,6 @@ async function loadPredictions() {
     });
 
     renderPredictionList("all");
-    buildRiskDoughnut(data.summary);
-    renderFeatureImportance(data.feature_importance || []);
   } catch (e) {
     console.error("Predictions load failed:", e);
     el("predictions-list").innerHTML = '<div class="empty-state"><p>Failed to load predictions. Check backend.</p></div>';
@@ -1376,73 +1374,24 @@ function renderPredictionList(filter) {
     return;
   }
 
-  // Compute predicted shortage date
-  function shortageDate(daysOfSupply) {
-    const d = new Date();
-    d.setDate(d.getDate() + Math.max(0, Math.round(daysOfSupply)));
-    return d.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
-  }
+  const RISK_LABEL = { 3: "Critical", 2: "High Risk", 1: "Watchlist", 0: "Stable" };
 
   el("predictions-list").innerHTML = items.map(p => {
-    const btBg = {
-      3: "rgba(255,23,68,0.14)",
-      2: "rgba(255,112,67,0.14)",
-      1: "rgba(255,171,64,0.14)",
-      0: "rgba(0,230,118,0.11)",
-    }[p.risk_level];
+    const color = RISK_COLORS[p.risk_level];
+    const label = RISK_LABEL[p.risk_level];
     const confidence = Math.round((p.confidence || 0) * 100);
-    const city       = p.city ? `${p.city}, ${p.state}` : (p.season || "") + " season";
-    const shortageDt = p.days_of_supply <= 14 ? shortageDate(p.days_of_supply) : null;
-
-    // Factor breakdown bars (5 factors)
-    const factors = [
-      { label: "Surgery Load",   val: p.surgery_score || 0,   max: 10, color: "#ff7043", why: "Scheduled OR volume drives blood consumption" },
-      { label: "Trauma Rate",    val: p.trauma_rate    || 0,   max: 10, color: "#ff1744", why: "ED trauma cases demand emergency blood" },
-      { label: "Shortage Score", val: Math.min((p.shortage_score || 0) * 5, 10), max: 10, color: "#ffab40", why: "7-day rolling shortage pressure index" },
-      { label: "Supply Days",    val: Math.max(0, 10 - (p.days_of_supply || 0) / 3), max: 10, color: "#7c3aed", why: "Lower supply days = higher urgency" },
-      { label: "Seasonal Risk",  val: p.season === "Winter" ? 8 : p.season === "Summer" ? 6 : 4, max: 10, color: "#00d4ff", why: "Seasonal demand (winter trauma, summer accidents)" },
-    ];
-
-    const factorBars = factors.map(f => {
-      const pct = Math.round((f.val / f.max) * 100);
-      return `
-        <div class="pred-factor-row" title="${f.why}">
-          <span class="pred-factor-label">${f.label}</span>
-          <div class="pred-factor-track">
-            <div class="pred-factor-fill" style="width:${pct}%;background:${f.color}"></div>
-          </div>
-          <span class="pred-factor-val">${f.val.toFixed(1)}</span>
-        </div>`;
-    }).join("");
-
+    const city = p.city ? `${p.city}, ${p.state}` : "";
     return `
       <div class="pred-card" data-risk="${p.risk_level}">
-        <div class="pred-bt-badge" style="background:${btBg};color:${RISK_COLORS[p.risk_level]}">
-          ${p.blood_type}
-        </div>
+        <div class="pred-bt-badge" style="color:${color}">${p.blood_type}</div>
         <div class="pred-main">
           <div class="pred-hospital">${p.hospital}</div>
-          <div class="pred-location">${city}</div>
-          ${shortageDt ? `
-          <div class="pred-shortage-date" style="color:${RISK_COLORS[p.risk_level]};font-size:11px;font-weight:700;margin:4px 0 6px;letter-spacing:0.2px">
-            ⚠ Projected shortage: <strong>${shortageDt}</strong> (${p.days_of_supply}d remaining)
-          </div>` : `
-          <div class="pred-shortage-date" style="color:var(--text-3);font-size:11px;margin:4px 0 6px">
-            Supply adequate beyond 14 days · No immediate action needed
-          </div>`}
+          ${city ? `<div class="pred-location">${city}</div>` : ""}
           <div class="pred-explanation">${p.explanation}</div>
-          <div class="pred-factors-section">
-            <div class="pred-factors-title">Prediction Factors</div>
-            ${factorBars}
-          </div>
         </div>
         <div class="pred-meta">
-          ${riskBadgeHTML(p.risk_level)}
-          <div class="pred-stats">
-            ${fmt(p.total_units)}u available<br>
-            ${p.days_of_supply}d supply<br>
-            ${confidence}% confidence
-          </div>
+          <span class="pred-risk-tag" style="color:${color};border-color:${color}">${label}</span>
+          <div class="pred-stats">${p.days_of_supply}d supply · ${confidence}% confidence</div>
         </div>
       </div>`;
   }).join("");
