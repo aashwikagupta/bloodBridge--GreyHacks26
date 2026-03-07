@@ -817,15 +817,9 @@ function initLeafletMap() {
   loadHeatmap();
 }
 
-// Unified Google Maps API ready callback
-let pendingHomeMap = false;
+// Unified Google Maps API ready callback (exchange map only — home map uses Leaflet)
 window.onGoogleMapsReady = function() {
   window.googleMapsReady = true;
-  if (pendingHomeMap) {
-    pendingHomeMap = false;
-    initHomeMap();
-  }
-  // Also init exchange map if it's waiting
   if (pendingHeatmap) {
     drawGoogleMarkers(heatmapData);
     pendingHeatmap = false;
@@ -845,67 +839,53 @@ window.initGoogleMap = function() {
   initGoogleMapsMap();
 };
 
-// Home tab map — Google Maps with pending flag for async load
+// Home tab map — Leaflet with CartoDB dark tiles (no API key needed)
 function initHomeMap() {
   const mapDiv = el("home-map");
   if (!mapDiv) return;
   if (mapDiv._initialized) return;
-
-  // If Google Maps not loaded yet, set flag — onGoogleMapsReady will retry
-  if (typeof google === "undefined" || !google.maps) {
-    pendingHomeMap = true;
-    return;
-  }
-
   mapDiv._initialized = true;
   homeMapInitialized  = true;
 
   const STATUS_COLOR = { stable: "#00ff88", warning: "#ffcc00", high_risk: "#ff6a1a", critical: "#ff0033" };
 
-  const hMap = new google.maps.Map(mapDiv, {
-    center: { lat: 42.4, lng: -72.0 },
+  const hMap = L.map(mapDiv, {
+    center: [42.4, -72.0],
     zoom: 7,
-    styles: GOOGLE_MAPS_DARK_STYLE,
-    mapTypeId: google.maps.MapTypeId.ROADMAP,
-    disableDefaultUI: false,
     zoomControl: true,
-    streetViewControl: false,
-    mapTypeControl: false,
-    fullscreenControl: false,
   });
 
+  L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png", {
+    attribution: "© OpenStreetMap contributors © CARTO",
+    maxZoom: 18,
+  }).addTo(hMap);
+
   allHospitals.forEach(h => {
-    const color = STATUS_COLOR[h.status] || "#7a9cc0";
-    const scale = 10 + Math.min((h.avg_shortage_score || 0) * 6, 10);
+    const color  = STATUS_COLOR[h.status] || "#7a9cc0";
+    const radius = 18000 + (h.avg_shortage_score || 0) * 20000;
 
-    const marker = new google.maps.Marker({
-      position: { lat: h.latitude, lng: h.longitude },
-      map: hMap,
-      title: h.name,
-      icon: {
-        path: google.maps.SymbolPath.CIRCLE,
-        fillColor: color, fillOpacity: 1,
-        strokeWeight: 2, strokeColor: "#000", scale,
-      },
+    L.circle([h.latitude, h.longitude], {
+      radius, color, fillColor: color, fillOpacity: 0.08,
+      weight: 1, opacity: 0.3,
+    }).addTo(hMap);
+
+    const icon = L.divIcon({
+      className: "",
+      html: `<div style="width:13px;height:13px;background:${color};border:2px solid rgba(255,255,255,0.9);border-radius:50%;box-shadow:0 0 10px ${color}cc,0 0 4px rgba(0,0,0,0.8)"></div>`,
+      iconSize: [13, 13], iconAnchor: [6, 6],
     });
 
-    new google.maps.Circle({
-      map: hMap, center: { lat: h.latitude, lng: h.longitude },
-      radius: 22000, fillColor: color, fillOpacity: 0.06,
-      strokeColor: color, strokeOpacity: 0.3, strokeWeight: 1,
-    });
-
-    const iw = new google.maps.InfoWindow({
-      content: `<div style="background:#000;border:1px solid #2a2a2a;padding:13px 15px;border-radius:10px;min-width:200px;font-family:'Inter',sans-serif">
-        <div style="font-weight:700;font-size:14px;color:#fff;margin-bottom:3px">${h.name}</div>
-        <div style="font-size:12px;color:#7a9ab8;margin-bottom:9px">${h.city}, ${h.state}</div>
-        <div style="display:flex;justify-content:space-between;font-size:13px">
-          <span style="color:${color};font-weight:700">${h.status.replace(/_/g," ").toUpperCase()}</span>
-          <span style="color:#7a9ab8">${h.total_units.toLocaleString("en-US")} units</span>
-        </div>
-      </div>`,
-    });
-    marker.addListener("click", () => iw.open(hMap, marker));
+    L.marker([h.latitude, h.longitude], { icon })
+      .addTo(hMap)
+      .bindPopup(`
+        <div style="font-family:'Inter',sans-serif;padding:4px 2px">
+          <div style="font-weight:700;font-size:13px;color:#fff;margin-bottom:2px">${h.name}</div>
+          <div style="font-size:11px;color:#7a9ab8;margin-bottom:7px">${h.city}, ${h.state}</div>
+          <div style="display:flex;justify-content:space-between;font-size:12px">
+            <span style="color:${color};font-weight:700">${h.status.replace(/_/g," ").toUpperCase()}</span>
+            <span style="color:#7a9ab8">${h.total_units.toLocaleString("en-US")} units</span>
+          </div>
+        </div>`, { maxWidth: 220 });
   });
 }
 
