@@ -937,8 +937,11 @@ a { color: var(--cyan); }
 .risk-summary-card.high-risk .risk-summary-num { color: var(--orange); }
 .risk-summary-card.critical  .risk-summary-num { color: var(--red); }
 
-.predictions-layout { display: grid; grid-template-columns: 1fr 290px; gap: 18px; }
-.pred-filter-row { display: flex; gap: 5px; }
+.pred-header-row {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 16px; flex-wrap: wrap; gap: 10px;
+}
+.pred-filter-row { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
 .pred-filter {
   padding: 4px 12px; background: var(--bg-2); border: 1px solid var(--border);
   border-radius: 16px; color: var(--text-3); font-size: 12px; font-weight: 600;
@@ -949,7 +952,7 @@ a { color: var(--cyan); }
 
 .predictions-list {
   display: flex; flex-direction: column; gap: 8px;
-  max-height: calc(100vh - 360px); overflow-y: auto; padding-right: 3px;
+  max-height: calc(100vh - 320px); overflow-y: auto; padding-right: 3px;
 }
 .pred-card {
   background: var(--bg-card); border: 1px solid var(--border);

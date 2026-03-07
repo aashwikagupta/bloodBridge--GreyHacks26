@@ -571,35 +571,18 @@
         </div>
       </div>
 
-      <div class="predictions-layout">
-        <div class="predictions-main">
-          <div class="section-header">
-            <h2 class="section-title">Shortage Risk Forecast</h2>
-            <div class="pred-filter-row">
-              <button class="pred-filter active" data-filter="all" onclick="filterPredictions('all', this)">All</button>
-              <button class="pred-filter" data-filter="3" onclick="filterPredictions('3', this)">Critical</button>
-              <button class="pred-filter" data-filter="2" onclick="filterPredictions('2', this)">High Risk</button>
-              <button class="pred-filter" data-filter="1" onclick="filterPredictions('1', this)">Watchlist</button>
-              <button class="pred-filter" data-filter="0" onclick="filterPredictions('0', this)">Stable</button>
-            </div>
-          </div>
-          <div id="predictions-list" class="predictions-list">
-            <div class="empty-state"><p>Loading AI predictions...</p></div>
-          </div>
+      <div class="pred-header-row">
+        <h2 class="section-title">Shortage Risk Forecast</h2>
+        <div class="pred-filter-row">
+          <button class="pred-filter active" data-filter="all" onclick="filterPredictions('all', this)">All</button>
+          <button class="pred-filter" data-filter="3" onclick="filterPredictions('3', this)">Critical</button>
+          <button class="pred-filter" data-filter="2" onclick="filterPredictions('2', this)">High Risk</button>
+          <button class="pred-filter" data-filter="1" onclick="filterPredictions('1', this)">Watchlist</button>
+          <button class="pred-filter" data-filter="0" onclick="filterPredictions('0', this)">Stable</button>
         </div>
-
-        <div class="predictions-sidebar">
-          <div class="chart-card">
-            <div class="chart-title">Risk Distribution</div>
-            <div class="chart-wrap" style="height:220px">
-              <canvas id="risk-doughnut-chart"></canvas>
-            </div>
-          </div>
-          <div class="chart-card" style="margin-top:20px">
-            <div class="chart-title">Model Feature Importance</div>
-            <div id="feature-importance-list" class="fi-list"></div>
-          </div>
-        </div>
+      </div>
+      <div id="predictions-list" class="predictions-list">
+        <div class="empty-state"><p>Loading AI predictions...</p></div>
       </div>
     </div>
 
