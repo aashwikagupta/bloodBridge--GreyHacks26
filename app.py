@@ -49,7 +49,7 @@ def load_data() -> pd.DataFrame:
     if os.path.exists(DATASET_PATH):
         try:
             df = pd.read_csv(DATASET_PATH)
-            if df["hospital_name"].nunique() >= 30:
+            if df["hospital_name"].nunique() >= 70:
                 need_regen = False
         except Exception:
             need_regen = True
@@ -85,6 +85,12 @@ def login():
     user = {"name": name, "role": role, "hospital": hospital, "donor_blood_type": donor_bt}
     session["user"] = user
     return jsonify({"success": True, "user": user})
+
+
+@app.route("/api/logout", methods=["POST"])
+def logout():
+    session.pop("user", None)
+    return jsonify({"success": True})
 
 
 @app.route("/api/register", methods=["POST"])
@@ -424,18 +430,27 @@ def donor_urgent_needs():
             1 for (h, btype), g in df[df["blood_type"] == bt].groupby(["hospital_name", "blood_type"])
             if (float(g["daily_usage"].mean()) * 7) / max(int(g["units_available"].sum()), 1) >= 0.8
         )
+        # Clinical minimum urgency by blood type (based on real-world demand/rarity)
+        CLINICAL_MIN = {"O-": "CRITICAL", "O+": "HIGH", "B-": "HIGH", "A-": "HIGH"}
+        data_urgency = (
+            "CRITICAL" if s >= 1.2 else
+            "HIGH"     if s >= 0.55 else
+            "MODERATE" if s >= 0.28 else
+            "STABLE"
+        )
+        urgency_rank = {"STABLE": 0, "MODERATE": 1, "HIGH": 2, "CRITICAL": 3}
+        clinical_min = CLINICAL_MIN.get(bt, "STABLE")
+        urgency_label = (
+            data_urgency if urgency_rank[data_urgency] >= urgency_rank[clinical_min]
+            else clinical_min
+        )
         bt_priority.append({
             "blood_type":         bt,
             "total_units":        total_units,
             "daily_demand":       round(total_daily, 1),
             "shortage_score":     s,
             "facilities_in_need": fac_in_need,
-            "urgency_label": (
-                "CRITICAL" if s >= 1.5 else
-                "HIGH"     if s >= 0.8 else
-                "MODERATE" if s >= 0.4 else
-                "STABLE"
-            ),
+            "urgency_label":      urgency_label,
         })
     bt_priority.sort(key=lambda x: x["shortage_score"], reverse=True)
 

@@ -3,17 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BloodBridge — Northeast Blood Intelligence Platform</title>
+  <title>BloodBridge — Where Every Drop Finds Its Lifeline</title>
 
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
 
-  <!-- Leaflet (fallback for exchange network map) -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-
-  <!-- Chart.js -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 
   <link rel="stylesheet" href="/static/style.css" />
@@ -21,295 +17,92 @@
   {% if session_user %}
   <script>window.SESSION_USER = {{ session_user | tojson }};</script>
   {% endif %}
-
-  <script>
-    window.GOOGLE_MAPS_KEY_SET = {% if google_maps_key %}true{% else %}false{% endif %};
-  </script>
+  <script>window.GOOGLE_MAPS_KEY_SET = {% if google_maps_key %}true{% else %}false{% endif %};</script>
 </head>
 <body>
 
 <!-- =====================================================================
-     LANDING SECTION
+     LOGIN OVERLAY
      ===================================================================== -->
-<div id="landing">
+<div id="login-overlay">
+  <div class="login-bg-grid"></div>
+  <div class="login-glow login-glow-left"></div>
+  <div class="login-glow login-glow-right"></div>
 
-  <!-- Navigation -->
-  <nav class="landing-nav">
-    <div class="landing-nav-logo">
-      <img src="/static/logo.svg" alt="BloodBridge" class="nav-logo-img" />
-      <span class="nav-brand-name">BloodBridge</span>
-    </div>
-    <div class="landing-nav-center">
-      <a href="#network" class="landing-nav-link">Live Network</a>
-      <a href="#features" class="landing-nav-link">Features</a>
-      <a href="#mission" class="landing-nav-link">Mission</a>
-    </div>
-    <div class="landing-nav-right">
-      <button class="nav-btn-ghost" onclick="openModal('login')">Sign In</button>
-      <button class="nav-btn-red" onclick="openModal('register')">Get Started</button>
-    </div>
-  </nav>
-
-  <!-- Hero -->
-  <section class="landing-hero">
-    <div class="hero-glow-top"></div>
-
-    <!-- Animated blood cells -->
-    <div class="blood-cells-bg">
-      <div class="rbc" style="width:110px;height:70px;top:8%;animation-duration:9s;animation-delay:0s;--rbc-op:0.45;--rbc-y1:-50px;--rbc-r1:160deg"></div>
-      <div class="rbc" style="width:80px;height:52px;top:22%;animation-duration:13s;animation-delay:-3s;--rbc-op:0.4;--rbc-y1:-30px;--rbc-r1:200deg"></div>
-      <div class="rbc" style="width:140px;height:90px;top:38%;animation-duration:8s;animation-delay:-1s;--rbc-op:0.35;--rbc-y1:-80px;--rbc-r1:120deg"></div>
-      <div class="rbc" style="width:65px;height:42px;top:55%;animation-duration:11s;animation-delay:-5s;--rbc-op:0.5;--rbc-y1:-20px;--rbc-r1:240deg"></div>
-      <div class="rbc" style="width:100px;height:64px;top:70%;animation-duration:7s;animation-delay:-2s;--rbc-op:0.38;--rbc-y1:-60px;--rbc-r1:90deg"></div>
-      <div class="rbc" style="width:90px;height:58px;top:14%;animation-duration:15s;animation-delay:-7s;--rbc-op:0.42;--rbc-y1:-40px;--rbc-r1:310deg"></div>
-      <div class="rbc" style="width:55px;height:36px;top:48%;animation-duration:10s;animation-delay:-4s;--rbc-op:0.55;--rbc-y1:-25px;--rbc-r1:180deg"></div>
-      <div class="rbc" style="width:120px;height:78px;top:80%;animation-duration:12s;animation-delay:-6s;--rbc-op:0.35;--rbc-y1:-70px;--rbc-r1:140deg"></div>
-      <div class="rbc" style="width:75px;height:48px;top:30%;animation-duration:9.5s;animation-delay:-9s;--rbc-op:0.48;--rbc-y1:-35px;--rbc-r1:270deg"></div>
-      <div class="rbc" style="width:95px;height:62px;top:62%;animation-duration:14s;animation-delay:-11s;--rbc-op:0.4;--rbc-y1:-55px;--rbc-r1:190deg"></div>
-      <div class="rbc" style="width:60px;height:39px;top:5%;animation-duration:8.5s;animation-delay:-0.5s;--rbc-op:0.52;--rbc-y1:-15px;--rbc-r1:330deg"></div>
-      <div class="rbc" style="width:130px;height:84px;top:85%;animation-duration:11s;animation-delay:-8s;--rbc-op:0.33;--rbc-y1:-90px;--rbc-r1:110deg"></div>
-      <div class="rbc" style="width:85px;height:55px;top:42%;animation-duration:6.5s;animation-delay:-3.5s;--rbc-op:0.46;--rbc-y1:-45px;--rbc-r1:220deg"></div>
-      <div class="rbc" style="width:70px;height:45px;top:72%;animation-duration:16s;animation-delay:-12s;--rbc-op:0.38;--rbc-y1:-30px;--rbc-r1:80deg"></div>
+  <div class="login-card">
+    <div class="login-logo">
+      <img src="/static/logo.svg" alt="BloodBridge" class="login-logo-img" style="filter:none" />
+      <p class="login-brand-name">BloodBridge</p>
+      <p class="login-slogan">Where Every Drop Finds Its Lifeline</p>
     </div>
 
-    <div class="hero-content">
-      <div class="hero-badge">
-        <span class="hero-live-dot"></span>
-        Live · 35 Facilities · Northeast US
+    <div class="login-network-badge">
+      <span class="network-dot"></span>
+      <span>75 facilities across 11 Northeast states — live network</span>
+    </div>
+
+    <form id="login-form">
+      <div class="form-group">
+        <label>Full Name</label>
+        <input type="text" id="login-name" placeholder="e.g. Dr. Sarah Chen" autocomplete="off" required />
       </div>
 
-      <h1 class="hero-h1">Connecting Lives.<br><em>Saving Lives.</em></h1>
-
-      <p class="hero-sub">
-        Real-time blood supply intelligence that helps hospitals prevent
-        critical shortages before they happen.
-      </p>
-
-      <div class="hero-ctas">
-        <button class="hero-btn-primary" onclick="openModal('register')">Access Platform →</button>
-        <button class="hero-btn-secondary" onclick="openModal('login')">Staff Sign In</button>
-      </div>
-
-      <div class="hero-stats-row">
-        <div class="hero-stat">
-          <span class="hero-stat-num">35</span>
-          <span class="hero-stat-label">Northeast Facilities</span>
-        </div>
-        <div class="hero-stat-divider"></div>
-        <div class="hero-stat">
-          <span class="hero-stat-num" id="hero-stat-units">—</span>
-          <span class="hero-stat-label">Units in Network</span>
-        </div>
-        <div class="hero-stat-divider"></div>
-        <div class="hero-stat">
-          <span class="hero-stat-num">8</span>
-          <span class="hero-stat-label">Blood Types Tracked</span>
-        </div>
-        <div class="hero-stat-divider"></div>
-        <div class="hero-stat">
-          <span class="hero-stat-num">24/7</span>
-          <span class="hero-stat-label">Live Monitoring</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Network Map -->
-  <section id="network" class="landing-map-section">
-    <div class="landing-section-inner">
-      <p class="landing-eyebrow">Live Network</p>
-      <h2 class="landing-h2">35 hospitals. One platform.</h2>
-      <p class="landing-sub">Real-time blood availability across the Northeast — from Maine to Philadelphia.</p>
-      <div id="home-map" class="home-map"></div>
-      <div class="home-map-legend">
-        <div class="legend-item"><div class="legend-dot" style="background:#00e676"></div>Stable Supply</div>
-        <div class="legend-item"><div class="legend-dot" style="background:#ffab40"></div>Low Stock</div>
-        <div class="legend-item"><div class="legend-dot" style="background:#ff7043"></div>High Risk</div>
-        <div class="legend-item"><div class="legend-dot" style="background:#ff1744"></div>Critical Shortage</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Features -->
-  <section id="features" class="landing-features-section">
-    <div class="landing-section-inner">
-      <div class="landing-features-header">
-        <p class="landing-eyebrow">Platform Capabilities</p>
-        <h2 class="landing-h2">Built for the front lines.</h2>
-        <p class="landing-sub">Every tool designed for speed, clarity, and critical decision-making.</p>
-      </div>
-      <div class="landing-features-grid">
-
-        <div class="landing-feature-card">
-          <div class="landing-feature-icon" style="background:rgba(255,23,68,0.1);border:1px solid rgba(255,23,68,0.2)">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" stroke="#ff1744" stroke-width="2" stroke-linecap="round"/></svg>
-          </div>
-          <h3 class="landing-feature-h3">AI Shortage Predictions</h3>
-          <p class="landing-feature-p">ML model predicts shortages 7 days ahead — factoring surgical schedules, trauma rates, seasonal demand, and expiry proximity.</p>
-        </div>
-
-        <div class="landing-feature-card">
-          <div class="landing-feature-icon" style="background:rgba(0,212,255,0.1);border:1px solid rgba(0,212,255,0.2)">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="7" height="7" rx="1.5" stroke="#00d4ff" stroke-width="2"/><rect x="14" y="3" width="7" height="7" rx="1.5" stroke="#00d4ff" stroke-width="2"/><rect x="3" y="14" width="7" height="7" rx="1.5" stroke="#00d4ff" stroke-width="2"/><rect x="14" y="14" width="7" height="7" rx="1.5" stroke="#00d4ff" stroke-width="2"/></svg>
-          </div>
-          <h3 class="landing-feature-h3">Real-time Inventory</h3>
-          <p class="landing-feature-p">Live blood type inventory per hospital with expiry tracking, days-of-supply calculations, and instant low-stock alerts.</p>
-        </div>
-
-        <div class="landing-feature-card">
-          <div class="landing-feature-icon" style="background:rgba(0,230,118,0.1);border:1px solid rgba(0,230,118,0.2)">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M7 16L3 12M3 12L7 8M3 12H21M17 8L21 12M21 12L17 16" stroke="#00e676" stroke-width="2" stroke-linecap="round"/></svg>
-          </div>
-          <h3 class="landing-feature-h3">Transfer Network</h3>
-          <p class="landing-feature-p">Instantly find closest hospitals with surplus. Real driving routes via Google Maps with actual travel times across the region.</p>
-        </div>
-
-        <div class="landing-feature-card">
-          <div class="landing-feature-icon" style="background:rgba(255,171,64,0.1);border:1px solid rgba(255,171,64,0.2)">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" stroke="#ffab40" stroke-width="2" stroke-linecap="round"/></svg>
-          </div>
-          <h3 class="landing-feature-h3">Donor Hub</h3>
-          <p class="landing-feature-p">Donors see exactly where their blood type is needed most — with real-world priority data and nearby donation centers ranked by urgency.</p>
-        </div>
-
-        <div class="landing-feature-card">
-          <div class="landing-feature-icon" style="background:rgba(124,58,237,0.1);border:1px solid rgba(124,58,237,0.2)">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M3 3V21H21" stroke="#7c3aed" stroke-width="2" stroke-linecap="round"/><path d="M7 16L11 12L15 14L21 8" stroke="#7c3aed" stroke-width="2" stroke-linecap="round"/></svg>
-          </div>
-          <h3 class="landing-feature-h3">Regional Analytics</h3>
-          <p class="landing-feature-p">8-week demand trends, hospital stress rankings, blood type analysis, and network-wide coverage in one unified dashboard.</p>
-        </div>
-
-        <div class="landing-feature-card">
-          <div class="landing-feature-icon" style="background:rgba(59,130,246,0.1);border:1px solid rgba(59,130,246,0.2)">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#3b82f6" stroke-width="2"/><path d="M12 6v6l4 2" stroke="#3b82f6" stroke-width="2" stroke-linecap="round"/></svg>
-          </div>
-          <h3 class="landing-feature-h3">Expiry Monitoring</h3>
-          <p class="landing-feature-p">Automated expiration tracking with near-expiry alerts. Minimize waste and prioritize redistribution before units are lost.</p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- Mission -->
-  <section id="mission" class="landing-mission-section">
-    <p class="landing-eyebrow" style="margin-bottom:28px">Our Mission</p>
-    <p class="landing-mission-quote">
-      "Every second counts in an emergency.
-      <em>BloodBridge ensures the right blood is in the right place</em>
-      — before the shortage ever begins."
-    </p>
-    <p class="landing-mission-meta">GreyHacks Spring 2026 · Northeast Regional Blood Intelligence Platform · All data synthetic</p>
-  </section>
-
-  <!-- Landing Footer -->
-  <footer class="landing-footer">
-    <div class="landing-footer-logo">
-      <img src="/static/logo.svg" alt="BloodBridge" style="height:26px;opacity:0.6" />
-      <span style="font-size:13px;color:rgba(255,255,255,0.3);margin-left:10px">BloodBridge</span>
-    </div>
-    <span style="font-size:12px;color:rgba(255,255,255,0.25)">© 2026 BloodBridge · GreyHacks Spring 2026 · Not for clinical use</span>
-    <span style="font-size:12px;color:rgba(255,255,255,0.25)">35 hospitals · 9 states · 8 blood types</span>
-  </footer>
-
-</div><!-- #landing -->
-
-
-<!-- =====================================================================
-     LOGIN MODAL
-     ===================================================================== -->
-<div id="login-modal" class="modal-overlay" onclick="bgClose(event,'login')">
-  <div class="modal-box">
-    <button class="modal-close" onclick="closeModal('login')">✕</button>
-    <img src="/static/logo.svg" class="modal-logo" alt="BloodBridge" />
-    <h2 class="modal-h2">Welcome back</h2>
-    <p class="modal-sub">Sign in to access the BloodBridge platform.</p>
-    <p id="login-err" class="modal-err"></p>
-    <div class="modal-form">
-      <input id="l-name" class="modal-input" type="text" placeholder="Full Name" autocomplete="off" />
-      <select id="l-role" class="modal-select" onchange="lRoleChange(this.value)">
-        <option value="" disabled selected>Select your role</option>
-        <option value="Donor">Blood Donor</option>
-        <option value="Hospital Admin">Hospital Admin</option>
-        <option value="Blood Bank Coordinator">Blood Bank Coordinator</option>
-        <option value="Emergency Operations Lead">Emergency Operations Lead</option>
-        <option value="Regional Health Officer">Regional Health Officer</option>
-        <option value="Transfusion Medicine Specialist">Transfusion Medicine Specialist</option>
-      </select>
-      <div id="l-hosp-field" class="modal-field">
-        <select id="l-hospital" class="modal-select">
-          <option value="" disabled selected>Select your hospital</option>
+      <div class="form-group">
+        <label>Role</label>
+        <select id="login-role" required onchange="handleRoleChange(this.value)">
+          <option value="" disabled selected>Select your role</option>
+          <option value="Donor">Blood Donor</option>
+          <option value="Hospital Admin">Hospital Admin</option>
+          <option value="Blood Bank Coordinator">Blood Bank Coordinator</option>
+          <option value="Emergency Operations Lead">Emergency Operations Lead</option>
+          <option value="Regional Health Officer">Regional Health Officer</option>
+          <option value="Transfusion Medicine Specialist">Transfusion Medicine Specialist</option>
         </select>
       </div>
-      <div id="l-bt-field" class="modal-field">
-        <select id="l-donor-bt" class="modal-select">
-          <option value="" disabled selected>Your blood type</option>
+
+      <div class="form-group" id="donor-bt-field" style="display:none">
+        <label>Your Blood Type</label>
+        <select id="login-donor-bt">
+          <option value="" disabled selected>Select your blood type</option>
           <option value="O-">O−</option><option value="O+">O+</option>
           <option value="A+">A+</option><option value="A-">A−</option>
           <option value="B+">B+</option><option value="B-">B−</option>
           <option value="AB+">AB+</option><option value="AB-">AB−</option>
         </select>
       </div>
-      <button class="modal-submit" onclick="doLogin()">Sign In →</button>
+
+      <div class="form-group" id="hospital-field">
+        <label>Primary Hospital</label>
+        <select id="login-hospital">
+          <option value="" disabled selected>Loading hospitals...</option>
+        </select>
+      </div>
+
+      <button type="submit" class="btn-enter">
+        <span id="btn-enter-text">Enter Platform</span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+          <path d="M5 12H19M13 6L19 12L13 18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </form>
+
+    <div class="login-disclaimer">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#7a9cc0" stroke-width="1.5"/><path d="M12 8v4M12 16h.01" stroke="#7a9cc0" stroke-width="1.5" stroke-linecap="round"/></svg>
+      <span>Hackathon prototype · GreyHacks Spring 2026 · All data synthetic · Not for clinical use</span>
     </div>
-    <p class="modal-switch">New user? <span onclick="switchModal('login','register')">Create an account</span></p>
   </div>
 </div>
 
 
 <!-- =====================================================================
-     REGISTER MODAL
-     ===================================================================== -->
-<div id="register-modal" class="modal-overlay" onclick="bgClose(event,'register')">
-  <div class="modal-box">
-    <button class="modal-close" onclick="closeModal('register')">✕</button>
-    <img src="/static/logo.svg" class="modal-logo" alt="BloodBridge" />
-    <h2 class="modal-h2">Get started</h2>
-    <p class="modal-sub">Join the Northeast Blood Intelligence Network.</p>
-    <p id="register-err" class="modal-err"></p>
-    <div class="modal-form">
-      <input id="r-name"  class="modal-input" type="text"  placeholder="Full Name" autocomplete="off" />
-      <input id="r-email" class="modal-input" type="email" placeholder="Email Address" autocomplete="off" />
-      <select id="r-role" class="modal-select" onchange="rRoleChange(this.value)">
-        <option value="" disabled selected>Select your role</option>
-        <option value="Donor">Blood Donor</option>
-        <option value="Hospital Admin">Hospital Admin</option>
-        <option value="Blood Bank Coordinator">Blood Bank Coordinator</option>
-        <option value="Emergency Operations Lead">Emergency Operations Lead</option>
-        <option value="Regional Health Officer">Regional Health Officer</option>
-        <option value="Transfusion Medicine Specialist">Transfusion Medicine Specialist</option>
-      </select>
-      <div id="r-hosp-field" class="modal-field">
-        <select id="r-hospital" class="modal-select">
-          <option value="" disabled selected>Select your hospital</option>
-        </select>
-      </div>
-      <div id="r-bt-field" class="modal-field">
-        <select id="r-donor-bt" class="modal-select">
-          <option value="" disabled selected>Your blood type</option>
-          <option value="O-">O−</option><option value="O+">O+</option>
-          <option value="A+">A+</option><option value="A-">A−</option>
-          <option value="B+">B+</option><option value="B-">B−</option>
-          <option value="AB+">AB+</option><option value="AB-">AB−</option>
-        </select>
-      </div>
-      <button class="modal-submit" onclick="doRegister()">Create Account →</button>
-    </div>
-    <p class="modal-switch">Already have an account? <span onclick="switchModal('register','login')">Sign in</span></p>
-  </div>
-</div>
-
-
-<!-- =====================================================================
-     MAIN APPLICATION (hidden until login)
+     MAIN APPLICATION
      ===================================================================== -->
 <div id="app" class="hidden">
 
   <!-- Header -->
   <header class="app-header">
     <div class="header-brand">
-      <img src="/static/logo.svg" alt="BloodBridge" class="header-logo-img" />
+      <img src="/static/logo.svg" alt="BloodBridge" class="header-logo-img" style="filter:none;height:34px" />
       <div>
         <span class="brand-name">BloodBridge</span>
         <span class="brand-tag">Northeast Network</span>
@@ -349,6 +142,9 @@
           <span id="user-role-display" class="user-role">—</span>
         </div>
       </div>
+      <button class="logout-btn" onclick="doLogout()" title="Sign out">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4M16 17l5-5-5-5M21 12H9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
     </div>
   </header>
 
@@ -363,7 +159,11 @@
 
   <!-- Tab Navigation -->
   <nav class="tab-nav">
-    <button class="tab-btn active" data-tab="dashboard" onclick="switchTab('dashboard', this)">
+    <button class="tab-btn active" data-tab="home" onclick="switchTab('home', this)">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M3 9L12 2L21 9V20C21 20.5523 20.5523 21 20 21H4C3.44772 21 3 20.5523 3 20V9Z" stroke="currentColor" stroke-width="1.8"/></svg>
+      Home
+    </button>
+    <button class="tab-btn" data-tab="dashboard" onclick="switchTab('dashboard', this)">
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.8"/><rect x="14" y="3" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.8"/><rect x="3" y="14" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.8"/><rect x="14" y="14" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.8"/></svg>
       Dashboard
     </button>
@@ -387,8 +187,131 @@
 
   <main class="main-content">
 
-    <!-- ===== DASHBOARD ===== -->
-    <div id="tab-dashboard" class="tab-panel active">
+    <!-- ===== TAB: HOME ===== -->
+    <div id="tab-home" class="tab-panel active">
+      <div class="home-tab-hero">
+        <!-- Animated blood cells -->
+        <div class="blood-cells-bg">
+          <div class="rbc" style="width:110px;height:70px;top:8%;animation-duration:9s;animation-delay:0s;--rbc-op:0.45;--rbc-y1:-50px;--rbc-r1:160deg"></div>
+          <div class="rbc" style="width:80px;height:52px;top:22%;animation-duration:13s;animation-delay:-3s;--rbc-op:0.4;--rbc-y1:-30px;--rbc-r1:200deg"></div>
+          <div class="rbc" style="width:140px;height:90px;top:38%;animation-duration:8s;animation-delay:-1s;--rbc-op:0.35;--rbc-y1:-80px;--rbc-r1:120deg"></div>
+          <div class="rbc" style="width:65px;height:42px;top:55%;animation-duration:11s;animation-delay:-5s;--rbc-op:0.5;--rbc-y1:-20px;--rbc-r1:240deg"></div>
+          <div class="rbc" style="width:100px;height:64px;top:70%;animation-duration:7s;animation-delay:-2s;--rbc-op:0.38;--rbc-y1:-60px;--rbc-r1:90deg"></div>
+          <div class="rbc" style="width:90px;height:58px;top:14%;animation-duration:15s;animation-delay:-7s;--rbc-op:0.42;--rbc-y1:-40px;--rbc-r1:310deg"></div>
+          <div class="rbc" style="width:55px;height:36px;top:48%;animation-duration:10s;animation-delay:-4s;--rbc-op:0.55;--rbc-y1:-25px;--rbc-r1:180deg"></div>
+          <div class="rbc" style="width:120px;height:78px;top:80%;animation-duration:12s;animation-delay:-6s;--rbc-op:0.35;--rbc-y1:-70px;--rbc-r1:140deg"></div>
+          <div class="rbc" style="width:75px;height:48px;top:30%;animation-duration:9.5s;animation-delay:-9s;--rbc-op:0.48;--rbc-y1:-35px;--rbc-r1:270deg"></div>
+          <div class="rbc" style="width:60px;height:39px;top:5%;animation-duration:8.5s;animation-delay:-0.5s;--rbc-op:0.52;--rbc-y1:-15px;--rbc-r1:330deg"></div>
+          <div class="rbc" style="width:85px;height:55px;top:42%;animation-duration:6.5s;animation-delay:-3.5s;--rbc-op:0.46;--rbc-y1:-45px;--rbc-r1:220deg"></div>
+        </div>
+        <div class="home-hero-content">
+          <div class="home-hero-badge">
+            <span class="hero-live-dot"></span>
+            Live Network · 75 Facilities · Northeast US
+          </div>
+          <div class="home-hero-wordmark">BloodBridge</div>
+          <p class="home-hero-slogan">Where Every Drop Finds Its Lifeline.</p>
+          <p class="home-hero-sub">
+            Real-time blood supply intelligence. Predictive AI. Instant hospital transfers.
+            Built to prevent shortages before they cost lives.
+          </p>
+          <div class="home-hero-stats">
+            <div class="home-stat">
+              <span class="home-stat-num">75</span>
+              <span class="home-stat-label">Northeast Facilities</span>
+            </div>
+            <div class="home-stat-div"></div>
+            <div class="home-stat">
+              <span class="home-stat-num" id="home-stat-units">—</span>
+              <span class="home-stat-label">Units in Network</span>
+            </div>
+            <div class="home-stat-div"></div>
+            <div class="home-stat">
+              <span class="home-stat-num">8</span>
+              <span class="home-stat-label">Blood Types Tracked</span>
+            </div>
+            <div class="home-stat-div"></div>
+            <div class="home-stat">
+              <span class="home-stat-num">24/7</span>
+              <span class="home-stat-label">Live Monitoring</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Network Map -->
+      <div class="home-map-section">
+        <div class="home-section-header">
+          <p class="home-eyebrow">Live Network</p>
+          <h2 class="home-section-h2">75 hospitals. One platform.</h2>
+          <p class="home-section-sub">Real-time blood availability across the Northeast — from Maine to Maryland.</p>
+        </div>
+        <div id="home-map" class="home-map-canvas"></div>
+        <div class="home-map-legend">
+          <div class="legend-item"><div class="legend-dot" style="background:#00e676"></div>Stable Supply</div>
+          <div class="legend-item"><div class="legend-dot" style="background:#ffab40"></div>Low Stock</div>
+          <div class="legend-item"><div class="legend-dot" style="background:#ff7043"></div>High Risk</div>
+          <div class="legend-item"><div class="legend-dot" style="background:#ff1744"></div>Critical Shortage</div>
+        </div>
+      </div>
+
+      <!-- Features -->
+      <div class="home-features-section">
+        <div class="home-section-header">
+          <p class="home-eyebrow">Platform Capabilities</p>
+          <h2 class="home-section-h2">Built for the front lines.</h2>
+        </div>
+        <div class="home-features-grid">
+          <div class="home-feature-card">
+            <div class="home-feature-icon" style="background:rgba(255,23,68,0.1);border:1px solid rgba(255,23,68,0.2)">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" stroke="#ff1744" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+            <h3>AI Shortage Predictions</h3>
+            <p>Predicts blood shortages 7 days ahead with exact dates — factoring surgical schedules, trauma rates, seasonal demand, and near-expiry stock.</p>
+          </div>
+          <div class="home-feature-card">
+            <div class="home-feature-icon" style="background:rgba(0,212,255,0.1);border:1px solid rgba(0,212,255,0.2)">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="7" height="7" rx="1.5" stroke="#00d4ff" stroke-width="2"/><rect x="14" y="3" width="7" height="7" rx="1.5" stroke="#00d4ff" stroke-width="2"/><rect x="3" y="14" width="7" height="7" rx="1.5" stroke="#00d4ff" stroke-width="2"/><rect x="14" y="14" width="7" height="7" rx="1.5" stroke="#00d4ff" stroke-width="2"/></svg>
+            </div>
+            <h3>Real-time Inventory</h3>
+            <p>Live blood type inventory per hospital with expiry tracking, days-of-supply calculations, and instant low-stock alerts across all 8 types.</p>
+          </div>
+          <div class="home-feature-card">
+            <div class="home-feature-icon" style="background:rgba(0,230,118,0.1);border:1px solid rgba(0,230,118,0.2)">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M7 16L3 12M3 12L7 8M3 12H21M17 8L21 12M21 12L17 16" stroke="#00e676" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+            <h3>Transfer Network</h3>
+            <p>Instantly find the closest surplus hospital. Real Google Maps driving routes with actual travel times across the Northeast.</p>
+          </div>
+          <div class="home-feature-card">
+            <div class="home-feature-icon" style="background:rgba(255,171,64,0.1);border:1px solid rgba(255,171,64,0.2)">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" stroke="#ffab40" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+            <h3>Donor Hub</h3>
+            <p>Evidence-based blood type priority (O- universal donor, B- rarest) with nearby donation centers ranked by urgency and distance.</p>
+          </div>
+          <div class="home-feature-card">
+            <div class="home-feature-icon" style="background:rgba(124,58,237,0.1);border:1px solid rgba(124,58,237,0.2)">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 3V21H21" stroke="#7c3aed" stroke-width="2" stroke-linecap="round"/><path d="M7 16L11 12L15 14L21 8" stroke="#7c3aed" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+            <h3>Regional Analytics</h3>
+            <p>8-week demand trend charts, blood type inventory vs demand, and network-wide coverage in one unified dashboard.</p>
+          </div>
+          <div class="home-feature-card">
+            <div class="home-feature-icon" style="background:rgba(59,130,246,0.1);border:1px solid rgba(59,130,246,0.2)">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#3b82f6" stroke-width="2"/><path d="M12 6v6l4 2" stroke="#3b82f6" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+            <h3>Expiry Monitoring</h3>
+            <p>Automated expiration tracking with near-expiry alerts. Minimize waste and prioritize redistribution before units are lost.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+    <!-- ===== TAB: DASHBOARD ===== -->
+    <div id="tab-dashboard" class="tab-panel">
       <div class="summary-banner" id="summary-banner">
         <div class="summary-chip summary-chip-red">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M12 9v4M12 17h.01M10.29 3.86L1.82 18A2 2 0 003.64 21H20.36A2 2 0 0022.18 18L13.71 3.86A2 2 0 0010.29 3.86Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
@@ -459,7 +382,7 @@
     </div>
 
 
-    <!-- ===== DONOR HUB ===== -->
+    <!-- ===== TAB: DONOR HUB ===== -->
     <div id="tab-donor" class="tab-panel">
       <div class="donor-hero">
         <div class="donor-hero-left">
@@ -472,7 +395,7 @@
               <span id="donor-hero-bt-label">Your blood type</span> is
               <span class="donor-urgency-label" id="donor-urgency-label">needed now</span>
             </h1>
-            <p class="donor-hero-sub">Real-time shortage data across 35 Northeast facilities</p>
+            <p class="donor-hero-sub">Real-time shortage data across 75 Northeast facilities</p>
             <div class="donor-hero-actions">
               <button class="btn-donate-hero" onclick="scrollToDonorNeeds()">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" fill="white" stroke="white" stroke-width="1"/></svg>
@@ -508,7 +431,7 @@
       <div class="donor-section" style="margin-top:28px">
         <div class="section-header">
           <h2 class="section-title">Blood Type Priority</h2>
-          <span class="section-subtitle">Evidence-based need · sorted by clinical urgency</span>
+          <span class="section-subtitle">Evidence-based clinical urgency · O- universal donor always most critical</span>
         </div>
         <div id="donor-bt-priority-grid" class="donor-bt-grid">
           <div class="empty-state"><p>Loading priority data...</p></div>
@@ -556,7 +479,7 @@
     </div>
 
 
-    <!-- ===== EXCHANGE NETWORK ===== -->
+    <!-- ===== TAB: EXCHANGE NETWORK ===== -->
     <div id="tab-exchange" class="tab-panel">
       <div class="exchange-layout">
         <div class="map-container">
@@ -585,14 +508,12 @@
         </div>
 
         <div class="transfer-panel">
-          <div class="panel-header">
-            <h3>Transfer Recommendation</h3>
-          </div>
+          <div class="panel-header"><h3>Transfer Recommendation</h3></div>
           <div class="transfer-form">
             <div class="form-group">
               <label>Requesting Hospital</label>
               <select id="transfer-hospital" class="form-select">
-                <option value="">Select hospital...</option>
+                <option value="">Select hospital — or click a map marker</option>
               </select>
             </div>
             <div class="form-group">
@@ -629,7 +550,7 @@
     </div>
 
 
-    <!-- ===== AI PREDICTIONS ===== -->
+    <!-- ===== TAB: AI PREDICTIONS ===== -->
     <div id="tab-predictions" class="tab-panel">
       <div class="risk-summary-row" id="risk-summary-row">
         <div class="risk-summary-card stable">
@@ -666,6 +587,7 @@
             <div class="empty-state"><p>Loading AI predictions...</p></div>
           </div>
         </div>
+
         <div class="predictions-sidebar">
           <div class="chart-card">
             <div class="chart-title">Risk Distribution</div>
@@ -682,7 +604,7 @@
     </div>
 
 
-    <!-- ===== ANALYTICS ===== -->
+    <!-- ===== TAB: ANALYTICS ===== -->
     <div id="tab-analytics" class="tab-panel">
       <div class="kpi-row">
         <div class="kpi-card">
@@ -736,10 +658,6 @@
             <canvas id="demand-trend-chart"></canvas>
           </div>
         </div>
-        <div class="chart-card span-2">
-          <div class="chart-title">Hospital Stress Ranking — Northeast Network</div>
-          <div id="hospital-stress-table" class="stress-table"></div>
-        </div>
       </div>
     </div>
 
@@ -747,7 +665,7 @@
 
   <div class="footer-disclaimer">
     <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 22C12 22 3 16.5 3 9.5C3 6.42 5.42 4 8.5 4C10.24 4 11.8 4.85 12.8 6.17C13.8 4.85 15.36 4 17.1 4C20.18 4 22 6.42 22 9.5C22 16.5 12 22 12 22Z" stroke="#2a3f5e" stroke-width="1.5"/></svg>
-    BloodBridge &mdash; GreyHacks Spring 2026 &nbsp;&bull;&nbsp; 35 Northeast facilities &nbsp;&bull;&nbsp; All data synthetic &nbsp;&bull;&nbsp; Not for clinical use
+    BloodBridge — Where Every Drop Finds Its Lifeline &nbsp;&bull;&nbsp; GreyHacks Spring 2026 &nbsp;&bull;&nbsp; 75 Northeast facilities &nbsp;&bull;&nbsp; All data synthetic
   </div>
 
 </div><!-- #app -->
@@ -756,7 +674,7 @@
 
 {% if google_maps_key %}
 <script async
-  src="https://maps.googleapis.com/maps/api/js?key={{ google_maps_key }}&libraries=directions,visualization&callback=onGoogleMapsReady">
+  src="https://maps.googleapis.com/maps/api/js?key={{ google_maps_key }}&libraries=visualization&callback=onGoogleMapsReady">
 </script>
 {% endif %}
 

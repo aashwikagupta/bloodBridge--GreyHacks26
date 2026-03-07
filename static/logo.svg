@@ -1,14 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 56" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44 52" fill="none">
   <!-- Blood drop -->
-  <path d="M24 3C24 3 8 18 8 31C8 40.94 15.06 49 24 49C32.94 49 40 40.94 40 31C40 18 24 3 24 3Z" fill="#ff1744"/>
-  <!-- Bridge main cable arch -->
-  <path d="M10 34 Q17 21 24 20 Q31 21 38 34" stroke="white" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-  <!-- Bridge deck (road surface) -->
-  <line x1="10" y1="34" x2="38" y2="34" stroke="white" stroke-width="2.2" stroke-linecap="round"/>
-  <!-- Left hanger tower -->
-  <line x1="16" y1="27" x2="16" y2="34" stroke="white" stroke-width="2" stroke-linecap="round"/>
-  <!-- Center main tower (tallest) -->
-  <line x1="24" y1="20" x2="24" y2="34" stroke="white" stroke-width="2" stroke-linecap="round"/>
-  <!-- Right hanger tower -->
-  <line x1="32" y1="27" x2="32" y2="34" stroke="white" stroke-width="2" stroke-linecap="round"/>
+  <path d="M22 2C22 2 5 18 5 31C5 41.49 12.51 49 22 49C31.49 49 39 41.49 39 31C39 18 22 2 22 2Z" fill="#ff1744"/>
+  <!-- Bridge deck (bold horizontal bar) -->
+  <rect x="8" y="32" width="28" height="2.8" rx="1.4" fill="white"/>
+  <!-- Left tower (vertical pillar) -->
+  <rect x="14.5" y="21.5" width="2.8" height="10.5" rx="1.4" fill="white"/>
+  <!-- Right tower -->
+  <rect x="26.7" y="21.5" width="2.8" height="10.5" rx="1.4" fill="white"/>
+  <!-- Main cable arch -->
+  <path d="M8 33.4 Q22 12 36 33.4" stroke="white" stroke-width="2.6" fill="none" stroke-linecap="round"/>
 </svg>

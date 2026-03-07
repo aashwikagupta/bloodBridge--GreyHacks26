@@ -111,6 +111,12 @@ function destroyChart(key) {
   if (charts[key]) { try { charts[key].destroy(); } catch (e) {} delete charts[key]; }
 }
 
+function kmToMi(km) { return (km * 0.621371).toFixed(1); }
+function fmtTransport(hours) {
+  const mins = Math.round(hours * 60);
+  return mins <= 59 ? `${mins} min` : `${(mins / 60).toFixed(1)} hr`;
+}
+
 function intensityToColor(intensity) {
   if (intensity >= 0.7)  return "#ff1744";
   if (intensity >= 0.45) return "#ff7043";
@@ -136,12 +142,11 @@ function applySession(user) {
 }
 
 function showApp() {
-  const landing = el("landing");
-  if (landing) {
-    landing.style.transition = "opacity 0.45s ease, transform 0.45s ease";
-    landing.style.opacity    = "0";
-    landing.style.transform  = "translateY(-24px)";
-    setTimeout(() => { landing.style.display = "none"; }, 460);
+  const overlay = el("login-overlay");
+  if (overlay) {
+    overlay.style.transition = "opacity 0.45s ease";
+    overlay.style.opacity    = "0";
+    setTimeout(() => { overlay.style.display = "none"; }, 460);
   }
   const app = el("app");
   if (app) {
@@ -154,102 +159,75 @@ function showApp() {
   }
 }
 
-// Modal open/close
-function openModal(id) {
-  const m = el(id + "-modal");
-  if (m) { m.classList.add("active"); document.body.style.overflow = "hidden"; }
-}
-function closeModal(id) {
-  const m = el(id + "-modal");
-  if (m) { m.classList.remove("active"); document.body.style.overflow = ""; }
-}
-function bgClose(e, id) {
-  if (e.target === el(id + "-modal")) closeModal(id);
-}
-function switchModal(from, to) {
-  closeModal(from);
-  setTimeout(() => openModal(to), 180);
+// Login overlay — role field toggles
+function handleRoleChange(role) {
+  const hf = el("hospital-field");
+  const bf = el("donor-bt-field");
+  if (hf) hf.style.display = role === "Donor" ? "none" : "block";
+  if (bf) bf.style.display = role === "Donor" ? "block" : "none";
 }
 
-// Role field toggles in modals
-function lRoleChange(role) {
-  const hf = el("l-hosp-field"), bf = el("l-bt-field");
-  if (hf) hf.classList.toggle("show", role !== "Donor");
-  if (bf) bf.classList.toggle("show", role === "Donor");
-}
-function rRoleChange(role) {
-  const hf = el("r-hosp-field"), bf = el("r-bt-field");
-  if (hf) hf.classList.toggle("show", role !== "Donor");
-  if (bf) bf.classList.toggle("show", role === "Donor");
-}
+// Login form submit
+document.addEventListener("DOMContentLoaded", () => {
+  const form = el("login-form");
+  if (!form) return;
+  form.addEventListener("submit", async function(e) {
+    e.preventDefault();
+    const name    = (el("login-name")?.value    || "").trim();
+    const role    = el("login-role")?.value     || "";
+    const hosp    = el("login-hospital")?.value || "";
+    const donorBT = el("login-donor-bt")?.value || "";
+    const btn     = el("btn-enter-text");
 
-function showErr(errEl, msg) {
-  if (errEl) { errEl.textContent = msg; errEl.style.display = "block"; }
-}
+    if (!name || !role) { alert("Please enter your name and select a role."); return; }
+    if (role !== "Donor" && !hosp) { alert("Please select your hospital."); return; }
+    if (role === "Donor" && !donorBT) { alert("Please select your blood type."); return; }
+    if (btn) btn.textContent = "Entering…";
 
-async function doLogin() {
-  const name    = (el("l-name")?.value    || "").trim();
-  const role    = el("l-role")?.value     || "";
-  const hosp    = el("l-hospital")?.value || "";
-  const donorBT = el("l-donor-bt")?.value || "";
-  const err     = el("login-err");
-
-  if (!name || !role) { showErr(err, "Please enter your name and select a role."); return; }
-  if (role !== "Donor" && !hosp) { showErr(err, "Please select your hospital."); return; }
-  if (role === "Donor" && !donorBT) { showErr(err, "Please select your blood type."); return; }
-  if (err) err.style.display = "none";
-
-  try {
-    const r = await fetch("/api/login", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ name, role, hospital: hosp, donor_blood_type: donorBT }),
-    });
-    const d = await r.json();
-    if (d.success) {
-      closeModal("login");
-      applySession({ name, role, hospital: hosp, donor_blood_type: donorBT });
-      showApp();
-      bootApp();
-    } else {
-      showErr(err, d.error || "Login failed.");
+    try {
+      const r = await fetch("/api/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, role, hospital: hosp, donor_blood_type: donorBT }),
+      });
+      const d = await r.json();
+      if (d.success) {
+        applySession({ name, role, hospital: hosp, donor_blood_type: donorBT });
+        showApp();
+        bootApp();
+      } else {
+        if (btn) btn.textContent = "Enter Platform";
+        alert(d.error || "Login failed.");
+      }
+    } catch(ex) {
+      if (btn) btn.textContent = "Enter Platform";
+      alert("Network error — is the server running?");
     }
-  } catch(e) {
-    showErr(err, "Network error — is the server running?");
-  }
-}
+  });
+});
 
-async function doRegister() {
-  const name    = (el("r-name")?.value    || "").trim();
-  const email   = (el("r-email")?.value   || "").trim();
-  const role    = el("r-role")?.value     || "";
-  const hosp    = el("r-hospital")?.value || "";
-  const donorBT = el("r-donor-bt")?.value || "";
-  const err     = el("register-err");
-
-  if (!name || !email || !role) { showErr(err, "Please fill in all required fields."); return; }
-  if (role !== "Donor" && !hosp) { showErr(err, "Please select your hospital."); return; }
-  if (role === "Donor" && !donorBT) { showErr(err, "Please select your blood type."); return; }
-  if (err) err.style.display = "none";
-
-  try {
-    const r = await fetch("/api/register", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ name, email, role, hospital: hosp, donor_blood_type: donorBT }),
-    });
-    const d = await r.json();
-    if (d.success) {
-      closeModal("register");
-      applySession({ name, email, role, hospital: hosp, donor_blood_type: donorBT });
-      showApp();
-      bootApp();
-    } else {
-      showErr(err, d.error || "Registration failed.");
-    }
-  } catch(e) {
-    showErr(err, "Network error — is the server running?");
-  }
+async function doLogout() {
+  try { await fetch("/api/logout", { method: "POST" }); } catch(e) {}
+  // Reset state
+  currentUser     = null;
+  currentHospital = null;
+  isDonorRole     = false;
+  donorBloodType  = null;
+  allPredictions  = [];
+  predLoadAttempt = 0;
+  donorDataLoaded = false;
+  mapInitialized  = false;
+  if (mapInstance)  { try { mapInstance.remove(); } catch(e){} mapInstance = null; }
+  googleMap = null;
+  Object.keys(charts).forEach(k => destroyChart(k));
+  // Reset UI
+  const app = el("app");
+  if (app) { app.classList.add("hidden"); app.style.opacity = ""; }
+  const overlay = el("login-overlay");
+  if (overlay) { overlay.style.display = ""; overlay.style.opacity = "1"; }
+  const form = el("login-form");
+  if (form) form.reset();
+  handleRoleChange("");
 }
 
 // Pre-load hospitals AND handle session auto-login (order matters: hospitals first)
@@ -258,22 +236,21 @@ async function doRegister() {
     const resp   = await fetch("/api/hospitals");
     allHospitals = await resp.json();
 
-    // Populate all hospital selects (modals + transfer panel)
-    ["l-hospital", "r-hospital"].forEach(selId => {
-      const sel = el(selId);
-      if (!sel) return;
-      sel.innerHTML = '<option value="" disabled selected>Select your hospital</option>';
+    // Populate login overlay hospital select
+    const loginSel = el("login-hospital");
+    if (loginSel) {
+      loginSel.innerHTML = '<option value="" disabled selected>Select your hospital</option>';
       allHospitals.forEach(h => {
         const opt = document.createElement("option");
         opt.value       = h.name;
         opt.textContent = `${h.name} — ${h.city}, ${h.state}`;
-        sel.appendChild(opt);
+        loginSel.appendChild(opt);
       });
-    });
+    }
 
-    // Populate landing map stat
+    // Populate home tab stat
     const total = allHospitals.reduce((s, h) => s + h.total_units, 0);
-    const su = el("hero-stat-units");
+    const su = el("home-stat-units");
     if (su) su.textContent = total.toLocaleString();
   } catch (e) {
     console.warn("Could not preload hospitals:", e);
@@ -302,6 +279,7 @@ async function bootApp() {
     // Navigate to Donor tab by default
     const donorBtn = el("donor-tab-btn");
     switchTab("donor", donorBtn);
+    return; // skip home tab init for donors
   } else {
     // Staff: populate hospital selector
     const sel = el("hospital-selector");
@@ -337,6 +315,12 @@ async function bootApp() {
   if (!isDonorRole && currentHospital) {
     await loadDashboard(currentHospital);
   }
+
+  // Default to Home tab for staff
+  if (!isDonorRole) {
+    const homeBtn = document.querySelector('[data-tab="home"]');
+    switchTab("home", homeBtn);
+  }
 }
 
 
@@ -356,6 +340,7 @@ function switchTab(tabId, btn) {
   if (btn)   btn.classList.add("active");
 
   // Lazy-load tab content
+  if (tabId === "home")        initHomeTab();
   if (tabId === "donor")       loadDonorDashboard();
   if (tabId === "exchange")    initExchangeTab();
   if (tabId === "predictions") loadPredictions();
@@ -446,7 +431,7 @@ function renderAlertsSidebar(data) {
         <div class="alert-item">
           <span class="alert-dot" style="background:${w.days_of_supply < 3 ? "var(--red)" : "var(--amber)"}"></span>
           <div class="alert-content">
-            <div class="alert-hospital">${w.blood_type} — ${w.hospital}</div>
+            <div class="alert-hospital"><span class="alert-bt-pill">${w.blood_type}</span> ${w.hospital}</div>
             <div class="alert-detail">${w.units} units · ${w.days_of_supply}d supply</div>
             <div class="alert-quick-actions">
               <button class="alert-action-btn" onclick="requestTransfer('${w.blood_type}','${w.hospital.replace(/'/g,"\\'")}')">View transfer options</button>
@@ -460,7 +445,7 @@ function renderAlertsSidebar(data) {
         <div class="alert-item">
           <span class="alert-dot" style="background:${w.days_until_expiry <= 2 ? "var(--red)" : "var(--amber)"}"></span>
           <div class="alert-content">
-            <div class="alert-hospital">${w.blood_type} — ${w.hospital}</div>
+            <div class="alert-hospital"><span class="alert-bt-pill">${w.blood_type}</span> ${w.hospital}</div>
             <div class="alert-detail">${w.units} units · expires in ${w.days_until_expiry}d</div>
             <div class="alert-quick-actions">
               <button class="alert-action-btn" onclick="requestTransfer('${w.blood_type}','${w.hospital.replace(/'/g,"\\'")}')">Request transfer</button>
@@ -589,9 +574,9 @@ async function loadDonorDashboard() {
 
 function renderDonorHero(data) {
   // Hero blood type badge
-  const bt = donorBloodType || "?";
+  const bt = donorBloodType || "";
   setText("donor-hero-bt", bt);
-  setText("donor-hero-bt-label", bt === "?" ? "Your blood type" : bt);
+  setText("donor-hero-bt-label", bt || "Your blood type");
 
   // Urgency of donor's specific type
   let urgencyLabel    = "needed now";
@@ -832,15 +817,21 @@ function initLeafletMap() {
   loadHeatmap();
 }
 
-// Unified Google Maps API ready callback (handles both landing map and exchange map)
+// Unified Google Maps API ready callback
 window.onGoogleMapsReady = function() {
   window.googleMapsReady = true;
-  // Initialize landing page map if still visible
-  const landing = el("landing");
-  if (landing && landing.style.display !== "none") {
+  // Initialize home tab map if it's visible and not yet done
+  if (el("home-map") && !el("home-map")._initialized) {
     initHomeMap();
   }
 };
+
+let homeMapInitialized = false;
+function initHomeTab() {
+  if (!homeMapInitialized) {
+    initHomeMap();
+  }
+}
 
 // Legacy callback kept for backward compat
 window.initGoogleMap = function() {
@@ -848,50 +839,54 @@ window.initGoogleMap = function() {
   initGoogleMapsMap();
 };
 
-// Landing page map
+// Home tab map — uses Leaflet (always available) with dark tiles
 function initHomeMap() {
   const mapDiv = el("home-map");
-  if (!mapDiv || typeof google === "undefined") return;
+  if (!mapDiv) return;
+  if (mapDiv._initialized) return;
+  mapDiv._initialized = true;
+  homeMapInitialized = true;
 
-  const hMap = new google.maps.Map(mapDiv, {
-    center: { lat: 42.4, lng: -72.0 },
+  const STATUS_COLOR = { stable: "#00e676", warning: "#ffab40", high_risk: "#ff7043", critical: "#ff1744" };
+
+  // Always use Leaflet — no Google Maps timing dependency
+  const hMap = L.map(mapDiv, {
+    center: [42.4, -72.0],
     zoom: 7,
-    styles: GOOGLE_MAPS_DARK_STYLE,
-    mapTypeId: google.maps.MapTypeId.ROADMAP,
-    disableDefaultUI: true,
     zoomControl: true,
   });
 
-  const STATUS_COLOR = { stable: "#00e676", warning: "#ffab40", high_risk: "#ff7043", critical: "#ff1744" };
+  // Dark tile layer
+  L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png", {
+    attribution: "© OpenStreetMap contributors © CARTO",
+    maxZoom: 18,
+  }).addTo(hMap);
+
   allHospitals.forEach(h => {
-    const color = STATUS_COLOR[h.status] || "#7a9cc0";
-    const scale = 9 + Math.min(h.avg_shortage_score * 5, 8);
-    const marker = new google.maps.Marker({
-      position: { lat: h.latitude, lng: h.longitude },
-      map: hMap,
-      title: h.name,
-      icon: {
-        path: google.maps.SymbolPath.CIRCLE,
-        fillColor: color, fillOpacity: 0.95,
-        strokeWeight: 2, strokeColor: "#fff", scale,
-      },
+    const color  = STATUS_COLOR[h.status] || "#7a9cc0";
+    const radius = 16000 + (h.avg_shortage_score || 0) * 18000;
+
+    L.circle([h.latitude, h.longitude], {
+      radius, color, fillColor: color, fillOpacity: 0.09, weight: 1, opacity: 0.35,
+    }).addTo(hMap);
+
+    const icon = L.divIcon({
+      className: "",
+      html: `<div style="width:12px;height:12px;background:${color};border:2px solid rgba(255,255,255,0.85);border-radius:50%;box-shadow:0 0 8px ${color}aa"></div>`,
+      iconSize: [12, 12], iconAnchor: [6, 6],
     });
-    new google.maps.Circle({
-      map: hMap, center: { lat: h.latitude, lng: h.longitude },
-      radius: 20000, fillColor: color, fillOpacity: 0.07,
-      strokeColor: color, strokeOpacity: 0.25, strokeWeight: 1,
-    });
-    const iw = new google.maps.InfoWindow({
-      content: `<div style="background:#111;padding:13px 15px;border-radius:10px;min-width:195px;font-family:'Inter',sans-serif">
-        <div style="font-weight:700;font-size:14px;color:#f5f5f7;margin-bottom:3px">${h.name}</div>
-        <div style="font-size:12px;color:#6e6e73;margin-bottom:9px">${h.city}, ${h.state}</div>
-        <div style="display:flex;justify-content:space-between;font-size:13px">
-          <span style="color:${color};font-weight:700">${h.status.replace(/_/g," ").toUpperCase()}</span>
-          <span style="color:#888">${h.total_units.toLocaleString()} units</span>
-        </div>
-      </div>`,
-    });
-    marker.addListener("click", () => iw.open(hMap, marker));
+
+    L.marker([h.latitude, h.longitude], { icon })
+      .addTo(hMap)
+      .bindPopup(`
+        <div style="padding:6px 2px;font-family:'Inter',sans-serif">
+          <div style="font-weight:700;font-size:13px;color:#f5f5f7;margin-bottom:2px">${h.name}</div>
+          <div style="font-size:11px;color:#9bb8d8;margin-bottom:6px">${h.city}, ${h.state}</div>
+          <div style="display:flex;gap:10px;font-size:12px">
+            <span style="color:${color};font-weight:700">${h.status.replace(/_/g," ").toUpperCase()}</span>
+            <span style="color:#7a9cc0">${h.total_units.toLocaleString()} units</span>
+          </div>
+        </div>`, { maxWidth: 220 });
   });
 }
 
@@ -1259,11 +1254,11 @@ function renderTransferResults(data) {
           </div>
           <div class="transfer-stat-row">
             <span class="transfer-stat-key">Distance</span>
-            <span class="transfer-stat-val">${closest.distance_km} km</span>
+            <span class="transfer-stat-val">${kmToMi(closest.distance_km)} mi</span>
           </div>
           <div class="transfer-stat-row">
             <span class="transfer-stat-key">Est. transport</span>
-            <span class="transfer-stat-val">${closest.estimated_transfer_hours}h ground</span>
+            <span class="transfer-stat-val">${fmtTransport(closest.estimated_transfer_hours)} ground</span>
           </div>
           <div class="transfer-stat-row">
             <span class="transfer-stat-key">${data.blood_type} available</span>
@@ -1285,11 +1280,11 @@ function renderTransferResults(data) {
         <div class="transfer-stats">
           <div class="transfer-stat-row">
             <span class="transfer-stat-key">Distance</span>
-            <span class="transfer-stat-val">${highest_stock.distance_km} km</span>
+            <span class="transfer-stat-val">${kmToMi(highest_stock.distance_km)} mi</span>
           </div>
           <div class="transfer-stat-row">
             <span class="transfer-stat-key">Est. transport</span>
-            <span class="transfer-stat-val">${highest_stock.estimated_transfer_hours}h</span>
+            <span class="transfer-stat-val">${fmtTransport(highest_stock.estimated_transfer_hours)}</span>
           </div>
           <div class="transfer-stat-row">
             <span class="transfer-stat-key">Available</span>
@@ -1308,7 +1303,7 @@ function renderTransferResults(data) {
         <div style="display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px solid var(--border);font-size:12px">
           <div>
             <div style="color:var(--text-1);font-weight:600">${c.hospital}</div>
-            <div style="color:var(--text-3);font-size:11px">${c.distance_km}km · ${c.estimated_transfer_hours}h</div>
+            <div style="color:var(--text-3);font-size:11px">${kmToMi(c.distance_km)} mi · ${fmtTransport(c.estimated_transfer_hours)}</div>
           </div>
           <span style="color:var(--green);font-weight:700;font-size:13px;font-family:monospace">${c.total_units}u</span>
         </div>`;
@@ -1382,6 +1377,13 @@ function renderPredictionList(filter) {
     return;
   }
 
+  // Compute predicted shortage date
+  function shortageDate(daysOfSupply) {
+    const d = new Date();
+    d.setDate(d.getDate() + Math.max(0, Math.round(daysOfSupply)));
+    return d.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+  }
+
   el("predictions-list").innerHTML = items.map(p => {
     const btBg = {
       3: "rgba(255,23,68,0.14)",
@@ -1390,7 +1392,29 @@ function renderPredictionList(filter) {
       0: "rgba(0,230,118,0.11)",
     }[p.risk_level];
     const confidence = Math.round((p.confidence || 0) * 100);
-    const city       = p.city ? `${p.city}, ${p.state}` : p.season + " season";
+    const city       = p.city ? `${p.city}, ${p.state}` : (p.season || "") + " season";
+    const shortageDt = p.days_of_supply <= 14 ? shortageDate(p.days_of_supply) : null;
+
+    // Factor breakdown bars (5 factors)
+    const factors = [
+      { label: "Surgery Load",   val: p.surgery_score || 0,   max: 10, color: "#ff7043", why: "Scheduled OR volume drives blood consumption" },
+      { label: "Trauma Rate",    val: p.trauma_rate    || 0,   max: 10, color: "#ff1744", why: "ED trauma cases demand emergency blood" },
+      { label: "Shortage Score", val: Math.min((p.shortage_score || 0) * 5, 10), max: 10, color: "#ffab40", why: "7-day rolling shortage pressure index" },
+      { label: "Supply Days",    val: Math.max(0, 10 - (p.days_of_supply || 0) / 3), max: 10, color: "#7c3aed", why: "Lower supply days = higher urgency" },
+      { label: "Seasonal Risk",  val: p.season === "Winter" ? 8 : p.season === "Summer" ? 6 : 4, max: 10, color: "#00d4ff", why: "Seasonal demand (winter trauma, summer accidents)" },
+    ];
+
+    const factorBars = factors.map(f => {
+      const pct = Math.round((f.val / f.max) * 100);
+      return `
+        <div class="pred-factor-row" title="${f.why}">
+          <span class="pred-factor-label">${f.label}</span>
+          <div class="pred-factor-track">
+            <div class="pred-factor-fill" style="width:${pct}%;background:${f.color}"></div>
+          </div>
+          <span class="pred-factor-val">${f.val.toFixed(1)}</span>
+        </div>`;
+    }).join("");
 
     return `
       <div class="pred-card" data-risk="${p.risk_level}">
@@ -1400,17 +1424,18 @@ function renderPredictionList(filter) {
         <div class="pred-main">
           <div class="pred-hospital">${p.hospital}</div>
           <div class="pred-location">${city}</div>
-          <div class="pred-surgery-row">
-            <span class="pred-meta-chip surgery-chip" title="Planned surgical load — higher scores mean more blood consumed">
-              <svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M12 22C12 22 3 16.5 3 9.5C3 6.42 5.42 4 8.5 4C10.24 4 11.8 4.85 12 6C12.2 4.85 13.76 4 15.5 4C18.58 4 21 6.42 21 9.5C21 16.5 12 22 12 22Z" stroke="currentColor" stroke-width="1.5"/></svg>
-              Surgery ${p.surgery_score}/10${p.surgery_score >= 7.5 ? ' ⚠' : ''}
-            </span>
-            <span class="pred-meta-chip trauma-chip" title="Trauma intake rate driving demand">
-              Trauma ${p.trauma_rate}/10
-            </span>
-            ${p.surgery_uplift_units > 0 ? `<span class="pred-meta-chip uplift-chip" title="Extra units consumed by scheduled surgeries per day">+${p.surgery_uplift_units}u/day surgical</span>` : ''}
-          </div>
+          ${shortageDt ? `
+          <div class="pred-shortage-date" style="color:${RISK_COLORS[p.risk_level]};font-size:11px;font-weight:700;margin:4px 0 6px;letter-spacing:0.2px">
+            ⚠ Projected shortage: <strong>${shortageDt}</strong> (${p.days_of_supply}d remaining)
+          </div>` : `
+          <div class="pred-shortage-date" style="color:var(--text-3);font-size:11px;margin:4px 0 6px">
+            Supply adequate beyond 14 days · No immediate action needed
+          </div>`}
           <div class="pred-explanation">${p.explanation}</div>
+          <div class="pred-factors-section">
+            <div class="pred-factors-title">Prediction Factors</div>
+            ${factorBars}
+          </div>
         </div>
         <div class="pred-meta">
           ${riskBadgeHTML(p.risk_level)}
@@ -1510,7 +1535,6 @@ async function loadAnalytics() {
 
     buildInventoryChart(data);
     buildDemandTrendChart(data);
-    buildStressTable(data.hospital_stress || []);
   } catch (e) {
     console.error("Analytics load failed:", e);
   }
