@@ -310,6 +310,7 @@ a { color: var(--cyan); }
   display: flex; background: #000;
   border-bottom: 1px solid var(--border);
   padding: 0 20px; gap: 2px; flex-shrink: 0;
+  justify-content: center;
 }
 .tab-btn {
   display: flex; align-items: center; gap: 7px;
