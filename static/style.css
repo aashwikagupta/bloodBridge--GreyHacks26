@@ -95,6 +95,15 @@ a { color: var(--cyan); }
 .login-glow-left  { left: -100px; top: 20%; background: rgba(255,23,68,0.08); }
 .login-glow-right { right: -100px; bottom: 20%; background: rgba(0,212,255,0.06); }
 
+.login-logo-img {
+  width: 200px; height: auto; display: block; margin: 0 auto 6px;
+  filter: drop-shadow(0 4px 24px rgba(255,23,68,0.25));
+}
+.header-logo-img {
+  height: 36px; width: auto;
+  filter: brightness(0) invert(1) drop-shadow(0 0 8px rgba(255,23,68,0.4));
+}
+
 .login-card {
   position: relative;
   width: 100%; max-width: 460px;
