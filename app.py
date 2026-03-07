@@ -2,11 +2,12 @@
 app.py
 ------
 BloodBridge Flask backend.
-Loads (or generates) dataset.csv, trains the shortage predictor,
-and exposes clean REST API endpoints consumed by the single-page frontend.
+Loads (or regenerates) dataset.csv, trains the shortage predictor,
+and exposes REST API endpoints consumed by the single-page frontend.
 """
 
 import os
+import random as _random
 from datetime import datetime
 from flask import Flask, jsonify, request, render_template, session
 import pandas as pd
@@ -21,6 +22,7 @@ from algorithms import (
     get_blood_type_availability,
     shortage_score,
     days_until_expiry,
+    haversine_km,
 )
 from ml_model import train_model, get_predictions, get_feature_importance
 
@@ -29,18 +31,36 @@ app = Flask(__name__)
 app.secret_key = "bloodbridge-greyhacks26-secret"
 DATASET_PATH = "dataset.csv"
 
+# Google Maps API key — set via environment variable GOOGLE_MAPS_API_KEY
+# Once provided, the frontend automatically switches from Leaflet to Google Maps.
+GOOGLE_MAPS_API_KEY = os.environ.get("GOOGLE_MAPS_API_KEY", "")
+
 
 # ---------------------------------------------------------------------------
 # Startup: load data + train model
 # ---------------------------------------------------------------------------
 
 def load_data() -> pd.DataFrame:
-    if not os.path.exists(DATASET_PATH):
-        print("[BloodBridge] dataset.csv not found — generating fresh data...")
+    """
+    Load dataset.csv if it has ≥30 Northeast hospitals, otherwise regenerate.
+    This ensures stale Midwest data is automatically replaced on first run.
+    """
+    need_regen = True
+    if os.path.exists(DATASET_PATH):
+        try:
+            df = pd.read_csv(DATASET_PATH)
+            if df["hospital_name"].nunique() >= 30:
+                need_regen = False
+        except Exception:
+            need_regen = True
+
+    if need_regen:
+        print("[BloodBridge] Generating Northeast dataset...")
         df = generate_dataset()
         df.to_csv(DATASET_PATH, index=False)
     else:
         df = pd.read_csv(DATASET_PATH)
+
     return df
 
 
@@ -70,8 +90,8 @@ def login():
 
 @app.route("/api/overview")
 def overview():
-    total_units      = int(df["units_available"].sum())
-    total_hospitals  = int(df["hospital_name"].nunique())
+    total_units     = int(df["units_available"].sum())
+    total_hospitals = int(df["hospital_name"].nunique())
 
     near_expiry_units = 0
     for _, row in df.iterrows():
@@ -79,15 +99,14 @@ def overview():
         if 0 <= d <= 7:
             near_expiry_units += int(row["units_available"])
 
-    # Count critical blood-type situations per hospital (aggregate batches first)
+    # Critical blood-type situations (aggregated per hospital+bt)
     critical_count = 0
     for (hospital, bt), grp in df.groupby(["hospital_name", "blood_type"]):
         s = shortage_score(float(grp["daily_usage"].mean()), int(grp["units_available"].sum()))
         if s >= 1.5:
             critical_count += 1
 
-    # Transfer opportunities: blood types where at least one hospital has surplus
-    # and at least one hospital is under stress
+    # Transfer opportunities
     transfer_opps = 0
     for bt in df["blood_type"].unique():
         bt_df = df[df["blood_type"] == bt]
@@ -100,19 +119,19 @@ def overview():
     low_inv         = get_low_inventory_warnings(df)
 
     return jsonify({
-        "total_units":             total_units,
-        "total_hospitals":         total_hospitals,
-        "near_expiry_units":       near_expiry_units,
+        "total_units":              total_units,
+        "total_hospitals":          total_hospitals,
+        "near_expiry_units":        near_expiry_units,
         "critical_inventory_count": critical_count,
-        "transfer_opportunities":  transfer_opps,
-        "expiry_warnings":         expiry_warnings[:8],
-        "low_inventory_warnings":  low_inv[:8],
-        "last_updated":            datetime.now().strftime("%b %d, %Y %H:%M"),
+        "transfer_opportunities":   transfer_opps,
+        "expiry_warnings":          expiry_warnings[:10],
+        "low_inventory_warnings":   low_inv[:10],
+        "last_updated":             datetime.now().strftime("%b %d, %Y %H:%M"),
     })
 
 
 # ---------------------------------------------------------------------------
-# Hospital list (for selector + map)
+# Hospital list
 # ---------------------------------------------------------------------------
 
 @app.route("/api/hospitals")
@@ -130,12 +149,12 @@ def get_hospitals():
     for _, row in agg.iterrows():
         avg_s = float(row["avg_shortage"])
         result.append({
-            "name":              row["hospital_name"],
-            "city":              row["city"],
-            "state":             row["state"],
-            "latitude":          float(row["latitude"]),
-            "longitude":         float(row["longitude"]),
-            "total_units":       int(row["total_units"]),
+            "name":               row["hospital_name"],
+            "city":               row["city"],
+            "state":              row["state"],
+            "latitude":           float(row["latitude"]),
+            "longitude":          float(row["longitude"]),
+            "total_units":        int(row["total_units"]),
             "avg_shortage_score": round(avg_s, 3),
             "status": (
                 "critical"  if avg_s >= 1.5 else
@@ -156,7 +175,6 @@ def get_hospital(hospital_name):
     inventory = get_hospital_summary(df, hospital_name)
     if not inventory:
         return jsonify({"error": "Hospital not found"}), 404
-
     row = df[df["hospital_name"] == hospital_name].iloc[0]
     return jsonify({
         "name":      hospital_name,
@@ -169,7 +187,7 @@ def get_hospital(hospital_name):
 
 
 # ---------------------------------------------------------------------------
-# Blood type availability (all hospitals or filtered)
+# Blood type availability
 # ---------------------------------------------------------------------------
 
 @app.route("/api/blood-types")
@@ -177,18 +195,16 @@ def blood_types():
     bt_filter = request.args.get("type")
     if bt_filter:
         return jsonify(get_blood_type_availability(df, bt_filter))
-
-    # Summary totals for every type
     totals = df.groupby("blood_type")["units_available"].sum().to_dict()
     usage  = df.groupby("blood_type")["daily_usage"].sum().round(1).to_dict()
     return jsonify({
-        "totals": {k: int(v) for k, v in totals.items()},
+        "totals":      {k: int(v)   for k, v in totals.items()},
         "daily_usage": {k: float(v) for k, v in usage.items()},
     })
 
 
 # ---------------------------------------------------------------------------
-# Heatmap data
+# Heatmap
 # ---------------------------------------------------------------------------
 
 @app.route("/api/heatmap")
@@ -202,14 +218,12 @@ def heatmap():
 
 @app.route("/api/transfer-recommendation", methods=["POST"])
 def transfer_recommendation():
-    data = request.get_json() or {}
+    data       = request.get_json() or {}
     hospital   = data.get("hospital")
     blood_type = data.get("blood_type")
     if not hospital or not blood_type:
         return jsonify({"error": "hospital and blood_type are required"}), 400
-
-    result = find_transfer_partners(df, hospital, blood_type)
-    return jsonify(result)
+    return jsonify(find_transfer_partners(df, hospital, blood_type))
 
 
 # ---------------------------------------------------------------------------
@@ -218,9 +232,8 @@ def transfer_recommendation():
 
 @app.route("/api/predictions")
 def predictions():
-    preds = get_predictions(df)
-
-    by_level: dict = {0: [], 1: [], 2: [], 3: []}
+    preds    = get_predictions(df)
+    by_level = {0: [], 1: [], 2: [], 3: []}
     for p in preds:
         by_level[p["risk_level"]].append(p)
 
@@ -233,8 +246,8 @@ def predictions():
             "critical":  len(by_level[3]),
         },
         "feature_importance": get_feature_importance(),
-        "top_critical":  by_level[3][:6],
-        "top_high_risk": by_level[2][:6],
+        "top_critical":  by_level[3][:8],
+        "top_high_risk": by_level[2][:8],
     })
 
 
@@ -247,7 +260,6 @@ def analytics():
     bt_inventory = df.groupby("blood_type")["units_available"].sum().to_dict()
     bt_usage     = df.groupby("blood_type")["daily_usage"].sum().round(1).to_dict()
 
-    # Near-expiry units grouped by hospital
     near_exp_by_hosp: dict = {}
     for _, row in df.iterrows():
         d = days_until_expiry(str(row["expiration_date"]))
@@ -257,17 +269,17 @@ def analytics():
 
     units_at_risk = sum(near_exp_by_hosp.values())
 
-    # Hospital-level stress summary
     hospital_stress = []
     for hospital in df["hospital_name"].unique():
-        h_df = df[df["hospital_name"] == hospital]
+        h_df  = df[df["hospital_name"] == hospital]
         avg_s = float(h_df["shortage_risk_score"].mean())
         hospital_stress.append({
-            "hospital":          hospital,
-            "city":              h_df.iloc[0]["city"],
-            "total_units":       int(h_df["units_available"].sum()),
+            "hospital":           hospital,
+            "city":               h_df.iloc[0]["city"],
+            "state":              h_df.iloc[0]["state"],
+            "total_units":        int(h_df["units_available"].sum()),
             "avg_shortage_score": round(avg_s, 3),
-            "near_expiry_units": near_exp_by_hosp.get(hospital, 0),
+            "near_expiry_units":  near_exp_by_hosp.get(hospital, 0),
             "stress_level": (
                 "critical" if avg_s >= 1.5 else
                 "warning"  if avg_s >= 0.6 else
@@ -276,8 +288,7 @@ def analytics():
         })
     hospital_stress.sort(key=lambda x: x["avg_shortage_score"], reverse=True)
 
-    # Simulated 8-week demand trend for top blood types
-    # Anchored to actual daily usage in the dataset, with week-over-week variation
+    # 8-week demand trend anchored to actual daily usage
     weekly_demand: dict = {}
     for bt in ["O+", "O-", "A+", "B+"]:
         base = float(df[df["blood_type"] == bt]["daily_usage"].sum()) * 7
@@ -288,21 +299,194 @@ def analytics():
 
     season_risk = df.groupby("season")["shortage_risk_score"].mean().round(3).to_dict()
 
+    total_daily  = float(df["daily_usage"].sum())
+    total_inv    = int(df["units_available"].sum())
+
     return jsonify({
-        "blood_type_inventory":   {k: int(v)   for k, v in bt_inventory.items()},
-        "blood_type_daily_usage": {k: float(v) for k, v in bt_usage.items()},
-        "units_at_expiry_risk":   units_at_risk,
-        "hospitals_under_stress": len([h for h in hospital_stress if h["stress_level"] != "stable"]),
-        "hospital_stress":        hospital_stress,
-        "weekly_demand_trends":   weekly_demand,
-        "season_shortage_risk":   season_risk,
-        "total_daily_demand":     round(float(df["daily_usage"].sum()), 1),
-        "total_inventory":        int(df["units_available"].sum()),
-        "inventory_days_coverage": round(
-            float(df["units_available"].sum()) / max(float(df["daily_usage"].sum()), 0.1), 1
-        ),
+        "blood_type_inventory":    {k: int(v)   for k, v in bt_inventory.items()},
+        "blood_type_daily_usage":  {k: float(v) for k, v in bt_usage.items()},
+        "units_at_expiry_risk":    units_at_risk,
+        "hospitals_under_stress":  len([h for h in hospital_stress if h["stress_level"] != "stable"]),
+        "hospital_stress":         hospital_stress,
+        "weekly_demand_trends":    weekly_demand,
+        "season_shortage_risk":    season_risk,
+        "total_daily_demand":      round(total_daily, 1),
+        "total_inventory":         total_inv,
+        "inventory_days_coverage": round(total_inv / max(total_daily, 0.1), 1),
         "near_expiry_by_hospital": near_exp_by_hosp,
+        "estimated_waste_units":   int(units_at_risk * 0.35),   # ~35% near-expiry won't be used
+        "top_stressed":            hospital_stress[:5],
     })
+
+
+# ---------------------------------------------------------------------------
+# Donor API endpoints
+# ---------------------------------------------------------------------------
+
+def _donor_why_it_matters(blood_type: str, urgency: str,
+                           days_supply: float, hospital: str) -> str:
+    hosp_short = hospital.split()[0]
+    messages = {
+        "critical": [
+            f"{blood_type} is critically low at {hosp_short} — only {days_supply:.1f} day(s) of supply remain.",
+            f"Emergency surgeries at {hosp_short} are at risk. {blood_type} stock could be exhausted within hours.",
+            f"{hosp_short} has flagged {blood_type} as an immediate critical need. Trauma cases depend on this supply.",
+        ],
+        "high": [
+            f"{blood_type} stock at {hosp_short} is running dangerously low ({days_supply:.1f}d supply remaining).",
+            f"Demand is outpacing supply for {blood_type} at {hosp_short}. A donation now prevents a shortage.",
+        ],
+        "moderate": [
+            f"{blood_type} levels at {hosp_short} are below recommended safe thresholds.",
+            f"{hosp_short} is requesting {blood_type} donors to bolster reserves before the next demand surge.",
+        ],
+    }
+    _random.seed(hash(hospital + blood_type) % 9999)
+    return _random.choice(messages.get(urgency, messages["moderate"]))
+
+
+def _why_donate_here(hospital: str, critical: list, high: list, dist: float) -> str:
+    if critical:
+        types = ", ".join(critical[:3])
+        return f"CRITICAL need for {types}. Your donation goes directly to emergency use."
+    elif high:
+        types = ", ".join(high[:3])
+        return f"High demand for {types}. Stock is running low — donations are urgently needed."
+    return f"Accepting all blood types to maintain regional reserves."
+
+
+@app.route("/api/donor/urgent-needs")
+def donor_urgent_needs():
+    """
+    Returns urgent blood donation needs across the Northeast network.
+    Used by the Donor Dashboard.
+    """
+    urgent = []
+    for (hospital, bt), grp in df.groupby(["hospital_name", "blood_type"]):
+        total_units = int(grp["units_available"].sum())
+        avg_daily   = float(grp["daily_usage"].mean())
+        days_supply = round(total_units / max(avg_daily, 0.1), 1)
+        s_score     = shortage_score(avg_daily, total_units)
+
+        if s_score >= 0.6 or days_supply < 10:
+            row = grp.iloc[0]
+            urgency = (
+                "critical" if s_score >= 1.5 or days_supply < 2 else
+                "high"     if s_score >= 0.8 or days_supply < 5  else
+                "moderate"
+            )
+            urgent.append({
+                "hospital":        hospital,
+                "city":            str(row["city"]),
+                "state":           str(row["state"]),
+                "lat":             float(row["latitude"]),
+                "lon":             float(row["longitude"]),
+                "blood_type":      bt,
+                "units_available": total_units,
+                "daily_usage":     round(avg_daily, 1),
+                "days_of_supply":  days_supply,
+                "shortage_score":  round(s_score, 3),
+                "urgency":         urgency,
+                "why_it_matters":  _donor_why_it_matters(bt, urgency, days_supply, hospital),
+            })
+
+    urgent.sort(key=lambda x: (
+        {"critical": 0, "high": 1, "moderate": 2}[x["urgency"]],
+        -x["shortage_score"]
+    ))
+
+    # Network-wide blood type priority
+    bt_priority = []
+    for bt in df["blood_type"].unique():
+        bt_df       = df[df["blood_type"] == bt]
+        total_units = int(bt_df["units_available"].sum())
+        total_daily = float(bt_df["daily_usage"].sum())
+        s           = round((total_daily * 7) / max(total_units, 1), 3)
+        fac_in_need = sum(
+            1 for (h, btype), g in df[df["blood_type"] == bt].groupby(["hospital_name", "blood_type"])
+            if (float(g["daily_usage"].mean()) * 7) / max(int(g["units_available"].sum()), 1) >= 0.8
+        )
+        bt_priority.append({
+            "blood_type":         bt,
+            "total_units":        total_units,
+            "daily_demand":       round(total_daily, 1),
+            "shortage_score":     s,
+            "facilities_in_need": fac_in_need,
+            "urgency_label": (
+                "CRITICAL" if s >= 1.5 else
+                "HIGH"     if s >= 0.8 else
+                "MODERATE" if s >= 0.4 else
+                "STABLE"
+            ),
+        })
+    bt_priority.sort(key=lambda x: x["shortage_score"], reverse=True)
+
+    critical_count = len([u for u in urgent if u["urgency"] == "critical"])
+
+    return jsonify({
+        "urgent_needs":           urgent[:20],
+        "blood_type_priority":    bt_priority,
+        "critical_count":         critical_count,
+        "total_facilities_need":  len(set(u["hospital"] for u in urgent)),
+        "most_needed_type":       bt_priority[0]["blood_type"] if bt_priority else "O-",
+    })
+
+
+@app.route("/api/donor/nearest-centers")
+def donor_nearest_centers():
+    """
+    Return facilities sorted by proximity to the donor's location.
+    Falls back to NYC (40.7128, -74.0060) if no coords provided.
+    """
+    try:
+        user_lat = float(request.args.get("lat", 40.7128))
+        user_lon = float(request.args.get("lon", -74.0060))
+    except (ValueError, TypeError):
+        user_lat, user_lon = 40.7128, -74.0060
+
+    results = []
+    for hospital in df["hospital_name"].unique():
+        h_df = df[df["hospital_name"] == hospital]
+        lat  = float(h_df.iloc[0]["latitude"])
+        lon  = float(h_df.iloc[0]["longitude"])
+        dist = haversine_km(user_lat, user_lon, lat, lon)
+
+        critical_types, high_types = [], []
+        for bt in h_df["blood_type"].unique():
+            bt_rows = h_df[h_df["blood_type"] == bt]
+            total   = int(bt_rows["units_available"].sum())
+            daily   = float(bt_rows["daily_usage"].mean())
+            s       = shortage_score(daily, total)
+            if s >= 1.5:
+                critical_types.append(bt)
+            elif s >= 0.8:
+                high_types.append(bt)
+
+        avg_s  = float(h_df["shortage_risk_score"].mean())
+        urgency = (
+            "critical" if avg_s >= 1.5 else
+            "high"     if avg_s >= 0.8 else
+            "moderate" if avg_s >= 0.4 else
+            "stable"
+        )
+
+        results.append({
+            "hospital":             hospital,
+            "city":                 str(h_df.iloc[0]["city"]),
+            "state":                str(h_df.iloc[0]["state"]),
+            "lat":                  lat,
+            "lon":                  lon,
+            "distance_km":          round(dist, 1),
+            "critical_blood_types": critical_types,
+            "high_need_types":      high_types,
+            "avg_shortage_score":   round(avg_s, 3),
+            "urgency":              urgency,
+            "total_units":          int(h_df["units_available"].sum()),
+            "why_donate_here":      _why_donate_here(hospital, critical_types, high_types, dist),
+        })
+
+    results.sort(key=lambda x: x["distance_km"])
+    return jsonify(results[:18])
 
 
 # ---------------------------------------------------------------------------
@@ -311,7 +495,7 @@ def analytics():
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+    return render_template("index.html", google_maps_key=GOOGLE_MAPS_API_KEY)
 
 
 if __name__ == "__main__":

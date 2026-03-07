@@ -3,23 +3,18 @@ ml_model.py
 -----------
 BloodBridge shortage prediction engine.
 
-Model choice: RandomForestClassifier
-  Rationale: Blood shortage risk is driven by non-linear interactions between
-  supply level, trauma rate, surgery schedule, season, and expiry proximity.
-  Linear regression would underfit these interactions. Random Forest captures
-  them without needing feature engineering beyond what's already in the data.
-  It also gives feature importances for explainability — critical for healthcare.
+Model: RandomForestClassifier
+  Captures non-linear interactions between supply, trauma rate, surgery schedule,
+  season, and expiry proximity. Provides feature importances for explainability.
 
-Output risk levels:
+Risk levels:
   0 = Stable      (adequate supply, low demand pressure)
-  1 = Watchlist   (buffer thinning — monitor closely)
+  1 = Watchlist   (buffer thinning — monitor)
   2 = High Risk   (shortage likely within 7 days)
-  3 = Critical    (shortage imminent or already occurring)
+  3 = Critical    (shortage imminent or occurring)
 
-Data augmentation:
-  With only ~80 hospital+blood_type pairs, we augment training data by adding
-  Gaussian noise scaled to each feature's variance (10x copies). This prevents
-  overfitting while keeping the model demonstrably predictive.
+Training: augments the ~280 hospital+blood_type pairs with 12x Gaussian noise
+copies to give the RF enough diversity without generating fake labels.
 """
 
 import numpy as np
@@ -44,10 +39,10 @@ FEATURE_NAMES = [
     "trauma_rate",
     "historical_demand",
     "season_enc",
-    "shortage_score_7d",    # (daily_usage * 7) / units
-    "days_of_supply",       # units / daily_usage
-    "near_expiry_fraction", # fraction of units expiring <= 7 days
-    "demand_pressure",      # actual daily_usage vs historical per-day demand
+    "shortage_score_7d",
+    "days_of_supply",
+    "near_expiry_fraction",
+    "demand_pressure",
 ]
 
 
@@ -59,21 +54,16 @@ def _days_until_expiry(exp_str: str) -> int:
         return 30
 
 
-def _assign_risk_label(shortage_7d: float, days_supply: float, near_exp_frac: float,
-                       trauma_rate: float, surgery_score: float) -> int:
-    """
-    Rule-based labeling used to create supervised training targets.
-    Combines supply-side stress, expiry exposure, and demand-side pressure.
-    """
-    # Immediate critical conditions
+def _assign_risk_label(shortage_7d: float, days_supply: float,
+                       near_exp_frac: float, trauma_rate: float,
+                       surgery_score: float) -> int:
+    """Rule-based labeling for supervised training targets."""
     if shortage_7d >= 2.0 or days_supply < 1.5:
         return 3
     if shortage_7d >= 1.2 or days_supply < 3.0 or (near_exp_frac > 0.6 and shortage_7d > 0.6):
         return 3 if (trauma_rate > 7.5 or surgery_score > 8.0) else 2
-    # High risk
     if shortage_7d >= 0.75 or days_supply < 6.0 or near_exp_frac > 0.45:
         return 2
-    # Watchlist
     if shortage_7d >= 0.35 or days_supply < 12.0 or near_exp_frac > 0.25:
         return 1
     return 0
@@ -81,32 +71,32 @@ def _assign_risk_label(shortage_7d: float, days_supply: float, near_exp_frac: fl
 
 def _extract_features(df: pd.DataFrame):
     """
-    Group by hospital + blood_type, compute ML features for each pair.
+    Group by hospital + blood_type, compute ML features.
     Returns (X array, y array, metadata list).
     """
     X_rows, y_labels, meta = [], [], []
 
     for (hospital, blood_type), group in df.groupby(["hospital_name", "blood_type"]):
-        total_units      = float(group["units_available"].sum())
-        avg_daily        = float(group["daily_usage"].mean())
-        surgery_score    = float(group["surgery_schedule_score"].mean())
-        trauma_rate      = float(group["trauma_rate"].mean())
-        hist_demand      = float(group["historical_demand"].mean())
-        season           = group["season"].iloc[0]
-        season_enc       = SEASON_ENC.get(season, 0)
+        total_units   = float(group["units_available"].sum())
+        avg_daily     = float(group["daily_usage"].mean())
+        surgery_score = float(group["surgery_schedule_score"].mean())
+        trauma_rate   = float(group["trauma_rate"].mean())
+        hist_demand   = float(group["historical_demand"].mean())
+        season        = group["season"].iloc[0]
+        season_enc    = SEASON_ENC.get(season, 0)
+        city          = str(group["city"].iloc[0])
+        state         = str(group["state"].iloc[0])
 
-        # Earliest expiry across all batches
         days_exp = min(_days_until_expiry(str(d)) for d in group["expiration_date"])
 
-        # Fraction of inventory in soon-to-expire batches
         near_exp_units = float(
-            group[group["expiration_date"].apply(lambda d: _days_until_expiry(str(d)) <= 7)]
-            ["units_available"].sum()
+            group[group["expiration_date"].apply(
+                lambda d: _days_until_expiry(str(d)) <= 7
+            )]["units_available"].sum()
         )
-        near_exp_frac = near_exp_units / max(total_units, 1.0)
-
-        shortage_7d    = (avg_daily * 7) / max(total_units, 1.0)
-        days_supply    = total_units / max(avg_daily, 0.1)
+        near_exp_frac   = near_exp_units / max(total_units, 1.0)
+        shortage_7d     = (avg_daily * 7) / max(total_units, 1.0)
+        days_supply     = total_units / max(avg_daily, 0.1)
         demand_pressure = avg_daily / max(hist_demand / 7.0, 0.1)
 
         feat = [
@@ -123,6 +113,8 @@ def _extract_features(df: pd.DataFrame):
         y_labels.append(label)
         meta.append({
             "hospital":          hospital,
+            "city":              city,
+            "state":             state,
             "blood_type":        blood_type,
             "total_units":       int(total_units),
             "daily_usage":       round(avg_daily, 1),
@@ -139,11 +131,7 @@ def _extract_features(df: pd.DataFrame):
 
 
 def _augment(X: np.ndarray, y: np.ndarray, copies: int = 12) -> tuple:
-    """
-    Data augmentation via scaled Gaussian noise.
-    Each copy adds noise proportional to feature std, keeping labels identical.
-    This gives the RF enough diversity to generalize without generating fake labels.
-    """
+    """Augment via scaled Gaussian noise to improve RF generalization."""
     Xs, ys = [X], [y]
     std = X.std(axis=0) + 1e-8
     for _ in range(copies):
@@ -154,13 +142,13 @@ def _augment(X: np.ndarray, y: np.ndarray, copies: int = 12) -> tuple:
 
 
 def _explain(meta: dict, risk_level: int) -> str:
-    """Generate a plain-English explanation for the predicted risk level."""
+    """Generate plain-English explanation for the predicted risk level."""
     bt      = meta["blood_type"]
     hosp    = meta["hospital"].split()[0]
     reasons = []
 
     if meta["shortage_score_7d"] >= 1.5:
-        reasons.append("7-day projected demand is >1.5x current supply")
+        reasons.append("7-day projected demand is >1.5× current supply")
     elif meta["shortage_score_7d"] >= 0.8:
         reasons.append("demand is outpacing available supply")
 
@@ -178,7 +166,7 @@ def _explain(meta: dict, risk_level: int) -> str:
     if meta["trauma_rate"] >= 7.5:
         reasons.append("elevated trauma intake is driving demand")
 
-    if meta["season"] in ["Winter", "Summer"]:
+    if meta["season"] in ("Winter", "Summer"):
         reasons.append(f"{meta['season']} seasonality typically increases blood demand")
 
     if not reasons:
@@ -189,8 +177,8 @@ def _explain(meta: dict, risk_level: int) -> str:
     prefix = {
         3: f"CRITICAL — {bt} at {hosp}",
         2: f"{bt} High Risk at {hosp}",
-        1: f"{bt} on Watchlist at {hosp}",
-        0: f"{bt} is Stable at {hosp}",
+        1: f"{bt} Watchlist at {hosp}",
+        0: f"{bt} Stable at {hosp}",
     }[risk_level]
 
     return f"{prefix}: {'; '.join(reasons[:3])}."
@@ -198,10 +186,9 @@ def _explain(meta: dict, risk_level: int) -> str:
 
 class BloodShortagePredictor:
     def __init__(self):
-        # n_estimators=150 balances accuracy and inference speed
         self.model = RandomForestClassifier(
-            n_estimators=150,
-            max_depth=9,
+            n_estimators=200,
+            max_depth=10,
             min_samples_leaf=2,
             class_weight="balanced",
             random_state=42,
@@ -215,29 +202,36 @@ class BloodShortagePredictor:
         self.model.fit(X_aug, y_aug)
         self.trained = True
         self.feature_importances = dict(zip(FEATURE_NAMES, self.model.feature_importances_))
-        print("[BloodBridge] Shortage prediction model trained.")
+        print("[BloodBridge] Shortage prediction model trained successfully.")
         return self
 
     def predict(self, df: pd.DataFrame) -> list:
-        X, _, meta_list = _extract_features(df)
         if not self.trained:
             raise RuntimeError("Model not trained. Call train() first.")
-
+        X, _, meta_list = _extract_features(df)
         probs = self.model.predict_proba(X)
         preds = self.model.predict(X)
+
+        # Map model classes to 0-3 (some classes may be missing in small datasets)
+        classes = list(self.model.classes_)
 
         results = []
         for i, meta in enumerate(meta_list):
             rl   = int(preds[i])
-            conf = float(max(probs[i]))
+            # Find probability for the predicted class
+            if rl in classes:
+                conf = float(probs[i][classes.index(rl)])
+            else:
+                conf = float(max(probs[i]))
+
             results.append({
                 **meta,
-                "risk_level":   rl,
-                "risk_label":   RISK_LEVELS[rl],
-                "risk_color":   RISK_COLORS[rl],
-                "risk_bg":      RISK_BG[rl],
-                "confidence":   round(conf, 2),
-                "explanation":  _explain(meta, rl),
+                "risk_level":  rl,
+                "risk_label":  RISK_LEVELS[rl],
+                "risk_color":  RISK_COLORS[rl],
+                "risk_bg":     RISK_BG[rl],
+                "confidence":  round(conf, 2),
+                "explanation": _explain(meta, rl),
             })
 
         return sorted(results, key=lambda x: (x["risk_level"], x["shortage_score_7d"]), reverse=True)
@@ -248,7 +242,7 @@ class BloodShortagePredictor:
 
 
 # ---------------------------------------------------------------------------
-# Module-level singleton — app.py imports these two functions
+# Module-level singleton — app.py imports these functions
 # ---------------------------------------------------------------------------
 _predictor = BloodShortagePredictor()
 
