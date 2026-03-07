@@ -120,77 +120,8 @@ function intensityToColor(intensity) {
 
 
 // ---------------------------------------------------------------------------
-// LOGIN
+// AUTH — Landing page modals + session handling
 // ---------------------------------------------------------------------------
-
-// Role dropdown change handler — toggle hospital vs blood-type field
-function handleRoleChange(role) {
-  const isDonor = role === "Donor";
-  el("hospital-field").style.display  = isDonor ? "none" : "block";
-  el("donor-bt-field").style.display  = isDonor ? "block" : "none";
-  el("btn-enter-text").textContent    = isDonor ? "Enter as Donor" : "Enter Platform";
-
-  const hospSel = el("login-hospital");
-  if (isDonor) {
-    hospSel.removeAttribute("required");
-  } else {
-    hospSel.setAttribute("required", "");
-  }
-}
-
-// Pre-load hospitals into login selector
-(async function initLogin() {
-  try {
-    const resp   = await fetch("/api/hospitals");
-    allHospitals = await resp.json();
-    const sel    = el("login-hospital");
-    sel.innerHTML = '<option value="" disabled selected>Select your hospital</option>';
-    allHospitals.forEach(h => {
-      const opt = document.createElement("option");
-      opt.value       = h.name;
-      opt.textContent = `${h.name} — ${h.city}, ${h.state}`;
-      sel.appendChild(opt);
-    });
-  } catch (e) {
-    console.warn("Could not preload hospitals:", e);
-  }
-})();
-
-el("login-form").addEventListener("submit", async function (e) {
-  e.preventDefault();
-  const name     = el("login-name").value.trim();
-  const role     = el("login-role").value;
-  const hospital = el("login-hospital").value;
-  const donorBT  = el("login-donor-bt").value;
-
-  if (!name || !role) return;
-  if (role !== "Donor" && !hospital) return;
-  if (role === "Donor" && !donorBT) {
-    alert("Please select your blood type.");
-    return;
-  }
-
-  try {
-    const resp = await fetch("/api/login", {
-      method:  "POST",
-      headers: { "Content-Type": "application/json" },
-      body:    JSON.stringify({ name, role, hospital, donor_blood_type: donorBT }),
-    });
-    const data = await resp.json();
-    if (!data.success) return;
-
-    applySession({ name, role, hospital, donor_blood_type: donorBT });
-
-    el("login-overlay").classList.add("fade-out");
-    setTimeout(() => {
-      el("login-overlay").style.display = "none";
-      el("app").classList.remove("hidden");
-      bootApp();
-    }, 480);
-  } catch (err) {
-    console.error("Login error:", err);
-  }
-});
 
 function applySession(user) {
   currentUser     = user;
@@ -200,16 +131,161 @@ function applySession(user) {
 
   setText("user-name-display", user.name);
   setText("user-role-display", user.role);
-  el("user-avatar").textContent = user.name.split(" ").map(w => w[0]).join("").slice(0,2).toUpperCase();
+  const avatar = el("user-avatar");
+  if (avatar) avatar.textContent = user.name.split(" ").map(w => w[0]).join("").slice(0,2).toUpperCase();
 }
 
-// Auto-login from server session (set by homepage login/register)
-if (window.SESSION_USER && !currentUser) {
-  applySession(window.SESSION_USER);
-  el("login-overlay").style.display = "none";
-  el("app").classList.remove("hidden");
-  bootApp();
+function showApp() {
+  const landing = el("landing");
+  if (landing) {
+    landing.style.transition = "opacity 0.45s ease, transform 0.45s ease";
+    landing.style.opacity    = "0";
+    landing.style.transform  = "translateY(-24px)";
+    setTimeout(() => { landing.style.display = "none"; }, 460);
+  }
+  const app = el("app");
+  if (app) {
+    app.classList.remove("hidden");
+    app.style.opacity = "0";
+    setTimeout(() => {
+      app.style.transition = "opacity 0.38s ease";
+      app.style.opacity    = "1";
+    }, 60);
+  }
 }
+
+// Modal open/close
+function openModal(id) {
+  const m = el(id + "-modal");
+  if (m) { m.classList.add("active"); document.body.style.overflow = "hidden"; }
+}
+function closeModal(id) {
+  const m = el(id + "-modal");
+  if (m) { m.classList.remove("active"); document.body.style.overflow = ""; }
+}
+function bgClose(e, id) {
+  if (e.target === el(id + "-modal")) closeModal(id);
+}
+function switchModal(from, to) {
+  closeModal(from);
+  setTimeout(() => openModal(to), 180);
+}
+
+// Role field toggles in modals
+function lRoleChange(role) {
+  const hf = el("l-hosp-field"), bf = el("l-bt-field");
+  if (hf) hf.classList.toggle("show", role !== "Donor");
+  if (bf) bf.classList.toggle("show", role === "Donor");
+}
+function rRoleChange(role) {
+  const hf = el("r-hosp-field"), bf = el("r-bt-field");
+  if (hf) hf.classList.toggle("show", role !== "Donor");
+  if (bf) bf.classList.toggle("show", role === "Donor");
+}
+
+function showErr(errEl, msg) {
+  if (errEl) { errEl.textContent = msg; errEl.style.display = "block"; }
+}
+
+async function doLogin() {
+  const name    = (el("l-name")?.value    || "").trim();
+  const role    = el("l-role")?.value     || "";
+  const hosp    = el("l-hospital")?.value || "";
+  const donorBT = el("l-donor-bt")?.value || "";
+  const err     = el("login-err");
+
+  if (!name || !role) { showErr(err, "Please enter your name and select a role."); return; }
+  if (role !== "Donor" && !hosp) { showErr(err, "Please select your hospital."); return; }
+  if (role === "Donor" && !donorBT) { showErr(err, "Please select your blood type."); return; }
+  if (err) err.style.display = "none";
+
+  try {
+    const r = await fetch("/api/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name, role, hospital: hosp, donor_blood_type: donorBT }),
+    });
+    const d = await r.json();
+    if (d.success) {
+      closeModal("login");
+      applySession({ name, role, hospital: hosp, donor_blood_type: donorBT });
+      showApp();
+      bootApp();
+    } else {
+      showErr(err, d.error || "Login failed.");
+    }
+  } catch(e) {
+    showErr(err, "Network error — is the server running?");
+  }
+}
+
+async function doRegister() {
+  const name    = (el("r-name")?.value    || "").trim();
+  const email   = (el("r-email")?.value   || "").trim();
+  const role    = el("r-role")?.value     || "";
+  const hosp    = el("r-hospital")?.value || "";
+  const donorBT = el("r-donor-bt")?.value || "";
+  const err     = el("register-err");
+
+  if (!name || !email || !role) { showErr(err, "Please fill in all required fields."); return; }
+  if (role !== "Donor" && !hosp) { showErr(err, "Please select your hospital."); return; }
+  if (role === "Donor" && !donorBT) { showErr(err, "Please select your blood type."); return; }
+  if (err) err.style.display = "none";
+
+  try {
+    const r = await fetch("/api/register", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name, email, role, hospital: hosp, donor_blood_type: donorBT }),
+    });
+    const d = await r.json();
+    if (d.success) {
+      closeModal("register");
+      applySession({ name, email, role, hospital: hosp, donor_blood_type: donorBT });
+      showApp();
+      bootApp();
+    } else {
+      showErr(err, d.error || "Registration failed.");
+    }
+  } catch(e) {
+    showErr(err, "Network error — is the server running?");
+  }
+}
+
+// Pre-load hospitals AND handle session auto-login (order matters: hospitals first)
+(async function initAll() {
+  try {
+    const resp   = await fetch("/api/hospitals");
+    allHospitals = await resp.json();
+
+    // Populate all hospital selects (modals + transfer panel)
+    ["l-hospital", "r-hospital"].forEach(selId => {
+      const sel = el(selId);
+      if (!sel) return;
+      sel.innerHTML = '<option value="" disabled selected>Select your hospital</option>';
+      allHospitals.forEach(h => {
+        const opt = document.createElement("option");
+        opt.value       = h.name;
+        opt.textContent = `${h.name} — ${h.city}, ${h.state}`;
+        sel.appendChild(opt);
+      });
+    });
+
+    // Populate landing map stat
+    const total = allHospitals.reduce((s, h) => s + h.total_units, 0);
+    const su = el("hero-stat-units");
+    if (su) su.textContent = total.toLocaleString();
+  } catch (e) {
+    console.warn("Could not preload hospitals:", e);
+  }
+
+  // Session auto-login — AFTER hospitals are loaded to fix race condition
+  if (window.SESSION_USER && !currentUser) {
+    applySession(window.SESSION_USER);
+    showApp();
+    bootApp();
+  }
+})();
 
 
 // ---------------------------------------------------------------------------
@@ -540,6 +616,18 @@ function renderDonorHero(data) {
   setText("donor-urgent-count",    (data.urgent_needs || []).length);
 }
 
+// Real-world blood type clinical context (source: American Red Cross, AABB)
+const BT_CLINICAL = {
+  "O-":  { pop: "7%",  universal: true,  note: "Universal donor — only type for emergency use when patient type unknown" },
+  "O+":  { pop: "38%", universal: false, note: "Most transfused worldwide — highest total volume demand globally" },
+  "A-":  { pop: "6%",  universal: false, note: "Rare negative — can donate to A+, A−, AB+, AB−" },
+  "B-":  { pop: "2%",  universal: false, note: "Very rare — critical for B− and AB− patients only" },
+  "A+":  { pop: "36%", universal: false, note: "Second most common — large patient population depends on this type" },
+  "B+":  { pop: "8%",  universal: false, note: "Needed for B+ and AB+ recipients" },
+  "AB-": { pop: "1%",  universal: false, note: "Rarest type — universal plasma donor; valuable for plasma donations" },
+  "AB+": { pop: "3%",  universal: false, note: "Universal recipient — accepts all types; whole blood urgency is lowest" },
+};
+
 function renderDonorBloodTypePriority(priorities) {
   const grid = el("donor-bt-priority-grid");
   if (!priorities.length) {
@@ -547,23 +635,29 @@ function renderDonorBloodTypePriority(priorities) {
     return;
   }
 
-  grid.innerHTML = priorities.map(p => {
+  grid.innerHTML = priorities.map((p, rank) => {
     const isMyType = donorBloodType && p.blood_type === donorBloodType;
     const barPct   = Math.min(100, Math.round((p.shortage_score / 2.0) * 100));
     const barColor = p.urgency_label === "CRITICAL" ? "var(--red)"
                    : p.urgency_label === "HIGH"     ? "var(--orange)"
                    : p.urgency_label === "MODERATE" ? "var(--amber)"
                    : "var(--green)";
+    const ctx = BT_CLINICAL[p.blood_type] || {};
 
     return `
-      <div class="donor-bt-card urgency-${p.urgency_label} ${isMyType ? "highlighted-bt" : ""}">
-        ${isMyType ? '<div style="font-size:9px;color:var(--cyan);font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px">Your Type</div>' : ""}
+      <div class="donor-bt-card urgency-${p.urgency_label} ${isMyType ? "highlighted-bt" : ""}"
+           title="${ctx.note || ""}">
+        ${isMyType ? '<div class="bt-my-type-tag">Your Type</div>' : ""}
+        ${ctx.universal ? '<div class="bt-universal-tag">Universal Donor</div>' : ""}
+        <div class="donor-bt-rank">#${rank + 1}</div>
         <div class="donor-bt-type">${p.blood_type}</div>
-        <div class="supply-bar-track" style="margin:6px 0">
+        <div class="donor-bt-pop">${ctx.pop || ""} of population</div>
+        <div class="supply-bar-track" style="margin:7px 0 5px">
           <div class="supply-bar-fill" style="width:${barPct}%;background:${barColor}"></div>
         </div>
         <div class="donor-bt-label ${p.urgency_label}">${p.urgency_label}</div>
         <div class="donor-bt-fac">${p.facilities_in_need} facilities</div>
+        <div class="donor-bt-note">${(ctx.note || "").split(" — ")[0]}</div>
       </div>`;
   }).join("");
 }
@@ -709,16 +803,14 @@ function initExchangeTab() {
     return;
   }
 
-  // Delay so the tab panel finishes rendering to its final dimensions
-  // before Leaflet reads the container size
+  // Delay so the tab panel finishes rendering before Leaflet reads container size
   setTimeout(() => {
-    if (window.GOOGLE_MAPS_KEY_SET && typeof google !== "undefined" && google.maps) {
+    if (window.GOOGLE_MAPS_KEY_SET && window.googleMapsReady) {
+      initGoogleMapsMap();
+    } else if (window.GOOGLE_MAPS_KEY_SET && typeof google !== "undefined" && google.maps) {
       initGoogleMapsMap();
     } else {
       initLeafletMap();
-      if (window.GOOGLE_MAPS_KEY_SET) {
-        el("map-type-indicator").textContent = "Leaflet (Google Maps loading...)";
-      }
     }
   }, 80);
 }
@@ -740,13 +832,67 @@ function initLeafletMap() {
   loadHeatmap();
 }
 
-// Called by Google Maps callback (window.initGoogleMap)
-function initGoogleMap() {
-  if (mapInitialized && mapInstance) {
-    // Leaflet was already up — do nothing (already serving)
-    return;
+// Unified Google Maps API ready callback (handles both landing map and exchange map)
+window.onGoogleMapsReady = function() {
+  window.googleMapsReady = true;
+  // Initialize landing page map if still visible
+  const landing = el("landing");
+  if (landing && landing.style.display !== "none") {
+    initHomeMap();
   }
+};
+
+// Legacy callback kept for backward compat
+window.initGoogleMap = function() {
+  if (mapInitialized && mapInstance) return;
   initGoogleMapsMap();
+};
+
+// Landing page map
+function initHomeMap() {
+  const mapDiv = el("home-map");
+  if (!mapDiv || typeof google === "undefined") return;
+
+  const hMap = new google.maps.Map(mapDiv, {
+    center: { lat: 42.4, lng: -72.0 },
+    zoom: 7,
+    styles: GOOGLE_MAPS_DARK_STYLE,
+    mapTypeId: google.maps.MapTypeId.ROADMAP,
+    disableDefaultUI: true,
+    zoomControl: true,
+  });
+
+  const STATUS_COLOR = { stable: "#00e676", warning: "#ffab40", high_risk: "#ff7043", critical: "#ff1744" };
+  allHospitals.forEach(h => {
+    const color = STATUS_COLOR[h.status] || "#7a9cc0";
+    const scale = 9 + Math.min(h.avg_shortage_score * 5, 8);
+    const marker = new google.maps.Marker({
+      position: { lat: h.latitude, lng: h.longitude },
+      map: hMap,
+      title: h.name,
+      icon: {
+        path: google.maps.SymbolPath.CIRCLE,
+        fillColor: color, fillOpacity: 0.95,
+        strokeWeight: 2, strokeColor: "#fff", scale,
+      },
+    });
+    new google.maps.Circle({
+      map: hMap, center: { lat: h.latitude, lng: h.longitude },
+      radius: 20000, fillColor: color, fillOpacity: 0.07,
+      strokeColor: color, strokeOpacity: 0.25, strokeWeight: 1,
+    });
+    const iw = new google.maps.InfoWindow({
+      content: `<div style="background:#111;padding:13px 15px;border-radius:10px;min-width:195px;font-family:'Inter',sans-serif">
+        <div style="font-weight:700;font-size:14px;color:#f5f5f7;margin-bottom:3px">${h.name}</div>
+        <div style="font-size:12px;color:#6e6e73;margin-bottom:9px">${h.city}, ${h.state}</div>
+        <div style="display:flex;justify-content:space-between;font-size:13px">
+          <span style="color:${color};font-weight:700">${h.status.replace(/_/g," ").toUpperCase()}</span>
+          <span style="color:#888">${h.total_units.toLocaleString()} units</span>
+        </div>
+      </div>`,
+    });
+    marker.addListener("click", () => iw.open(hMap, marker));
+  });
 }
 
 function initGoogleMapsMap() {
@@ -826,7 +972,11 @@ function drawLeafletMarkers(data) {
       .addTo(mapInstance)
       .bindPopup(buildMapPopupHTML(h), { maxWidth: 250 });
 
-    marker.on("click", () => loadHospitalDetailPanel(h.hospital));
+    marker.on("click", () => {
+      loadHospitalDetailPanel(h.hospital);
+      const tSel = el("transfer-hospital");
+      if (tSel) tSel.value = h.hospital;
+    });
     mapMarkers.push(marker);
   });
 }
@@ -862,6 +1012,9 @@ function drawGoogleMarkers(data) {
     marker.addListener("click", () => {
       infoWindow.open(googleMap, marker);
       loadHospitalDetailPanel(h.hospital);
+      // Auto-populate transfer hospital selector when marker is clicked
+      const tSel = el("transfer-hospital");
+      if (tSel) tSel.value = h.hospital;
     });
 
     mapMarkers.push(marker);
@@ -1022,23 +1175,55 @@ async function runTransferRecommendation() {
 
     renderTransferResults(data);
 
-    // Draw line on map
+    // Draw route on map (Directions API for Google Maps, polyline for Leaflet)
     const reqHosp  = heatmapData.find(h => h.hospital === hospital);
     const bestHosp = data.closest || data.highest_stock;
     if (reqHosp && bestHosp) {
       const partnerH = heatmapData.find(h => h.hospital === bestHosp.hospital);
       if (partnerH) {
-        if (googleMap) {
-          const line = new google.maps.Polyline({
-            path:          [{ lat: reqHosp.lat, lng: reqHosp.lon }, { lat: partnerH.lat, lng: partnerH.lon }],
-            geodesic:      true,
-            strokeColor:   "#00d4ff",
-            strokeOpacity: 0.8,
-            strokeWeight:  2.5,
-            icons: [{ icon: { path: "M 0,-1 0,1", strokeOpacity: 1, scale: 4 }, offset: "0", repeat: "12px" }],
+        if (googleMap && window.googleMapsReady) {
+          // Clear previous renderer
+          if (window._directionsRenderer) { window._directionsRenderer.setMap(null); }
+          if (transferLine) { try { transferLine.setMap(null); } catch(e){} transferLine = null; }
+
+          window._directionsRenderer = new google.maps.DirectionsRenderer({
+            suppressMarkers: false,
+            polylineOptions: { strokeColor: "#00d4ff", strokeWeight: 3, strokeOpacity: 0.88 },
+          });
+          window._directionsRenderer.setMap(googleMap);
+
+          new google.maps.DirectionsService().route({
+            origin:      { lat: reqHosp.lat,  lng: reqHosp.lon  },
+            destination: { lat: partnerH.lat, lng: partnerH.lon },
+            travelMode:  google.maps.TravelMode.DRIVING,
+          }, (result, status) => {
+            if (status === "OK") {
+              window._directionsRenderer.setDirections(result);
+              const leg    = result.routes[0].legs[0];
+              const drInfo = el("transfer-drive-info");
+              if (drInfo) drInfo.textContent = `${leg.duration.text} · ${leg.distance.text} by road`;
+            } else {
+              // Fallback straight line if Directions fails
+              window._directionsRenderer.setMap(null);
+              transferLine = new google.maps.Polyline({
+                path: [{ lat: reqHosp.lat, lng: reqHosp.lon }, { lat: partnerH.lat, lng: partnerH.lon }],
+                geodesic: true, strokeColor: "#00d4ff", strokeOpacity: 0.8, strokeWeight: 2.5,
+                map: googleMap,
+              });
+            }
+            const bounds = new google.maps.LatLngBounds();
+            bounds.extend({ lat: reqHosp.lat, lng: reqHosp.lon });
+            bounds.extend({ lat: partnerH.lat, lng: partnerH.lon });
+            googleMap.fitBounds(bounds, 80);
+          });
+        } else if (googleMap) {
+          // Google Maps but Directions not ready yet — straight line fallback
+          if (transferLine) { try { transferLine.setMap(null); } catch(e){} }
+          transferLine = new google.maps.Polyline({
+            path: [{ lat: reqHosp.lat, lng: reqHosp.lon }, { lat: partnerH.lat, lng: partnerH.lon }],
+            geodesic: true, strokeColor: "#00d4ff", strokeOpacity: 0.8, strokeWeight: 2.5,
             map: googleMap,
           });
-          transferLine = line;
           const bounds = new google.maps.LatLngBounds();
           bounds.extend({ lat: reqHosp.lat, lng: reqHosp.lon });
           bounds.extend({ lat: partnerH.lat, lng: partnerH.lon });

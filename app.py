@@ -9,7 +9,7 @@ and exposes REST API endpoints consumed by the single-page frontend.
 import os
 import random as _random
 from datetime import datetime
-from flask import Flask, jsonify, request, render_template, session
+from flask import Flask, jsonify, request, render_template, session, redirect
 import pandas as pd
 
 from data_generator import generate_dataset
@@ -513,15 +513,15 @@ def donor_nearest_centers():
 
 @app.route("/")
 def home():
-    return render_template("home.html")
-
-
-@app.route("/app")
-def index():
     user = session.get("user")
     return render_template("index.html",
                            google_maps_key=GOOGLE_MAPS_API_KEY,
                            session_user=user)
+
+
+@app.route("/app")
+def app_redirect():
+    return redirect("/")
 
 
 if __name__ == "__main__":
