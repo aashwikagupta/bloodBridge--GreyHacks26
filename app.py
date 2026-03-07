@@ -75,13 +75,31 @@ print(f"[BloodBridge] Ready — {len(df)} records, {df['hospital_name'].nunique(
 
 @app.route("/api/login", methods=["POST"])
 def login():
-    data = request.get_json() or {}
-    name = data.get("name", "").strip()
-    role = data.get("role", "").strip()
+    data     = request.get_json() or {}
+    name     = data.get("name", "").strip()
+    role     = data.get("role", "").strip()
+    hospital = data.get("hospital", "").strip()
+    donor_bt = data.get("donor_blood_type", "").strip()
     if not name or not role:
         return jsonify({"error": "Name and role are required"}), 400
-    session["user"] = {"name": name, "role": role}
-    return jsonify({"success": True, "user": {"name": name, "role": role}})
+    user = {"name": name, "role": role, "hospital": hospital, "donor_blood_type": donor_bt}
+    session["user"] = user
+    return jsonify({"success": True, "user": user})
+
+
+@app.route("/api/register", methods=["POST"])
+def register():
+    data     = request.get_json() or {}
+    name     = data.get("name", "").strip()
+    email    = data.get("email", "").strip()
+    role     = data.get("role", "").strip()
+    hospital = data.get("hospital", "").strip()
+    donor_bt = data.get("donor_blood_type", "").strip()
+    if not name or not role:
+        return jsonify({"error": "Name and role are required"}), 400
+    user = {"name": name, "email": email, "role": role, "hospital": hospital, "donor_blood_type": donor_bt}
+    session["user"] = user
+    return jsonify({"success": True, "user": user})
 
 
 # ---------------------------------------------------------------------------
@@ -494,8 +512,16 @@ def donor_nearest_centers():
 # ---------------------------------------------------------------------------
 
 @app.route("/")
+def home():
+    return render_template("home.html")
+
+
+@app.route("/app")
 def index():
-    return render_template("index.html", google_maps_key=GOOGLE_MAPS_API_KEY)
+    user = session.get("user")
+    return render_template("index.html",
+                           google_maps_key=GOOGLE_MAPS_API_KEY,
+                           session_user=user)
 
 
 if __name__ == "__main__":

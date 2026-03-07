@@ -174,22 +174,13 @@ el("login-form").addEventListener("submit", async function (e) {
     const resp = await fetch("/api/login", {
       method:  "POST",
       headers: { "Content-Type": "application/json" },
-      body:    JSON.stringify({ name, role }),
+      body:    JSON.stringify({ name, role, hospital, donor_blood_type: donorBT }),
     });
     const data = await resp.json();
     if (!data.success) return;
 
-    currentUser     = { name, role };
-    isDonorRole     = role === "Donor";
-    donorBloodType  = isDonorRole ? donorBT : null;
-    currentHospital = isDonorRole ? null : hospital;
+    applySession({ name, role, hospital, donor_blood_type: donorBT });
 
-    // Update header user pill
-    setText("user-name-display", name);
-    setText("user-role-display", role);
-    el("user-avatar").textContent = name.split(" ").map(w => w[0]).join("").slice(0, 2).toUpperCase();
-
-    // Fade out login
     el("login-overlay").classList.add("fade-out");
     setTimeout(() => {
       el("login-overlay").style.display = "none";
@@ -200,6 +191,25 @@ el("login-form").addEventListener("submit", async function (e) {
     console.error("Login error:", err);
   }
 });
+
+function applySession(user) {
+  currentUser     = user;
+  isDonorRole     = user.role === "Donor";
+  donorBloodType  = isDonorRole ? (user.donor_blood_type || null) : null;
+  currentHospital = isDonorRole ? null : (user.hospital || null);
+
+  setText("user-name-display", user.name);
+  setText("user-role-display", user.role);
+  el("user-avatar").textContent = user.name.split(" ").map(w => w[0]).join("").slice(0,2).toUpperCase();
+}
+
+// Auto-login from server session (set by homepage login/register)
+if (window.SESSION_USER && !currentUser) {
+  applySession(window.SESSION_USER);
+  el("login-overlay").style.display = "none";
+  el("app").classList.remove("hidden");
+  bootApp();
+}
 
 
 // ---------------------------------------------------------------------------
@@ -286,32 +296,65 @@ async function loadOverview() {
     const resp   = await fetch("/api/overview");
     overviewData = await resp.json();
 
-    setText("kpi-total-units", fmt(overviewData.total_units));
-    setText("kpi-expiry",      fmt(overviewData.near_expiry_units));
-    setText("kpi-critical",    fmt(overviewData.critical_inventory_count));
-    setText("kpi-transfers",   fmt(overviewData.transfer_opportunities));
+    // Summary banner chips
+    setText("sb-critical",  overviewData.critical_inventory_count);
+    setText("sb-expiry",    fmt(overviewData.near_expiry_units));
+    setText("sb-transfers", overviewData.transfer_opportunities);
+    setText("sb-units",     fmt(overviewData.total_units));
     setText("last-updated-text", "Updated " + overviewData.last_updated);
 
+    // Alert bell badge
+    const totalAlerts = (overviewData.low_inventory_warnings || []).length +
+                        (overviewData.expiry_warnings || []).length;
+    const bellCount = el("alert-bell-count");
+    if (totalAlerts > 0) {
+      bellCount.textContent = totalAlerts > 9 ? "9+" : totalAlerts;
+      bellCount.style.display = "flex";
+    }
+
     renderAlertsSidebar(overviewData);
-    buildAlertBanner(overviewData);
+    buildAlertPanel(overviewData);
   } catch (e) {
     console.error("Overview load failed:", e);
   }
 }
 
-function buildAlertBanner(data) {
-  const items = [];
+function buildAlertPanel(data) {
+  const list = el("alert-panel-list");
+  if (!list) return;
+  const allItems = [];
   (data.expiry_warnings || []).forEach(w => {
-    items.push(`EXPIRY ALERT: ${w.blood_type} at ${w.hospital} — ${w.units} units expire in ${w.days_until_expiry} day(s)`);
+    allItems.push({ type: "expiry", w });
   });
   (data.low_inventory_warnings || []).forEach(w => {
-    items.push(`LOW STOCK: ${w.blood_type} at ${w.hospital} — only ${w.units} units (${w.days_of_supply}d supply)`);
+    allItems.push({ type: "low", w });
   });
-  if (!items.length) return;
+  if (!allItems.length) {
+    list.innerHTML = '<div class="empty-state-sm">No active alerts</div>';
+    return;
+  }
+  list.innerHTML = allItems.slice(0, 12).map(({ type, w }) => {
+    const isExpiry = type === "expiry";
+    const color    = isExpiry ? "var(--amber)" : "var(--red)";
+    const label    = isExpiry
+      ? `${w.blood_type} — expires in ${w.days_until_expiry}d · ${w.units} units`
+      : `${w.blood_type} — ${w.units} units (${w.days_of_supply}d supply)`;
+    return `
+      <div class="alert-panel-item">
+        <span class="alert-dot" style="background:${color}"></span>
+        <div class="alert-panel-content">
+          <div class="alert-hospital">${w.hospital}</div>
+          <div class="alert-detail">${label}</div>
+          <div class="alert-actions">
+            <button class="alert-action-btn" onclick="requestTransfer('${w.blood_type}','${w.hospital.replace(/'/g,"\\'")}')">View transfer options</button>
+          </div>
+        </div>
+      </div>`;
+  }).join("");
+}
 
-  const fullText = items.join("   ·   ");
-  el("alert-text").textContent = fullText + "     ·     " + fullText;
-  el("alert-banner").classList.remove("hidden");
+function toggleAlertPanel() {
+  el("alert-panel").classList.toggle("hidden");
 }
 
 function renderAlertsSidebar(data) {
@@ -329,6 +372,9 @@ function renderAlertsSidebar(data) {
           <div class="alert-content">
             <div class="alert-hospital">${w.blood_type} — ${w.hospital}</div>
             <div class="alert-detail">${w.units} units · ${w.days_of_supply}d supply</div>
+            <div class="alert-quick-actions">
+              <button class="alert-action-btn" onclick="requestTransfer('${w.blood_type}','${w.hospital.replace(/'/g,"\\'")}')">View transfer options</button>
+            </div>
           </div>
         </div>`).join("");
 
@@ -340,8 +386,19 @@ function renderAlertsSidebar(data) {
           <div class="alert-content">
             <div class="alert-hospital">${w.blood_type} — ${w.hospital}</div>
             <div class="alert-detail">${w.units} units · expires in ${w.days_until_expiry}d</div>
+            <div class="alert-quick-actions">
+              <button class="alert-action-btn" onclick="requestTransfer('${w.blood_type}','${w.hospital.replace(/'/g,"\\'")}')">Request transfer</button>
+            </div>
           </div>
         </div>`).join("");
+}
+
+function switchSidebarTab(tab) {
+  const isLow = tab === "low-stock";
+  el("tab-low-stock").classList.toggle("active", isLow);
+  el("tab-near-expiry").classList.toggle("active", !isLow);
+  el("alerts-list").style.display  = isLow ? "block" : "none";
+  el("expiry-list").style.display  = isLow ? "none"  : "block";
 }
 
 
@@ -362,10 +419,40 @@ async function loadDashboard(hospitalName) {
   }
 }
 
+function buildBTCard(item, hospitalName) {
+  const barW        = supplyBarWidth(item.days_of_supply);
+  const barClr      = supplyBarColor(item.status);
+  const statusLabel = { stable:"Adequate", warning:"Low Stock", high_risk:"High Risk", critical:"Critical" }[item.status] || item.status;
+  return `
+    <div class="bt-card status-${item.status}">
+      <div class="bt-card-top">
+        <span class="bt-type-label">${item.blood_type}</span>
+        <span class="bt-status-chip chip-${item.status}">${statusLabel}</span>
+      </div>
+      <div class="bt-units-row">
+        <span class="bt-units">${fmt(item.total_units)}</span>
+        <span class="bt-units-label">units</span>
+      </div>
+      <div class="supply-bar-track" title="Days of supply remaining (${item.days_of_supply} days)">
+        <div class="supply-bar-fill" style="width:${barW}%;background:${barClr}"></div>
+      </div>
+      <div class="bt-footer">
+        <span class="bt-footer-key" title="Average daily blood usage rate">${item.daily_usage}u/day</span>
+        <span class="bt-footer-val" style="color:${barClr}" title="Estimated days until stock is depleted">${item.days_of_supply}d supply</span>
+      </div>
+      ${item.near_expiry_units > 0 ? `<div class="bt-expiry-warn">⚑ ${item.near_expiry_units} units expiring soon</div>` : ""}
+      ${item.status !== "stable" ? `
+      <button class="bt-transfer-btn" onclick="requestTransfer('${item.blood_type}','${hospitalName.replace(/'/g,"\\'")}')">
+        Request Transfer →
+      </button>` : ""}
+    </div>`;
+}
+
 function renderBloodTypeGrid(inventory, hospitalName) {
   const grid = el("blood-type-grid");
   if (!inventory || inventory.length === 0) {
     grid.innerHTML = '<div class="empty-state"><p>No inventory data available.</p></div>';
+    el("critical-section").style.display = "none";
     return;
   }
 
@@ -375,35 +462,18 @@ function renderBloodTypeGrid(inventory, hospitalName) {
     b.shortage_score - a.shortage_score
   );
 
-  grid.innerHTML = inventory.map(item => {
-    const barW   = supplyBarWidth(item.days_of_supply);
-    const barClr = supplyBarColor(item.status);
-    const statusLabel = { stable: "Adequate", warning: "Low Stock", high_risk: "High Risk", critical: "Critical" }[item.status] || item.status;
+  // Critical section — show blood types needing attention
+  const urgent = inventory.filter(i => i.status === "critical" || i.status === "high_risk");
+  const critSection = el("critical-section");
+  const critCards   = el("critical-cards");
+  if (urgent.length > 0) {
+    critCards.innerHTML = urgent.map(item => buildBTCard(item, hospitalName)).join("");
+    critSection.style.display = "block";
+  } else {
+    critSection.style.display = "none";
+  }
 
-    return `
-      <div class="bt-card status-${item.status}">
-        <div class="bt-card-top">
-          <span class="bt-type-label">${item.blood_type}</span>
-          <span class="bt-status-chip chip-${item.status}">${statusLabel}</span>
-        </div>
-        <div class="bt-units-row">
-          <span class="bt-units">${fmt(item.total_units)}</span>
-          <span class="bt-units-label">units</span>
-        </div>
-        <div class="supply-bar-track">
-          <div class="supply-bar-fill" style="width:${barW}%;background:${barClr}"></div>
-        </div>
-        <div class="bt-footer">
-          <span class="bt-footer-key">${item.daily_usage}u/day</span>
-          <span class="bt-footer-val" style="color:${barClr}">${item.days_of_supply}d supply</span>
-        </div>
-        ${item.near_expiry_units > 0 ? `<div class="bt-expiry-warn">⚑ ${item.near_expiry_units} units expiring</div>` : ""}
-        ${item.status !== "stable" ? `
-        <button class="bt-transfer-btn" onclick="requestTransfer('${item.blood_type}', '${hospitalName.replace(/'/g, "\\'")}')">
-          Request Transfer →
-        </button>` : ""}
-      </div>`;
-  }).join("");
+  grid.innerHTML = inventory.map(item => buildBTCard(item, hospitalName)).join("");
 }
 
 function requestTransfer(bloodType, hospital) {
@@ -1144,7 +1214,17 @@ function renderPredictionList(filter) {
         </div>
         <div class="pred-main">
           <div class="pred-hospital">${p.hospital}</div>
-          <div class="pred-location">${city} · Surgery: ${p.surgery_score}/10 · Trauma: ${p.trauma_rate}/10</div>
+          <div class="pred-location">${city}</div>
+          <div class="pred-surgery-row">
+            <span class="pred-meta-chip surgery-chip" title="Planned surgical load — higher scores mean more blood consumed">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M12 22C12 22 3 16.5 3 9.5C3 6.42 5.42 4 8.5 4C10.24 4 11.8 4.85 12 6C12.2 4.85 13.76 4 15.5 4C18.58 4 21 6.42 21 9.5C21 16.5 12 22 12 22Z" stroke="currentColor" stroke-width="1.5"/></svg>
+              Surgery ${p.surgery_score}/10${p.surgery_score >= 7.5 ? ' ⚠' : ''}
+            </span>
+            <span class="pred-meta-chip trauma-chip" title="Trauma intake rate driving demand">
+              Trauma ${p.trauma_rate}/10
+            </span>
+            ${p.surgery_uplift_units > 0 ? `<span class="pred-meta-chip uplift-chip" title="Extra units consumed by scheduled surgeries per day">+${p.surgery_uplift_units}u/day surgical</span>` : ''}
+          </div>
           <div class="pred-explanation">${p.explanation}</div>
         </div>
         <div class="pred-meta">

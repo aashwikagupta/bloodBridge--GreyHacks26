@@ -36,11 +36,14 @@ FEATURE_NAMES = [
     "daily_usage",
     "days_until_expiry",
     "surgery_schedule_score",
+    "surgery_demand_uplift",   # NEW: projected extra units consumed by planned surgeries
     "trauma_rate",
     "historical_demand",
     "season_enc",
     "shortage_score_7d",
+    "shortage_score_with_surgery",  # NEW: 7d shortage accounting for surgical uplift
     "days_of_supply",
+    "days_of_supply_with_surgery",  # NEW: days of supply after surgery demand
     "near_expiry_fraction",
     "demand_pressure",
 ]
@@ -54,17 +57,39 @@ def _days_until_expiry(exp_str: str) -> int:
         return 30
 
 
+def _surgery_uplift(surgery_score: float, avg_daily: float) -> float:
+    """
+    Estimate extra daily blood demand due to planned surgeries.
+    A score of 10 = fully booked OR schedule → ~40% uplift over baseline.
+    """
+    return avg_daily * (surgery_score / 10.0) * 0.40
+
+
 def _assign_risk_label(shortage_7d: float, days_supply: float,
                        near_exp_frac: float, trauma_rate: float,
-                       surgery_score: float) -> int:
-    """Rule-based labeling for supervised training targets."""
+                       surgery_score: float,
+                       shortage_7d_surgery: float = 0.0,
+                       days_supply_surgery: float = 999.0) -> int:
+    """Rule-based labeling — surgery-adjusted metrics escalate risk."""
+    high_surgery = surgery_score >= 7.5
+    heavy_surgery = surgery_score >= 9.0
+
+    # Critical: immediate shortage regardless of surgical load
     if shortage_7d >= 2.0 or days_supply < 1.5:
         return 3
+    # Critical when surgery-adjusted supply hits zero quickly
+    if shortage_7d_surgery >= 2.5 or days_supply_surgery < 1.0:
+        return 3
+    # High surgical load can escalate borderline → critical
     if shortage_7d >= 1.2 or days_supply < 3.0 or (near_exp_frac > 0.6 and shortage_7d > 0.6):
-        return 3 if (trauma_rate > 7.5 or surgery_score > 8.0) else 2
+        return 3 if (trauma_rate > 7.0 or heavy_surgery) else 2
+    # Surgery-adjusted shortage pushes into high risk
+    if shortage_7d_surgery >= 1.5 or days_supply_surgery < 3.0:
+        return 2 if not heavy_surgery else 3
     if shortage_7d >= 0.75 or days_supply < 6.0 or near_exp_frac > 0.45:
         return 2
-    if shortage_7d >= 0.35 or days_supply < 12.0 or near_exp_frac > 0.25:
+    # Elevated surgical schedule alone → watchlist
+    if shortage_7d >= 0.35 or days_supply < 12.0 or near_exp_frac > 0.25 or high_surgery:
         return 1
     return 0
 
@@ -99,32 +124,43 @@ def _extract_features(df: pd.DataFrame):
         days_supply     = total_units / max(avg_daily, 0.1)
         demand_pressure = avg_daily / max(hist_demand / 7.0, 0.1)
 
+        # Surgery-adjusted demand features
+        surg_uplift         = _surgery_uplift(surgery_score, avg_daily)
+        eff_daily_surg      = avg_daily + surg_uplift
+        shortage_7d_surgery = (eff_daily_surg * 7) / max(total_units, 1.0)
+        days_supply_surgery = total_units / max(eff_daily_surg, 0.1)
+
         feat = [
             total_units, avg_daily, days_exp,
-            surgery_score, trauma_rate, hist_demand,
-            season_enc, shortage_7d, days_supply,
+            surgery_score, round(surg_uplift, 2), trauma_rate, hist_demand,
+            season_enc, shortage_7d, round(shortage_7d_surgery, 3),
+            days_supply, round(days_supply_surgery, 1),
             near_exp_frac, demand_pressure,
         ]
 
         label = _assign_risk_label(shortage_7d, days_supply, near_exp_frac,
-                                   trauma_rate, surgery_score)
+                                   trauma_rate, surgery_score,
+                                   shortage_7d_surgery, days_supply_surgery)
 
         X_rows.append(feat)
         y_labels.append(label)
         meta.append({
-            "hospital":          hospital,
-            "city":              city,
-            "state":             state,
-            "blood_type":        blood_type,
-            "total_units":       int(total_units),
-            "daily_usage":       round(avg_daily, 1),
-            "days_of_supply":    round(days_supply, 1),
-            "shortage_score_7d": round(shortage_7d, 3),
-            "near_expiry_frac":  round(near_exp_frac, 3),
-            "surgery_score":     round(surgery_score, 1),
-            "trauma_rate":       round(trauma_rate, 1),
-            "season":            season,
-            "days_until_expiry": days_exp,
+            "hospital":               hospital,
+            "city":                   city,
+            "state":                  state,
+            "blood_type":             blood_type,
+            "total_units":            int(total_units),
+            "daily_usage":            round(avg_daily, 1),
+            "days_of_supply":         round(days_supply, 1),
+            "days_of_supply_surgery": round(days_supply_surgery, 1),
+            "shortage_score_7d":      round(shortage_7d, 3),
+            "shortage_7d_surgery":    round(shortage_7d_surgery, 3),
+            "near_expiry_frac":       round(near_exp_frac, 3),
+            "surgery_score":          round(surgery_score, 1),
+            "surgery_uplift_units":   round(surg_uplift, 1),
+            "trauma_rate":            round(trauma_rate, 1),
+            "season":                 season,
+            "days_until_expiry":      days_exp,
         })
 
     return np.array(X_rows, dtype=float), np.array(y_labels, dtype=int), meta
@@ -160,8 +196,10 @@ def _explain(meta: dict, risk_level: int) -> str:
     if meta["near_expiry_frac"] > 0.45:
         reasons.append(f"{int(meta['near_expiry_frac']*100)}% of units expire within 7 days")
 
-    if meta["surgery_score"] >= 8.0:
-        reasons.append("high surgical case load elevates consumption")
+    if meta["surgery_score"] >= 9.0:
+        reasons.append(f"heavily booked surgical schedule (score {meta['surgery_score']}/10) is driving demand above baseline")
+    elif meta["surgery_score"] >= 7.5:
+        reasons.append(f"planned surgical load (score {meta['surgery_score']}/10) is significantly increasing blood consumption")
 
     if meta["trauma_rate"] >= 7.5:
         reasons.append("elevated trauma intake is driving demand")

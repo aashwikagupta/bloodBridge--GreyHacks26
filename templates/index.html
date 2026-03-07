@@ -18,6 +18,12 @@
 
   <link rel="stylesheet" href="/static/style.css" />
 
+  {% if session_user %}
+  <script>
+    window.SESSION_USER = {{ session_user | tojson }};
+  </script>
+  {% endif %}
+
   {% if google_maps_key %}
   <!-- Google Maps API — activates when GOOGLE_MAPS_API_KEY env var is set -->
   <script>
@@ -148,6 +154,10 @@
         <span class="live-dot"></span>
         <span id="last-updated-text">Loading...</span>
       </div>
+      <button class="alert-bell-btn" id="alert-bell-btn" onclick="toggleAlertPanel()" title="View alerts">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 01-3.46 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <span class="alert-bell-count" id="alert-bell-count" style="display:none">0</span>
+      </button>
       <div class="user-pill">
         <div class="user-avatar" id="user-avatar">?</div>
         <div class="user-info-block">
@@ -158,19 +168,13 @@
     </div>
   </header>
 
-  <!-- Critical Alert Banner -->
-  <div id="alert-banner" class="alert-banner hidden">
-    <div class="alert-inner">
-      <div class="alert-icon-wrap">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 9V13M12 17H12.01M10.29 3.86L1.82 18A2 2 0 003.64 21H20.36A2 2 0 0022.18 18L13.71 3.86A2 2 0 0010.29 3.86Z" stroke="#ff1744" stroke-width="2" stroke-linecap="round"/></svg>
-      </div>
-      <div class="alert-scroll-wrap">
-        <span id="alert-text" class="alert-scroll-text"></span>
-      </div>
-      <button class="alert-close" onclick="document.getElementById('alert-banner').classList.add('hidden')">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-      </button>
+  <!-- Alert Panel (replaces scrolling ticker) -->
+  <div id="alert-panel" class="alert-panel hidden">
+    <div class="alert-panel-header">
+      <span class="alert-panel-title">Active Alerts</span>
+      <button onclick="toggleAlertPanel()" style="background:none;border:none;color:var(--text-3);cursor:pointer;font-size:16px">✕</button>
     </div>
+    <div id="alert-panel-list" class="alert-panel-list"></div>
   </div>
 
   <!-- Tab Navigation -->
@@ -201,51 +205,49 @@
 
     <!-- ===== TAB: DASHBOARD ===== -->
     <div id="tab-dashboard" class="tab-panel active">
-      <div class="kpi-row" id="kpi-row">
-        <div class="kpi-card">
-          <div class="kpi-icon kpi-blue">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M21 16V8a2 2 0 00-1-1.73L13 2.27a2 2 0 00-2 0L4 6.27A2 2 0 003 8v8a2 2 0 001 1.73l6 3.46a2 2 0 002 0l6-3.46A2 2 0 0021 16z" stroke="currentColor" stroke-width="1.8"/></svg>
-          </div>
-          <div class="kpi-body">
-            <span class="kpi-value" id="kpi-total-units">—</span>
-            <span class="kpi-label">Total Units in Network</span>
-          </div>
+
+      <!-- Summary Banner -->
+      <div class="summary-banner" id="summary-banner">
+        <div class="summary-chip summary-chip-red">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M12 9v4M12 17h.01M10.29 3.86L1.82 18A2 2 0 003.64 21H20.36A2 2 0 0022.18 18L13.71 3.86A2 2 0 0010.29 3.86Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          <span id="sb-critical">—</span> Critical Shortages
         </div>
-        <div class="kpi-card">
-          <div class="kpi-icon kpi-amber">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.8"/><path d="M12 6v6l4 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-          </div>
-          <div class="kpi-body">
-            <span class="kpi-value kpi-amber-text" id="kpi-expiry">—</span>
-            <span class="kpi-label">Units Near Expiry (&le;7 days)</span>
-          </div>
+        <div class="summary-chip summary-chip-amber">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><path d="M12 6v6l4 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          <span id="sb-expiry">—</span> Units Near Expiry
         </div>
-        <div class="kpi-card">
-          <div class="kpi-icon kpi-red">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M10.29 3.86L1.82 18A2 2 0 003.64 21H20.36A2 2 0 0022.18 18L13.71 3.86A2 2 0 0010.29 3.86Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M12 9v4M12 17h.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-          </div>
-          <div class="kpi-body">
-            <span class="kpi-value kpi-red-text" id="kpi-critical">—</span>
-            <span class="kpi-label">Critical Shortage Events</span>
-          </div>
+        <div class="summary-chip summary-chip-green">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M7 16L3 12M3 12L7 8M3 12H21M17 8L21 12M21 12L17 16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          <span id="sb-transfers">—</span> Transfer Opportunities
         </div>
-        <div class="kpi-card">
-          <div class="kpi-icon kpi-green">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M7 16L3 12M3 12L7 8M3 12H21M17 8L21 12M21 12L17 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-          </div>
-          <div class="kpi-body">
-            <span class="kpi-value kpi-green-text" id="kpi-transfers">—</span>
-            <span class="kpi-label">Transfer Opportunities</span>
-          </div>
+        <div class="summary-chip summary-chip-blue">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M21 16V8a2 2 0 00-1-1.73L13 2.27a2 2 0 00-2 0L4 6.27A2 2 0 003 8v8a2 2 0 001 1.73l6 3.46a2 2 0 002 0l6-3.46A2 2 0 0021 16z" stroke="currentColor" stroke-width="1.8"/></svg>
+          <span id="sb-units">—</span> Total Units
         </div>
       </div>
 
       <div class="dashboard-grid">
         <div class="dashboard-main">
+
+          <!-- Critical / Needs Attention section -->
+          <div id="critical-section" style="display:none; margin-bottom:24px">
+            <div class="section-header">
+              <div>
+                <h2 class="section-title" style="color:var(--red)">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" style="vertical-align:-2px;margin-right:6px"><path d="M12 9v4M12 17h.01M10.29 3.86L1.82 18A2 2 0 003.64 21H20.36A2 2 0 0022.18 18L13.71 3.86A2 2 0 0010.29 3.86Z" stroke="var(--red)" stroke-width="2" stroke-linecap="round"/></svg>
+                  Needs Attention
+                </h2>
+                <p class="section-subtitle">Blood types requiring immediate action at this hospital</p>
+              </div>
+            </div>
+            <div id="critical-cards" class="blood-grid"></div>
+          </div>
+
+          <!-- Full inventory -->
           <div class="section-header">
             <div>
               <h2 class="section-title">Blood Inventory</h2>
-              <p class="section-subtitle" id="hospital-name-display">Select a hospital from the header</p>
+              <p class="section-subtitle" id="hospital-name-display">Select a hospital from the header above</p>
             </div>
           </div>
           <div id="blood-type-grid" class="blood-grid">
@@ -256,21 +258,21 @@
           </div>
         </div>
 
+        <!-- Tabbed Sidebar -->
         <div class="dashboard-sidebar">
           <div class="alerts-panel">
-            <div class="panel-header">
-              <h3>Low Stock Alerts</h3>
-              <span class="badge badge-red" id="alert-count">0</span>
+            <div class="sidebar-tabs">
+              <button class="sidebar-tab active" id="tab-low-stock" onclick="switchSidebarTab('low-stock')">
+                Low Stock <span class="badge badge-red" id="alert-count">0</span>
+              </button>
+              <button class="sidebar-tab" id="tab-near-expiry" onclick="switchSidebarTab('near-expiry')">
+                Near Expiry <span class="badge badge-amber" id="expiry-count">0</span>
+              </button>
             </div>
-            <div id="alerts-list" class="alerts-list">
+            <div id="alerts-list" class="alerts-list sidebar-tab-content active-content">
               <div class="empty-state-sm">No alerts loaded</div>
             </div>
-            <div class="sidebar-divider"></div>
-            <div class="panel-header">
-              <h3>Near Expiry</h3>
-              <span class="badge badge-amber" id="expiry-count">0</span>
-            </div>
-            <div id="expiry-list" class="alerts-list">
+            <div id="expiry-list" class="alerts-list sidebar-tab-content" style="display:none">
               <div class="empty-state-sm">No alerts loaded</div>
             </div>
           </div>

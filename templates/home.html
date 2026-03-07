@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BloodBridge — Connecting Lives, Saving Lives</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --red: #ff1744; --cyan: #00d4ff; --green: #00e676;
+      --text: #f5f5f7; --text-2: #a1a1a6; --text-3: #6e6e73;
+      --bg: #000; --bg-1: #0a0a0a; --bg-card: rgba(255,255,255,0.05);
+      --border: rgba(255,255,255,0.1); --radius: 18px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg); color: var(--text);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 17px; line-height: 1.5; overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    button { cursor: pointer; font-family: inherit; border: none; }
+
+    /* ── NAV ── */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 48px; height: 52px;
+      background: rgba(0,0,0,0.72); backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .nav-logo { height: 30px; width: auto; }
+    .nav-center { display: flex; gap: 28px; }
+    .nav-link { font-size: 14px; color: var(--text-2); transition: color 0.2s; }
+    .nav-link:hover { color: var(--text); }
+    .nav-right { display: flex; gap: 10px; align-items: center; }
+    .nav-btn {
+      padding: 7px 18px; border-radius: 20px; font-size: 13px; font-weight: 500;
+      transition: all 0.2s;
+    }
+    .nav-btn-ghost {
+      background: transparent; border: 1px solid rgba(255,255,255,0.22); color: var(--text);
+    }
+    .nav-btn-ghost:hover { background: rgba(255,255,255,0.08); }
+    .nav-btn-red {
+      background: var(--red); color: white; font-weight: 600;
+      box-shadow: 0 2px 14px rgba(255,23,68,0.3);
+    }
+    .nav-btn-red:hover { background: #e0102e; transform: translateY(-1px); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh; padding: 140px 48px 100px;
+      display: flex; flex-direction: column; align-items: center;
+      justify-content: center; text-align: center; position: relative; overflow: hidden;
+    }
+    .hero-glow {
+      position: absolute; inset: 0; pointer-events: none;
+      background:
+        radial-gradient(ellipse 80% 55% at 50% -10%, rgba(255,23,68,0.14) 0%, transparent 65%),
+        radial-gradient(ellipse 50% 40% at 80% 90%, rgba(0,212,255,0.07) 0%, transparent 55%);
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px; position: relative;
+      padding: 6px 18px; border-radius: 20px; margin-bottom: 32px;
+      background: rgba(255,23,68,0.1); border: 1px solid rgba(255,23,68,0.22);
+      font-size: 13px; color: rgba(255,140,160,0.95); font-weight: 500;
+    }
+    .live-dot { width: 6px; height: 6px; background: var(--red); border-radius: 50%; animation: blink 1.8s ease infinite; }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.25} }
+
+    .hero h1 {
+      font-size: clamp(52px, 8.5vw, 100px); font-weight: 800;
+      letter-spacing: -3px; line-height: 1.02; margin-bottom: 26px; position: relative;
+    }
+    .hero h1 em { font-style: normal; color: var(--red); }
+    .hero-sub {
+      font-size: clamp(17px, 2.2vw, 22px); color: var(--text-2); font-weight: 400;
+      max-width: 620px; line-height: 1.6; margin-bottom: 44px; position: relative;
+    }
+    .hero-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-bottom: 80px; position: relative; }
+    .btn-primary {
+      padding: 17px 38px; background: var(--red); border-radius: 40px;
+      color: white; font-size: 17px; font-weight: 700; transition: all 0.25s;
+      box-shadow: 0 6px 32px rgba(255,23,68,0.38);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 44px rgba(255,23,68,0.48); }
+    .btn-secondary {
+      padding: 16px 38px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 40px; color: var(--text); font-size: 17px; font-weight: 600; transition: all 0.25s;
+    }
+    .btn-secondary:hover { background: rgba(255,255,255,0.14); }
+
+    .hero-stats {
+      display: flex; gap: 52px; align-items: center; position: relative; flex-wrap: wrap; justify-content: center;
+    }
+    .hero-stat { text-align: center; }
+    .hero-stat-num { font-size: 40px; font-weight: 800; color: var(--text); display: block; line-height: 1; }
+    .hero-stat-label { font-size: 13px; color: var(--text-3); margin-top: 5px; display: block; }
+    .stat-divider { width: 1px; height: 44px; background: rgba(255,255,255,0.1); }
+
+    /* ── MAP SECTION ── */
+    .map-section { padding: 100px 48px; text-align: center; }
+    .map-inner { max-width: 1240px; margin: 0 auto; }
+    .eyebrow {
+      font-size: 13px; font-weight: 600; letter-spacing: 1.8px; text-transform: uppercase;
+      color: var(--red); margin-bottom: 16px;
+    }
+    .section-h2 {
+      font-size: clamp(34px, 5.5vw, 60px); font-weight: 800;
+      letter-spacing: -1.5px; line-height: 1.08; margin-bottom: 18px;
+    }
+    .section-sub { font-size: 19px; color: var(--text-2); max-width: 560px; margin: 0 auto 52px; line-height: 1.6; }
+
+    #home-map {
+      width: 100%; height: 560px; border-radius: 24px; overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.07);
+      box-shadow: 0 40px 100px rgba(0,0,0,0.7), 0 0 0 1px rgba(255,255,255,0.04);
+    }
+    .map-legend-row { display: flex; justify-content: center; gap: 28px; margin-top: 22px; flex-wrap: wrap; }
+    .legend-item { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--text-3); }
+    .legend-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+
+    /* ── FEATURES ── */
+    .features-section { padding: 100px 48px; }
+    .features-inner { max-width: 1240px; margin: 0 auto; }
+    .features-header { text-align: center; margin-bottom: 60px; }
+    .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .feature-card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 36px 30px;
+      transition: background 0.25s, transform 0.25s;
+    }
+    .feature-card:hover { background: rgba(255,255,255,0.08); transform: translateY(-5px); }
+    .feature-icon {
+      width: 52px; height: 52px; border-radius: 14px;
+      display: flex; align-items: center; justify-content: center; margin-bottom: 22px;
+    }
+    .feature-h3 { font-size: 21px; font-weight: 700; margin-bottom: 12px; }
+    .feature-p { font-size: 15px; color: var(--text-2); line-height: 1.7; }
+
+    /* ── MISSION ── */
+    .mission-section {
+      padding: 100px 48px; text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(255,23,68,0.04) 0%, transparent 70%);
+    }
+    .mission-quote {
+      font-size: clamp(26px, 4vw, 46px); font-weight: 700; letter-spacing: -0.8px;
+      max-width: 900px; margin: 0 auto; line-height: 1.28;
+    }
+    .mission-quote em { font-style: normal; color: var(--red); }
+    .mission-meta { margin-top: 32px; font-size: 13px; color: rgba(255,255,255,0.25); }
+
+    /* ── FOOTER ── */
+    .footer {
+      padding: 30px 48px;
+      display: flex; align-items: center; justify-content: space-between;
+      font-size: 12px; color: rgba(255,255,255,0.28);
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+    .footer img { height: 22px; opacity: 0.4; }
+
+    /* ── MODAL ── */
+    .modal-overlay {
+      position: fixed; inset: 0; z-index: 500;
+      background: rgba(0,0,0,0.78); backdrop-filter: blur(12px);
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none; transition: opacity 0.22s;
+      padding: 20px;
+    }
+    .modal-overlay.active { opacity: 1; pointer-events: all; }
+    .modal-box {
+      background: #111; border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 26px; padding: 48px 44px;
+      width: 100%; max-width: 450px; position: relative;
+      transform: translateY(18px); transition: transform 0.28s;
+    }
+    .modal-overlay.active .modal-box { transform: translateY(0); }
+    .modal-close {
+      position: absolute; top: 20px; right: 20px;
+      width: 28px; height: 28px; border-radius: 50%;
+      background: rgba(255,255,255,0.08); border: none;
+      color: rgba(255,255,255,0.45); font-size: 14px;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; transition: background 0.2s;
+    }
+    .modal-close:hover { background: rgba(255,255,255,0.16); }
+    .modal-logo { height: 40px; margin-bottom: 28px; display: block; }
+    .modal-h2 { font-size: 28px; font-weight: 800; letter-spacing: -0.5px; margin-bottom: 6px; }
+    .modal-sub { font-size: 14px; color: var(--text-2); margin-bottom: 28px; }
+    .modal-form { display: flex; flex-direction: column; gap: 12px; }
+    .modal-input, .modal-select {
+      padding: 13px 16px; width: 100%;
+      background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.11);
+      border-radius: 12px; color: var(--text); font-size: 15px; font-family: inherit;
+      transition: border-color 0.2s; appearance: none;
+    }
+    .modal-input:focus, .modal-select:focus { outline: none; border-color: rgba(255,23,68,0.5); }
+    .modal-input::placeholder { color: rgba(255,255,255,0.28); }
+    .modal-select option { background: #1c1c1e; }
+    .modal-field { display: none; }
+    .modal-field.show { display: block; }
+    .modal-submit {
+      padding: 15px; background: var(--red); border-radius: 12px;
+      color: white; font-size: 16px; font-weight: 700; width: 100%;
+      transition: all 0.2s; box-shadow: 0 4px 22px rgba(255,23,68,0.3); margin-top: 4px;
+    }
+    .modal-submit:hover { background: #e0102e; transform: translateY(-1px); }
+    .modal-switch { text-align: center; font-size: 14px; color: var(--text-2); margin-top: 8px; }
+    .modal-switch span { color: var(--red); cursor: pointer; }
+    .modal-switch span:hover { text-decoration: underline; }
+    .modal-err { font-size: 13px; color: var(--red); display: none; margin-bottom: 4px; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .nav { padding: 0 24px; }
+      .nav-center { display: none; }
+      .hero { padding: 120px 24px 80px; }
+      .hero-stats { gap: 24px; }
+      .stat-divider { display: none; }
+      .map-section, .features-section, .mission-section { padding: 60px 24px; }
+      .features-grid { grid-template-columns: 1fr; gap: 14px; }
+      #home-map { height: 400px; }
+      .footer { flex-direction: column; gap: 10px; text-align: center; padding: 24px; }
+      .modal-box { padding: 36px 24px; }
+    }
+    @media (max-width: 600px) {
+      .features-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav class="nav">
+  <img src="/static/logo.png" alt="BloodBridge" class="nav-logo" />
+  <div class="nav-center">
+    <a href="#network" class="nav-link">Live Network</a>
+    <a href="#features" class="nav-link">Features</a>
+    <a href="#mission" class="nav-link">Mission</a>
+  </div>
+  <div class="nav-right">
+    <button class="nav-btn nav-btn-ghost" onclick="openModal('login')">Sign In</button>
+    <button class="nav-btn nav-btn-red" onclick="openModal('register')">Get Started</button>
+  </div>
+</nav>
+
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-glow"></div>
+
+  <div class="hero-badge">
+    <span class="live-dot"></span>
+    Live · 35 Facilities · Northeast US
+  </div>
+
+  <h1>Connecting Lives.<br><em>Saving Lives.</em></h1>
+
+  <p class="hero-sub">
+    Real-time blood supply intelligence that helps hospitals prevent
+    critical shortages before they happen.
+  </p>
+
+  <div class="hero-actions">
+    <button class="btn-primary" onclick="openModal('register')">Access Platform →</button>
+    <button class="btn-secondary" onclick="openModal('login')">Staff Sign In</button>
+  </div>
+
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <span class="hero-stat-num">35</span>
+      <span class="hero-stat-label">Northeast Facilities</span>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="hero-stat">
+      <span class="hero-stat-num" id="stat-units">—</span>
+      <span class="hero-stat-label">Units in Network</span>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="hero-stat">
+      <span class="hero-stat-num">8</span>
+      <span class="hero-stat-label">Blood Types Tracked</span>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="hero-stat">
+      <span class="hero-stat-num">24/7</span>
+      <span class="hero-stat-label">Live Monitoring</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- LIVE NETWORK MAP -->
+<section id="network" class="map-section">
+  <div class="map-inner">
+    <p class="eyebrow">Live Network</p>
+    <h2 class="section-h2">35 hospitals. One platform.</h2>
+    <p class="section-sub">Real-time blood availability across the Northeast — from Maine to Philadelphia.</p>
+    <div id="home-map"></div>
+    <div class="map-legend-row">
+      <div class="legend-item"><div class="legend-dot" style="background:#00e676"></div>Stable Supply</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#ffab40"></div>Low Stock</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#ff7043"></div>High Risk</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#ff1744"></div>Critical Shortage</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- FEATURES -->
+<section id="features" class="features-section">
+  <div class="features-inner">
+    <div class="features-header">
+      <p class="eyebrow">Platform Capabilities</p>
+      <h2 class="section-h2">Built for the front lines.</h2>
+      <p class="section-sub">Every tool designed for speed, clarity, and critical decision-making.</p>
+    </div>
+    <div class="features-grid">
+
+      <div class="feature-card">
+        <div class="feature-icon" style="background:rgba(255,23,68,0.1);border:1px solid rgba(255,23,68,0.2)">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" stroke="#ff1744" stroke-width="2" stroke-linecap="round"/></svg>
+        </div>
+        <h3 class="feature-h3">AI Shortage Predictions</h3>
+        <p class="feature-p">Machine learning model predicts blood shortages up to 7 days ahead — factoring in surgical schedules, trauma rates, seasonal demand, and expiry proximity.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon" style="background:rgba(0,212,255,0.1);border:1px solid rgba(0,212,255,0.2)">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="7" height="7" rx="1.5" stroke="#00d4ff" stroke-width="2"/><rect x="14" y="3" width="7" height="7" rx="1.5" stroke="#00d4ff" stroke-width="2"/><rect x="3" y="14" width="7" height="7" rx="1.5" stroke="#00d4ff" stroke-width="2"/><rect x="14" y="14" width="7" height="7" rx="1.5" stroke="#00d4ff" stroke-width="2"/></svg>
+        </div>
+        <h3 class="feature-h3">Real-time Inventory</h3>
+        <p class="feature-p">Live blood type inventory per hospital, with expiry tracking, days-of-supply calculations, and instant low-stock alerts across all 8 blood types.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon" style="background:rgba(0,230,118,0.1);border:1px solid rgba(0,230,118,0.2)">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M7 16L3 12M3 12L7 8M3 12H21M17 8L21 12M21 12L17 16" stroke="#00e676" stroke-width="2" stroke-linecap="round"/></svg>
+        </div>
+        <h3 class="feature-h3">Transfer Network</h3>
+        <p class="feature-p">Instantly identify the closest hospitals with surplus stock. Ranked by distance and supply, with estimated ground transport times across the region.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon" style="background:rgba(255,171,64,0.1);border:1px solid rgba(255,171,64,0.2)">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" stroke="#ffab40" stroke-width="2" stroke-linecap="round"/></svg>
+        </div>
+        <h3 class="feature-h3">Donor Hub</h3>
+        <p class="feature-p">Donors see exactly where their blood type is needed most, with nearby donation centers ranked by urgency and distance from their current location.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon" style="background:rgba(124,58,237,0.1);border:1px solid rgba(124,58,237,0.2)">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M3 3V21H21" stroke="#7c3aed" stroke-width="2" stroke-linecap="round"/><path d="M7 16L11 12L15 14L21 8" stroke="#7c3aed" stroke-width="2" stroke-linecap="round"/></svg>
+        </div>
+        <h3 class="feature-h3">Regional Analytics</h3>
+        <p class="feature-p">8-week demand trend charts, hospital stress rankings, blood type availability analysis, and network-wide coverage — all in one unified dashboard.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon" style="background:rgba(59,130,246,0.1);border:1px solid rgba(59,130,246,0.2)">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#3b82f6" stroke-width="2"/><path d="M12 6v6l4 2" stroke="#3b82f6" stroke-width="2" stroke-linecap="round"/></svg>
+        </div>
+        <h3 class="feature-h3">Expiry Monitoring</h3>
+        <p class="feature-p">Automated expiration date tracking with near-expiry alerts. Helps hospitals minimize waste and prioritize redistribution before units are lost.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- MISSION -->
+<section id="mission" class="mission-section">
+  <p class="eyebrow" style="margin-bottom:28px">Our Mission</p>
+  <p class="mission-quote">
+    "Every second counts in an emergency.
+    <em>BloodBridge ensures the right blood is in the right place</em>
+    — before the shortage ever begins."
+  </p>
+  <p class="mission-meta">GreyHacks Spring 2026 · Northeast Regional Blood Intelligence Platform · All data synthetic · Not for clinical use</p>
+</section>
+
+
+<!-- FOOTER -->
+<footer class="footer">
+  <img src="/static/logo.png" alt="BloodBridge" />
+  <span>© 2026 BloodBridge · GreyHacks Spring 2026 · Not for clinical use</span>
+  <span>35 hospitals · 9 states · 8 blood types</span>
+</footer>
+
+
+<!-- LOGIN MODAL -->
+<div id="login-modal" class="modal-overlay" onclick="bgClose(event,'login')">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('login')">✕</button>
+    <img src="/static/logo.png" class="modal-logo" alt="BloodBridge" />
+    <h2 class="modal-h2">Welcome back</h2>
+    <p class="modal-sub">Sign in to access the BloodBridge platform.</p>
+    <p id="login-err" class="modal-err"></p>
+    <div class="modal-form">
+      <input id="l-name" class="modal-input" type="text" placeholder="Full Name" autocomplete="off" />
+      <select id="l-role" class="modal-select" onchange="lRoleChange(this.value)">
+        <option value="" disabled selected>Select your role</option>
+        <option value="Donor">Blood Donor</option>
+        <option value="Hospital Admin">Hospital Admin</option>
+        <option value="Blood Bank Coordinator">Blood Bank Coordinator</option>
+        <option value="Emergency Operations Lead">Emergency Operations Lead</option>
+        <option value="Regional Health Officer">Regional Health Officer</option>
+        <option value="Transfusion Medicine Specialist">Transfusion Medicine Specialist</option>
+      </select>
+      <div id="l-hosp-field" class="modal-field">
+        <select id="l-hospital" class="modal-select">
+          <option value="" disabled selected>Select your hospital</option>
+        </select>
+      </div>
+      <div id="l-bt-field" class="modal-field">
+        <select id="l-donor-bt" class="modal-select">
+          <option value="" disabled selected>Your blood type</option>
+          <option value="O-">O−</option><option value="O+">O+</option>
+          <option value="A+">A+</option><option value="A-">A−</option>
+          <option value="B+">B+</option><option value="B-">B−</option>
+          <option value="AB+">AB+</option><option value="AB-">AB−</option>
+        </select>
+      </div>
+      <button class="modal-submit" onclick="doLogin()">Sign In →</button>
+    </div>
+    <p class="modal-switch">New user? <span onclick="switchModal('login','register')">Create an account</span></p>
+  </div>
+</div>
+
+
+<!-- REGISTER MODAL -->
+<div id="register-modal" class="modal-overlay" onclick="bgClose(event,'register')">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('register')">✕</button>
+    <img src="/static/logo.png" class="modal-logo" alt="BloodBridge" />
+    <h2 class="modal-h2">Get started</h2>
+    <p class="modal-sub">Join the Northeast Blood Intelligence Network.</p>
+    <p id="register-err" class="modal-err"></p>
+    <div class="modal-form">
+      <input id="r-name"  class="modal-input" type="text"  placeholder="Full Name" autocomplete="off" />
+      <input id="r-email" class="modal-input" type="email" placeholder="Email Address" autocomplete="off" />
+      <select id="r-role" class="modal-select" onchange="rRoleChange(this.value)">
+        <option value="" disabled selected>Select your role</option>
+        <option value="Donor">Blood Donor</option>
+        <option value="Hospital Admin">Hospital Admin</option>
+        <option value="Blood Bank Coordinator">Blood Bank Coordinator</option>
+        <option value="Emergency Operations Lead">Emergency Operations Lead</option>
+        <option value="Regional Health Officer">Regional Health Officer</option>
+        <option value="Transfusion Medicine Specialist">Transfusion Medicine Specialist</option>
+      </select>
+      <div id="r-hosp-field" class="modal-field">
+        <select id="r-hospital" class="modal-select">
+          <option value="" disabled selected>Select your hospital</option>
+        </select>
+      </div>
+      <div id="r-bt-field" class="modal-field">
+        <select id="r-donor-bt" class="modal-select">
+          <option value="" disabled selected>Your blood type</option>
+          <option value="O-">O−</option><option value="O+">O+</option>
+          <option value="A+">A+</option><option value="A-">A−</option>
+          <option value="B+">B+</option><option value="B-">B−</option>
+          <option value="AB+">AB+</option><option value="AB-">AB−</option>
+        </select>
+      </div>
+      <button class="modal-submit" onclick="doRegister()">Create Account →</button>
+    </div>
+    <p class="modal-switch">Already have an account? <span onclick="switchModal('register','login')">Sign in</span></p>
+  </div>
+</div>
+
+
+<script>
+"use strict";
+
+// ── Data ─────────────────────────────────────────────────────────────────────
+let hospitals = [];
+
+const DARK_STYLE = [
+  { elementType:"geometry",           stylers:[{color:"#0a0f1e"}] },
+  { elementType:"labels.icon",        stylers:[{visibility:"off"}] },
+  { elementType:"labels.text.fill",   stylers:[{color:"#8fa8c8"}] },
+  { elementType:"labels.text.stroke", stylers:[{color:"#0a0f1e"}] },
+  { featureType:"administrative", elementType:"geometry", stylers:[{color:"#1a2d50"}] },
+  { featureType:"poi",    stylers:[{visibility:"off"}] },
+  { featureType:"road",   elementType:"geometry",        stylers:[{color:"#1a2d50"}] },
+  { featureType:"road",   elementType:"geometry.stroke", stylers:[{color:"#0f1a34"}] },
+  { featureType:"road.highway", elementType:"geometry",  stylers:[{color:"#243d66"}] },
+  { featureType:"transit",      stylers:[{visibility:"off"}] },
+  { featureType:"water",  elementType:"geometry",        stylers:[{color:"#060b18"}] },
+];
+
+const STATUS_COLOR = { stable:"#00e676", warning:"#ffab40", high_risk:"#ff7043", critical:"#ff1744" };
+
+async function loadHospitals() {
+  if (hospitals.length) return;
+  try {
+    const r = await fetch("/api/hospitals");
+    hospitals = await r.json();
+    const total = hospitals.reduce((s,h) => s + h.total_units, 0);
+    document.getElementById("stat-units").textContent = total.toLocaleString();
+    populateHospitalSelects();
+  } catch(e) {}
+}
+
+// ── Google Maps ───────────────────────────────────────────────────────────────
+window.initHomeMap = async function() {
+  await loadHospitals();
+
+  const map = new google.maps.Map(document.getElementById("home-map"), {
+    center: { lat: 42.4, lng: -72.0 }, zoom: 7,
+    styles: DARK_STYLE, mapTypeId: "roadmap",
+    disableDefaultUI: true, zoomControl: true,
+  });
+
+  hospitals.forEach(h => {
+    const color  = STATUS_COLOR[h.status] || "#7a9cc0";
+    const scale  = 9 + Math.min(h.avg_shortage_score * 5, 8);
+
+    const marker = new google.maps.Marker({
+      position: { lat: h.latitude, lng: h.longitude }, map,
+      title: h.name,
+      icon: {
+        path: google.maps.SymbolPath.CIRCLE,
+        fillColor: color, fillOpacity: 0.95,
+        strokeWeight: 2, strokeColor: "#fff", scale,
+      },
+    });
+
+    new google.maps.Circle({
+      map, center: { lat: h.latitude, lng: h.longitude },
+      radius: 20000, fillColor: color, fillOpacity: 0.07,
+      strokeColor: color, strokeOpacity: 0.25, strokeWeight: 1,
+    });
+
+    const iw = new google.maps.InfoWindow({
+      content: `<div style="background:#111;padding:13px 15px;border-radius:10px;min-width:195px;font-family:'Inter',sans-serif">
+        <div style="font-weight:700;font-size:14px;color:#f5f5f7;margin-bottom:3px">${h.name}</div>
+        <div style="font-size:12px;color:#6e6e73;margin-bottom:9px">${h.city}, ${h.state}</div>
+        <div style="display:flex;justify-content:space-between;font-size:13px">
+          <span style="color:${color};font-weight:700">${h.status.replace(/_/g," ").toUpperCase()}</span>
+          <span style="color:#888">${h.total_units.toLocaleString()} units</span>
+        </div>
+      </div>`,
+    });
+    marker.addListener("click", () => iw.open(map, marker));
+  });
+};
+
+// ── Modal ─────────────────────────────────────────────────────────────────────
+function openModal(id) {
+  document.getElementById(id + "-modal").classList.add("active");
+  document.body.style.overflow = "hidden";
+}
+function closeModal(id) {
+  document.getElementById(id + "-modal").classList.remove("active");
+  document.body.style.overflow = "";
+}
+function bgClose(e, id) {
+  if (e.target === document.getElementById(id + "-modal")) closeModal(id);
+}
+function switchModal(from, to) {
+  closeModal(from);
+  setTimeout(() => openModal(to), 180);
+}
+
+// ── Role toggles ──────────────────────────────────────────────────────────────
+function lRoleChange(role) {
+  document.getElementById("l-hosp-field").classList.toggle("show", role !== "Donor");
+  document.getElementById("l-bt-field").classList.toggle("show",   role === "Donor");
+}
+function rRoleChange(role) {
+  document.getElementById("r-hosp-field").classList.toggle("show", role !== "Donor");
+  document.getElementById("r-bt-field").classList.toggle("show",   role === "Donor");
+}
+
+function populateHospitalSelects() {
+  ["l-hospital","r-hospital"].forEach(id => {
+    const sel = document.getElementById(id);
+    hospitals.forEach(h => {
+      const opt = document.createElement("option");
+      opt.value = h.name;
+      opt.textContent = `${h.name} — ${h.city}, ${h.state}`;
+      sel.appendChild(opt);
+    });
+  });
+}
+
+// ── Login ─────────────────────────────────────────────────────────────────────
+async function doLogin() {
+  const name    = document.getElementById("l-name").value.trim();
+  const role    = document.getElementById("l-role").value;
+  const hosp    = document.getElementById("l-hospital").value;
+  const donorBT = document.getElementById("l-donor-bt").value;
+  const err     = document.getElementById("login-err");
+
+  if (!name || !role) { showErr(err,"Please enter your name and select a role."); return; }
+  if (role !== "Donor" && !hosp) { showErr(err,"Please select your hospital."); return; }
+  if (role === "Donor" && !donorBT) { showErr(err,"Please select your blood type."); return; }
+  err.style.display = "none";
+
+  try {
+    const r = await fetch("/api/login", {
+      method:"POST", headers:{"Content-Type":"application/json"},
+      body: JSON.stringify({ name, role, hospital: hosp, donor_blood_type: donorBT }),
+    });
+    const d = await r.json();
+    if (d.success) { window.location.href = "/app"; }
+    else { showErr(err, d.error || "Login failed."); }
+  } catch(e) { showErr(err,"Network error — is the server running?"); }
+}
+
+// ── Register ──────────────────────────────────────────────────────────────────
+async function doRegister() {
+  const name    = document.getElementById("r-name").value.trim();
+  const email   = document.getElementById("r-email").value.trim();
+  const role    = document.getElementById("r-role").value;
+  const hosp    = document.getElementById("r-hospital").value;
+  const donorBT = document.getElementById("r-donor-bt").value;
+  const err     = document.getElementById("register-err");
+
+  if (!name || !email || !role) { showErr(err,"Please fill in all required fields."); return; }
+  if (role !== "Donor" && !hosp) { showErr(err,"Please select your hospital."); return; }
+  if (role === "Donor" && !donorBT) { showErr(err,"Please select your blood type."); return; }
+  err.style.display = "none";
+
+  try {
+    const r = await fetch("/api/register", {
+      method:"POST", headers:{"Content-Type":"application/json"},
+      body: JSON.stringify({ name, email, role, hospital: hosp, donor_blood_type: donorBT }),
+    });
+    const d = await r.json();
+    if (d.success) { window.location.href = "/app"; }
+    else { showErr(err, d.error || "Registration failed."); }
+  } catch(e) { showErr(err,"Network error — is the server running?"); }
+}
+
+function showErr(el, msg) { el.textContent = msg; el.style.display = "block"; }
+
+// Auto-open login if ?login=1
+if (new URLSearchParams(location.search).get("login")) openModal("login");
+
+// Pre-load hospital data for selects
+loadHospitals();
+</script>
+
+<!-- Google Maps -->
+<script async
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDEC5q2mRtxTZn4-Fh1_rtWvZmPV6pff9M&callback=initHomeMap">
+</script>
+
+</body>
+</html>
