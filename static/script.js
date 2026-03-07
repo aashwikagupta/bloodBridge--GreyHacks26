@@ -259,7 +259,10 @@ async function bootApp() {
 // ---------------------------------------------------------------------------
 
 function switchTab(tabId, btn) {
-  document.querySelectorAll(".tab-panel").forEach(p => p.classList.remove("active"));
+  document.querySelectorAll(".tab-panel").forEach(p => {
+    p.classList.remove("active");
+    p.classList.remove("hidden");
+  });
   document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
 
   const panel = el(`tab-${tabId}`);
@@ -373,49 +376,31 @@ function renderBloodTypeGrid(inventory, hospitalName) {
   );
 
   grid.innerHTML = inventory.map(item => {
-    const barW    = supplyBarWidth(item.days_of_supply);
-    const barClr  = supplyBarColor(item.status);
-    const badges  = [];
-    if (item.near_expiry_flag)
-      badges.push(`<span class="badge badge-amber">Expiring Soon</span>`);
-    if (item.low_stock_flag)
-      badges.push(`<span class="badge badge-red">Low Stock</span>`);
-    if (item.status === "stable" && !item.near_expiry_flag)
-      badges.push(`<span class="badge badge-green">Adequate</span>`);
+    const barW   = supplyBarWidth(item.days_of_supply);
+    const barClr = supplyBarColor(item.status);
+    const statusLabel = { stable: "Adequate", warning: "Low Stock", high_risk: "High Risk", critical: "Critical" }[item.status] || item.status;
 
     return `
       <div class="bt-card status-${item.status}">
-        <div class="bt-type-label">${item.blood_type}</div>
-        <div>
+        <div class="bt-card-top">
+          <span class="bt-type-label">${item.blood_type}</span>
+          <span class="bt-status-chip chip-${item.status}">${statusLabel}</span>
+        </div>
+        <div class="bt-units-row">
           <span class="bt-units">${fmt(item.total_units)}</span>
-          <span class="bt-units-label"> units</span>
+          <span class="bt-units-label">units</span>
         </div>
         <div class="supply-bar-track">
           <div class="supply-bar-fill" style="width:${barW}%;background:${barClr}"></div>
         </div>
-        <div class="bt-meta">
-          <div class="bt-meta-row">
-            <span class="bt-meta-key">Daily usage</span>
-            <span class="bt-meta-val">${item.daily_usage}u/day</span>
-          </div>
-          <div class="bt-meta-row">
-            <span class="bt-meta-key">Days supply</span>
-            <span class="bt-meta-val" style="color:${barClr}">${item.days_of_supply}d</span>
-          </div>
-          <div class="bt-meta-row">
-            <span class="bt-meta-key">Nearest expiry</span>
-            <span class="bt-meta-val">${item.days_until_earliest_expiry}d</span>
-          </div>
-          ${item.near_expiry_units > 0 ? `
-          <div class="bt-meta-row">
-            <span class="bt-meta-key">Near-expiry units</span>
-            <span class="bt-meta-val" style="color:var(--amber)">${item.near_expiry_units}u</span>
-          </div>` : ""}
+        <div class="bt-footer">
+          <span class="bt-footer-key">${item.daily_usage}u/day</span>
+          <span class="bt-footer-val" style="color:${barClr}">${item.days_of_supply}d supply</span>
         </div>
-        <div class="bt-badges">${badges.join("")}</div>
+        ${item.near_expiry_units > 0 ? `<div class="bt-expiry-warn">⚑ ${item.near_expiry_units} units expiring</div>` : ""}
         ${item.status !== "stable" ? `
         <button class="bt-transfer-btn" onclick="requestTransfer('${item.blood_type}', '${hospitalName.replace(/'/g, "\\'")}')">
-          Find Transfer Partner →
+          Request Transfer →
         </button>` : ""}
       </div>`;
   }).join("");
@@ -650,21 +635,22 @@ function handleDonateNow() {
 function initExchangeTab() {
   if (mapInitialized) {
     // Map already up — just invalidate size for Leaflet layout refresh
-    if (mapInstance) setTimeout(() => mapInstance.invalidateSize(), 50);
+    if (mapInstance) setTimeout(() => mapInstance.invalidateSize(), 120);
     return;
   }
 
-  if (window.GOOGLE_MAPS_KEY_SET && typeof google !== "undefined" && google.maps) {
-    // Google Maps is loaded — use it
-    initGoogleMapsMap();
-  } else if (!window.GOOGLE_MAPS_KEY_SET) {
-    // No key — use Leaflet
-    initLeafletMap();
-  } else {
-    // Google Maps key set but SDK not yet loaded (async) — fall back to Leaflet
-    initLeafletMap();
-    el("map-type-indicator").textContent = "Leaflet (Google Maps loading...)";
-  }
+  // Delay so the tab panel finishes rendering to its final dimensions
+  // before Leaflet reads the container size
+  setTimeout(() => {
+    if (window.GOOGLE_MAPS_KEY_SET && typeof google !== "undefined" && google.maps) {
+      initGoogleMapsMap();
+    } else {
+      initLeafletMap();
+      if (window.GOOGLE_MAPS_KEY_SET) {
+        el("map-type-indicator").textContent = "Leaflet (Google Maps loading...)";
+      }
+    }
+  }, 80);
 }
 
 function initLeafletMap() {

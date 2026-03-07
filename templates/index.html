@@ -255,8 +255,10 @@
       <div class="dashboard-grid">
         <div class="dashboard-main">
           <div class="section-header">
-            <h2 class="section-title">Blood Inventory</h2>
-            <span class="section-subtitle" id="hospital-name-display">Select a hospital above</span>
+            <div>
+              <h2 class="section-title">Blood Inventory</h2>
+              <p class="section-subtitle" id="hospital-name-display">Select a hospital from the header</p>
+            </div>
           </div>
           <div id="blood-type-grid" class="blood-grid">
             <div class="empty-state">
@@ -275,9 +277,7 @@
             <div id="alerts-list" class="alerts-list">
               <div class="empty-state-sm">No alerts loaded</div>
             </div>
-          </div>
-
-          <div class="alerts-panel" style="margin-top:16px">
+            <div class="sidebar-divider"></div>
             <div class="panel-header">
               <h3>Near Expiry</h3>
               <span class="badge badge-amber" id="expiry-count">0</span>
@@ -292,7 +292,7 @@
 
 
     <!-- ===== TAB: DONOR HUB ===== -->
-    <div id="tab-donor" class="tab-panel hidden">
+    <div id="tab-donor" class="tab-panel">
 
       <!-- Hero -->
       <div class="donor-hero">
@@ -398,7 +398,7 @@
 
 
     <!-- ===== TAB: EXCHANGE NETWORK ===== -->
-    <div id="tab-exchange" class="tab-panel hidden">
+    <div id="tab-exchange" class="tab-panel">
       <div class="exchange-layout">
         <div class="map-container">
           <div class="map-toolbar">
@@ -443,10 +443,10 @@
               <label>Blood Type Needed</label>
               <select id="transfer-bt" class="form-select">
                 <option value="">Select type...</option>
-                <option>O−</option><option>O+</option>
-                <option>A+</option><option>A−</option>
-                <option>B+</option><option>B−</option>
-                <option>AB+</option><option>AB−</option>
+                <option value="O-">O−</option><option value="O+">O+</option>
+                <option value="A+">A+</option><option value="A-">A−</option>
+                <option value="B+">B+</option><option value="B-">B−</option>
+                <option value="AB+">AB+</option><option value="AB-">AB−</option>
               </select>
             </div>
             <button class="btn-primary" onclick="runTransferRecommendation()">
@@ -475,7 +475,7 @@
 
 
     <!-- ===== TAB: AI PREDICTIONS ===== -->
-    <div id="tab-predictions" class="tab-panel hidden">
+    <div id="tab-predictions" class="tab-panel">
       <div class="risk-summary-row" id="risk-summary-row">
         <div class="risk-summary-card stable">
           <span class="risk-summary-num" id="risk-stable">—</span>
@@ -529,7 +529,7 @@
 
 
     <!-- ===== TAB: ANALYTICS ===== -->
-    <div id="tab-analytics" class="tab-panel hidden">
+    <div id="tab-analytics" class="tab-panel">
       <div class="kpi-row">
         <div class="kpi-card">
           <div class="kpi-icon kpi-blue">
