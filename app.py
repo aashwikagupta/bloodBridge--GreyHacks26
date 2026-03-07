@@ -1,7 +1,7 @@
 """
 app.py
 ------
-BloodBridge Flask backend.
+bloodBridge Flask backend.
 Loads (or regenerates) dataset.csv, trains the shortage predictor,
 and exposes REST API endpoints consumed by the single-page frontend.
 """
@@ -55,7 +55,7 @@ def load_data() -> pd.DataFrame:
             need_regen = True
 
     if need_regen:
-        print("[BloodBridge] Generating Northeast dataset...")
+        print("[bloodBridge] Generating Northeast dataset...")
         df = generate_dataset()
         df.to_csv(DATASET_PATH, index=False)
     else:
@@ -66,7 +66,7 @@ def load_data() -> pd.DataFrame:
 
 df = load_data()
 train_model(df)
-print(f"[BloodBridge] Ready — {len(df)} records, {df['hospital_name'].nunique()} hospitals.")
+print(f"[bloodBridge] Ready — {len(df)} records, {df['hospital_name'].nunique()} hospitals.")
 
 
 # ---------------------------------------------------------------------------

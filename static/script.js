@@ -1,5 +1,5 @@
 /**
- * script.js — BloodBridge Frontend
+ * script.js — bloodBridge Frontend
  *
  * Handles:
  *   - Login / role-aware app entry (staff vs donor)
@@ -61,19 +61,19 @@ const RISK_LABELS = {
   0: "Stable", 1: "Watchlist", 2: "High Risk", 3: "Critical",
 };
 
-// Dark theme for Google Maps
+// Pure black theme for Google Maps
 const GOOGLE_MAPS_DARK_STYLE = [
-  { elementType: "geometry",           stylers: [{ color: "#0a1225" }] },
+  { elementType: "geometry",           stylers: [{ color: "#000000" }] },
   { elementType: "labels.icon",        stylers: [{ visibility: "off" }] },
-  { elementType: "labels.text.fill",   stylers: [{ color: "#9bb8d8" }] },
-  { elementType: "labels.text.stroke", stylers: [{ color: "#0a1225" }] },
-  { featureType: "administrative",     elementType: "geometry", stylers: [{ color: "#1a2d50" }] },
+  { elementType: "labels.text.fill",   stylers: [{ color: "#c8daf0" }] },
+  { elementType: "labels.text.stroke", stylers: [{ color: "#000000" }] },
+  { featureType: "administrative",     elementType: "geometry", stylers: [{ color: "#1a1a1a" }] },
   { featureType: "poi",                stylers: [{ visibility: "off" }] },
-  { featureType: "road",               elementType: "geometry",        stylers: [{ color: "#1a2d50" }] },
-  { featureType: "road",               elementType: "geometry.stroke",  stylers: [{ color: "#0f1a34" }] },
-  { featureType: "road.highway",       elementType: "geometry",        stylers: [{ color: "#243d66" }] },
+  { featureType: "road",               elementType: "geometry",        stylers: [{ color: "#1a1a1a" }] },
+  { featureType: "road",               elementType: "geometry.stroke",  stylers: [{ color: "#0d0d0d" }] },
+  { featureType: "road.highway",       elementType: "geometry",        stylers: [{ color: "#2a2a2a" }] },
   { featureType: "transit",            stylers: [{ visibility: "off" }] },
-  { featureType: "water",              elementType: "geometry",        stylers: [{ color: "#060b18" }] },
+  { featureType: "water",              elementType: "geometry",        stylers: [{ color: "#000000" }] },
 ];
 
 // Northeast map center
@@ -88,7 +88,7 @@ const NE_ZOOM            = 7;
 
 function el(id) { return document.getElementById(id); }
 function setText(id, val) { const e = el(id); if (e) e.textContent = val; }
-function fmt(n) { return typeof n === "number" ? n.toLocaleString() : n; }
+function fmt(n) { return typeof n === "number" ? n.toLocaleString("en-US") : n; }
 
 function statusBadgeHTML(status) {
   const labels = { stable: "Stable", warning: "Warning", high_risk: "High Risk", critical: "Critical" };
@@ -251,7 +251,7 @@ async function doLogout() {
     // Populate home tab stat
     const total = allHospitals.reduce((s, h) => s + h.total_units, 0);
     const su = el("home-stat-units");
-    if (su) su.textContent = total.toLocaleString();
+    if (su) su.textContent = total.toLocaleString("en-US");
   } catch (e) {
     console.warn("Could not preload hospitals:", e);
   }
@@ -818,11 +818,17 @@ function initLeafletMap() {
 }
 
 // Unified Google Maps API ready callback
+let pendingHomeMap = false;
 window.onGoogleMapsReady = function() {
   window.googleMapsReady = true;
-  // Initialize home tab map if it's visible and not yet done
-  if (el("home-map") && !el("home-map")._initialized) {
+  if (pendingHomeMap) {
+    pendingHomeMap = false;
     initHomeMap();
+  }
+  // Also init exchange map if it's waiting
+  if (pendingHeatmap) {
+    drawGoogleMarkers(heatmapData);
+    pendingHeatmap = false;
   }
 };
 
@@ -839,54 +845,67 @@ window.initGoogleMap = function() {
   initGoogleMapsMap();
 };
 
-// Home tab map — uses Leaflet (always available) with dark tiles
+// Home tab map — Google Maps with pending flag for async load
 function initHomeMap() {
   const mapDiv = el("home-map");
   if (!mapDiv) return;
   if (mapDiv._initialized) return;
+
+  // If Google Maps not loaded yet, set flag — onGoogleMapsReady will retry
+  if (typeof google === "undefined" || !google.maps) {
+    pendingHomeMap = true;
+    return;
+  }
+
   mapDiv._initialized = true;
-  homeMapInitialized = true;
+  homeMapInitialized  = true;
 
-  const STATUS_COLOR = { stable: "#00e676", warning: "#ffab40", high_risk: "#ff7043", critical: "#ff1744" };
+  const STATUS_COLOR = { stable: "#00ff88", warning: "#ffcc00", high_risk: "#ff6a1a", critical: "#ff0033" };
 
-  // Always use Leaflet — no Google Maps timing dependency
-  const hMap = L.map(mapDiv, {
-    center: [42.4, -72.0],
+  const hMap = new google.maps.Map(mapDiv, {
+    center: { lat: 42.4, lng: -72.0 },
     zoom: 7,
+    styles: GOOGLE_MAPS_DARK_STYLE,
+    mapTypeId: google.maps.MapTypeId.ROADMAP,
+    disableDefaultUI: false,
     zoomControl: true,
+    streetViewControl: false,
+    mapTypeControl: false,
+    fullscreenControl: false,
   });
 
-  // Dark tile layer
-  L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png", {
-    attribution: "© OpenStreetMap contributors © CARTO",
-    maxZoom: 18,
-  }).addTo(hMap);
-
   allHospitals.forEach(h => {
-    const color  = STATUS_COLOR[h.status] || "#7a9cc0";
-    const radius = 16000 + (h.avg_shortage_score || 0) * 18000;
+    const color = STATUS_COLOR[h.status] || "#7a9cc0";
+    const scale = 10 + Math.min((h.avg_shortage_score || 0) * 6, 10);
 
-    L.circle([h.latitude, h.longitude], {
-      radius, color, fillColor: color, fillOpacity: 0.09, weight: 1, opacity: 0.35,
-    }).addTo(hMap);
-
-    const icon = L.divIcon({
-      className: "",
-      html: `<div style="width:12px;height:12px;background:${color};border:2px solid rgba(255,255,255,0.85);border-radius:50%;box-shadow:0 0 8px ${color}aa"></div>`,
-      iconSize: [12, 12], iconAnchor: [6, 6],
+    const marker = new google.maps.Marker({
+      position: { lat: h.latitude, lng: h.longitude },
+      map: hMap,
+      title: h.name,
+      icon: {
+        path: google.maps.SymbolPath.CIRCLE,
+        fillColor: color, fillOpacity: 1,
+        strokeWeight: 2, strokeColor: "#000", scale,
+      },
     });
 
-    L.marker([h.latitude, h.longitude], { icon })
-      .addTo(hMap)
-      .bindPopup(`
-        <div style="padding:6px 2px;font-family:'Inter',sans-serif">
-          <div style="font-weight:700;font-size:13px;color:#f5f5f7;margin-bottom:2px">${h.name}</div>
-          <div style="font-size:11px;color:#9bb8d8;margin-bottom:6px">${h.city}, ${h.state}</div>
-          <div style="display:flex;gap:10px;font-size:12px">
-            <span style="color:${color};font-weight:700">${h.status.replace(/_/g," ").toUpperCase()}</span>
-            <span style="color:#7a9cc0">${h.total_units.toLocaleString()} units</span>
-          </div>
-        </div>`, { maxWidth: 220 });
+    new google.maps.Circle({
+      map: hMap, center: { lat: h.latitude, lng: h.longitude },
+      radius: 22000, fillColor: color, fillOpacity: 0.06,
+      strokeColor: color, strokeOpacity: 0.3, strokeWeight: 1,
+    });
+
+    const iw = new google.maps.InfoWindow({
+      content: `<div style="background:#000;border:1px solid #2a2a2a;padding:13px 15px;border-radius:10px;min-width:200px;font-family:'Inter',sans-serif">
+        <div style="font-weight:700;font-size:14px;color:#fff;margin-bottom:3px">${h.name}</div>
+        <div style="font-size:12px;color:#7a9ab8;margin-bottom:9px">${h.city}, ${h.state}</div>
+        <div style="display:flex;justify-content:space-between;font-size:13px">
+          <span style="color:${color};font-weight:700">${h.status.replace(/_/g," ").toUpperCase()}</span>
+          <span style="color:#7a9ab8">${h.total_units.toLocaleString("en-US")} units</span>
+        </div>
+      </div>`,
+    });
+    marker.addListener("click", () => iw.open(hMap, marker));
   });
 }
 
@@ -1001,7 +1020,7 @@ function drawGoogleMarkers(data) {
     });
 
     const infoWindow = new google.maps.InfoWindow({
-      content: `<div style="background:#0d1530;padding:12px;border-radius:8px;min-width:200px">${buildMapPopupHTML(h)}</div>`,
+      content: `<div style="background:#080808;padding:12px;border-radius:8px;min-width:200px">${buildMapPopupHTML(h)}</div>`,
     });
 
     marker.addListener("click", () => {
@@ -1037,12 +1056,12 @@ function buildMapPopupHTML(h) {
   const color = intensityToColor(h.stress_intensity);
   return `
     <div style="padding:4px 2px">
-      <div style="font-weight:700;font-size:14px;color:#e8f0fe;margin-bottom:5px">${h.hospital}</div>
-      <div style="font-size:12px;color:#9bb8d8;margin-bottom:7px">${h.city}</div>
+      <div style="font-weight:700;font-size:14px;color:#ffffff;margin-bottom:5px">${h.hospital}</div>
+      <div style="font-size:12px;color:#c8daf0;margin-bottom:7px">${h.city}</div>
       <div style="font-size:12px;display:flex;gap:8px;align-items:center">
         <span style="color:${color};font-weight:700">${stressLabel}</span>
         <span style="color:#5a7a9e">·</span>
-        <span style="color:#9bb8d8">${h.total_units} units</span>
+        <span style="color:#c8daf0">${h.total_units} units</span>
       </div>
       <div style="font-size:11px;color:#5a7a9e;margin-top:5px">
         ${h.critical_types} critical type(s) · ${h.near_expiry_batches} near-expiry batch(es)
@@ -1116,7 +1135,7 @@ async function filterMapByBloodType(bt, btn) {
         const units   = info ? info.units : 0;
         const days    = info ? info.days_of_supply : 0;
         const iw      = new google.maps.InfoWindow({
-          content: `<div style="background:#0d1530;padding:10px;border-radius:8px"><b style="color:#e8f0fe">${h.hospital}</b><br><span style="color:${color};font-weight:700">${bt}: ${units} units · ${days}d supply</span></div>`,
+          content: `<div style="background:#080808;padding:10px;border-radius:8px"><b style="color:#ffffff">${h.hospital}</b><br><span style="color:${color};font-weight:700">${bt}: ${units} units · ${days}d supply</span></div>`,
         });
         marker.addListener("click", () => { iw.open(googleMap, marker); loadHospitalDetailPanel(h.hospital); });
         mapMarkers.push(marker);
@@ -1130,7 +1149,7 @@ async function filterMapByBloodType(bt, btn) {
         const days    = info ? info.days_of_supply : 0;
         const marker  = L.marker([h.lat, h.lon], { icon })
           .addTo(mapInstance)
-          .bindPopup(`<div style="padding:4px 2px"><b style="color:#e8f0fe">${h.hospital}</b><br><span style="color:#9bb8d8">${h.city}</span><br><span style="font-family:monospace;font-size:13px;color:#e8f0fe">${bt}</span><br><span style="color:${color};font-weight:700">${units} units · ${days}d supply</span></div>`, { maxWidth: 200 });
+          .bindPopup(`<div style="padding:4px 2px"><b style="color:#ffffff">${h.hospital}</b><br><span style="color:#c8daf0">${h.city}</span><br><span style="font-family:monospace;font-size:13px;color:#ffffff">${bt}</span><br><span style="color:${color};font-weight:700">${units} units · ${days}d supply</span></div>`, { maxWidth: 200 });
         marker.on("click", () => loadHospitalDetailPanel(h.hospital));
         mapMarkers.push(marker);
       }
@@ -1471,11 +1490,11 @@ function buildRiskDoughnut(summary) {
       plugins: {
         legend: {
           position: "bottom",
-          labels: { color: "#9bb8d8", font: { size: 11, family: "Inter" }, padding: 14, boxWidth: 12 },
+          labels: { color: "#c8daf0", font: { size: 11, family: "Inter" }, padding: 14, boxWidth: 12 },
         },
         tooltip: {
-          backgroundColor: "#0d1530", borderColor: "#1a2d50", borderWidth: 1,
-          titleColor: "#e8f0fe", bodyColor: "#9bb8d8",
+          backgroundColor: "#080808", borderColor: "#2a2a2a", borderWidth: 1,
+          titleColor: "#ffffff", bodyColor: "#c8daf0",
         },
       },
     },
@@ -1572,12 +1591,12 @@ function buildInventoryChart(data) {
     options: {
       responsive: true, maintainAspectRatio: false,
       plugins: {
-        legend:  { labels: { color: "#9bb8d8", font: { size: 11, family: "Inter" } } },
-        tooltip: { backgroundColor: "#0d1530", borderColor: "#1a2d50", borderWidth: 1, titleColor: "#e8f0fe", bodyColor: "#9bb8d8" },
+        legend:  { labels: { color: "#c8daf0", font: { size: 11, family: "Inter" } } },
+        tooltip: { backgroundColor: "#080808", borderColor: "#2a2a2a", borderWidth: 1, titleColor: "#ffffff", bodyColor: "#c8daf0" },
       },
       scales: {
-        x: { grid: { color: "#1a2d5040" }, ticks: { color: "#5a7a9e", font: { family: "JetBrains Mono", size: 11 } } },
-        y: { grid: { color: "#1a2d5040" }, ticks: { color: "#5a7a9e", font: { size: 11 } } },
+        x: { grid: { color: "#2a2a2a40" }, ticks: { color: "#5a7a9e", font: { family: "JetBrains Mono", size: 11 } } },
+        y: { grid: { color: "#2a2a2a40" }, ticks: { color: "#5a7a9e", font: { size: 11 } } },
       },
     },
   });
@@ -1605,16 +1624,16 @@ function buildDemandTrendChart(data) {
     options: {
       responsive: true, maintainAspectRatio: false,
       plugins: {
-        legend:  { labels: { color: "#9bb8d8", font: { size: 11, family: "Inter" } } },
+        legend:  { labels: { color: "#c8daf0", font: { size: 11, family: "Inter" } } },
         tooltip: {
-          backgroundColor: "#0d1530", borderColor: "#1a2d50", borderWidth: 1,
-          titleColor: "#e8f0fe", bodyColor: "#9bb8d8",
+          backgroundColor: "#080808", borderColor: "#2a2a2a", borderWidth: 1,
+          titleColor: "#ffffff", bodyColor: "#c8daf0",
           mode: "index", intersect: false,
         },
       },
       scales: {
-        x: { grid: { color: "#1a2d5040" }, ticks: { color: "#5a7a9e", font: { size: 11 } } },
-        y: { grid: { color: "#1a2d5040" }, ticks: { color: "#5a7a9e", font: { size: 11 } } },
+        x: { grid: { color: "#2a2a2a40" }, ticks: { color: "#5a7a9e", font: { size: 11 } } },
+        y: { grid: { color: "#2a2a2a40" }, ticks: { color: "#5a7a9e", font: { size: 11 } } },
       },
     },
   });

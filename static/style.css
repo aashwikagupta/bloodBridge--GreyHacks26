@@ -1,41 +1,41 @@
 /* ==========================================================================
-   BloodBridge — Premium Northeast Blood Intelligence Platform
+   bloodBridge — Premium Northeast Blood Intelligence Platform
    Dark navy theme · Cyan accents · Red/amber/green status system
    ========================================================================== */
 
 :root {
-  --bg-0:     #060b18;
-  --bg-1:     #0a1225;
-  --bg-2:     #0f1a34;
-  --bg-3:     #162040;
-  --bg-card:  #0d1530;
-  --bg-hover: #131d3a;
+  --bg-0:     #000000;
+  --bg-1:     #080808;
+  --bg-2:     #111111;
+  --bg-3:     #1a1a1a;
+  --bg-card:  #0c0c0c;
+  --bg-hover: #161616;
 
-  --border:       #1a2d50;
-  --border-light: #243d66;
+  --border:       #2a2a2a;
+  --border-light: #3a3a3a;
 
-  --cyan:     #00d4ff;
-  --cyan-dim: #00a8cc;
-  --blue:     #3b82f6;
+  --cyan:     #00f0ff;
+  --cyan-dim: #00c4d4;
+  --blue:     #4d9fff;
 
-  --green:    #00e676;
-  --amber:    #ffab40;
-  --orange:   #ff7043;
-  --red:      #ff1744;
-  --red-dim:  #cc0033;
+  --green:    #00ff88;
+  --amber:    #ffcc00;
+  --orange:   #ff6a1a;
+  --red:      #ff0033;
+  --red-dim:  #cc0029;
 
-  --text-1:   #e8f0fe;
-  --text-2:   #9bb8d8;
-  --text-3:   #5a7a9e;
-  --text-4:   #2e4a6a;
+  --text-1:   #ffffff;
+  --text-2:   #c8daf0;
+  --text-3:   #7a9ab8;
+  --text-4:   #3a5a78;
 
   --font:   'Inter', system-ui, sans-serif;
   --mono:   'JetBrains Mono', 'Fira Code', monospace;
 
   --radius:    12px;
   --radius-sm: 8px;
-  --shadow:    0 4px 24px rgba(0,0,0,0.4);
-  --shadow-lg: 0 8px 48px rgba(0,0,0,0.55);
+  --shadow:    0 4px 28px rgba(0,0,0,0.7);
+  --shadow-lg: 0 8px 56px rgba(0,0,0,0.85);
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -81,7 +81,7 @@ a { color: var(--cyan); }
 .login-bg-grid {
   position: absolute; inset: 0;
   background-image:
-    linear-gradient(rgba(0,212,255,0.04) 1px, transparent 1px),
+    linear-gradient(rgba(0,240,255,0.05) 1px, transparent 1px),
     linear-gradient(90deg, rgba(0,212,255,0.04) 1px, transparent 1px);
   background-size: 44px 44px;
   pointer-events: none;
@@ -92,8 +92,8 @@ a { color: var(--cyan); }
   border-radius: 50%; pointer-events: none;
   filter: blur(120px);
 }
-.login-glow-left  { left: -100px; top: 20%; background: rgba(255,23,68,0.08); }
-.login-glow-right { right: -100px; bottom: 20%; background: rgba(0,212,255,0.06); }
+.login-glow-left  { left: -100px; top: 20%; background: rgba(255,0,51,0.14); }
+.login-glow-right { right: -100px; bottom: 20%; background: rgba(0,240,255,0.08); }
 
 .login-logo-img {
   width: 200px; height: auto; display: block; margin: 0 auto 6px;
@@ -229,7 +229,7 @@ a { color: var(--cyan); }
 
 .app-header {
   height: 58px;
-  background: var(--bg-1);
+  background: #000;
   border-bottom: 1px solid var(--border);
   display: flex; align-items: center;
   padding: 0 24px; gap: 20px; flex-shrink: 0;
@@ -307,7 +307,7 @@ a { color: var(--cyan); }
    ========================================================================== */
 
 .tab-nav {
-  display: flex; background: var(--bg-1);
+  display: flex; background: #000;
   border-bottom: 1px solid var(--border);
   padding: 0 20px; gap: 2px; flex-shrink: 0;
 }
@@ -589,7 +589,7 @@ a { color: var(--cyan); }
 
 .donor-hero {
   display: flex; align-items: center; justify-content: space-between;
-  background: linear-gradient(135deg, rgba(255,23,68,0.08) 0%, rgba(13,21,48,0) 60%),
+  background: linear-gradient(135deg, rgba(255,0,51,0.10) 0%, rgba(0,0,0,0) 60%),
               var(--bg-card);
   border: 1px solid rgba(255,23,68,0.18);
   border-radius: 16px; padding: 28px 32px;
@@ -1302,7 +1302,7 @@ a { color: var(--cyan); }
 }
 .modal-overlay.active { opacity: 1; pointer-events: all; }
 .modal-box {
-  background: #111; border: 1px solid rgba(255,255,255,0.12);
+  background: #000; border: 1px solid rgba(255,255,255,0.14);
   border-radius: 26px; padding: 48px 44px;
   width: 100%; max-width: 460px; position: relative;
   transform: translateY(18px); transition: transform 0.28s;
@@ -1431,9 +1431,9 @@ a { color: var(--cyan); }
 .home-tab-hero {
   position: relative;
   overflow: hidden;
-  background: radial-gradient(ellipse at 50% 60%, rgba(255,23,68,0.13) 0%, transparent 60%),
-              radial-gradient(ellipse at 80% 20%, rgba(0,212,255,0.07) 0%, transparent 55%),
-              var(--surface-1);
+  background: radial-gradient(ellipse at 50% 60%, rgba(255,0,51,0.18) 0%, transparent 55%),
+              radial-gradient(ellipse at 80% 15%, rgba(0,240,255,0.08) 0%, transparent 50%),
+              #000;
   padding: 80px 48px 68px;
   min-height: 460px;
   display: flex;
@@ -1490,24 +1490,25 @@ a { color: var(--cyan); }
 }
 
 .home-hero-wordmark {
-  font-size: clamp(52px, 8vw, 88px);
+  font-size: clamp(56px, 9vw, 96px);
   font-weight: 900;
-  letter-spacing: -2.5px;
+  letter-spacing: -3px;
   line-height: 1;
-  color: #f5f5f7;
-  margin-bottom: 10px;
+  color: #ffffff;
+  margin-bottom: 12px;
+  text-shadow: 0 0 60px rgba(255,0,51,0.4), 0 0 120px rgba(255,0,51,0.15);
 }
 
 .home-hero-slogan {
-  font-size: clamp(18px, 2.5vw, 26px);
+  font-size: clamp(18px, 2.5vw, 28px);
   font-weight: 600;
-  letter-spacing: -0.3px;
+  letter-spacing: -0.2px;
   color: transparent;
-  background: linear-gradient(135deg, #ff1744, #ff6b6b);
+  background: linear-gradient(135deg, #ff0033, #ff6060);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  margin-bottom: 18px;
+  margin-bottom: 16px;
 }
 
 .home-hero-sub {
