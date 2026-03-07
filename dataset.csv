@@ -1,0 +1,177 @@
+hospital_name,city,state,latitude,longitude,blood_type,units_available,expiration_date,daily_usage,season,surgery_schedule_score,trauma_rate,historical_demand,shortage_risk_score,last_updated
+St. Mary's Medical Center,Chicago,IL,41.8781,-87.6298,A+,13,2026-04-17,4.1,Spring,8.8,5.6,30.0,2.208,2026-03-07 11:33:20
+St. Mary's Medical Center,Chicago,IL,41.8781,-87.6298,A+,12,2026-04-01,4.1,Spring,8.8,5.6,27.1,2.392,2026-03-07 11:33:20
+St. Mary's Medical Center,Chicago,IL,41.8781,-87.6298,A+,45,2026-04-02,4.1,Spring,8.8,5.6,31.4,0.638,2026-03-07 11:33:20
+St. Mary's Medical Center,Chicago,IL,41.8781,-87.6298,A-,15,2026-04-08,3.0,Spring,8.8,5.6,18.5,1.4,2026-03-07 11:33:20
+St. Mary's Medical Center,Chicago,IL,41.8781,-87.6298,A-,14,2026-03-19,3.0,Spring,8.8,5.6,19.5,1.5,2026-03-07 11:33:20
+St. Mary's Medical Center,Chicago,IL,41.8781,-87.6298,A-,36,2026-03-27,3.0,Spring,8.8,5.6,20.7,0.583,2026-03-07 11:33:20
+St. Mary's Medical Center,Chicago,IL,41.8781,-87.6298,B+,16,2026-03-26,3.7,Spring,8.8,5.6,30.4,1.619,2026-03-07 11:33:20
+St. Mary's Medical Center,Chicago,IL,41.8781,-87.6298,B+,10,2026-03-26,3.7,Spring,8.8,5.6,27.7,2.59,2026-03-07 11:33:20
+St. Mary's Medical Center,Chicago,IL,41.8781,-87.6298,B+,44,2026-03-28,3.7,Spring,8.8,5.6,23.1,0.589,2026-03-07 11:33:20
+St. Mary's Medical Center,Chicago,IL,41.8781,-87.6298,B-,10,2026-03-27,1.9,Spring,8.8,5.6,13.2,1.33,2026-03-07 11:33:20
+St. Mary's Medical Center,Chicago,IL,41.8781,-87.6298,B-,7,2026-03-28,1.9,Spring,8.8,5.6,13.2,1.9,2026-03-07 11:33:20
+St. Mary's Medical Center,Chicago,IL,41.8781,-87.6298,B-,23,2026-03-23,1.9,Spring,8.8,5.6,14.4,0.578,2026-03-07 11:33:20
+St. Mary's Medical Center,Chicago,IL,41.8781,-87.6298,AB+,7,2026-04-11,1.5,Spring,8.8,5.6,10.4,1.5,2026-03-07 11:33:20
+St. Mary's Medical Center,Chicago,IL,41.8781,-87.6298,AB+,6,2026-03-31,1.5,Spring,8.8,5.6,11.7,1.75,2026-03-07 11:33:20
+St. Mary's Medical Center,Chicago,IL,41.8781,-87.6298,AB+,18,2026-03-18,1.5,Spring,8.8,5.6,10.2,0.583,2026-03-07 11:33:20
+St. Mary's Medical Center,Chicago,IL,41.8781,-87.6298,AB-,4,2026-04-12,1.1,Spring,8.8,5.6,8.3,1.925,2026-03-07 11:33:20
+St. Mary's Medical Center,Chicago,IL,41.8781,-87.6298,AB-,5,2026-03-26,1.1,Spring,8.8,5.6,7.1,1.54,2026-03-07 11:33:20
+St. Mary's Medical Center,Chicago,IL,41.8781,-87.6298,AB-,12,2026-03-21,1.1,Spring,8.8,5.6,7.4,0.642,2026-03-07 11:33:20
+St. Mary's Medical Center,Chicago,IL,41.8781,-87.6298,O+,46,2026-04-06,7.4,Spring,8.8,5.6,47.7,1.126,2026-03-07 11:33:20
+St. Mary's Medical Center,Chicago,IL,41.8781,-87.6298,O+,29,2026-03-29,7.4,Spring,8.8,5.6,47.3,1.786,2026-03-07 11:33:20
+St. Mary's Medical Center,Chicago,IL,41.8781,-87.6298,O+,133,2026-04-06,7.4,Spring,8.8,5.6,54.9,0.389,2026-03-07 11:33:20
+St. Mary's Medical Center,Chicago,IL,41.8781,-87.6298,O-,32,2026-04-08,5.5,Spring,8.8,5.6,43.8,1.203,2026-03-07 11:33:20
+St. Mary's Medical Center,Chicago,IL,41.8781,-87.6298,O-,26,2026-03-14,5.5,Spring,8.8,5.6,44.1,1.481,2026-03-07 11:33:20
+St. Mary's Medical Center,Chicago,IL,41.8781,-87.6298,O-,75,2026-03-25,5.5,Spring,8.8,5.6,37.3,0.513,2026-03-07 11:33:20
+Riverside General Hospital,Milwaukee,WI,43.0389,-87.9065,A+,65,2026-04-10,4.9,Spring,4.5,3.0,31.3,0.528,2026-03-07 11:33:20
+Riverside General Hospital,Milwaukee,WI,43.0389,-87.9065,A+,118,2026-03-23,4.9,Spring,4.5,3.0,32.2,0.291,2026-03-07 11:33:20
+Riverside General Hospital,Milwaukee,WI,43.0389,-87.9065,A-,28,2026-04-18,2.7,Spring,4.5,3.0,20.0,0.675,2026-03-07 11:33:20
+Riverside General Hospital,Milwaukee,WI,43.0389,-87.9065,A-,49,2026-03-29,2.7,Spring,4.5,3.0,21.6,0.386,2026-03-07 11:33:20
+Riverside General Hospital,Milwaukee,WI,43.0389,-87.9065,B+,36,2026-03-26,4.4,Spring,4.5,3.0,27.8,0.856,2026-03-07 11:33:20
+Riverside General Hospital,Milwaukee,WI,43.0389,-87.9065,B+,92,2026-03-29,4.4,Spring,4.5,3.0,32.0,0.335,2026-03-07 11:33:20
+Riverside General Hospital,Milwaukee,WI,43.0389,-87.9065,B-,18,2026-04-11,1.8,Spring,4.5,3.0,13.4,0.7,2026-03-07 11:33:20
+Riverside General Hospital,Milwaukee,WI,43.0389,-87.9065,B-,45,2026-03-20,1.8,Spring,4.5,3.0,13.7,0.28,2026-03-07 11:33:20
+Riverside General Hospital,Milwaukee,WI,43.0389,-87.9065,AB+,19,2026-04-15,1.9,Spring,4.5,3.0,13.8,0.7,2026-03-07 11:33:20
+Riverside General Hospital,Milwaukee,WI,43.0389,-87.9065,AB+,32,2026-03-17,1.9,Spring,4.5,3.0,11.8,0.416,2026-03-07 11:33:20
+Riverside General Hospital,Milwaukee,WI,43.0389,-87.9065,AB-,11,2026-03-25,1.2,Spring,4.5,3.0,8.0,0.764,2026-03-07 11:33:20
+Riverside General Hospital,Milwaukee,WI,43.0389,-87.9065,AB-,23,2026-03-15,1.2,Spring,4.5,3.0,8.0,0.365,2026-03-07 11:33:20
+Riverside General Hospital,Milwaukee,WI,43.0389,-87.9065,O+,78,2026-03-29,7.6,Spring,4.5,3.0,56.0,0.682,2026-03-07 11:33:20
+Riverside General Hospital,Milwaukee,WI,43.0389,-87.9065,O+,141,2026-03-21,7.6,Spring,4.5,3.0,49.9,0.377,2026-03-07 11:33:20
+Riverside General Hospital,Milwaukee,WI,43.0389,-87.9065,O-,52,2026-04-07,4.9,Spring,4.5,3.0,30.7,0.66,2026-03-07 11:33:20
+Riverside General Hospital,Milwaukee,WI,43.0389,-87.9065,O-,104,2026-03-17,4.9,Spring,4.5,3.0,38.4,0.33,2026-03-07 11:33:20
+Northside Community Hospital,Minneapolis,MN,44.9778,-93.265,A+,4,2026-03-30,4.6,Spring,5.8,6.6,37.3,8.05,2026-03-07 11:33:20
+Northside Community Hospital,Minneapolis,MN,44.9778,-93.265,A+,13,2026-03-16,4.6,Spring,5.8,6.6,29.3,2.477,2026-03-07 11:33:20
+Northside Community Hospital,Minneapolis,MN,44.9778,-93.265,A-,8,2026-03-25,3.0,Spring,5.8,6.6,23.8,2.625,2026-03-07 11:33:20
+Northside Community Hospital,Minneapolis,MN,44.9778,-93.265,A-,12,2026-03-11,3.0,Spring,5.8,6.6,23.9,1.75,2026-03-07 11:33:20
+Northside Community Hospital,Minneapolis,MN,44.9778,-93.265,B+,6,2026-03-25,4.5,Spring,5.8,6.6,35.1,5.25,2026-03-07 11:33:20
+Northside Community Hospital,Minneapolis,MN,44.9778,-93.265,B+,12,2026-03-16,4.5,Spring,5.8,6.6,34.6,2.625,2026-03-07 11:33:20
+Northside Community Hospital,Minneapolis,MN,44.9778,-93.265,B-,4,2026-04-09,2.3,Spring,5.8,6.6,18.8,4.025,2026-03-07 11:33:20
+Northside Community Hospital,Minneapolis,MN,44.9778,-93.265,B-,10,2026-03-17,2.3,Spring,5.8,6.6,14.4,1.61,2026-03-07 11:33:20
+Northside Community Hospital,Minneapolis,MN,44.9778,-93.265,AB+,5,2026-04-10,1.8,Spring,5.8,6.6,11.4,2.52,2026-03-07 11:33:20
+Northside Community Hospital,Minneapolis,MN,44.9778,-93.265,AB+,8,2026-03-11,1.8,Spring,5.8,6.6,14.3,1.575,2026-03-07 11:33:20
+Northside Community Hospital,Minneapolis,MN,44.9778,-93.265,AB-,3,2026-04-12,1.2,Spring,5.8,6.6,9.0,2.8,2026-03-07 11:33:20
+Northside Community Hospital,Minneapolis,MN,44.9778,-93.265,AB-,7,2026-03-15,1.2,Spring,5.8,6.6,8.2,1.2,2026-03-07 11:33:20
+Northside Community Hospital,Minneapolis,MN,44.9778,-93.265,O+,4,2026-04-04,6.5,Spring,5.8,6.6,44.1,11.375,2026-03-07 11:33:20
+Northside Community Hospital,Minneapolis,MN,44.9778,-93.265,O+,6,2026-03-14,6.5,Spring,5.8,6.6,48.5,7.583,2026-03-07 11:33:20
+Northside Community Hospital,Minneapolis,MN,44.9778,-93.265,O-,4,2026-04-11,5.9,Spring,5.8,6.6,47.3,10.325,2026-03-07 11:33:20
+Northside Community Hospital,Minneapolis,MN,44.9778,-93.265,O-,3,2026-03-12,5.9,Spring,5.8,6.6,45.1,12.0,2026-03-07 11:33:20
+Lakeview Medical Institute,Detroit,MI,42.3314,-83.0458,A+,32,2026-04-11,4.8,Spring,5.8,6.5,39.0,1.05,2026-03-07 11:33:20
+Lakeview Medical Institute,Detroit,MI,42.3314,-83.0458,A+,75,2026-03-18,4.8,Spring,5.8,6.5,37.1,0.448,2026-03-07 11:33:20
+Lakeview Medical Institute,Detroit,MI,42.3314,-83.0458,A-,21,2026-03-31,2.4,Spring,5.8,6.5,18.0,0.8,2026-03-07 11:33:20
+Lakeview Medical Institute,Detroit,MI,42.3314,-83.0458,A-,39,2026-03-22,2.4,Spring,5.8,6.5,19.4,0.431,2026-03-07 11:33:20
+Lakeview Medical Institute,Detroit,MI,42.3314,-83.0458,B+,28,2026-04-02,3.2,Spring,5.8,6.5,20.6,0.8,2026-03-07 11:33:20
+Lakeview Medical Institute,Detroit,MI,42.3314,-83.0458,B+,71,2026-03-22,3.2,Spring,5.8,6.5,24.5,0.315,2026-03-07 11:33:20
+Lakeview Medical Institute,Detroit,MI,42.3314,-83.0458,B-,19,2026-04-16,2.1,Spring,5.8,6.5,16.6,0.774,2026-03-07 11:33:20
+Lakeview Medical Institute,Detroit,MI,42.3314,-83.0458,B-,32,2026-04-01,2.1,Spring,5.8,6.5,13.1,0.459,2026-03-07 11:33:20
+Lakeview Medical Institute,Detroit,MI,42.3314,-83.0458,AB+,24,2026-03-26,1.7,Spring,5.8,6.5,11.4,0.496,2026-03-07 11:33:20
+Lakeview Medical Institute,Detroit,MI,42.3314,-83.0458,AB+,46,2026-03-17,1.7,Spring,5.8,6.5,13.6,0.259,2026-03-07 11:33:20
+Lakeview Medical Institute,Detroit,MI,42.3314,-83.0458,AB-,22,2026-04-01,1.4,Spring,5.8,6.5,11.0,0.445,2026-03-07 11:33:20
+Lakeview Medical Institute,Detroit,MI,42.3314,-83.0458,AB-,36,2026-03-27,1.4,Spring,5.8,6.5,9.6,0.272,2026-03-07 11:33:20
+Lakeview Medical Institute,Detroit,MI,42.3314,-83.0458,O+,110,2026-04-17,8.4,Spring,5.8,6.5,65.6,0.535,2026-03-07 11:33:20
+Lakeview Medical Institute,Detroit,MI,42.3314,-83.0458,O+,182,2026-03-17,8.4,Spring,5.8,6.5,60.0,0.323,2026-03-07 11:33:20
+Lakeview Medical Institute,Detroit,MI,42.3314,-83.0458,O-,68,2026-04-05,5.1,Spring,5.8,6.5,33.9,0.525,2026-03-07 11:33:20
+Lakeview Medical Institute,Detroit,MI,42.3314,-83.0458,O-,132,2026-03-14,5.1,Spring,5.8,6.5,34.4,0.27,2026-03-07 11:33:20
+Mercy Central Hospital,Indianapolis,IN,39.7684,-86.1581,A+,25,2026-04-15,4.2,Spring,7.6,8.2,34.2,1.176,2026-03-07 11:33:20
+Mercy Central Hospital,Indianapolis,IN,39.7684,-86.1581,A+,22,2026-03-17,4.2,Spring,7.6,8.2,31.0,1.336,2026-03-07 11:33:20
+Mercy Central Hospital,Indianapolis,IN,39.7684,-86.1581,A+,58,2026-03-25,4.2,Spring,7.6,8.2,28.9,0.507,2026-03-07 11:33:20
+Mercy Central Hospital,Indianapolis,IN,39.7684,-86.1581,A-,12,2026-04-10,3.1,Spring,7.6,8.2,20.3,1.808,2026-03-07 11:33:20
+Mercy Central Hospital,Indianapolis,IN,39.7684,-86.1581,A-,13,2026-03-15,3.1,Spring,7.6,8.2,25.1,1.669,2026-03-07 11:33:20
+Mercy Central Hospital,Indianapolis,IN,39.7684,-86.1581,A-,45,2026-04-03,3.1,Spring,7.6,8.2,23.9,0.482,2026-03-07 11:33:20
+Mercy Central Hospital,Indianapolis,IN,39.7684,-86.1581,B+,19,2026-04-15,3.4,Spring,7.6,8.2,25.7,1.253,2026-03-07 11:33:20
+Mercy Central Hospital,Indianapolis,IN,39.7684,-86.1581,B+,16,2026-03-17,3.4,Spring,7.6,8.2,23.2,1.488,2026-03-07 11:33:20
+Mercy Central Hospital,Indianapolis,IN,39.7684,-86.1581,B+,46,2026-03-30,3.4,Spring,7.6,8.2,24.9,0.517,2026-03-07 11:33:20
+Mercy Central Hospital,Indianapolis,IN,39.7684,-86.1581,B-,11,2026-04-06,1.8,Spring,7.6,8.2,13.4,1.145,2026-03-07 11:33:20
+Mercy Central Hospital,Indianapolis,IN,39.7684,-86.1581,B-,9,2026-03-23,1.8,Spring,7.6,8.2,12.2,1.4,2026-03-07 11:33:20
+Mercy Central Hospital,Indianapolis,IN,39.7684,-86.1581,B-,27,2026-03-23,1.8,Spring,7.6,8.2,13.6,0.467,2026-03-07 11:33:20
+Mercy Central Hospital,Indianapolis,IN,39.7684,-86.1581,AB+,8,2026-03-31,1.8,Spring,7.6,8.2,14.7,1.575,2026-03-07 11:33:20
+Mercy Central Hospital,Indianapolis,IN,39.7684,-86.1581,AB+,8,2026-03-19,1.8,Spring,7.6,8.2,13.6,1.575,2026-03-07 11:33:20
+Mercy Central Hospital,Indianapolis,IN,39.7684,-86.1581,AB+,25,2026-04-05,1.8,Spring,7.6,8.2,13.9,0.504,2026-03-07 11:33:20
+Mercy Central Hospital,Indianapolis,IN,39.7684,-86.1581,AB-,3,2026-03-31,1.3,Spring,7.6,8.2,10.7,3.033,2026-03-07 11:33:20
+Mercy Central Hospital,Indianapolis,IN,39.7684,-86.1581,AB-,5,2026-03-16,1.3,Spring,7.6,8.2,9.6,1.82,2026-03-07 11:33:20
+Mercy Central Hospital,Indianapolis,IN,39.7684,-86.1581,AB-,14,2026-04-08,1.3,Spring,7.6,8.2,8.7,0.65,2026-03-07 11:33:20
+Mercy Central Hospital,Indianapolis,IN,39.7684,-86.1581,O+,32,2026-04-18,7.6,Spring,7.6,8.2,59.2,1.662,2026-03-07 11:33:20
+Mercy Central Hospital,Indianapolis,IN,39.7684,-86.1581,O+,22,2026-03-21,7.6,Spring,7.6,8.2,55.1,2.418,2026-03-07 11:33:20
+Mercy Central Hospital,Indianapolis,IN,39.7684,-86.1581,O+,77,2026-03-18,7.6,Spring,7.6,8.2,48.8,0.691,2026-03-07 11:33:20
+Mercy Central Hospital,Indianapolis,IN,39.7684,-86.1581,O-,30,2026-04-10,5.0,Spring,7.6,8.2,40.8,1.167,2026-03-07 11:33:20
+Mercy Central Hospital,Indianapolis,IN,39.7684,-86.1581,O-,26,2026-03-28,5.0,Spring,7.6,8.2,36.1,1.346,2026-03-07 11:33:20
+Mercy Central Hospital,Indianapolis,IN,39.7684,-86.1581,O-,59,2026-04-03,5.0,Spring,7.6,8.2,39.8,0.593,2026-03-07 11:33:20
+Elmwood Regional Medical,Columbus,OH,39.9612,-82.9988,A+,8,2026-04-18,5.1,Spring,6.9,8.3,34.4,4.462,2026-03-07 11:33:20
+Elmwood Regional Medical,Columbus,OH,39.9612,-82.9988,A+,15,2026-03-10,5.1,Spring,6.9,8.3,41.0,2.38,2026-03-07 11:33:20
+Elmwood Regional Medical,Columbus,OH,39.9612,-82.9988,A-,3,2026-04-06,2.3,Spring,6.9,8.3,14.5,5.367,2026-03-07 11:33:20
+Elmwood Regional Medical,Columbus,OH,39.9612,-82.9988,A-,5,2026-03-10,2.3,Spring,6.9,8.3,15.2,3.22,2026-03-07 11:33:20
+Elmwood Regional Medical,Columbus,OH,39.9612,-82.9988,B+,10,2026-04-12,3.8,Spring,6.9,8.3,30.4,2.66,2026-03-07 11:33:20
+Elmwood Regional Medical,Columbus,OH,39.9612,-82.9988,B+,20,2026-03-11,3.8,Spring,6.9,8.3,29.4,1.33,2026-03-07 11:33:20
+Elmwood Regional Medical,Columbus,OH,39.9612,-82.9988,B-,7,2026-04-07,2.4,Spring,6.9,8.3,18.8,2.4,2026-03-07 11:33:20
+Elmwood Regional Medical,Columbus,OH,39.9612,-82.9988,B-,13,2026-03-11,2.4,Spring,6.9,8.3,14.9,1.292,2026-03-07 11:33:20
+Elmwood Regional Medical,Columbus,OH,39.9612,-82.9988,AB+,4,2026-04-06,1.7,Spring,6.9,8.3,13.8,2.975,2026-03-07 11:33:20
+Elmwood Regional Medical,Columbus,OH,39.9612,-82.9988,AB+,8,2026-03-08,1.7,Spring,6.9,8.3,12.8,1.488,2026-03-07 11:33:20
+Elmwood Regional Medical,Columbus,OH,39.9612,-82.9988,AB-,1,2026-04-08,1.0,Spring,6.9,8.3,6.8,7.0,2026-03-07 11:33:20
+Elmwood Regional Medical,Columbus,OH,39.9612,-82.9988,AB-,4,2026-03-10,1.0,Spring,6.9,8.3,6.7,1.75,2026-03-07 11:33:20
+Elmwood Regional Medical,Columbus,OH,39.9612,-82.9988,O+,16,2026-03-27,8.4,Spring,6.9,8.3,52.7,3.675,2026-03-07 11:33:20
+Elmwood Regional Medical,Columbus,OH,39.9612,-82.9988,O+,33,2026-03-09,8.4,Spring,6.9,8.3,63.2,1.782,2026-03-07 11:33:20
+Elmwood Regional Medical,Columbus,OH,39.9612,-82.9988,O-,21,2026-03-31,6.3,Spring,6.9,8.3,42.0,2.1,2026-03-07 11:33:20
+Elmwood Regional Medical,Columbus,OH,39.9612,-82.9988,O-,33,2026-03-08,6.3,Spring,6.9,8.3,48.1,1.336,2026-03-07 11:33:20
+Harborview Hospital,Cleveland,OH,41.4993,-81.6944,A+,86,2026-03-28,4.7,Spring,4.8,2.5,32.0,0.383,2026-03-07 11:33:20
+Harborview Hospital,Cleveland,OH,41.4993,-81.6944,A+,163,2026-04-01,4.7,Spring,4.8,2.5,35.6,0.202,2026-03-07 11:33:20
+Harborview Hospital,Cleveland,OH,41.4993,-81.6944,A-,44,2026-04-16,3.3,Spring,4.8,2.5,26.1,0.525,2026-03-07 11:33:20
+Harborview Hospital,Cleveland,OH,41.4993,-81.6944,A-,106,2026-03-21,3.3,Spring,4.8,2.5,26.2,0.218,2026-03-07 11:33:20
+Harborview Hospital,Cleveland,OH,41.4993,-81.6944,B+,51,2026-04-12,4.0,Spring,4.8,2.5,28.2,0.549,2026-03-07 11:33:20
+Harborview Hospital,Cleveland,OH,41.4993,-81.6944,B+,102,2026-03-25,4.0,Spring,4.8,2.5,24.7,0.275,2026-03-07 11:33:20
+Harborview Hospital,Cleveland,OH,41.4993,-81.6944,B-,39,2026-04-07,2.0,Spring,4.8,2.5,15.8,0.359,2026-03-07 11:33:20
+Harborview Hospital,Cleveland,OH,41.4993,-81.6944,B-,68,2026-03-18,2.0,Spring,4.8,2.5,16.4,0.206,2026-03-07 11:33:20
+Harborview Hospital,Cleveland,OH,41.4993,-81.6944,AB+,33,2026-04-11,1.6,Spring,4.8,2.5,12.6,0.339,2026-03-07 11:33:20
+Harborview Hospital,Cleveland,OH,41.4993,-81.6944,AB+,67,2026-04-01,1.6,Spring,4.8,2.5,12.6,0.167,2026-03-07 11:33:20
+Harborview Hospital,Cleveland,OH,41.4993,-81.6944,AB-,22,2026-04-01,1.0,Spring,4.8,2.5,7.6,0.318,2026-03-07 11:33:20
+Harborview Hospital,Cleveland,OH,41.4993,-81.6944,AB-,43,2026-03-24,1.0,Spring,4.8,2.5,6.5,0.163,2026-03-07 11:33:20
+Harborview Hospital,Cleveland,OH,41.4993,-81.6944,O+,113,2026-04-04,6.4,Spring,4.8,2.5,51.3,0.396,2026-03-07 11:33:20
+Harborview Hospital,Cleveland,OH,41.4993,-81.6944,O+,275,2026-03-31,6.4,Spring,4.8,2.5,40.6,0.163,2026-03-07 11:33:20
+Harborview Hospital,Cleveland,OH,41.4993,-81.6944,O-,89,2026-04-18,6.3,Spring,4.8,2.5,48.2,0.496,2026-03-07 11:33:20
+Harborview Hospital,Cleveland,OH,41.4993,-81.6944,O-,175,2026-03-28,6.3,Spring,4.8,2.5,41.7,0.252,2026-03-07 11:33:20
+Summit Health Center,Pittsburgh,PA,40.4406,-79.9959,A+,51,2026-04-10,4.6,Spring,6.1,4.1,33.7,0.631,2026-03-07 11:33:20
+Summit Health Center,Pittsburgh,PA,40.4406,-79.9959,A+,88,2026-03-25,4.6,Spring,6.1,4.1,30.8,0.366,2026-03-07 11:33:20
+Summit Health Center,Pittsburgh,PA,40.4406,-79.9959,A-,24,2026-03-28,2.4,Spring,6.1,4.1,18.3,0.7,2026-03-07 11:33:20
+Summit Health Center,Pittsburgh,PA,40.4406,-79.9959,A-,39,2026-03-20,2.4,Spring,6.1,4.1,18.4,0.431,2026-03-07 11:33:20
+Summit Health Center,Pittsburgh,PA,40.4406,-79.9959,B+,64,2026-04-03,4.6,Spring,6.1,4.1,31.2,0.503,2026-03-07 11:33:20
+Summit Health Center,Pittsburgh,PA,40.4406,-79.9959,B+,83,2026-03-25,4.6,Spring,6.1,4.1,33.5,0.388,2026-03-07 11:33:20
+Summit Health Center,Pittsburgh,PA,40.4406,-79.9959,B-,27,2026-04-11,1.9,Spring,6.1,4.1,14.2,0.493,2026-03-07 11:33:20
+Summit Health Center,Pittsburgh,PA,40.4406,-79.9959,B-,44,2026-03-29,1.9,Spring,6.1,4.1,12.8,0.302,2026-03-07 11:33:20
+Summit Health Center,Pittsburgh,PA,40.4406,-79.9959,AB+,16,2026-03-26,1.8,Spring,6.1,4.1,11.5,0.787,2026-03-07 11:33:20
+Summit Health Center,Pittsburgh,PA,40.4406,-79.9959,AB+,29,2026-03-16,1.8,Spring,6.1,4.1,13.5,0.434,2026-03-07 11:33:20
+Summit Health Center,Pittsburgh,PA,40.4406,-79.9959,AB-,8,2026-04-12,1.0,Spring,6.1,4.1,6.7,0.875,2026-03-07 11:33:20
+Summit Health Center,Pittsburgh,PA,40.4406,-79.9959,AB-,16,2026-03-31,1.0,Spring,6.1,4.1,7.8,0.438,2026-03-07 11:33:20
+Summit Health Center,Pittsburgh,PA,40.4406,-79.9959,O+,74,2026-04-08,6.4,Spring,6.1,4.1,47.3,0.605,2026-03-07 11:33:20
+Summit Health Center,Pittsburgh,PA,40.4406,-79.9959,O+,141,2026-03-27,6.4,Spring,6.1,4.1,47.6,0.318,2026-03-07 11:33:20
+Summit Health Center,Pittsburgh,PA,40.4406,-79.9959,O-,83,2026-03-31,6.3,Spring,6.1,4.1,39.9,0.531,2026-03-07 11:33:20
+Summit Health Center,Pittsburgh,PA,40.4406,-79.9959,O-,149,2026-03-21,6.3,Spring,6.1,4.1,38.8,0.296,2026-03-07 11:33:20
+Central Valley Hospital,Cincinnati,OH,39.1031,-84.512,A+,6,2026-04-16,4.1,Spring,6.9,7.8,25.9,4.783,2026-03-07 11:33:20
+Central Valley Hospital,Cincinnati,OH,39.1031,-84.512,A+,13,2026-03-12,4.1,Spring,6.9,7.8,30.6,2.208,2026-03-07 11:33:20
+Central Valley Hospital,Cincinnati,OH,39.1031,-84.512,A-,6,2026-04-07,3.0,Spring,6.9,7.8,19.4,3.5,2026-03-07 11:33:20
+Central Valley Hospital,Cincinnati,OH,39.1031,-84.512,A-,14,2026-03-13,3.0,Spring,6.9,7.8,19.5,1.5,2026-03-07 11:33:20
+Central Valley Hospital,Cincinnati,OH,39.1031,-84.512,B+,10,2026-04-12,3.6,Spring,6.9,7.8,25.7,2.52,2026-03-07 11:33:20
+Central Valley Hospital,Cincinnati,OH,39.1031,-84.512,B+,20,2026-03-13,3.6,Spring,6.9,7.8,26.0,1.26,2026-03-07 11:33:20
+Central Valley Hospital,Cincinnati,OH,39.1031,-84.512,B-,3,2026-03-26,2.1,Spring,6.9,7.8,15.6,4.9,2026-03-07 11:33:20
+Central Valley Hospital,Cincinnati,OH,39.1031,-84.512,B-,5,2026-03-09,2.1,Spring,6.9,7.8,16.6,2.94,2026-03-07 11:33:20
+Central Valley Hospital,Cincinnati,OH,39.1031,-84.512,AB+,5,2026-04-18,1.8,Spring,6.9,7.8,11.2,2.52,2026-03-07 11:33:20
+Central Valley Hospital,Cincinnati,OH,39.1031,-84.512,AB+,10,2026-03-11,1.8,Spring,6.9,7.8,14.6,1.26,2026-03-07 11:33:20
+Central Valley Hospital,Cincinnati,OH,39.1031,-84.512,AB-,3,2026-04-14,1.1,Spring,6.9,7.8,7.9,2.567,2026-03-07 11:33:20
+Central Valley Hospital,Cincinnati,OH,39.1031,-84.512,AB-,5,2026-03-15,1.1,Spring,6.9,7.8,8.8,1.54,2026-03-07 11:33:20
+Central Valley Hospital,Cincinnati,OH,39.1031,-84.512,O+,4,2026-04-03,6.7,Spring,6.9,7.8,41.8,11.725,2026-03-07 11:33:20
+Central Valley Hospital,Cincinnati,OH,39.1031,-84.512,O+,4,2026-03-10,6.7,Spring,6.9,7.8,47.0,11.725,2026-03-07 11:33:20
+Central Valley Hospital,Cincinnati,OH,39.1031,-84.512,O-,4,2026-04-15,5.8,Spring,6.9,7.8,42.0,10.15,2026-03-07 11:33:20
+Central Valley Hospital,Cincinnati,OH,39.1031,-84.512,O-,5,2026-03-16,5.8,Spring,6.9,7.8,42.4,8.12,2026-03-07 11:33:20
+Greenfield Medical Campus,Louisville,KY,38.2527,-85.7585,A+,56,2026-04-14,4.8,Spring,5.3,3.3,31.2,0.6,2026-03-07 11:33:20
+Greenfield Medical Campus,Louisville,KY,38.2527,-85.7585,A+,114,2026-03-31,4.8,Spring,5.3,3.3,31.8,0.295,2026-03-07 11:33:20
+Greenfield Medical Campus,Louisville,KY,38.2527,-85.7585,A-,36,2026-03-28,3.2,Spring,5.3,3.3,26.0,0.622,2026-03-07 11:33:20
+Greenfield Medical Campus,Louisville,KY,38.2527,-85.7585,A-,72,2026-03-23,3.2,Spring,5.3,3.3,25.3,0.311,2026-03-07 11:33:20
+Greenfield Medical Campus,Louisville,KY,38.2527,-85.7585,B+,48,2026-04-11,4.6,Spring,5.3,3.3,34.1,0.671,2026-03-07 11:33:20
+Greenfield Medical Campus,Louisville,KY,38.2527,-85.7585,B+,115,2026-03-18,4.6,Spring,5.3,3.3,36.0,0.28,2026-03-07 11:33:20
+Greenfield Medical Campus,Louisville,KY,38.2527,-85.7585,B-,31,2026-04-10,2.0,Spring,5.3,3.3,15.4,0.452,2026-03-07 11:33:20
+Greenfield Medical Campus,Louisville,KY,38.2527,-85.7585,B-,85,2026-04-01,2.0,Spring,5.3,3.3,16.0,0.165,2026-03-07 11:33:20
+Greenfield Medical Campus,Louisville,KY,38.2527,-85.7585,AB+,29,2026-04-04,1.8,Spring,5.3,3.3,12.8,0.434,2026-03-07 11:33:20
+Greenfield Medical Campus,Louisville,KY,38.2527,-85.7585,AB+,65,2026-03-24,1.8,Spring,5.3,3.3,12.0,0.194,2026-03-07 11:33:20
+Greenfield Medical Campus,Louisville,KY,38.2527,-85.7585,AB-,18,2026-04-07,1.1,Spring,5.3,3.3,8.4,0.428,2026-03-07 11:33:20
+Greenfield Medical Campus,Louisville,KY,38.2527,-85.7585,AB-,45,2026-03-26,1.1,Spring,5.3,3.3,8.7,0.171,2026-03-07 11:33:20
+Greenfield Medical Campus,Louisville,KY,38.2527,-85.7585,O+,131,2026-03-26,8.5,Spring,5.3,3.3,58.3,0.454,2026-03-07 11:33:20
+Greenfield Medical Campus,Louisville,KY,38.2527,-85.7585,O+,266,2026-03-17,8.5,Spring,5.3,3.3,61.7,0.224,2026-03-07 11:33:20
+Greenfield Medical Campus,Louisville,KY,38.2527,-85.7585,O-,136,2026-04-07,5.7,Spring,5.3,3.3,36.0,0.293,2026-03-07 11:33:20
+Greenfield Medical Campus,Louisville,KY,38.2527,-85.7585,O-,219,2026-03-22,5.7,Spring,5.3,3.3,42.9,0.182,2026-03-07 11:33:20

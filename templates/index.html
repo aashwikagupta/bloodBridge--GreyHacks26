@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BloodBridge — Intelligent Blood Supply Intelligence Platform</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+
+  <!-- Leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+
+<!-- =====================================================================
+     LOGIN OVERLAY
+     ===================================================================== -->
+<div id="login-overlay">
+  <div class="login-bg-grid"></div>
+  <div class="login-card">
+    <div class="login-logo">
+      <div class="login-logo-icon">
+        <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20 4C20 4 8 14 8 22C8 28.627 13.373 34 20 34C26.627 34 32 28.627 32 22C32 14 20 4 20 4Z" fill="#ff1744" opacity="0.9"/>
+          <path d="M20 10C20 10 12 17.5 12 23C12 27.418 15.582 31 20 31C24.418 31 28 27.418 28 23C28 17.5 20 10 20 10Z" fill="#ff5252" opacity="0.6"/>
+          <rect x="18" y="17" width="4" height="12" rx="2" fill="white"/>
+          <rect x="14" y="21" width="12" height="4" rx="2" fill="white"/>
+        </svg>
+      </div>
+      <h1>BloodBridge</h1>
+      <p class="login-subtitle">Intelligent Regional Blood Coordination Platform</p>
+    </div>
+
+    <form id="login-form">
+      <div class="form-group">
+        <label>Full Name</label>
+        <input type="text" id="login-name" placeholder="e.g. Dr. Sarah Chen" autocomplete="off" required />
+      </div>
+      <div class="form-group">
+        <label>Role</label>
+        <select id="login-role" required>
+          <option value="" disabled selected>Select your role</option>
+          <option value="Hospital Admin">Hospital Admin</option>
+          <option value="Blood Bank Coordinator">Blood Bank Coordinator</option>
+          <option value="Emergency Operations Lead">Emergency Operations Lead</option>
+          <option value="Regional Health Officer">Regional Health Officer</option>
+          <option value="Transfusion Medicine Specialist">Transfusion Medicine Specialist</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Primary Hospital</label>
+        <select id="login-hospital" required>
+          <option value="" disabled selected>Loading hospitals...</option>
+        </select>
+      </div>
+      <button type="submit" class="btn-enter">
+        <span>Enter Platform</span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12H19M13 6L19 12L13 18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </form>
+
+    <div class="login-disclaimer">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#7a9cc0" stroke-width="1.5"/><path d="M12 8v4M12 16h.01" stroke="#7a9cc0" stroke-width="1.5" stroke-linecap="round"/></svg>
+      <span>Hackathon prototype. Production deployment requires secure authentication, role-based authorization, full audit logging, and HIPAA-compliant data protection.</span>
+    </div>
+  </div>
+</div>
+
+
+<!-- =====================================================================
+     MAIN APPLICATION
+     ===================================================================== -->
+<div id="app" class="hidden">
+
+  <!-- Header -->
+  <header class="app-header">
+    <div class="header-brand">
+      <svg class="brand-icon" viewBox="0 0 32 32" fill="none">
+        <path d="M16 3C16 3 6 11 6 18C6 23.523 10.477 28 16 28C21.523 28 26 23.523 26 18C26 11 16 3 16 3Z" fill="#ff1744"/>
+        <rect x="14.5" y="13" width="3" height="10" rx="1.5" fill="white"/>
+        <rect x="11" y="16.5" width="10" height="3" rx="1.5" fill="white"/>
+      </svg>
+      <div>
+        <span class="brand-name">BloodBridge</span>
+        <span class="brand-tag">Supply Intelligence</span>
+      </div>
+    </div>
+
+    <div class="header-center">
+      <div class="hospital-select-wrapper">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M3 9L12 2L21 9V20C21 20.5523 20.5523 21 20 21H15V16H9V21H4C3.44772 21 3 20.5523 3 20V9Z" stroke="#7a9cc0" stroke-width="1.5"/></svg>
+        <select id="hospital-selector" class="hospital-selector">
+          <option value="">Select Hospital</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="header-right">
+      <div class="live-indicator">
+        <span class="live-dot"></span>
+        <span id="last-updated-text">Loading...</span>
+      </div>
+      <div class="user-pill">
+        <div class="user-avatar" id="user-avatar">?</div>
+        <div class="user-info-block">
+          <span id="user-name-display">Guest</span>
+          <span id="user-role-display" class="user-role">—</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Critical Alert Banner -->
+  <div id="alert-banner" class="alert-banner hidden">
+    <div class="alert-inner">
+      <div class="alert-icon-wrap">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 9V13M12 17H12.01M10.29 3.86L1.82 18A2 2 0 003.64 21H20.36A2 2 0 0022.18 18L13.71 3.86A2 2 0 0010.29 3.86Z" stroke="#ff1744" stroke-width="2" stroke-linecap="round"/></svg>
+      </div>
+      <div class="alert-scroll-wrap">
+        <span id="alert-text" class="alert-scroll-text"></span>
+      </div>
+      <button class="alert-close" onclick="document.getElementById('alert-banner').classList.add('hidden')">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Tab Navigation -->
+  <nav class="tab-nav">
+    <button class="tab-btn active" data-tab="dashboard" onclick="switchTab('dashboard', this)">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.8"/><rect x="14" y="3" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.8"/><rect x="3" y="14" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.8"/><rect x="14" y="14" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.8"/></svg>
+      Dashboard
+    </button>
+    <button class="tab-btn" data-tab="exchange" onclick="switchTab('exchange', this)">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.8"/><path d="M2 12H22M12 2C9.33 7 8 9.5 8 12C8 14.5 9.33 17 12 22M12 2C14.67 7 16 9.5 16 12C16 14.5 14.67 17 12 22" stroke="currentColor" stroke-width="1.8"/></svg>
+      Exchange Network
+    </button>
+    <button class="tab-btn" data-tab="predictions" onclick="switchTab('predictions', this)">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      AI Predictions
+    </button>
+    <button class="tab-btn" data-tab="analytics" onclick="switchTab('analytics', this)">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M3 20H21M8 20V10M12 20V4M16 20V14M20 20V8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      Analytics
+    </button>
+  </nav>
+
+  <main class="main-content">
+
+    <!-- ===== TAB: DASHBOARD ===== -->
+    <div id="tab-dashboard" class="tab-panel active">
+      <!-- System KPI Row -->
+      <div class="kpi-row" id="kpi-row">
+        <div class="kpi-card">
+          <div class="kpi-icon kpi-blue">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M21 16V8a2 2 0 00-1-1.73L13 2.27a2 2 0 00-2 0L4 6.27A2 2 0 003 8v8a2 2 0 001 1.73l6 3.46a2 2 0 002 0l6-3.46A2 2 0 0021 16z" stroke="currentColor" stroke-width="1.8"/></svg>
+          </div>
+          <div class="kpi-body">
+            <span class="kpi-value" id="kpi-total-units">—</span>
+            <span class="kpi-label">Total Units in Network</span>
+          </div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-icon kpi-amber">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.8"/><path d="M12 6v6l4 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          </div>
+          <div class="kpi-body">
+            <span class="kpi-value kpi-amber-text" id="kpi-expiry">—</span>
+            <span class="kpi-label">Units Near Expiry (&le;7 days)</span>
+          </div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-icon kpi-red">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M10.29 3.86L1.82 18A2 2 0 003.64 21H20.36A2 2 0 0022.18 18L13.71 3.86A2 2 0 0010.29 3.86Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M12 9v4M12 17h.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          </div>
+          <div class="kpi-body">
+            <span class="kpi-value kpi-red-text" id="kpi-critical">—</span>
+            <span class="kpi-label">Critical Shortage Events</span>
+          </div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-icon kpi-green">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M7 16L3 12M3 12L7 8M3 12H21M17 8L21 12M21 12L17 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          </div>
+          <div class="kpi-body">
+            <span class="kpi-value kpi-green-text" id="kpi-transfers">—</span>
+            <span class="kpi-label">Transfer Opportunities</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hospital Dashboard Content -->
+      <div class="dashboard-grid">
+        <!-- Blood Type Inventory Cards -->
+        <div class="dashboard-main">
+          <div class="section-header">
+            <h2 class="section-title">Blood Inventory</h2>
+            <span class="section-subtitle" id="hospital-name-display">Select a hospital above</span>
+          </div>
+          <div id="blood-type-grid" class="blood-grid">
+            <div class="empty-state">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none"><path d="M3 9L12 2L21 9V20C21 20.5523 20.5523 21 20 21H15V16H9V21H4C3.44772 21 3 20.5523 3 20V9Z" stroke="#2a3f5e" stroke-width="1.5"/></svg>
+              <p>Select a hospital to view inventory</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Alerts Sidebar -->
+        <div class="dashboard-sidebar">
+          <div class="alerts-panel">
+            <div class="panel-header">
+              <h3>Active Alerts</h3>
+              <span class="badge badge-red" id="alert-count">0</span>
+            </div>
+            <div id="alerts-list" class="alerts-list">
+              <div class="empty-state-sm">No alerts loaded</div>
+            </div>
+          </div>
+
+          <div class="alerts-panel" style="margin-top:16px">
+            <div class="panel-header">
+              <h3>Near Expiry</h3>
+              <span class="badge badge-amber" id="expiry-count">0</span>
+            </div>
+            <div id="expiry-list" class="alerts-list">
+              <div class="empty-state-sm">No alerts loaded</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ===== TAB: EXCHANGE NETWORK ===== -->
+    <div id="tab-exchange" class="tab-panel hidden">
+      <div class="exchange-layout">
+        <!-- Map -->
+        <div class="map-container">
+          <div class="map-toolbar">
+            <span class="map-toolbar-label">Filter by blood type:</span>
+            <div class="bt-filter-group" id="bt-filter-group">
+              <button class="bt-pill active" data-bt="ALL" onclick="filterMapByBloodType('ALL', this)">All Types</button>
+              <button class="bt-pill" data-bt="O-"  onclick="filterMapByBloodType('O-', this)">O-</button>
+              <button class="bt-pill" data-bt="O+"  onclick="filterMapByBloodType('O+', this)">O+</button>
+              <button class="bt-pill" data-bt="A+"  onclick="filterMapByBloodType('A+', this)">A+</button>
+              <button class="bt-pill" data-bt="A-"  onclick="filterMapByBloodType('A-', this)">A-</button>
+              <button class="bt-pill" data-bt="B+"  onclick="filterMapByBloodType('B+', this)">B+</button>
+              <button class="bt-pill" data-bt="B-"  onclick="filterMapByBloodType('B-', this)">B-</button>
+              <button class="bt-pill" data-bt="AB+" onclick="filterMapByBloodType('AB+', this)">AB+</button>
+              <button class="bt-pill" data-bt="AB-" onclick="filterMapByBloodType('AB-', this)">AB-</button>
+            </div>
+          </div>
+          <div id="map" class="leaflet-map"></div>
+          <div class="map-legend">
+            <span class="legend-item"><span class="legend-dot" style="background:#00e676"></span>Stable</span>
+            <span class="legend-item"><span class="legend-dot" style="background:#ffab40"></span>Warning</span>
+            <span class="legend-item"><span class="legend-dot" style="background:#ff7043"></span>High Risk</span>
+            <span class="legend-item"><span class="legend-dot" style="background:#ff1744"></span>Critical</span>
+          </div>
+        </div>
+
+        <!-- Transfer Panel -->
+        <div class="transfer-panel">
+          <div class="panel-header">
+            <h3>Transfer Recommendation</h3>
+          </div>
+
+          <div class="transfer-form">
+            <div class="form-group">
+              <label>Requesting Hospital</label>
+              <select id="transfer-hospital" class="form-select">
+                <option value="">Select hospital...</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Blood Type Needed</label>
+              <select id="transfer-bt" class="form-select">
+                <option value="">Select type...</option>
+                <option>O-</option><option>O+</option>
+                <option>A+</option><option>A-</option>
+                <option>B+</option><option>B-</option>
+                <option>AB+</option><option>AB-</option>
+              </select>
+            </div>
+            <button class="btn-primary" onclick="runTransferRecommendation()">
+              Find Best Partners
+            </button>
+          </div>
+
+          <div id="transfer-results" class="transfer-results hidden">
+            <div class="transfer-divider">Recommendations</div>
+            <div id="transfer-best" class="transfer-card-wrap"></div>
+            <div id="transfer-all" class="transfer-all-list"></div>
+          </div>
+
+          <!-- Hospital Detail Popup (shown on map click) -->
+          <div id="hospital-detail" class="hospital-detail hidden">
+            <div class="panel-header">
+              <h3 id="detail-hospital-name">—</h3>
+              <button class="icon-btn" onclick="closeHospitalDetail()">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              </button>
+            </div>
+            <div id="detail-inventory" class="detail-inventory-list"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ===== TAB: AI PREDICTIONS ===== -->
+    <div id="tab-predictions" class="tab-panel hidden">
+      <!-- Risk Summary Row -->
+      <div class="risk-summary-row" id="risk-summary-row">
+        <div class="risk-summary-card stable">
+          <span class="risk-summary-num" id="risk-stable">—</span>
+          <span class="risk-summary-label">Stable</span>
+        </div>
+        <div class="risk-summary-card watchlist">
+          <span class="risk-summary-num" id="risk-watchlist">—</span>
+          <span class="risk-summary-label">Watchlist</span>
+        </div>
+        <div class="risk-summary-card high-risk">
+          <span class="risk-summary-num" id="risk-high">—</span>
+          <span class="risk-summary-label">High Risk</span>
+        </div>
+        <div class="risk-summary-card critical">
+          <span class="risk-summary-num" id="risk-critical">—</span>
+          <span class="risk-summary-label">Critical</span>
+        </div>
+      </div>
+
+      <div class="predictions-layout">
+        <!-- Prediction List -->
+        <div class="predictions-main">
+          <div class="section-header">
+            <h2 class="section-title">Shortage Risk Forecast</h2>
+            <div class="pred-filter-row" id="pred-filter-row">
+              <button class="pred-filter active" data-filter="all" onclick="filterPredictions('all', this)">All</button>
+              <button class="pred-filter" data-filter="3" onclick="filterPredictions('3', this)">Critical</button>
+              <button class="pred-filter" data-filter="2" onclick="filterPredictions('2', this)">High Risk</button>
+              <button class="pred-filter" data-filter="1" onclick="filterPredictions('1', this)">Watchlist</button>
+              <button class="pred-filter" data-filter="0" onclick="filterPredictions('0', this)">Stable</button>
+            </div>
+          </div>
+          <div id="predictions-list" class="predictions-list">
+            <div class="empty-state">Loading predictions...</div>
+          </div>
+        </div>
+
+        <!-- Charts sidebar -->
+        <div class="predictions-sidebar">
+          <div class="chart-card">
+            <div class="chart-title">Risk Distribution</div>
+            <div class="chart-wrap" style="height:220px">
+              <canvas id="risk-doughnut-chart"></canvas>
+            </div>
+          </div>
+          <div class="chart-card" style="margin-top:16px">
+            <div class="chart-title">Model Feature Importance</div>
+            <div id="feature-importance-list" class="fi-list"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ===== TAB: ANALYTICS ===== -->
+    <div id="tab-analytics" class="tab-panel hidden">
+      <!-- Analytics KPI Row -->
+      <div class="kpi-row">
+        <div class="kpi-card">
+          <div class="kpi-icon kpi-blue">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M3 3V21H21" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M7 16L11 12L15 14L21 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="kpi-body">
+            <span class="kpi-value" id="an-total-inv">—</span>
+            <span class="kpi-label">Total Network Inventory</span>
+          </div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-icon kpi-red">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 2v10M12 22v-4M4.93 4.93l7.07 7.07M19.07 4.93l-7.07 7.07" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          </div>
+          <div class="kpi-body">
+            <span class="kpi-value kpi-amber-text" id="an-expiry-risk">—</span>
+            <span class="kpi-label">Units at Expiry Risk</span>
+          </div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-icon kpi-amber">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.8"/><path d="M8 12L11 15L16 9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          </div>
+          <div class="kpi-body">
+            <span class="kpi-value kpi-amber-text" id="an-stressed">—</span>
+            <span class="kpi-label">Hospitals Under Stress</span>
+          </div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-icon kpi-green">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 2L12 22M2 12L22 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.8"/></svg>
+          </div>
+          <div class="kpi-body">
+            <span class="kpi-value kpi-green-text" id="an-coverage">—</span>
+            <span class="kpi-label">Network Days Coverage</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="analytics-grid">
+        <div class="chart-card">
+          <div class="chart-title">Blood Type Inventory vs Daily Demand</div>
+          <div class="chart-wrap" style="height:280px">
+            <canvas id="inventory-chart"></canvas>
+          </div>
+        </div>
+        <div class="chart-card">
+          <div class="chart-title">8-Week Demand Trend (High-Priority Types)</div>
+          <div class="chart-wrap" style="height:280px">
+            <canvas id="demand-trend-chart"></canvas>
+          </div>
+        </div>
+        <div class="chart-card span-2">
+          <div class="chart-title">Hospital Stress Ranking</div>
+          <div id="hospital-stress-table" class="stress-table"></div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Footer Disclaimer -->
+  <div class="footer-disclaimer">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M12 22C12 22 3 16.5 3 9.5C3 6.42 5.42 4 8.5 4C10.24 4 11.8 4.85 12.8 6.17C13.8 4.85 15.36 4 17.1 4C20.18 4 22 6.42 22 9.5C22 16.5 12 22 12 22Z" stroke="#2a3f5e" stroke-width="1.5"/></svg>
+    BloodBridge &mdash; GreyHacks Spring 2026 Prototype &nbsp;&bull;&nbsp; Not for clinical use &nbsp;&bull;&nbsp; All data is synthetic
+  </div>
+
+</div><!-- #app -->
+
+<script src="/static/script.js"></script>
+</body>
+</html>
