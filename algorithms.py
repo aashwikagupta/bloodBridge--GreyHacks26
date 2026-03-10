@@ -15,11 +15,7 @@ import math
 import pandas as pd
 from datetime import datetime
 
-
-# ---------------------------------------------------------------------------
 # Core utilities
-# ---------------------------------------------------------------------------
-
 def haversine_km(lat1: float, lon1: float, lat2: float, lon2: float) -> float:
     """Haversine great-circle distance between two geographic points (km)."""
     R = 6371.0
@@ -29,7 +25,6 @@ def haversine_km(lat1: float, lon1: float, lat2: float, lon2: float) -> float:
     a = math.sin(dphi / 2) ** 2 + math.cos(phi1) * math.cos(phi2) * math.sin(dlambda / 2) ** 2
     return round(2 * R * math.asin(math.sqrt(a)), 1)
 
-
 def days_until_expiry(expiration_date_str: str) -> int:
     """Days from today until expiration. Negative = already expired."""
     try:
@@ -37,7 +32,6 @@ def days_until_expiry(expiration_date_str: str) -> int:
         return (exp - datetime.now().date()).days
     except Exception:
         return 999
-
 
 def shortage_score(daily_usage: float, units_available: int, horizon_days: int = 7) -> float:
     """
@@ -48,7 +42,6 @@ def shortage_score(daily_usage: float, units_available: int, horizon_days: int =
         return 99.0
     return round((daily_usage * horizon_days) / units_available, 3)
 
-
 def _status_label(score: float, days_supply: float) -> str:
     if score >= 1.5 or days_supply < 2:
         return "critical"
@@ -58,11 +51,7 @@ def _status_label(score: float, days_supply: float) -> str:
         return "warning"
     return "stable"
 
-
-# ---------------------------------------------------------------------------
 # Warning detectors
-# ---------------------------------------------------------------------------
-
 def get_expiry_warnings(df: pd.DataFrame, threshold_days: int = 7) -> list:
     """All batches expiring within threshold_days, sorted soonest-first."""
     warnings = []
@@ -78,7 +67,6 @@ def get_expiry_warnings(df: pd.DataFrame, threshold_days: int = 7) -> list:
                 "expiration_date":  str(row["expiration_date"]),
             })
     return sorted(warnings, key=lambda x: x["days_until_expiry"])
-
 
 def get_low_inventory_warnings(df: pd.DataFrame, threshold_units: int = 10) -> list:
     """All entries with units below threshold, sorted by days of supply."""
@@ -97,11 +85,7 @@ def get_low_inventory_warnings(df: pd.DataFrame, threshold_units: int = 10) -> l
             })
     return sorted(warnings, key=lambda x: x["days_of_supply"])
 
-
-# ---------------------------------------------------------------------------
 # Hospital summary
-# ---------------------------------------------------------------------------
-
 def get_hospital_summary(df: pd.DataFrame, hospital_name: str) -> list:
     """
     Aggregate all batches for a hospital, returning one entry per blood type
@@ -145,11 +129,7 @@ def get_hospital_summary(df: pd.DataFrame, hospital_name: str) -> list:
 
     return summary
 
-
-# ---------------------------------------------------------------------------
 # Transfer partner finder
-# ---------------------------------------------------------------------------
-
 def find_transfer_partners(df: pd.DataFrame, requesting_hospital: str,
                            blood_type: str, min_surplus_units: int = 8) -> dict:
     """
@@ -217,11 +197,7 @@ def find_transfer_partners(df: pd.DataFrame, requesting_hospital: str,
         "candidates":    by_distance,   # full list sorted by distance
     }
 
-
-# ---------------------------------------------------------------------------
 # Heatmap data
-# ---------------------------------------------------------------------------
-
 def get_heatmap_data(df: pd.DataFrame) -> list:
     """
     Compute a composite stress intensity score [0,1] per hospital for the map overlay.
@@ -273,11 +249,7 @@ def get_heatmap_data(df: pd.DataFrame) -> list:
 
     return sorted(results, key=lambda x: x["stress_intensity"], reverse=True)
 
-
-# ---------------------------------------------------------------------------
 # Blood-type availability across all hospitals
-# ---------------------------------------------------------------------------
-
 def get_blood_type_availability(df: pd.DataFrame, blood_type: str) -> list:
     """Which hospitals have blood_type and how much, with status labels."""
     bt_df = df[df["blood_type"] == blood_type].groupby("hospital_name").agg(

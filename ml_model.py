@@ -278,10 +278,7 @@ class BloodShortagePredictor:
         items = sorted(self.feature_importances.items(), key=lambda x: x[1], reverse=True)
         return [{"feature": k, "importance": round(v, 4)} for k, v in items]
 
-
-# ---------------------------------------------------------------------------
 # Module-level singleton — app.py imports these functions
-# ---------------------------------------------------------------------------
 _predictor = BloodShortagePredictor()
 
 

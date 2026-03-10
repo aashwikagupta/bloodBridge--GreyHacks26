@@ -23,7 +23,7 @@ random.seed(42)
 np.random.seed(42)
 
 HOSPITALS = [
-    # ── New York City — Manhattan ───────────────────────────────────────────────
+    #New York City — Manhattan 
     {"name": "NY-Presbyterian / Weill Cornell",   "city": "New York",       "state": "NY", "lat": 40.7649, "lon": -73.9541, "profile": "high_volume"},
     {"name": "Mount Sinai Medical Center",         "city": "New York",       "state": "NY", "lat": 40.7900, "lon": -73.9526, "profile": "high_volume"},
     {"name": "Bellevue Hospital Center",           "city": "New York",       "state": "NY", "lat": 40.7394, "lon": -73.9759, "profile": "stressed"},
@@ -31,36 +31,36 @@ HOSPITALS = [
     {"name": "New York Blood Center",              "city": "New York",       "state": "NY", "lat": 40.7711, "lon": -73.9551, "profile": "surplus"},
     {"name": "Lenox Hill Hospital",                "city": "New York",       "state": "NY", "lat": 40.7719, "lon": -73.9596, "profile": "moderate"},
     {"name": "Harlem Hospital Center",             "city": "New York",       "state": "NY", "lat": 40.8110, "lon": -73.9403, "profile": "stressed"},
-    # ── New York City — Bronx ──────────────────────────────────────────────────
+    #New York City — Bronx 
     {"name": "Montefiore Medical Center",          "city": "Bronx",          "state": "NY", "lat": 40.8826, "lon": -73.8781, "profile": "stressed"},
     {"name": "Lincoln Medical Center",             "city": "Bronx",          "state": "NY", "lat": 40.8157, "lon": -73.9257, "profile": "stressed"},
     {"name": "Jacobi Medical Center",              "city": "Bronx",          "state": "NY", "lat": 40.8528, "lon": -73.8453, "profile": "moderate"},
-    # ── New York City — Brooklyn ───────────────────────────────────────────────
+    #New York City — Brooklyn 
     {"name": "Kings County Hospital Center",       "city": "Brooklyn",       "state": "NY", "lat": 40.6556, "lon": -73.9443, "profile": "stressed"},
     {"name": "Maimonides Medical Center",          "city": "Brooklyn",       "state": "NY", "lat": 40.6186, "lon": -73.9961, "profile": "moderate"},
     {"name": "NYU Langone Brooklyn",               "city": "Brooklyn",       "state": "NY", "lat": 40.6419, "lon": -73.9609, "profile": "moderate"},
     {"name": "Methodist Hospital Brooklyn",        "city": "Brooklyn",       "state": "NY", "lat": 40.6501, "lon": -73.9770, "profile": "moderate"},
-    # ── New York City — Queens ─────────────────────────────────────────────────
+    #New York City — Queens 
     {"name": "Long Island Jewish Medical Center",  "city": "Queens",         "state": "NY", "lat": 40.7544, "lon": -73.7072, "profile": "high_volume"},
     {"name": "Jamaica Hospital Medical Center",    "city": "Queens",         "state": "NY", "lat": 40.6999, "lon": -73.7935, "profile": "moderate"},
     {"name": "Elmhurst Hospital Center",           "city": "Queens",         "state": "NY", "lat": 40.7447, "lon": -73.8785, "profile": "stressed"},
-    # ── New York City — Staten Island ─────────────────────────────────────────
+    # New York City — Staten Island 
     {"name": "Staten Island University Hospital",  "city": "Staten Island",  "state": "NY", "lat": 40.5795, "lon": -74.0948, "profile": "moderate"},
-    # ── Long Island ────────────────────────────────────────────────────────────
+    #Long Island 
     {"name": "Stony Brook University Hospital",    "city": "Stony Brook",    "state": "NY", "lat": 40.9126, "lon": -73.1201, "profile": "high_volume"},
     {"name": "Good Samaritan University Hospital", "city": "West Islip",     "state": "NY", "lat": 40.7251, "lon": -73.4125, "profile": "moderate"},
     {"name": "Winthrop University Hospital",       "city": "Mineola",        "state": "NY", "lat": 40.7467, "lon": -73.5989, "profile": "moderate"},
     {"name": "Northwell Health — South Shore",     "city": "Bay Shore",      "state": "NY", "lat": 40.7282, "lon": -73.2481, "profile": "moderate"},
-    # ── Westchester / Hudson Valley ────────────────────────────────────────────
+    #Westchester / Hudson Valley 
     {"name": "White Plains Hospital",              "city": "White Plains",   "state": "NY", "lat": 41.0340, "lon": -73.7629, "profile": "moderate"},
     {"name": "Westchester Medical Center",         "city": "Valhalla",       "state": "NY", "lat": 41.0968, "lon": -73.8523, "profile": "high_volume"},
-    # ── Upstate New York ───────────────────────────────────────────────────────
+    #Upstate New York 
     {"name": "Albany Medical Center",              "city": "Albany",         "state": "NY", "lat": 42.6526, "lon": -73.7562, "profile": "moderate"},
     {"name": "Upstate Medical University",         "city": "Syracuse",       "state": "NY", "lat": 43.0481, "lon": -76.1474, "profile": "moderate"},
     {"name": "Erie County Medical Center",         "city": "Buffalo",        "state": "NY", "lat": 42.8864, "lon": -78.8784, "profile": "stressed"},
     {"name": "Strong Memorial Hospital",           "city": "Rochester",      "state": "NY", "lat": 43.1247, "lon": -77.6093, "profile": "high_volume"},
     {"name": "Samaritan Medical Center",           "city": "Watertown",      "state": "NY", "lat": 43.9748, "lon": -75.9108, "profile": "moderate"},
-    # ── New Jersey ─────────────────────────────────────────────────────────────
+    #New Jersey 
     {"name": "Hackensack University Medical Ctr",  "city": "Hackensack",     "state": "NJ", "lat": 40.8839, "lon": -74.0439, "profile": "surplus"},
     {"name": "RWJBarnabas Medical Center",         "city": "Newark",         "state": "NJ", "lat": 40.7357, "lon": -74.1724, "profile": "moderate"},
     {"name": "Cooper University Hospital",         "city": "Camden",         "state": "NJ", "lat": 39.9440, "lon": -75.1160, "profile": "stressed"},
@@ -71,7 +71,7 @@ HOSPITALS = [
     {"name": "Robert Wood Johnson University",     "city": "New Brunswick",  "state": "NJ", "lat": 40.5027, "lon": -74.4479, "profile": "high_volume"},
     {"name": "JFK University Medical Center",      "city": "Edison",         "state": "NJ", "lat": 40.5215, "lon": -74.3487, "profile": "moderate"},
     {"name": "Virtua Health — Marlton",            "city": "Marlton",        "state": "NJ", "lat": 39.8913, "lon": -74.9219, "profile": "moderate"},
-    # ── Massachusetts ──────────────────────────────────────────────────────────
+    #Massachusetts
     {"name": "Massachusetts General Hospital",     "city": "Boston",         "state": "MA", "lat": 42.3628, "lon": -71.0686, "profile": "high_volume"},
     {"name": "Brigham and Women's Hospital",       "city": "Boston",         "state": "MA", "lat": 42.3359, "lon": -71.1067, "profile": "high_volume"},
     {"name": "Boston Medical Center",              "city": "Boston",         "state": "MA", "lat": 42.3355, "lon": -71.0711, "profile": "stressed"},
@@ -83,30 +83,30 @@ HOSPITALS = [
     {"name": "Lowell General Hospital",            "city": "Lowell",         "state": "MA", "lat": 42.6356, "lon": -71.3145, "profile": "moderate"},
     {"name": "South Shore Hospital",               "city": "Weymouth",       "state": "MA", "lat": 42.1787, "lon": -70.9410, "profile": "moderate"},
     {"name": "Lahey Hospital & Medical Center",    "city": "Burlington",     "state": "MA", "lat": 42.4973, "lon": -71.1990, "profile": "surplus"},
-    # ── Connecticut ────────────────────────────────────────────────────────────
+    #Connecticut 
     {"name": "Yale New Haven Hospital",            "city": "New Haven",      "state": "CT", "lat": 41.3042, "lon": -72.9349, "profile": "high_volume"},
     {"name": "Hartford Hospital",                  "city": "Hartford",       "state": "CT", "lat": 41.7637, "lon": -72.6901, "profile": "moderate"},
     {"name": "Bridgeport Hospital",                "city": "Bridgeport",     "state": "CT", "lat": 41.1665, "lon": -73.1957, "profile": "moderate"},
     {"name": "Stamford Hospital",                  "city": "Stamford",       "state": "CT", "lat": 41.0534, "lon": -73.5387, "profile": "moderate"},
     {"name": "Waterbury Hospital",                 "city": "Waterbury",      "state": "CT", "lat": 41.5562, "lon": -73.0390, "profile": "stressed"},
     {"name": "St. Francis Hospital Hartford",      "city": "Hartford",       "state": "CT", "lat": 41.7612, "lon": -72.7004, "profile": "moderate"},
-    # ── Rhode Island ───────────────────────────────────────────────────────────
+    #Rhode Island 
     {"name": "Rhode Island Hospital",              "city": "Providence",     "state": "RI", "lat": 41.8236, "lon": -71.4222, "profile": "high_volume"},
     {"name": "Miriam Hospital",                    "city": "Providence",     "state": "RI", "lat": 41.8380, "lon": -71.3972, "profile": "moderate"},
     {"name": "Kent County Hospital",               "city": "Warwick",        "state": "RI", "lat": 41.7193, "lon": -71.4626, "profile": "moderate"},
-    # ── Vermont ────────────────────────────────────────────────────────────────
+    #Vermont
     {"name": "UVM Medical Center",                 "city": "Burlington",     "state": "VT", "lat": 44.4759, "lon": -73.2121, "profile": "moderate"},
     {"name": "Rutland Regional Medical Center",    "city": "Rutland",        "state": "VT", "lat": 43.6106, "lon": -72.9726, "profile": "moderate"},
-    # ── New Hampshire ──────────────────────────────────────────────────────────
+    #New Hampshire
     {"name": "Dartmouth-Hitchcock Medical Center", "city": "Lebanon",        "state": "NH", "lat": 43.6435, "lon": -72.3276, "profile": "surplus"},
     {"name": "Concord Hospital",                   "city": "Concord",        "state": "NH", "lat": 43.2081, "lon": -71.5376, "profile": "moderate"},
     {"name": "Portsmouth Regional Hospital",       "city": "Portsmouth",     "state": "NH", "lat": 43.0784, "lon": -70.7626, "profile": "moderate"},
-    # ── Maine ──────────────────────────────────────────────────────────────────
+    # Maine 
     {"name": "Maine Medical Center",               "city": "Portland",       "state": "ME", "lat": 43.6591, "lon": -70.2568, "profile": "moderate"},
     {"name": "Eastern Maine Medical Center",       "city": "Bangor",         "state": "ME", "lat": 44.8016, "lon": -68.7712, "profile": "stressed"},
     {"name": "Central Maine Medical Center",       "city": "Lewiston",       "state": "ME", "lat": 44.1003, "lon": -70.2259, "profile": "moderate"},
     {"name": "Mercy Hospital Portland",            "city": "Portland",       "state": "ME", "lat": 43.6474, "lon": -70.2703, "profile": "moderate"},
-    # ── Pennsylvania ───────────────────────────────────────────────────────────
+    # Pennsylvania
     {"name": "Penn Medicine - HUP",                "city": "Philadelphia",   "state": "PA", "lat": 39.9498, "lon": -75.1939, "profile": "high_volume"},
     {"name": "Temple University Hospital",         "city": "Philadelphia",   "state": "PA", "lat": 39.9786, "lon": -75.1499, "profile": "stressed"},
     {"name": "Jefferson Hospital",                 "city": "Philadelphia",   "state": "PA", "lat": 39.9496, "lon": -75.1577, "profile": "moderate"},
@@ -115,9 +115,9 @@ HOSPITALS = [
     {"name": "Reading Hospital",                   "city": "Reading",        "state": "PA", "lat": 40.3296, "lon": -75.9263, "profile": "moderate"},
     {"name": "Lancaster General Hospital",         "city": "Lancaster",      "state": "PA", "lat": 40.0427, "lon": -76.3149, "profile": "moderate"},
     {"name": "Geisinger Medical Center",           "city": "Danville",       "state": "PA", "lat": 40.9626, "lon": -76.6157, "profile": "surplus"},
-    # ── Delaware ───────────────────────────────────────────────────────────────
+    # Delaware 
     {"name": "Christiana Hospital",                "city": "Newark",         "state": "DE", "lat": 39.6817, "lon": -75.6572, "profile": "high_volume"},
-    # ── Maryland ───────────────────────────────────────────────────────────────
+    # Maryland 
     {"name": "Johns Hopkins Hospital",             "city": "Baltimore",      "state": "MD", "lat": 39.2963, "lon": -76.5927, "profile": "high_volume"},
     {"name": "University of Maryland Medical Ctr", "city": "Baltimore",      "state": "MD", "lat": 39.2972, "lon": -76.6243, "profile": "high_volume"},
     {"name": "Sinai Hospital of Baltimore",        "city": "Baltimore",      "state": "MD", "lat": 39.3622, "lon": -76.6559, "profile": "moderate"},
