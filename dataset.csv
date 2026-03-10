@@ -1,0 +1,1433 @@
+hospital_name,city,state,latitude,longitude,blood_type,units_available,expiration_date,daily_usage,season,surgery_schedule_score,trauma_rate,historical_demand,shortage_risk_score,last_updated
+NY-Presbyterian / Weill Cornell,New York,NY,40.7649,-73.9541,A+,13,2026-04-20,4.1,Spring,8.8,5.6,30.0,2.208,2026-03-10 14:25:16
+NY-Presbyterian / Weill Cornell,New York,NY,40.7649,-73.9541,A+,12,2026-04-04,4.1,Spring,8.8,5.6,27.1,2.392,2026-03-10 14:25:16
+NY-Presbyterian / Weill Cornell,New York,NY,40.7649,-73.9541,A+,45,2026-04-05,4.1,Spring,8.8,5.6,31.4,0.638,2026-03-10 14:25:16
+NY-Presbyterian / Weill Cornell,New York,NY,40.7649,-73.9541,A-,15,2026-04-11,3.0,Spring,8.8,5.6,18.5,1.4,2026-03-10 14:25:16
+NY-Presbyterian / Weill Cornell,New York,NY,40.7649,-73.9541,A-,14,2026-03-22,3.0,Spring,8.8,5.6,19.5,1.5,2026-03-10 14:25:16
+NY-Presbyterian / Weill Cornell,New York,NY,40.7649,-73.9541,A-,36,2026-03-30,3.0,Spring,8.8,5.6,20.7,0.583,2026-03-10 14:25:16
+NY-Presbyterian / Weill Cornell,New York,NY,40.7649,-73.9541,B+,16,2026-03-29,3.7,Spring,8.8,5.6,30.4,1.619,2026-03-10 14:25:16
+NY-Presbyterian / Weill Cornell,New York,NY,40.7649,-73.9541,B+,10,2026-03-29,3.7,Spring,8.8,5.6,27.7,2.59,2026-03-10 14:25:16
+NY-Presbyterian / Weill Cornell,New York,NY,40.7649,-73.9541,B+,44,2026-03-31,3.7,Spring,8.8,5.6,23.1,0.589,2026-03-10 14:25:16
+NY-Presbyterian / Weill Cornell,New York,NY,40.7649,-73.9541,B-,10,2026-03-30,1.9,Spring,8.8,5.6,13.2,1.33,2026-03-10 14:25:16
+NY-Presbyterian / Weill Cornell,New York,NY,40.7649,-73.9541,B-,7,2026-03-31,1.9,Spring,8.8,5.6,13.2,1.9,2026-03-10 14:25:16
+NY-Presbyterian / Weill Cornell,New York,NY,40.7649,-73.9541,B-,23,2026-03-26,1.9,Spring,8.8,5.6,14.4,0.578,2026-03-10 14:25:16
+NY-Presbyterian / Weill Cornell,New York,NY,40.7649,-73.9541,AB+,7,2026-04-14,1.5,Spring,8.8,5.6,10.4,1.5,2026-03-10 14:25:16
+NY-Presbyterian / Weill Cornell,New York,NY,40.7649,-73.9541,AB+,6,2026-04-03,1.5,Spring,8.8,5.6,11.7,1.75,2026-03-10 14:25:16
+NY-Presbyterian / Weill Cornell,New York,NY,40.7649,-73.9541,AB+,18,2026-03-21,1.5,Spring,8.8,5.6,10.2,0.583,2026-03-10 14:25:16
+NY-Presbyterian / Weill Cornell,New York,NY,40.7649,-73.9541,AB-,4,2026-04-15,1.1,Spring,8.8,5.6,8.3,1.925,2026-03-10 14:25:16
+NY-Presbyterian / Weill Cornell,New York,NY,40.7649,-73.9541,AB-,5,2026-03-29,1.1,Spring,8.8,5.6,7.1,1.54,2026-03-10 14:25:16
+NY-Presbyterian / Weill Cornell,New York,NY,40.7649,-73.9541,AB-,12,2026-03-24,1.1,Spring,8.8,5.6,7.4,0.642,2026-03-10 14:25:16
+NY-Presbyterian / Weill Cornell,New York,NY,40.7649,-73.9541,O+,46,2026-04-09,7.4,Spring,8.8,5.6,47.7,1.126,2026-03-10 14:25:16
+NY-Presbyterian / Weill Cornell,New York,NY,40.7649,-73.9541,O+,29,2026-04-01,7.4,Spring,8.8,5.6,47.3,1.786,2026-03-10 14:25:16
+NY-Presbyterian / Weill Cornell,New York,NY,40.7649,-73.9541,O+,133,2026-04-09,7.4,Spring,8.8,5.6,54.9,0.389,2026-03-10 14:25:16
+NY-Presbyterian / Weill Cornell,New York,NY,40.7649,-73.9541,O-,32,2026-04-11,5.5,Spring,8.8,5.6,43.8,1.203,2026-03-10 14:25:16
+NY-Presbyterian / Weill Cornell,New York,NY,40.7649,-73.9541,O-,26,2026-03-17,5.5,Spring,8.8,5.6,44.1,1.481,2026-03-10 14:25:16
+NY-Presbyterian / Weill Cornell,New York,NY,40.7649,-73.9541,O-,75,2026-03-28,5.5,Spring,8.8,5.6,37.3,0.513,2026-03-10 14:25:16
+Mount Sinai Medical Center,New York,NY,40.79,-73.9526,A+,30,2026-04-13,4.9,Spring,7.8,5.5,31.3,1.143,2026-03-10 14:25:16
+Mount Sinai Medical Center,New York,NY,40.79,-73.9526,A+,31,2026-03-26,4.9,Spring,7.8,5.5,32.2,1.106,2026-03-10 14:25:16
+Mount Sinai Medical Center,New York,NY,40.79,-73.9526,A+,76,2026-03-31,4.9,Spring,7.8,5.5,38.2,0.451,2026-03-10 14:25:16
+Mount Sinai Medical Center,New York,NY,40.79,-73.9526,A-,7,2026-04-07,2.8,Spring,7.8,5.5,19.4,2.8,2026-03-10 14:25:16
+Mount Sinai Medical Center,New York,NY,40.79,-73.9526,A-,6,2026-03-26,2.8,Spring,7.8,5.5,20.6,3.267,2026-03-10 14:25:16
+Mount Sinai Medical Center,New York,NY,40.79,-73.9526,A-,25,2026-03-22,2.8,Spring,7.8,5.5,17.7,0.784,2026-03-10 14:25:16
+Mount Sinai Medical Center,New York,NY,40.79,-73.9526,B+,29,2026-04-01,4.3,Spring,7.8,5.5,28.0,1.038,2026-03-10 14:25:16
+Mount Sinai Medical Center,New York,NY,40.79,-73.9526,B+,28,2026-04-02,4.3,Spring,7.8,5.5,28.4,1.075,2026-03-10 14:25:16
+Mount Sinai Medical Center,New York,NY,40.79,-73.9526,B+,72,2026-04-06,4.3,Spring,7.8,5.5,32.9,0.418,2026-03-10 14:25:16
+Mount Sinai Medical Center,New York,NY,40.79,-73.9526,B-,10,2026-04-08,2.0,Spring,7.8,5.5,12.8,1.4,2026-03-10 14:25:16
+Mount Sinai Medical Center,New York,NY,40.79,-73.9526,B-,6,2026-03-24,2.0,Spring,7.8,5.5,14.6,2.333,2026-03-10 14:25:16
+Mount Sinai Medical Center,New York,NY,40.79,-73.9526,B-,26,2026-04-07,2.0,Spring,7.8,5.5,15.0,0.538,2026-03-10 14:25:16
+Mount Sinai Medical Center,New York,NY,40.79,-73.9526,AB+,6,2026-04-07,1.6,Spring,7.8,5.5,12.1,1.867,2026-03-10 14:25:16
+Mount Sinai Medical Center,New York,NY,40.79,-73.9526,AB+,10,2026-03-23,1.6,Spring,7.8,5.5,12.8,1.12,2026-03-10 14:25:16
+Mount Sinai Medical Center,New York,NY,40.79,-73.9526,AB+,29,2026-04-07,1.6,Spring,7.8,5.5,12.6,0.386,2026-03-10 14:25:16
+Mount Sinai Medical Center,New York,NY,40.79,-73.9526,AB-,3,2026-04-10,1.1,Spring,7.8,5.5,8.8,2.567,2026-03-10 14:25:16
+Mount Sinai Medical Center,New York,NY,40.79,-73.9526,AB-,4,2026-03-18,1.1,Spring,7.8,5.5,7.0,1.925,2026-03-10 14:25:16
+Mount Sinai Medical Center,New York,NY,40.79,-73.9526,AB-,11,2026-04-01,1.1,Spring,7.8,5.5,7.0,0.7,2026-03-10 14:25:16
+Mount Sinai Medical Center,New York,NY,40.79,-73.9526,O+,27,2026-04-01,6.3,Spring,7.8,5.5,42.1,1.633,2026-03-10 14:25:16
+Mount Sinai Medical Center,New York,NY,40.79,-73.9526,O+,32,2026-03-19,6.3,Spring,7.8,5.5,46.1,1.378,2026-03-10 14:25:16
+Mount Sinai Medical Center,New York,NY,40.79,-73.9526,O+,88,2026-03-21,6.3,Spring,7.8,5.5,39.0,0.501,2026-03-10 14:25:16
+Mount Sinai Medical Center,New York,NY,40.79,-73.9526,O-,21,2026-04-04,4.9,Spring,7.8,5.5,32.4,1.633,2026-03-10 14:25:16
+Mount Sinai Medical Center,New York,NY,40.79,-73.9526,O-,29,2026-03-29,4.9,Spring,7.8,5.5,30.2,1.183,2026-03-10 14:25:16
+Mount Sinai Medical Center,New York,NY,40.79,-73.9526,O-,83,2026-04-01,4.9,Spring,7.8,5.5,34.9,0.413,2026-03-10 14:25:16
+Bellevue Hospital Center,New York,NY,40.7394,-73.9759,A+,10,2026-04-19,5.3,Spring,6.8,8.9,35.1,3.71,2026-03-10 14:25:16
+Bellevue Hospital Center,New York,NY,40.7394,-73.9759,A+,22,2026-03-12,5.3,Spring,6.8,8.9,41.0,1.686,2026-03-10 14:25:16
+Bellevue Hospital Center,New York,NY,40.7394,-73.9759,A-,5,2026-04-13,2.3,Spring,6.8,8.9,14.4,3.22,2026-03-10 14:25:16
+Bellevue Hospital Center,New York,NY,40.7394,-73.9759,A-,9,2026-03-20,2.3,Spring,6.8,8.9,17.0,1.789,2026-03-10 14:25:16
+Bellevue Hospital Center,New York,NY,40.7394,-73.9759,B+,7,2026-03-31,4.1,Spring,6.8,8.9,30.2,4.1,2026-03-10 14:25:16
+Bellevue Hospital Center,New York,NY,40.7394,-73.9759,B+,11,2026-03-12,4.1,Spring,6.8,8.9,30.3,2.609,2026-03-10 14:25:16
+Bellevue Hospital Center,New York,NY,40.7394,-73.9759,B-,6,2026-04-03,2.1,Spring,6.8,8.9,14.1,2.45,2026-03-10 14:25:16
+Bellevue Hospital Center,New York,NY,40.7394,-73.9759,B-,11,2026-03-14,2.1,Spring,6.8,8.9,14.3,1.336,2026-03-10 14:25:16
+Bellevue Hospital Center,New York,NY,40.7394,-73.9759,AB+,2,2026-04-11,2.0,Spring,6.8,8.9,12.7,7.0,2026-03-10 14:25:16
+Bellevue Hospital Center,New York,NY,40.7394,-73.9759,AB+,4,2026-03-20,2.0,Spring,6.8,8.9,16.2,3.5,2026-03-10 14:25:16
+Bellevue Hospital Center,New York,NY,40.7394,-73.9759,AB-,3,2026-04-08,1.4,Spring,6.8,8.9,10.2,3.267,2026-03-10 14:25:16
+Bellevue Hospital Center,New York,NY,40.7394,-73.9759,AB-,8,2026-03-16,1.4,Spring,6.8,8.9,10.5,1.225,2026-03-10 14:25:16
+Bellevue Hospital Center,New York,NY,40.7394,-73.9759,O+,2,2026-04-06,5.8,Spring,6.8,8.9,38.9,12.0,2026-03-10 14:25:16
+Bellevue Hospital Center,New York,NY,40.7394,-73.9759,O+,2,2026-03-13,5.8,Spring,6.8,8.9,38.3,12.0,2026-03-10 14:25:16
+Bellevue Hospital Center,New York,NY,40.7394,-73.9759,O-,3,2026-04-05,5.4,Spring,6.8,8.9,33.8,12.0,2026-03-10 14:25:16
+Bellevue Hospital Center,New York,NY,40.7394,-73.9759,O-,2,2026-03-18,5.4,Spring,6.8,8.9,34.7,12.0,2026-03-10 14:25:16
+NYU Langone Medical Center,New York,NY,40.742,-73.9756,A+,14,2026-04-14,4.4,Spring,9.5,6.1,35.3,2.2,2026-03-10 14:25:16
+NYU Langone Medical Center,New York,NY,40.742,-73.9756,A+,26,2026-03-21,4.4,Spring,9.5,6.1,32.5,1.185,2026-03-10 14:25:16
+NYU Langone Medical Center,New York,NY,40.742,-73.9756,A+,58,2026-03-24,4.4,Spring,9.5,6.1,30.5,0.531,2026-03-10 14:25:16
+NYU Langone Medical Center,New York,NY,40.742,-73.9756,A-,22,2026-03-29,3.3,Spring,9.5,6.1,22.1,1.05,2026-03-10 14:25:16
+NYU Langone Medical Center,New York,NY,40.742,-73.9756,A-,19,2026-03-20,3.3,Spring,9.5,6.1,26.4,1.216,2026-03-10 14:25:16
+NYU Langone Medical Center,New York,NY,40.742,-73.9756,A-,66,2026-04-08,3.3,Spring,9.5,6.1,22.0,0.35,2026-03-10 14:25:16
+NYU Langone Medical Center,New York,NY,40.742,-73.9756,B+,20,2026-04-02,3.4,Spring,9.5,6.1,26.2,1.19,2026-03-10 14:25:16
+NYU Langone Medical Center,New York,NY,40.742,-73.9756,B+,21,2026-03-27,3.4,Spring,9.5,6.1,25.7,1.133,2026-03-10 14:25:16
+NYU Langone Medical Center,New York,NY,40.742,-73.9756,B+,59,2026-03-27,3.4,Spring,9.5,6.1,21.7,0.403,2026-03-10 14:25:16
+NYU Langone Medical Center,New York,NY,40.742,-73.9756,B-,13,2026-04-04,2.4,Spring,9.5,6.1,16.5,1.292,2026-03-10 14:25:16
+NYU Langone Medical Center,New York,NY,40.742,-73.9756,B-,12,2026-03-24,2.4,Spring,9.5,6.1,16.8,1.4,2026-03-10 14:25:16
+NYU Langone Medical Center,New York,NY,40.742,-73.9756,B-,45,2026-03-28,2.4,Spring,9.5,6.1,16.2,0.373,2026-03-10 14:25:16
+NYU Langone Medical Center,New York,NY,40.742,-73.9756,AB+,6,2026-04-14,1.9,Spring,9.5,6.1,15.2,2.217,2026-03-10 14:25:16
+NYU Langone Medical Center,New York,NY,40.742,-73.9756,AB+,7,2026-03-25,1.9,Spring,9.5,6.1,12.8,1.9,2026-03-10 14:25:16
+NYU Langone Medical Center,New York,NY,40.742,-73.9756,AB+,22,2026-03-23,1.9,Spring,9.5,6.1,14.8,0.605,2026-03-10 14:25:16
+NYU Langone Medical Center,New York,NY,40.742,-73.9756,AB-,7,2026-03-31,1.2,Spring,9.5,6.1,8.0,1.2,2026-03-10 14:25:16
+NYU Langone Medical Center,New York,NY,40.742,-73.9756,AB-,6,2026-03-30,1.2,Spring,9.5,6.1,8.7,1.4,2026-03-10 14:25:16
+NYU Langone Medical Center,New York,NY,40.742,-73.9756,AB-,20,2026-04-10,1.2,Spring,9.5,6.1,9.8,0.42,2026-03-10 14:25:16
+NYU Langone Medical Center,New York,NY,40.742,-73.9756,O+,54,2026-04-18,8.3,Spring,9.5,6.1,56.4,1.076,2026-03-10 14:25:16
+NYU Langone Medical Center,New York,NY,40.742,-73.9756,O+,44,2026-03-26,8.3,Spring,9.5,6.1,63.3,1.32,2026-03-10 14:25:16
+NYU Langone Medical Center,New York,NY,40.742,-73.9756,O+,118,2026-04-06,8.3,Spring,9.5,6.1,67.5,0.492,2026-03-10 14:25:16
+NYU Langone Medical Center,New York,NY,40.742,-73.9756,O-,37,2026-04-16,6.2,Spring,9.5,6.1,49.0,1.173,2026-03-10 14:25:16
+NYU Langone Medical Center,New York,NY,40.742,-73.9756,O-,31,2026-03-26,6.2,Spring,9.5,6.1,45.7,1.4,2026-03-10 14:25:16
+NYU Langone Medical Center,New York,NY,40.742,-73.9756,O-,104,2026-04-09,6.2,Spring,9.5,6.1,47.0,0.417,2026-03-10 14:25:16
+New York Blood Center,New York,NY,40.7711,-73.9551,A+,81,2026-04-18,5.3,Spring,4.0,4.4,39.7,0.458,2026-03-10 14:25:16
+New York Blood Center,New York,NY,40.7711,-73.9551,A+,221,2026-03-27,5.3,Spring,4.0,4.4,35.3,0.168,2026-03-10 14:25:16
+New York Blood Center,New York,NY,40.7711,-73.9551,A-,37,2026-04-01,2.6,Spring,4.0,4.4,18.6,0.492,2026-03-10 14:25:16
+New York Blood Center,New York,NY,40.7711,-73.9551,A-,110,2026-03-19,2.6,Spring,4.0,4.4,19.2,0.165,2026-03-10 14:25:16
+New York Blood Center,New York,NY,40.7711,-73.9551,B+,58,2026-04-09,4.2,Spring,4.0,4.4,25.9,0.507,2026-03-10 14:25:16
+New York Blood Center,New York,NY,40.7711,-73.9551,B+,114,2026-03-20,4.2,Spring,4.0,4.4,33.0,0.258,2026-03-10 14:25:16
+New York Blood Center,New York,NY,40.7711,-73.9551,B-,35,2026-04-14,2.3,Spring,4.0,4.4,16.4,0.46,2026-03-10 14:25:16
+New York Blood Center,New York,NY,40.7711,-73.9551,B-,82,2026-03-31,2.3,Spring,4.0,4.4,17.0,0.196,2026-03-10 14:25:16
+New York Blood Center,New York,NY,40.7711,-73.9551,AB+,52,2026-04-16,2.1,Spring,4.0,4.4,14.8,0.283,2026-03-10 14:25:16
+New York Blood Center,New York,NY,40.7711,-73.9551,AB+,75,2026-04-03,2.1,Spring,4.0,4.4,16.7,0.196,2026-03-10 14:25:16
+New York Blood Center,New York,NY,40.7711,-73.9551,AB-,21,2026-04-17,1.2,Spring,4.0,4.4,8.6,0.4,2026-03-10 14:25:16
+New York Blood Center,New York,NY,40.7711,-73.9551,AB-,38,2026-03-24,1.2,Spring,4.0,4.4,8.1,0.221,2026-03-10 14:25:16
+New York Blood Center,New York,NY,40.7711,-73.9551,O+,69,2026-04-14,6.6,Spring,4.0,4.4,46.0,0.67,2026-03-10 14:25:16
+New York Blood Center,New York,NY,40.7711,-73.9551,O+,162,2026-03-21,6.6,Spring,4.0,4.4,46.3,0.285,2026-03-10 14:25:16
+New York Blood Center,New York,NY,40.7711,-73.9551,O-,97,2026-04-03,5.9,Spring,4.0,4.4,45.9,0.426,2026-03-10 14:25:16
+New York Blood Center,New York,NY,40.7711,-73.9551,O-,193,2026-03-17,5.9,Spring,4.0,4.4,41.1,0.214,2026-03-10 14:25:16
+Lenox Hill Hospital,New York,NY,40.7719,-73.9596,A+,69,2026-04-10,4.9,Spring,4.0,4.2,38.4,0.497,2026-03-10 14:25:16
+Lenox Hill Hospital,New York,NY,40.7719,-73.9596,A+,118,2026-03-24,4.9,Spring,4.0,4.2,35.2,0.291,2026-03-10 14:25:16
+Lenox Hill Hospital,New York,NY,40.7719,-73.9596,A-,37,2026-04-09,2.7,Spring,4.0,4.2,21.8,0.511,2026-03-10 14:25:16
+Lenox Hill Hospital,New York,NY,40.7719,-73.9596,A-,61,2026-04-03,2.7,Spring,4.0,4.2,19.8,0.31,2026-03-10 14:25:16
+Lenox Hill Hospital,New York,NY,40.7719,-73.9596,B+,38,2026-04-01,3.2,Spring,4.0,4.2,21.5,0.589,2026-03-10 14:25:16
+Lenox Hill Hospital,New York,NY,40.7719,-73.9596,B+,69,2026-03-27,3.2,Spring,4.0,4.2,24.8,0.325,2026-03-10 14:25:16
+Lenox Hill Hospital,New York,NY,40.7719,-73.9596,B-,19,2026-04-10,2.0,Spring,4.0,4.2,12.4,0.737,2026-03-10 14:25:16
+Lenox Hill Hospital,New York,NY,40.7719,-73.9596,B-,55,2026-04-03,2.0,Spring,4.0,4.2,13.3,0.255,2026-03-10 14:25:16
+Lenox Hill Hospital,New York,NY,40.7719,-73.9596,AB+,25,2026-03-29,1.5,Spring,4.0,4.2,9.9,0.42,2026-03-10 14:25:16
+Lenox Hill Hospital,New York,NY,40.7719,-73.9596,AB+,37,2026-03-17,1.5,Spring,4.0,4.2,10.7,0.284,2026-03-10 14:25:16
+Lenox Hill Hospital,New York,NY,40.7719,-73.9596,AB-,15,2026-04-11,1.0,Spring,4.0,4.2,6.5,0.467,2026-03-10 14:25:16
+Lenox Hill Hospital,New York,NY,40.7719,-73.9596,AB-,24,2026-03-20,1.0,Spring,4.0,4.2,6.8,0.292,2026-03-10 14:25:16
+Lenox Hill Hospital,New York,NY,40.7719,-73.9596,O+,121,2026-04-15,7.4,Spring,4.0,4.2,51.7,0.428,2026-03-10 14:25:16
+Lenox Hill Hospital,New York,NY,40.7719,-73.9596,O+,211,2026-03-23,7.4,Spring,4.0,4.2,55.3,0.245,2026-03-10 14:25:16
+Lenox Hill Hospital,New York,NY,40.7719,-73.9596,O-,56,2026-04-18,4.9,Spring,4.0,4.2,40.3,0.613,2026-03-10 14:25:16
+Lenox Hill Hospital,New York,NY,40.7719,-73.9596,O-,118,2026-03-18,4.9,Spring,4.0,4.2,34.0,0.291,2026-03-10 14:25:16
+Harlem Hospital Center,New York,NY,40.811,-73.9403,A+,12,2026-03-31,5.1,Spring,7.0,7.0,41.0,2.975,2026-03-10 14:25:16
+Harlem Hospital Center,New York,NY,40.811,-73.9403,A+,26,2026-03-19,5.1,Spring,7.0,7.0,39.3,1.373,2026-03-10 14:25:16
+Harlem Hospital Center,New York,NY,40.811,-73.9403,A-,5,2026-04-14,3.3,Spring,7.0,7.0,26.1,4.62,2026-03-10 14:25:16
+Harlem Hospital Center,New York,NY,40.811,-73.9403,A-,9,2026-03-16,3.3,Spring,7.0,7.0,26.8,2.567,2026-03-10 14:25:16
+Harlem Hospital Center,New York,NY,40.811,-73.9403,B+,6,2026-04-21,3.6,Spring,7.0,7.0,25.0,4.2,2026-03-10 14:25:16
+Harlem Hospital Center,New York,NY,40.811,-73.9403,B+,12,2026-03-12,3.6,Spring,7.0,7.0,25.9,2.1,2026-03-10 14:25:16
+Harlem Hospital Center,New York,NY,40.811,-73.9403,B-,3,2026-04-05,2.0,Spring,7.0,7.0,13.5,4.667,2026-03-10 14:25:16
+Harlem Hospital Center,New York,NY,40.811,-73.9403,B-,5,2026-03-12,2.0,Spring,7.0,7.0,13.3,2.8,2026-03-10 14:25:16
+Harlem Hospital Center,New York,NY,40.811,-73.9403,AB+,4,2026-04-04,1.7,Spring,7.0,7.0,12.2,2.975,2026-03-10 14:25:16
+Harlem Hospital Center,New York,NY,40.811,-73.9403,AB+,6,2026-03-12,1.7,Spring,7.0,7.0,12.9,1.983,2026-03-10 14:25:16
+Harlem Hospital Center,New York,NY,40.811,-73.9403,AB-,2,2026-04-12,1.1,Spring,7.0,7.0,9.1,3.85,2026-03-10 14:25:16
+Harlem Hospital Center,New York,NY,40.811,-73.9403,AB-,5,2026-03-20,1.1,Spring,7.0,7.0,7.4,1.54,2026-03-10 14:25:16
+Harlem Hospital Center,New York,NY,40.811,-73.9403,O+,8,2026-04-03,6.5,Spring,7.0,7.0,53.0,5.688,2026-03-10 14:25:16
+Harlem Hospital Center,New York,NY,40.811,-73.9403,O+,17,2026-03-14,6.5,Spring,7.0,7.0,43.8,2.676,2026-03-10 14:25:16
+Harlem Hospital Center,New York,NY,40.811,-73.9403,O-,12,2026-04-16,6.0,Spring,7.0,7.0,39.4,3.5,2026-03-10 14:25:16
+Harlem Hospital Center,New York,NY,40.811,-73.9403,O-,28,2026-03-15,6.0,Spring,7.0,7.0,45.9,1.5,2026-03-10 14:25:16
+Montefiore Medical Center,Bronx,NY,40.8826,-73.8781,A+,6,2026-04-01,3.7,Spring,5.9,6.1,23.6,4.317,2026-03-10 14:25:16
+Montefiore Medical Center,Bronx,NY,40.8826,-73.8781,A+,11,2026-03-12,3.7,Spring,5.9,6.1,26.2,2.355,2026-03-10 14:25:16
+Montefiore Medical Center,Bronx,NY,40.8826,-73.8781,A-,2,2026-04-12,2.5,Spring,5.9,6.1,18.0,8.75,2026-03-10 14:25:16
+Montefiore Medical Center,Bronx,NY,40.8826,-73.8781,A-,6,2026-03-12,2.5,Spring,5.9,6.1,20.4,2.917,2026-03-10 14:25:16
+Montefiore Medical Center,Bronx,NY,40.8826,-73.8781,B+,5,2026-04-14,3.3,Spring,5.9,6.1,25.8,4.62,2026-03-10 14:25:16
+Montefiore Medical Center,Bronx,NY,40.8826,-73.8781,B+,9,2026-03-15,3.3,Spring,5.9,6.1,26.6,2.567,2026-03-10 14:25:16
+Montefiore Medical Center,Bronx,NY,40.8826,-73.8781,B-,3,2026-04-10,1.9,Spring,5.9,6.1,14.1,4.433,2026-03-10 14:25:16
+Montefiore Medical Center,Bronx,NY,40.8826,-73.8781,B-,7,2026-03-13,1.9,Spring,5.9,6.1,12.5,1.9,2026-03-10 14:25:16
+Montefiore Medical Center,Bronx,NY,40.8826,-73.8781,AB+,2,2026-04-02,1.9,Spring,5.9,6.1,13.3,6.65,2026-03-10 14:25:16
+Montefiore Medical Center,Bronx,NY,40.8826,-73.8781,AB+,4,2026-03-19,1.9,Spring,5.9,6.1,14.5,3.325,2026-03-10 14:25:16
+Montefiore Medical Center,Bronx,NY,40.8826,-73.8781,AB-,2,2026-04-18,1.3,Spring,5.9,6.1,10.2,4.55,2026-03-10 14:25:16
+Montefiore Medical Center,Bronx,NY,40.8826,-73.8781,AB-,5,2026-03-15,1.3,Spring,5.9,6.1,9.8,1.82,2026-03-10 14:25:16
+Montefiore Medical Center,Bronx,NY,40.8826,-73.8781,O+,19,2026-03-30,8.3,Spring,5.9,6.1,61.5,3.058,2026-03-10 14:25:16
+Montefiore Medical Center,Bronx,NY,40.8826,-73.8781,O+,43,2026-03-16,8.3,Spring,5.9,6.1,56.4,1.351,2026-03-10 14:25:16
+Montefiore Medical Center,Bronx,NY,40.8826,-73.8781,O-,7,2026-04-14,5.6,Spring,5.9,6.1,35.0,5.6,2026-03-10 14:25:16
+Montefiore Medical Center,Bronx,NY,40.8826,-73.8781,O-,17,2026-03-18,5.6,Spring,5.9,6.1,34.8,2.306,2026-03-10 14:25:16
+Lincoln Medical Center,Bronx,NY,40.8157,-73.9257,A+,13,2026-03-28,5.1,Spring,6.2,8.0,34.3,2.746,2026-03-10 14:25:16
+Lincoln Medical Center,Bronx,NY,40.8157,-73.9257,A+,20,2026-03-12,5.1,Spring,6.2,8.0,37.0,1.785,2026-03-10 14:25:16
+Lincoln Medical Center,Bronx,NY,40.8157,-73.9257,A-,4,2026-04-15,2.7,Spring,6.2,8.0,22.1,4.725,2026-03-10 14:25:16
+Lincoln Medical Center,Bronx,NY,40.8157,-73.9257,A-,7,2026-03-19,2.7,Spring,6.2,8.0,20.4,2.7,2026-03-10 14:25:16
+Lincoln Medical Center,Bronx,NY,40.8157,-73.9257,B+,7,2026-04-19,4.4,Spring,6.2,8.0,30.8,4.4,2026-03-10 14:25:16
+Lincoln Medical Center,Bronx,NY,40.8157,-73.9257,B+,12,2026-03-20,4.4,Spring,6.2,8.0,29.4,2.567,2026-03-10 14:25:16
+Lincoln Medical Center,Bronx,NY,40.8157,-73.9257,B-,4,2026-04-13,1.8,Spring,6.2,8.0,14.4,3.15,2026-03-10 14:25:16
+Lincoln Medical Center,Bronx,NY,40.8157,-73.9257,B-,8,2026-03-19,1.8,Spring,6.2,8.0,12.5,1.575,2026-03-10 14:25:16
+Lincoln Medical Center,Bronx,NY,40.8157,-73.9257,AB+,3,2026-04-21,2.0,Spring,6.2,8.0,12.9,4.667,2026-03-10 14:25:16
+Lincoln Medical Center,Bronx,NY,40.8157,-73.9257,AB+,9,2026-03-16,2.0,Spring,6.2,8.0,12.8,1.556,2026-03-10 14:25:16
+Lincoln Medical Center,Bronx,NY,40.8157,-73.9257,AB-,3,2026-04-04,1.4,Spring,6.2,8.0,8.7,3.267,2026-03-10 14:25:16
+Lincoln Medical Center,Bronx,NY,40.8157,-73.9257,AB-,7,2026-03-18,1.4,Spring,6.2,8.0,11.3,1.4,2026-03-10 14:25:16
+Lincoln Medical Center,Bronx,NY,40.8157,-73.9257,O+,9,2026-04-01,7.1,Spring,6.2,8.0,51.3,5.522,2026-03-10 14:25:16
+Lincoln Medical Center,Bronx,NY,40.8157,-73.9257,O+,17,2026-03-16,7.1,Spring,6.2,8.0,50.8,2.924,2026-03-10 14:25:16
+Lincoln Medical Center,Bronx,NY,40.8157,-73.9257,O-,8,2026-04-03,5.7,Spring,6.2,8.0,45.6,4.987,2026-03-10 14:25:16
+Lincoln Medical Center,Bronx,NY,40.8157,-73.9257,O-,15,2026-03-13,5.7,Spring,6.2,8.0,40.1,2.66,2026-03-10 14:25:16
+Jacobi Medical Center,Bronx,NY,40.8528,-73.8453,A+,52,2026-04-06,5.0,Spring,6.8,4.8,37.7,0.673,2026-03-10 14:25:16
+Jacobi Medical Center,Bronx,NY,40.8528,-73.8453,A+,89,2026-03-21,5.0,Spring,6.8,4.8,34.3,0.393,2026-03-10 14:25:16
+Jacobi Medical Center,Bronx,NY,40.8528,-73.8453,A-,39,2026-04-07,3.1,Spring,6.8,4.8,20.7,0.556,2026-03-10 14:25:16
+Jacobi Medical Center,Bronx,NY,40.8528,-73.8453,A-,64,2026-03-29,3.1,Spring,6.8,4.8,19.4,0.339,2026-03-10 14:25:16
+Jacobi Medical Center,Bronx,NY,40.8528,-73.8453,B+,51,2026-04-09,4.3,Spring,6.8,4.8,33.9,0.59,2026-03-10 14:25:16
+Jacobi Medical Center,Bronx,NY,40.8528,-73.8453,B+,88,2026-03-21,4.3,Spring,6.8,4.8,31.0,0.342,2026-03-10 14:25:16
+Jacobi Medical Center,Bronx,NY,40.8528,-73.8453,B-,27,2026-04-11,2.2,Spring,6.8,4.8,13.6,0.57,2026-03-10 14:25:16
+Jacobi Medical Center,Bronx,NY,40.8528,-73.8453,B-,60,2026-03-21,2.2,Spring,6.8,4.8,14.3,0.257,2026-03-10 14:25:16
+Jacobi Medical Center,Bronx,NY,40.8528,-73.8453,AB+,25,2026-04-07,1.8,Spring,6.8,4.8,11.4,0.504,2026-03-10 14:25:16
+Jacobi Medical Center,Bronx,NY,40.8528,-73.8453,AB+,54,2026-03-27,1.8,Spring,6.8,4.8,12.5,0.233,2026-03-10 14:25:16
+Jacobi Medical Center,Bronx,NY,40.8528,-73.8453,AB-,13,2026-04-21,1.1,Spring,6.8,4.8,8.2,0.592,2026-03-10 14:25:16
+Jacobi Medical Center,Bronx,NY,40.8528,-73.8453,AB-,29,2026-03-24,1.1,Spring,6.8,4.8,9.1,0.266,2026-03-10 14:25:16
+Jacobi Medical Center,Bronx,NY,40.8528,-73.8453,O+,92,2026-03-31,7.9,Spring,6.8,4.8,50.3,0.601,2026-03-10 14:25:16
+Jacobi Medical Center,Bronx,NY,40.8528,-73.8453,O+,177,2026-03-22,7.9,Spring,6.8,4.8,49.4,0.312,2026-03-10 14:25:16
+Jacobi Medical Center,Bronx,NY,40.8528,-73.8453,O-,52,2026-04-08,6.4,Spring,6.8,4.8,45.0,0.862,2026-03-10 14:25:16
+Jacobi Medical Center,Bronx,NY,40.8528,-73.8453,O-,101,2026-03-22,6.4,Spring,6.8,4.8,51.1,0.444,2026-03-10 14:25:16
+Kings County Hospital Center,Brooklyn,NY,40.6556,-73.9443,A+,6,2026-04-11,5.2,Spring,7.4,6.7,39.3,6.067,2026-03-10 14:25:16
+Kings County Hospital Center,Brooklyn,NY,40.6556,-73.9443,A+,14,2026-03-19,5.2,Spring,7.4,6.7,33.8,2.6,2026-03-10 14:25:16
+Kings County Hospital Center,Brooklyn,NY,40.6556,-73.9443,A-,4,2026-04-15,2.7,Spring,7.4,6.7,20.5,4.725,2026-03-10 14:25:16
+Kings County Hospital Center,Brooklyn,NY,40.6556,-73.9443,A-,8,2026-03-19,2.7,Spring,7.4,6.7,18.8,2.363,2026-03-10 14:25:16
+Kings County Hospital Center,Brooklyn,NY,40.6556,-73.9443,B+,5,2026-04-15,3.9,Spring,7.4,6.7,29.8,5.46,2026-03-10 14:25:16
+Kings County Hospital Center,Brooklyn,NY,40.6556,-73.9443,B+,12,2026-03-12,3.9,Spring,7.4,6.7,26.3,2.275,2026-03-10 14:25:16
+Kings County Hospital Center,Brooklyn,NY,40.6556,-73.9443,B-,6,2026-04-20,2.1,Spring,7.4,6.7,16.2,2.45,2026-03-10 14:25:16
+Kings County Hospital Center,Brooklyn,NY,40.6556,-73.9443,B-,9,2026-03-16,2.1,Spring,7.4,6.7,16.5,1.633,2026-03-10 14:25:16
+Kings County Hospital Center,Brooklyn,NY,40.6556,-73.9443,AB+,2,2026-04-05,1.6,Spring,7.4,6.7,12.1,5.6,2026-03-10 14:25:16
+Kings County Hospital Center,Brooklyn,NY,40.6556,-73.9443,AB+,4,2026-03-14,1.6,Spring,7.4,6.7,12.0,2.8,2026-03-10 14:25:16
+Kings County Hospital Center,Brooklyn,NY,40.6556,-73.9443,AB-,1,2026-04-15,1.1,Spring,7.4,6.7,8.9,7.7,2026-03-10 14:25:16
+Kings County Hospital Center,Brooklyn,NY,40.6556,-73.9443,AB-,3,2026-03-17,1.1,Spring,7.4,6.7,7.1,2.567,2026-03-10 14:25:16
+Kings County Hospital Center,Brooklyn,NY,40.6556,-73.9443,O+,20,2026-04-13,7.3,Spring,7.4,6.7,47.5,2.555,2026-03-10 14:25:16
+Kings County Hospital Center,Brooklyn,NY,40.6556,-73.9443,O+,40,2026-03-19,7.3,Spring,7.4,6.7,58.3,1.278,2026-03-10 14:25:16
+Kings County Hospital Center,Brooklyn,NY,40.6556,-73.9443,O-,12,2026-03-30,6.5,Spring,7.4,6.7,51.8,3.792,2026-03-10 14:25:16
+Kings County Hospital Center,Brooklyn,NY,40.6556,-73.9443,O-,27,2026-03-18,6.5,Spring,7.4,6.7,45.0,1.685,2026-03-10 14:25:16
+Maimonides Medical Center,Brooklyn,NY,40.6186,-73.9961,A+,47,2026-04-18,4.6,Spring,6.4,3.0,32.0,0.685,2026-03-10 14:25:16
+Maimonides Medical Center,Brooklyn,NY,40.6186,-73.9961,A+,86,2026-03-28,4.6,Spring,6.4,3.0,28.6,0.374,2026-03-10 14:25:16
+Maimonides Medical Center,Brooklyn,NY,40.6186,-73.9961,A-,27,2026-04-16,3.2,Spring,6.4,3.0,25.2,0.83,2026-03-10 14:25:16
+Maimonides Medical Center,Brooklyn,NY,40.6186,-73.9961,A-,61,2026-03-26,3.2,Spring,6.4,3.0,20.0,0.367,2026-03-10 14:25:16
+Maimonides Medical Center,Brooklyn,NY,40.6186,-73.9961,B+,41,2026-03-31,3.2,Spring,6.4,3.0,20.6,0.546,2026-03-10 14:25:16
+Maimonides Medical Center,Brooklyn,NY,40.6186,-73.9961,B+,101,2026-03-31,3.2,Spring,6.4,3.0,24.4,0.222,2026-03-10 14:25:16
+Maimonides Medical Center,Brooklyn,NY,40.6186,-73.9961,B-,19,2026-04-20,2.1,Spring,6.4,3.0,13.4,0.774,2026-03-10 14:25:16
+Maimonides Medical Center,Brooklyn,NY,40.6186,-73.9961,B-,52,2026-04-01,2.1,Spring,6.4,3.0,14.2,0.283,2026-03-10 14:25:16
+Maimonides Medical Center,Brooklyn,NY,40.6186,-73.9961,AB+,21,2026-04-11,1.9,Spring,6.4,3.0,12.1,0.633,2026-03-10 14:25:16
+Maimonides Medical Center,Brooklyn,NY,40.6186,-73.9961,AB+,37,2026-03-28,1.9,Spring,6.4,3.0,13.1,0.359,2026-03-10 14:25:16
+Maimonides Medical Center,Brooklyn,NY,40.6186,-73.9961,AB-,12,2026-03-31,1.2,Spring,6.4,3.0,7.6,0.7,2026-03-10 14:25:16
+Maimonides Medical Center,Brooklyn,NY,40.6186,-73.9961,AB-,20,2026-03-23,1.2,Spring,6.4,3.0,7.4,0.42,2026-03-10 14:25:16
+Maimonides Medical Center,Brooklyn,NY,40.6186,-73.9961,O+,70,2026-04-01,8.0,Spring,6.4,3.0,63.2,0.8,2026-03-10 14:25:16
+Maimonides Medical Center,Brooklyn,NY,40.6186,-73.9961,O+,127,2026-04-03,8.0,Spring,6.4,3.0,63.9,0.441,2026-03-10 14:25:16
+Maimonides Medical Center,Brooklyn,NY,40.6186,-73.9961,O-,38,2026-04-16,5.4,Spring,6.4,3.0,34.9,0.995,2026-03-10 14:25:16
+Maimonides Medical Center,Brooklyn,NY,40.6186,-73.9961,O-,94,2026-03-21,5.4,Spring,6.4,3.0,34.5,0.402,2026-03-10 14:25:16
+NYU Langone Brooklyn,Brooklyn,NY,40.6419,-73.9609,A+,44,2026-04-15,4.2,Spring,6.6,3.5,26.3,0.668,2026-03-10 14:25:16
+NYU Langone Brooklyn,Brooklyn,NY,40.6419,-73.9609,A+,112,2026-03-30,4.2,Spring,6.6,3.5,30.1,0.263,2026-03-10 14:25:16
+NYU Langone Brooklyn,Brooklyn,NY,40.6419,-73.9609,A-,29,2026-03-31,3.1,Spring,6.6,3.5,23.1,0.748,2026-03-10 14:25:16
+NYU Langone Brooklyn,Brooklyn,NY,40.6419,-73.9609,A-,68,2026-04-02,3.1,Spring,6.6,3.5,19.3,0.319,2026-03-10 14:25:16
+NYU Langone Brooklyn,Brooklyn,NY,40.6419,-73.9609,B+,63,2026-04-10,4.6,Spring,6.6,3.5,37.1,0.511,2026-03-10 14:25:16
+NYU Langone Brooklyn,Brooklyn,NY,40.6419,-73.9609,B+,112,2026-03-19,4.6,Spring,6.6,3.5,29.8,0.287,2026-03-10 14:25:16
+NYU Langone Brooklyn,Brooklyn,NY,40.6419,-73.9609,B-,19,2026-04-15,1.8,Spring,6.6,3.5,14.8,0.663,2026-03-10 14:25:16
+NYU Langone Brooklyn,Brooklyn,NY,40.6419,-73.9609,B-,41,2026-04-02,1.8,Spring,6.6,3.5,12.7,0.307,2026-03-10 14:25:16
+NYU Langone Brooklyn,Brooklyn,NY,40.6419,-73.9609,AB+,17,2026-04-17,2.0,Spring,6.6,3.5,15.3,0.824,2026-03-10 14:25:16
+NYU Langone Brooklyn,Brooklyn,NY,40.6419,-73.9609,AB+,34,2026-03-23,2.0,Spring,6.6,3.5,14.1,0.412,2026-03-10 14:25:16
+NYU Langone Brooklyn,Brooklyn,NY,40.6419,-73.9609,AB-,10,2026-04-20,1.3,Spring,6.6,3.5,9.8,0.91,2026-03-10 14:25:16
+NYU Langone Brooklyn,Brooklyn,NY,40.6419,-73.9609,AB-,26,2026-03-28,1.3,Spring,6.6,3.5,9.3,0.35,2026-03-10 14:25:16
+NYU Langone Brooklyn,Brooklyn,NY,40.6419,-73.9609,O+,41,2026-04-10,6.1,Spring,6.6,3.5,48.0,1.041,2026-03-10 14:25:16
+NYU Langone Brooklyn,Brooklyn,NY,40.6419,-73.9609,O+,105,2026-04-03,6.1,Spring,6.6,3.5,44.8,0.407,2026-03-10 14:25:16
+NYU Langone Brooklyn,Brooklyn,NY,40.6419,-73.9609,O-,70,2026-04-18,6.2,Spring,6.6,3.5,50.1,0.62,2026-03-10 14:25:16
+NYU Langone Brooklyn,Brooklyn,NY,40.6419,-73.9609,O-,126,2026-03-18,6.2,Spring,6.6,3.5,42.8,0.344,2026-03-10 14:25:16
+Methodist Hospital Brooklyn,Brooklyn,NY,40.6501,-73.977,A+,39,2026-03-31,4.8,Spring,5.7,3.7,30.7,0.862,2026-03-10 14:25:16
+Methodist Hospital Brooklyn,Brooklyn,NY,40.6501,-73.977,A+,89,2026-03-25,4.8,Spring,5.7,3.7,38.1,0.378,2026-03-10 14:25:16
+Methodist Hospital Brooklyn,Brooklyn,NY,40.6501,-73.977,A-,45,2026-04-16,3.3,Spring,5.7,3.7,24.5,0.513,2026-03-10 14:25:16
+Methodist Hospital Brooklyn,Brooklyn,NY,40.6501,-73.977,A-,78,2026-03-25,3.3,Spring,5.7,3.7,25.6,0.296,2026-03-10 14:25:16
+Methodist Hospital Brooklyn,Brooklyn,NY,40.6501,-73.977,B+,49,2026-04-02,4.5,Spring,5.7,3.7,31.5,0.643,2026-03-10 14:25:16
+Methodist Hospital Brooklyn,Brooklyn,NY,40.6501,-73.977,B+,97,2026-03-21,4.5,Spring,5.7,3.7,28.6,0.325,2026-03-10 14:25:16
+Methodist Hospital Brooklyn,Brooklyn,NY,40.6501,-73.977,B-,18,2026-04-11,2.1,Spring,5.7,3.7,16.1,0.817,2026-03-10 14:25:16
+Methodist Hospital Brooklyn,Brooklyn,NY,40.6501,-73.977,B-,45,2026-04-04,2.1,Spring,5.7,3.7,13.6,0.327,2026-03-10 14:25:16
+Methodist Hospital Brooklyn,Brooklyn,NY,40.6501,-73.977,AB+,14,2026-03-30,2.0,Spring,5.7,3.7,14.4,1.0,2026-03-10 14:25:16
+Methodist Hospital Brooklyn,Brooklyn,NY,40.6501,-73.977,AB+,26,2026-03-31,2.0,Spring,5.7,3.7,14.5,0.538,2026-03-10 14:25:16
+Methodist Hospital Brooklyn,Brooklyn,NY,40.6501,-73.977,AB-,9,2026-04-18,1.1,Spring,5.7,3.7,8.3,0.856,2026-03-10 14:25:16
+Methodist Hospital Brooklyn,Brooklyn,NY,40.6501,-73.977,AB-,19,2026-03-18,1.1,Spring,5.7,3.7,6.9,0.405,2026-03-10 14:25:16
+Methodist Hospital Brooklyn,Brooklyn,NY,40.6501,-73.977,O+,69,2026-04-21,6.4,Spring,5.7,3.7,43.8,0.649,2026-03-10 14:25:16
+Methodist Hospital Brooklyn,Brooklyn,NY,40.6501,-73.977,O+,170,2026-03-17,6.4,Spring,5.7,3.7,41.2,0.264,2026-03-10 14:25:16
+Methodist Hospital Brooklyn,Brooklyn,NY,40.6501,-73.977,O-,62,2026-04-14,5.9,Spring,5.7,3.7,37.2,0.666,2026-03-10 14:25:16
+Methodist Hospital Brooklyn,Brooklyn,NY,40.6501,-73.977,O-,100,2026-03-18,5.9,Spring,5.7,3.7,37.3,0.413,2026-03-10 14:25:16
+Long Island Jewish Medical Center,Queens,NY,40.7544,-73.7072,A+,14,2026-04-06,4.3,Spring,8.1,7.0,29.4,2.15,2026-03-10 14:25:16
+Long Island Jewish Medical Center,Queens,NY,40.7544,-73.7072,A+,29,2026-03-31,4.3,Spring,8.1,7.0,27.3,1.038,2026-03-10 14:25:16
+Long Island Jewish Medical Center,Queens,NY,40.7544,-73.7072,A+,65,2026-03-23,4.3,Spring,8.1,7.0,31.2,0.463,2026-03-10 14:25:16
+Long Island Jewish Medical Center,Queens,NY,40.7544,-73.7072,A-,10,2026-04-07,2.7,Spring,8.1,7.0,17.1,1.89,2026-03-10 14:25:16
+Long Island Jewish Medical Center,Queens,NY,40.7544,-73.7072,A-,10,2026-03-20,2.7,Spring,8.1,7.0,21.0,1.89,2026-03-10 14:25:16
+Long Island Jewish Medical Center,Queens,NY,40.7544,-73.7072,A-,34,2026-03-31,2.7,Spring,8.1,7.0,21.3,0.556,2026-03-10 14:25:16
+Long Island Jewish Medical Center,Queens,NY,40.7544,-73.7072,B+,9,2026-04-03,3.5,Spring,8.1,7.0,27.1,2.722,2026-03-10 14:25:16
+Long Island Jewish Medical Center,Queens,NY,40.7544,-73.7072,B+,11,2026-03-19,3.5,Spring,8.1,7.0,25.2,2.227,2026-03-10 14:25:16
+Long Island Jewish Medical Center,Queens,NY,40.7544,-73.7072,B+,35,2026-04-07,3.5,Spring,8.1,7.0,28.4,0.7,2026-03-10 14:25:16
+Long Island Jewish Medical Center,Queens,NY,40.7544,-73.7072,B-,11,2026-04-16,2.1,Spring,8.1,7.0,14.3,1.336,2026-03-10 14:25:16
+Long Island Jewish Medical Center,Queens,NY,40.7544,-73.7072,B-,8,2026-03-31,2.1,Spring,8.1,7.0,14.3,1.838,2026-03-10 14:25:16
+Long Island Jewish Medical Center,Queens,NY,40.7544,-73.7072,B-,29,2026-03-28,2.1,Spring,8.1,7.0,13.3,0.507,2026-03-10 14:25:16
+Long Island Jewish Medical Center,Queens,NY,40.7544,-73.7072,AB+,6,2026-04-08,1.8,Spring,8.1,7.0,14.4,2.1,2026-03-10 14:25:16
+Long Island Jewish Medical Center,Queens,NY,40.7544,-73.7072,AB+,6,2026-03-19,1.8,Spring,8.1,7.0,12.8,2.1,2026-03-10 14:25:16
+Long Island Jewish Medical Center,Queens,NY,40.7544,-73.7072,AB+,18,2026-04-06,1.8,Spring,8.1,7.0,11.2,0.7,2026-03-10 14:25:16
+Long Island Jewish Medical Center,Queens,NY,40.7544,-73.7072,AB-,6,2026-04-03,1.4,Spring,8.1,7.0,9.1,1.633,2026-03-10 14:25:16
+Long Island Jewish Medical Center,Queens,NY,40.7544,-73.7072,AB-,7,2026-03-18,1.4,Spring,8.1,7.0,11.1,1.4,2026-03-10 14:25:16
+Long Island Jewish Medical Center,Queens,NY,40.7544,-73.7072,AB-,20,2026-04-11,1.4,Spring,8.1,7.0,8.7,0.49,2026-03-10 14:25:16
+Long Island Jewish Medical Center,Queens,NY,40.7544,-73.7072,O+,44,2026-04-13,7.8,Spring,8.1,7.0,54.2,1.241,2026-03-10 14:25:16
+Long Island Jewish Medical Center,Queens,NY,40.7544,-73.7072,O+,49,2026-03-26,7.8,Spring,8.1,7.0,59.2,1.114,2026-03-10 14:25:16
+Long Island Jewish Medical Center,Queens,NY,40.7544,-73.7072,O+,145,2026-03-21,7.8,Spring,8.1,7.0,49.1,0.377,2026-03-10 14:25:16
+Long Island Jewish Medical Center,Queens,NY,40.7544,-73.7072,O-,24,2026-04-06,4.9,Spring,8.1,7.0,40.1,1.429,2026-03-10 14:25:16
+Long Island Jewish Medical Center,Queens,NY,40.7544,-73.7072,O-,24,2026-03-21,4.9,Spring,8.1,7.0,31.6,1.429,2026-03-10 14:25:16
+Long Island Jewish Medical Center,Queens,NY,40.7544,-73.7072,O-,77,2026-03-31,4.9,Spring,8.1,7.0,37.0,0.445,2026-03-10 14:25:16
+Jamaica Hospital Medical Center,Queens,NY,40.6999,-73.7935,A+,50,2026-04-17,3.8,Spring,4.4,5.5,28.8,0.532,2026-03-10 14:25:16
+Jamaica Hospital Medical Center,Queens,NY,40.6999,-73.7935,A+,87,2026-04-02,3.8,Spring,4.4,5.5,27.5,0.306,2026-03-10 14:25:16
+Jamaica Hospital Medical Center,Queens,NY,40.6999,-73.7935,A-,21,2026-04-03,2.3,Spring,4.4,5.5,15.1,0.767,2026-03-10 14:25:16
+Jamaica Hospital Medical Center,Queens,NY,40.6999,-73.7935,A-,39,2026-03-21,2.3,Spring,4.4,5.5,18.0,0.413,2026-03-10 14:25:16
+Jamaica Hospital Medical Center,Queens,NY,40.6999,-73.7935,B+,41,2026-04-20,3.9,Spring,4.4,5.5,26.8,0.666,2026-03-10 14:25:16
+Jamaica Hospital Medical Center,Queens,NY,40.6999,-73.7935,B+,75,2026-03-21,3.9,Spring,4.4,5.5,25.5,0.364,2026-03-10 14:25:16
+Jamaica Hospital Medical Center,Queens,NY,40.6999,-73.7935,B-,23,2026-04-02,2.2,Spring,4.4,5.5,15.2,0.67,2026-03-10 14:25:16
+Jamaica Hospital Medical Center,Queens,NY,40.6999,-73.7935,B-,51,2026-03-24,2.2,Spring,4.4,5.5,17.0,0.302,2026-03-10 14:25:16
+Jamaica Hospital Medical Center,Queens,NY,40.6999,-73.7935,AB+,17,2026-04-04,2.0,Spring,4.4,5.5,14.3,0.824,2026-03-10 14:25:16
+Jamaica Hospital Medical Center,Queens,NY,40.6999,-73.7935,AB+,39,2026-03-23,2.0,Spring,4.4,5.5,16.5,0.359,2026-03-10 14:25:16
+Jamaica Hospital Medical Center,Queens,NY,40.6999,-73.7935,AB-,10,2026-04-09,1.2,Spring,4.4,5.5,7.8,0.84,2026-03-10 14:25:16
+Jamaica Hospital Medical Center,Queens,NY,40.6999,-73.7935,AB-,19,2026-03-23,1.2,Spring,4.4,5.5,8.0,0.442,2026-03-10 14:25:16
+Jamaica Hospital Medical Center,Queens,NY,40.6999,-73.7935,O+,124,2026-04-14,7.6,Spring,4.4,5.5,55.0,0.429,2026-03-10 14:25:16
+Jamaica Hospital Medical Center,Queens,NY,40.6999,-73.7935,O+,215,2026-03-20,7.6,Spring,4.4,5.5,51.2,0.247,2026-03-10 14:25:16
+Jamaica Hospital Medical Center,Queens,NY,40.6999,-73.7935,O-,50,2026-04-10,6.7,Spring,4.4,5.5,52.8,0.938,2026-03-10 14:25:16
+Jamaica Hospital Medical Center,Queens,NY,40.6999,-73.7935,O-,104,2026-03-28,6.7,Spring,4.4,5.5,46.9,0.451,2026-03-10 14:25:16
+Elmhurst Hospital Center,Queens,NY,40.7447,-73.8785,A+,7,2026-04-07,3.8,Spring,6.6,7.2,28.6,3.8,2026-03-10 14:25:16
+Elmhurst Hospital Center,Queens,NY,40.7447,-73.8785,A+,10,2026-03-14,3.8,Spring,6.6,7.2,30.0,2.66,2026-03-10 14:25:16
+Elmhurst Hospital Center,Queens,NY,40.7447,-73.8785,A-,3,2026-04-19,3.0,Spring,6.6,7.2,24.2,7.0,2026-03-10 14:25:16
+Elmhurst Hospital Center,Queens,NY,40.7447,-73.8785,A-,8,2026-03-12,3.0,Spring,6.6,7.2,21.9,2.625,2026-03-10 14:25:16
+Elmhurst Hospital Center,Queens,NY,40.7447,-73.8785,B+,8,2026-03-31,4.2,Spring,6.6,7.2,26.9,3.675,2026-03-10 14:25:16
+Elmhurst Hospital Center,Queens,NY,40.7447,-73.8785,B+,18,2026-03-15,4.2,Spring,6.6,7.2,29.9,1.633,2026-03-10 14:25:16
+Elmhurst Hospital Center,Queens,NY,40.7447,-73.8785,B-,5,2026-04-16,1.8,Spring,6.6,7.2,13.3,2.52,2026-03-10 14:25:16
+Elmhurst Hospital Center,Queens,NY,40.7447,-73.8785,B-,8,2026-03-14,1.8,Spring,6.6,7.2,12.4,1.575,2026-03-10 14:25:16
+Elmhurst Hospital Center,Queens,NY,40.7447,-73.8785,AB+,2,2026-04-18,1.8,Spring,6.6,7.2,11.3,6.3,2026-03-10 14:25:16
+Elmhurst Hospital Center,Queens,NY,40.7447,-73.8785,AB+,5,2026-03-20,1.8,Spring,6.6,7.2,13.0,2.52,2026-03-10 14:25:16
+Elmhurst Hospital Center,Queens,NY,40.7447,-73.8785,AB-,3,2026-03-29,1.0,Spring,6.6,7.2,6.7,2.333,2026-03-10 14:25:16
+Elmhurst Hospital Center,Queens,NY,40.7447,-73.8785,AB-,4,2026-03-12,1.0,Spring,6.6,7.2,6.7,1.75,2026-03-10 14:25:16
+Elmhurst Hospital Center,Queens,NY,40.7447,-73.8785,O+,9,2026-04-15,7.6,Spring,6.6,7.2,47.5,5.911,2026-03-10 14:25:16
+Elmhurst Hospital Center,Queens,NY,40.7447,-73.8785,O+,19,2026-03-20,7.6,Spring,6.6,7.2,60.1,2.8,2026-03-10 14:25:16
+Elmhurst Hospital Center,Queens,NY,40.7447,-73.8785,O-,21,2026-04-12,6.2,Spring,6.6,7.2,39.0,2.067,2026-03-10 14:25:16
+Elmhurst Hospital Center,Queens,NY,40.7447,-73.8785,O-,33,2026-03-19,6.2,Spring,6.6,7.2,48.5,1.315,2026-03-10 14:25:16
+Staten Island University Hospital,Staten Island,NY,40.5795,-74.0948,A+,35,2026-04-14,4.2,Spring,6.7,4.1,31.6,0.84,2026-03-10 14:25:16
+Staten Island University Hospital,Staten Island,NY,40.5795,-74.0948,A+,89,2026-03-26,4.2,Spring,6.7,4.1,33.5,0.33,2026-03-10 14:25:16
+Staten Island University Hospital,Staten Island,NY,40.5795,-74.0948,A-,19,2026-04-08,2.6,Spring,6.7,4.1,18.4,0.958,2026-03-10 14:25:16
+Staten Island University Hospital,Staten Island,NY,40.5795,-74.0948,A-,37,2026-03-29,2.6,Spring,6.7,4.1,19.8,0.492,2026-03-10 14:25:16
+Staten Island University Hospital,Staten Island,NY,40.5795,-74.0948,B+,55,2026-04-05,3.7,Spring,6.7,4.1,23.4,0.471,2026-03-10 14:25:16
+Staten Island University Hospital,Staten Island,NY,40.5795,-74.0948,B+,88,2026-03-22,3.7,Spring,6.7,4.1,23.4,0.294,2026-03-10 14:25:16
+Staten Island University Hospital,Staten Island,NY,40.5795,-74.0948,B-,19,2026-04-16,2.2,Spring,6.7,4.1,15.6,0.811,2026-03-10 14:25:16
+Staten Island University Hospital,Staten Island,NY,40.5795,-74.0948,B-,44,2026-03-31,2.2,Spring,6.7,4.1,15.2,0.35,2026-03-10 14:25:16
+Staten Island University Hospital,Staten Island,NY,40.5795,-74.0948,AB+,16,2026-03-29,2.1,Spring,6.7,4.1,14.5,0.919,2026-03-10 14:25:16
+Staten Island University Hospital,Staten Island,NY,40.5795,-74.0948,AB+,33,2026-03-22,2.1,Spring,6.7,4.1,15.6,0.445,2026-03-10 14:25:16
+Staten Island University Hospital,Staten Island,NY,40.5795,-74.0948,AB-,8,2026-03-30,1.3,Spring,6.7,4.1,9.0,1.137,2026-03-10 14:25:16
+Staten Island University Hospital,Staten Island,NY,40.5795,-74.0948,AB-,16,2026-04-04,1.3,Spring,6.7,4.1,9.2,0.569,2026-03-10 14:25:16
+Staten Island University Hospital,Staten Island,NY,40.5795,-74.0948,O+,71,2026-03-30,6.8,Spring,6.7,4.1,47.6,0.67,2026-03-10 14:25:16
+Staten Island University Hospital,Staten Island,NY,40.5795,-74.0948,O+,121,2026-03-25,6.8,Spring,6.7,4.1,52.4,0.393,2026-03-10 14:25:16
+Staten Island University Hospital,Staten Island,NY,40.5795,-74.0948,O-,51,2026-04-14,5.8,Spring,6.7,4.1,44.3,0.796,2026-03-10 14:25:16
+Staten Island University Hospital,Staten Island,NY,40.5795,-74.0948,O-,105,2026-03-23,5.8,Spring,6.7,4.1,46.9,0.387,2026-03-10 14:25:16
+Stony Brook University Hospital,Stony Brook,NY,40.9126,-73.1201,A+,19,2026-04-19,5.1,Spring,8.5,5.9,38.7,1.879,2026-03-10 14:25:16
+Stony Brook University Hospital,Stony Brook,NY,40.9126,-73.1201,A+,27,2026-03-27,5.1,Spring,8.5,5.9,37.3,1.322,2026-03-10 14:25:16
+Stony Brook University Hospital,Stony Brook,NY,40.9126,-73.1201,A+,73,2026-03-29,5.1,Spring,8.5,5.9,39.0,0.489,2026-03-10 14:25:16
+Stony Brook University Hospital,Stony Brook,NY,40.9126,-73.1201,A-,14,2026-04-08,3.2,Spring,8.5,5.9,21.1,1.6,2026-03-10 14:25:16
+Stony Brook University Hospital,Stony Brook,NY,40.9126,-73.1201,A-,13,2026-03-21,3.2,Spring,8.5,5.9,22.1,1.723,2026-03-10 14:25:16
+Stony Brook University Hospital,Stony Brook,NY,40.9126,-73.1201,A-,51,2026-04-07,3.2,Spring,8.5,5.9,23.4,0.439,2026-03-10 14:25:16
+Stony Brook University Hospital,Stony Brook,NY,40.9126,-73.1201,B+,14,2026-04-06,4.1,Spring,8.5,5.9,29.4,2.05,2026-03-10 14:25:16
+Stony Brook University Hospital,Stony Brook,NY,40.9126,-73.1201,B+,17,2026-03-30,4.1,Spring,8.5,5.9,25.9,1.688,2026-03-10 14:25:16
+Stony Brook University Hospital,Stony Brook,NY,40.9126,-73.1201,B+,39,2026-03-30,4.1,Spring,8.5,5.9,31.1,0.736,2026-03-10 14:25:16
+Stony Brook University Hospital,Stony Brook,NY,40.9126,-73.1201,B-,12,2026-04-21,2.0,Spring,8.5,5.9,15.5,1.167,2026-03-10 14:25:16
+Stony Brook University Hospital,Stony Brook,NY,40.9126,-73.1201,B-,12,2026-03-21,2.0,Spring,8.5,5.9,12.6,1.167,2026-03-10 14:25:16
+Stony Brook University Hospital,Stony Brook,NY,40.9126,-73.1201,B-,31,2026-03-23,2.0,Spring,8.5,5.9,13.0,0.452,2026-03-10 14:25:16
+Stony Brook University Hospital,Stony Brook,NY,40.9126,-73.1201,AB+,10,2026-04-13,2.1,Spring,8.5,5.9,14.0,1.47,2026-03-10 14:25:16
+Stony Brook University Hospital,Stony Brook,NY,40.9126,-73.1201,AB+,7,2026-04-03,2.1,Spring,8.5,5.9,15.6,2.1,2026-03-10 14:25:16
+Stony Brook University Hospital,Stony Brook,NY,40.9126,-73.1201,AB+,20,2026-03-22,2.1,Spring,8.5,5.9,17.1,0.735,2026-03-10 14:25:16
+Stony Brook University Hospital,Stony Brook,NY,40.9126,-73.1201,AB-,6,2026-04-20,1.0,Spring,8.5,5.9,8.1,1.167,2026-03-10 14:25:16
+Stony Brook University Hospital,Stony Brook,NY,40.9126,-73.1201,AB-,5,2026-03-18,1.0,Spring,8.5,5.9,6.3,1.4,2026-03-10 14:25:16
+Stony Brook University Hospital,Stony Brook,NY,40.9126,-73.1201,AB-,13,2026-04-09,1.0,Spring,8.5,5.9,6.6,0.538,2026-03-10 14:25:16
+Stony Brook University Hospital,Stony Brook,NY,40.9126,-73.1201,O+,39,2026-03-28,7.4,Spring,8.5,5.9,50.1,1.328,2026-03-10 14:25:16
+Stony Brook University Hospital,Stony Brook,NY,40.9126,-73.1201,O+,40,2026-03-26,7.4,Spring,8.5,5.9,56.2,1.295,2026-03-10 14:25:16
+Stony Brook University Hospital,Stony Brook,NY,40.9126,-73.1201,O+,113,2026-03-29,7.4,Spring,8.5,5.9,48.0,0.458,2026-03-10 14:25:16
+Stony Brook University Hospital,Stony Brook,NY,40.9126,-73.1201,O-,25,2026-04-07,5.6,Spring,8.5,5.9,42.9,1.568,2026-03-10 14:25:16
+Stony Brook University Hospital,Stony Brook,NY,40.9126,-73.1201,O-,29,2026-03-28,5.6,Spring,8.5,5.9,38.9,1.352,2026-03-10 14:25:16
+Stony Brook University Hospital,Stony Brook,NY,40.9126,-73.1201,O-,68,2026-04-06,5.6,Spring,8.5,5.9,35.9,0.576,2026-03-10 14:25:16
+Good Samaritan University Hospital,West Islip,NY,40.7251,-73.4125,A+,55,2026-04-16,3.7,Spring,5.3,3.5,29.8,0.471,2026-03-10 14:25:16
+Good Samaritan University Hospital,West Islip,NY,40.7251,-73.4125,A+,107,2026-03-27,3.7,Spring,5.3,3.5,24.3,0.242,2026-03-10 14:25:16
+Good Samaritan University Hospital,West Islip,NY,40.7251,-73.4125,A-,31,2026-04-11,2.4,Spring,5.3,3.5,14.9,0.542,2026-03-10 14:25:16
+Good Samaritan University Hospital,West Islip,NY,40.7251,-73.4125,A-,76,2026-03-29,2.4,Spring,5.3,3.5,15.9,0.221,2026-03-10 14:25:16
+Good Samaritan University Hospital,West Islip,NY,40.7251,-73.4125,B+,31,2026-04-12,3.7,Spring,5.3,3.5,28.0,0.835,2026-03-10 14:25:16
+Good Samaritan University Hospital,West Islip,NY,40.7251,-73.4125,B+,60,2026-03-26,3.7,Spring,5.3,3.5,26.1,0.432,2026-03-10 14:25:16
+Good Samaritan University Hospital,West Islip,NY,40.7251,-73.4125,B-,24,2026-04-21,2.4,Spring,5.3,3.5,15.0,0.7,2026-03-10 14:25:16
+Good Samaritan University Hospital,West Islip,NY,40.7251,-73.4125,B-,58,2026-04-03,2.4,Spring,5.3,3.5,15.2,0.29,2026-03-10 14:25:16
+Good Samaritan University Hospital,West Islip,NY,40.7251,-73.4125,AB+,26,2026-04-05,1.8,Spring,5.3,3.5,13.4,0.485,2026-03-10 14:25:16
+Good Samaritan University Hospital,West Islip,NY,40.7251,-73.4125,AB+,43,2026-03-21,1.8,Spring,5.3,3.5,14.1,0.293,2026-03-10 14:25:16
+Good Samaritan University Hospital,West Islip,NY,40.7251,-73.4125,AB-,13,2026-04-21,1.1,Spring,5.3,3.5,7.7,0.592,2026-03-10 14:25:16
+Good Samaritan University Hospital,West Islip,NY,40.7251,-73.4125,AB-,26,2026-03-18,1.1,Spring,5.3,3.5,7.5,0.296,2026-03-10 14:25:16
+Good Samaritan University Hospital,West Islip,NY,40.7251,-73.4125,O+,74,2026-04-16,7.1,Spring,5.3,3.5,57.6,0.672,2026-03-10 14:25:16
+Good Samaritan University Hospital,West Islip,NY,40.7251,-73.4125,O+,166,2026-03-27,7.1,Spring,5.3,3.5,54.8,0.299,2026-03-10 14:25:16
+Good Samaritan University Hospital,West Islip,NY,40.7251,-73.4125,O-,53,2026-04-13,5.3,Spring,5.3,3.5,36.0,0.7,2026-03-10 14:25:16
+Good Samaritan University Hospital,West Islip,NY,40.7251,-73.4125,O-,104,2026-03-17,5.3,Spring,5.3,3.5,43.6,0.357,2026-03-10 14:25:16
+Winthrop University Hospital,Mineola,NY,40.7467,-73.5989,A+,55,2026-03-28,4.9,Spring,5.8,5.8,36.9,0.624,2026-03-10 14:25:16
+Winthrop University Hospital,Mineola,NY,40.7467,-73.5989,A+,123,2026-04-04,4.9,Spring,5.8,5.8,36.2,0.279,2026-03-10 14:25:16
+Winthrop University Hospital,Mineola,NY,40.7467,-73.5989,A-,29,2026-04-16,2.4,Spring,5.8,5.8,18.9,0.579,2026-03-10 14:25:16
+Winthrop University Hospital,Mineola,NY,40.7467,-73.5989,A-,62,2026-03-24,2.4,Spring,5.8,5.8,15.3,0.271,2026-03-10 14:25:16
+Winthrop University Hospital,Mineola,NY,40.7467,-73.5989,B+,25,2026-04-01,3.2,Spring,5.8,5.8,23.1,0.896,2026-03-10 14:25:16
+Winthrop University Hospital,Mineola,NY,40.7467,-73.5989,B+,63,2026-04-01,3.2,Spring,5.8,5.8,20.1,0.356,2026-03-10 14:25:16
+Winthrop University Hospital,Mineola,NY,40.7467,-73.5989,B-,18,2026-04-07,1.8,Spring,5.8,5.8,12.5,0.7,2026-03-10 14:25:16
+Winthrop University Hospital,Mineola,NY,40.7467,-73.5989,B-,30,2026-03-22,1.8,Spring,5.8,5.8,13.2,0.42,2026-03-10 14:25:16
+Winthrop University Hospital,Mineola,NY,40.7467,-73.5989,AB+,27,2026-04-18,1.9,Spring,5.8,5.8,14.1,0.493,2026-03-10 14:25:16
+Winthrop University Hospital,Mineola,NY,40.7467,-73.5989,AB+,46,2026-03-23,1.9,Spring,5.8,5.8,12.9,0.289,2026-03-10 14:25:16
+Winthrop University Hospital,Mineola,NY,40.7467,-73.5989,AB-,16,2026-04-21,1.4,Spring,5.8,5.8,10.7,0.612,2026-03-10 14:25:16
+Winthrop University Hospital,Mineola,NY,40.7467,-73.5989,AB-,39,2026-03-27,1.4,Spring,5.8,5.8,11.4,0.251,2026-03-10 14:25:16
+Winthrop University Hospital,Mineola,NY,40.7467,-73.5989,O+,72,2026-04-15,7.8,Spring,5.8,5.8,64.1,0.758,2026-03-10 14:25:16
+Winthrop University Hospital,Mineola,NY,40.7467,-73.5989,O+,153,2026-03-28,7.8,Spring,5.8,5.8,52.8,0.357,2026-03-10 14:25:16
+Winthrop University Hospital,Mineola,NY,40.7467,-73.5989,O-,77,2026-04-08,5.3,Spring,5.8,5.8,41.0,0.482,2026-03-10 14:25:16
+Winthrop University Hospital,Mineola,NY,40.7467,-73.5989,O-,128,2026-03-23,5.3,Spring,5.8,5.8,43.0,0.29,2026-03-10 14:25:16
+Northwell Health — South Shore,Bay Shore,NY,40.7282,-73.2481,A+,48,2026-04-04,4.7,Spring,6.1,3.5,31.2,0.685,2026-03-10 14:25:16
+Northwell Health — South Shore,Bay Shore,NY,40.7282,-73.2481,A+,101,2026-03-24,4.7,Spring,6.1,3.5,36.0,0.326,2026-03-10 14:25:16
+Northwell Health — South Shore,Bay Shore,NY,40.7282,-73.2481,A-,40,2026-03-28,2.4,Spring,6.1,3.5,15.6,0.42,2026-03-10 14:25:16
+Northwell Health — South Shore,Bay Shore,NY,40.7282,-73.2481,A-,54,2026-04-01,2.4,Spring,6.1,3.5,19.6,0.311,2026-03-10 14:25:16
+Northwell Health — South Shore,Bay Shore,NY,40.7282,-73.2481,B+,35,2026-04-21,3.6,Spring,6.1,3.5,26.2,0.72,2026-03-10 14:25:16
+Northwell Health — South Shore,Bay Shore,NY,40.7282,-73.2481,B+,74,2026-03-18,3.6,Spring,6.1,3.5,28.8,0.341,2026-03-10 14:25:16
+Northwell Health — South Shore,Bay Shore,NY,40.7282,-73.2481,B-,24,2026-04-09,1.8,Spring,6.1,3.5,13.9,0.525,2026-03-10 14:25:16
+Northwell Health — South Shore,Bay Shore,NY,40.7282,-73.2481,B-,41,2026-03-26,1.8,Spring,6.1,3.5,13.2,0.307,2026-03-10 14:25:16
+Northwell Health — South Shore,Bay Shore,NY,40.7282,-73.2481,AB+,21,2026-04-06,1.5,Spring,6.1,3.5,10.9,0.5,2026-03-10 14:25:16
+Northwell Health — South Shore,Bay Shore,NY,40.7282,-73.2481,AB+,41,2026-03-21,1.5,Spring,6.1,3.5,9.8,0.256,2026-03-10 14:25:16
+Northwell Health — South Shore,Bay Shore,NY,40.7282,-73.2481,AB-,9,2026-04-11,1.0,Spring,6.1,3.5,6.2,0.778,2026-03-10 14:25:16
+Northwell Health — South Shore,Bay Shore,NY,40.7282,-73.2481,AB-,16,2026-03-27,1.0,Spring,6.1,3.5,7.8,0.438,2026-03-10 14:25:16
+Northwell Health — South Shore,Bay Shore,NY,40.7282,-73.2481,O+,92,2026-04-09,6.3,Spring,6.1,3.5,40.0,0.479,2026-03-10 14:25:16
+Northwell Health — South Shore,Bay Shore,NY,40.7282,-73.2481,O+,146,2026-03-20,6.3,Spring,6.1,3.5,43.1,0.302,2026-03-10 14:25:16
+Northwell Health — South Shore,Bay Shore,NY,40.7282,-73.2481,O-,41,2026-04-04,5.2,Spring,6.1,3.5,35.6,0.888,2026-03-10 14:25:16
+Northwell Health — South Shore,Bay Shore,NY,40.7282,-73.2481,O-,78,2026-04-04,5.2,Spring,6.1,3.5,39.2,0.467,2026-03-10 14:25:16
+White Plains Hospital,White Plains,NY,41.034,-73.7629,A+,42,2026-04-09,3.8,Spring,6.1,3.2,30.5,0.633,2026-03-10 14:25:16
+White Plains Hospital,White Plains,NY,41.034,-73.7629,A+,72,2026-03-26,3.8,Spring,6.1,3.2,30.9,0.369,2026-03-10 14:25:16
+White Plains Hospital,White Plains,NY,41.034,-73.7629,A-,22,2026-04-01,2.7,Spring,6.1,3.2,22.2,0.859,2026-03-10 14:25:16
+White Plains Hospital,White Plains,NY,41.034,-73.7629,A-,46,2026-03-28,2.7,Spring,6.1,3.2,19.3,0.411,2026-03-10 14:25:16
+White Plains Hospital,White Plains,NY,41.034,-73.7629,B+,52,2026-04-03,3.9,Spring,6.1,3.2,28.9,0.525,2026-03-10 14:25:16
+White Plains Hospital,White Plains,NY,41.034,-73.7629,B+,91,2026-03-19,3.9,Spring,6.1,3.2,27.0,0.3,2026-03-10 14:25:16
+White Plains Hospital,White Plains,NY,41.034,-73.7629,B-,19,2026-04-14,2.4,Spring,6.1,3.2,17.5,0.884,2026-03-10 14:25:16
+White Plains Hospital,White Plains,NY,41.034,-73.7629,B-,37,2026-03-22,2.4,Spring,6.1,3.2,15.4,0.454,2026-03-10 14:25:16
+White Plains Hospital,White Plains,NY,41.034,-73.7629,AB+,20,2026-03-30,1.6,Spring,6.1,3.2,10.0,0.56,2026-03-10 14:25:16
+White Plains Hospital,White Plains,NY,41.034,-73.7629,AB+,35,2026-03-21,1.6,Spring,6.1,3.2,10.0,0.32,2026-03-10 14:25:16
+White Plains Hospital,White Plains,NY,41.034,-73.7629,AB-,11,2026-04-20,1.2,Spring,6.1,3.2,7.4,0.764,2026-03-10 14:25:16
+White Plains Hospital,White Plains,NY,41.034,-73.7629,AB-,26,2026-03-23,1.2,Spring,6.1,3.2,8.3,0.323,2026-03-10 14:25:16
+White Plains Hospital,White Plains,NY,41.034,-73.7629,O+,99,2026-03-30,6.0,Spring,6.1,3.2,40.6,0.424,2026-03-10 14:25:16
+White Plains Hospital,White Plains,NY,41.034,-73.7629,O+,180,2026-03-22,6.0,Spring,6.1,3.2,49.3,0.233,2026-03-10 14:25:16
+White Plains Hospital,White Plains,NY,41.034,-73.7629,O-,66,2026-04-09,6.1,Spring,6.1,3.2,42.4,0.647,2026-03-10 14:25:16
+White Plains Hospital,White Plains,NY,41.034,-73.7629,O-,127,2026-03-19,6.1,Spring,6.1,3.2,44.5,0.336,2026-03-10 14:25:16
+Westchester Medical Center,Valhalla,NY,41.0968,-73.8523,A+,16,2026-04-13,3.9,Spring,8.8,6.7,30.9,1.706,2026-03-10 14:25:16
+Westchester Medical Center,Valhalla,NY,41.0968,-73.8523,A+,23,2026-03-17,3.9,Spring,8.8,6.7,29.9,1.187,2026-03-10 14:25:16
+Westchester Medical Center,Valhalla,NY,41.0968,-73.8523,A+,59,2026-04-02,3.9,Spring,8.8,6.7,26.1,0.463,2026-03-10 14:25:16
+Westchester Medical Center,Valhalla,NY,41.0968,-73.8523,A-,10,2026-04-20,2.6,Spring,8.8,6.7,19.6,1.82,2026-03-10 14:25:16
+Westchester Medical Center,Valhalla,NY,41.0968,-73.8523,A-,7,2026-03-17,2.6,Spring,8.8,6.7,19.3,2.6,2026-03-10 14:25:16
+Westchester Medical Center,Valhalla,NY,41.0968,-73.8523,A-,31,2026-04-03,2.6,Spring,8.8,6.7,16.3,0.587,2026-03-10 14:25:16
+Westchester Medical Center,Valhalla,NY,41.0968,-73.8523,B+,20,2026-04-04,4.2,Spring,8.8,6.7,32.7,1.47,2026-03-10 14:25:16
+Westchester Medical Center,Valhalla,NY,41.0968,-73.8523,B+,17,2026-03-21,4.2,Spring,8.8,6.7,33.1,1.729,2026-03-10 14:25:16
+Westchester Medical Center,Valhalla,NY,41.0968,-73.8523,B+,54,2026-04-07,4.2,Spring,8.8,6.7,31.8,0.544,2026-03-10 14:25:16
+Westchester Medical Center,Valhalla,NY,41.0968,-73.8523,B-,10,2026-04-01,2.0,Spring,8.8,6.7,14.1,1.4,2026-03-10 14:25:16
+Westchester Medical Center,Valhalla,NY,41.0968,-73.8523,B-,6,2026-03-25,2.0,Spring,8.8,6.7,16.0,2.333,2026-03-10 14:25:16
+Westchester Medical Center,Valhalla,NY,41.0968,-73.8523,B-,22,2026-03-25,2.0,Spring,8.8,6.7,14.4,0.636,2026-03-10 14:25:16
+Westchester Medical Center,Valhalla,NY,41.0968,-73.8523,AB+,12,2026-04-18,2.1,Spring,8.8,6.7,16.0,1.225,2026-03-10 14:25:16
+Westchester Medical Center,Valhalla,NY,41.0968,-73.8523,AB+,9,2026-03-30,2.1,Spring,8.8,6.7,16.3,1.633,2026-03-10 14:25:16
+Westchester Medical Center,Valhalla,NY,41.0968,-73.8523,AB+,33,2026-04-04,2.1,Spring,8.8,6.7,16.7,0.445,2026-03-10 14:25:16
+Westchester Medical Center,Valhalla,NY,41.0968,-73.8523,AB-,5,2026-03-29,1.0,Spring,8.8,6.7,7.3,1.4,2026-03-10 14:25:16
+Westchester Medical Center,Valhalla,NY,41.0968,-73.8523,AB-,3,2026-03-21,1.0,Spring,8.8,6.7,6.9,2.333,2026-03-10 14:25:16
+Westchester Medical Center,Valhalla,NY,41.0968,-73.8523,AB-,14,2026-03-22,1.0,Spring,8.8,6.7,6.4,0.5,2026-03-10 14:25:16
+Westchester Medical Center,Valhalla,NY,41.0968,-73.8523,O+,28,2026-04-05,7.8,Spring,8.8,6.7,48.7,1.95,2026-03-10 14:25:16
+Westchester Medical Center,Valhalla,NY,41.0968,-73.8523,O+,25,2026-03-19,7.8,Spring,8.8,6.7,59.9,2.184,2026-03-10 14:25:16
+Westchester Medical Center,Valhalla,NY,41.0968,-73.8523,O+,76,2026-04-06,7.8,Spring,8.8,6.7,62.9,0.718,2026-03-10 14:25:16
+Westchester Medical Center,Valhalla,NY,41.0968,-73.8523,O-,46,2026-04-03,5.4,Spring,8.8,6.7,34.6,0.822,2026-03-10 14:25:16
+Westchester Medical Center,Valhalla,NY,41.0968,-73.8523,O-,42,2026-04-01,5.4,Spring,8.8,6.7,41.2,0.9,2026-03-10 14:25:16
+Westchester Medical Center,Valhalla,NY,41.0968,-73.8523,O-,94,2026-04-01,5.4,Spring,8.8,6.7,42.1,0.402,2026-03-10 14:25:16
+Albany Medical Center,Albany,NY,42.6526,-73.7562,A+,42,2026-04-13,4.2,Spring,5.1,4.9,33.0,0.7,2026-03-10 14:25:16
+Albany Medical Center,Albany,NY,42.6526,-73.7562,A+,70,2026-04-01,4.2,Spring,5.1,4.9,27.7,0.42,2026-03-10 14:25:16
+Albany Medical Center,Albany,NY,42.6526,-73.7562,A-,17,2026-04-04,2.6,Spring,5.1,4.9,19.0,1.071,2026-03-10 14:25:16
+Albany Medical Center,Albany,NY,42.6526,-73.7562,A-,37,2026-04-04,2.6,Spring,5.1,4.9,16.8,0.492,2026-03-10 14:25:16
+Albany Medical Center,Albany,NY,42.6526,-73.7562,B+,36,2026-04-04,3.6,Spring,5.1,4.9,27.4,0.7,2026-03-10 14:25:16
+Albany Medical Center,Albany,NY,42.6526,-73.7562,B+,69,2026-03-25,3.6,Spring,5.1,4.9,27.6,0.365,2026-03-10 14:25:16
+Albany Medical Center,Albany,NY,42.6526,-73.7562,B-,23,2026-04-20,2.3,Spring,5.1,4.9,17.6,0.7,2026-03-10 14:25:16
+Albany Medical Center,Albany,NY,42.6526,-73.7562,B-,52,2026-04-01,2.3,Spring,5.1,4.9,19.0,0.31,2026-03-10 14:25:16
+Albany Medical Center,Albany,NY,42.6526,-73.7562,AB+,27,2026-03-30,2.1,Spring,5.1,4.9,16.3,0.544,2026-03-10 14:25:16
+Albany Medical Center,Albany,NY,42.6526,-73.7562,AB+,46,2026-03-30,2.1,Spring,5.1,4.9,13.2,0.32,2026-03-10 14:25:16
+Albany Medical Center,Albany,NY,42.6526,-73.7562,AB-,8,2026-04-11,1.0,Spring,5.1,4.9,7.6,0.875,2026-03-10 14:25:16
+Albany Medical Center,Albany,NY,42.6526,-73.7562,AB-,14,2026-04-01,1.0,Spring,5.1,4.9,7.3,0.5,2026-03-10 14:25:16
+Albany Medical Center,Albany,NY,42.6526,-73.7562,O+,51,2026-04-20,6.9,Spring,5.1,4.9,42.8,0.947,2026-03-10 14:25:16
+Albany Medical Center,Albany,NY,42.6526,-73.7562,O+,110,2026-03-30,6.9,Spring,5.1,4.9,44.1,0.439,2026-03-10 14:25:16
+Albany Medical Center,Albany,NY,42.6526,-73.7562,O-,38,2026-04-03,4.9,Spring,5.1,4.9,33.8,0.903,2026-03-10 14:25:16
+Albany Medical Center,Albany,NY,42.6526,-73.7562,O-,89,2026-03-29,4.9,Spring,5.1,4.9,34.9,0.385,2026-03-10 14:25:16
+Upstate Medical University,Syracuse,NY,43.0481,-76.1474,A+,61,2026-03-30,4.1,Spring,4.7,5.4,31.8,0.47,2026-03-10 14:25:16
+Upstate Medical University,Syracuse,NY,43.0481,-76.1474,A+,101,2026-03-19,4.1,Spring,4.7,5.4,29.4,0.284,2026-03-10 14:25:16
+Upstate Medical University,Syracuse,NY,43.0481,-76.1474,A-,33,2026-03-30,2.9,Spring,4.7,5.4,22.6,0.615,2026-03-10 14:25:16
+Upstate Medical University,Syracuse,NY,43.0481,-76.1474,A-,78,2026-04-04,2.9,Spring,4.7,5.4,23.3,0.26,2026-03-10 14:25:16
+Upstate Medical University,Syracuse,NY,43.0481,-76.1474,B+,44,2026-04-19,4.5,Spring,4.7,5.4,28.2,0.716,2026-03-10 14:25:16
+Upstate Medical University,Syracuse,NY,43.0481,-76.1474,B+,72,2026-03-19,4.5,Spring,4.7,5.4,32.9,0.438,2026-03-10 14:25:16
+Upstate Medical University,Syracuse,NY,43.0481,-76.1474,B-,13,2026-04-07,2.2,Spring,4.7,5.4,14.2,1.185,2026-03-10 14:25:16
+Upstate Medical University,Syracuse,NY,43.0481,-76.1474,B-,34,2026-03-29,2.2,Spring,4.7,5.4,16.2,0.453,2026-03-10 14:25:16
+Upstate Medical University,Syracuse,NY,43.0481,-76.1474,AB+,25,2026-04-18,1.8,Spring,4.7,5.4,13.9,0.504,2026-03-10 14:25:16
+Upstate Medical University,Syracuse,NY,43.0481,-76.1474,AB+,49,2026-03-21,1.8,Spring,4.7,5.4,11.4,0.257,2026-03-10 14:25:16
+Upstate Medical University,Syracuse,NY,43.0481,-76.1474,AB-,13,2026-03-31,1.3,Spring,4.7,5.4,8.9,0.7,2026-03-10 14:25:16
+Upstate Medical University,Syracuse,NY,43.0481,-76.1474,AB-,23,2026-03-29,1.3,Spring,4.7,5.4,9.7,0.396,2026-03-10 14:25:16
+Upstate Medical University,Syracuse,NY,43.0481,-76.1474,O+,86,2026-04-04,8.0,Spring,4.7,5.4,56.5,0.651,2026-03-10 14:25:16
+Upstate Medical University,Syracuse,NY,43.0481,-76.1474,O+,142,2026-04-04,8.0,Spring,4.7,5.4,59.7,0.394,2026-03-10 14:25:16
+Upstate Medical University,Syracuse,NY,43.0481,-76.1474,O-,67,2026-03-30,6.4,Spring,4.7,5.4,50.0,0.669,2026-03-10 14:25:16
+Upstate Medical University,Syracuse,NY,43.0481,-76.1474,O-,145,2026-03-21,6.4,Spring,4.7,5.4,40.9,0.309,2026-03-10 14:25:16
+Erie County Medical Center,Buffalo,NY,42.8864,-78.8784,A+,5,2026-04-01,4.2,Spring,5.5,6.9,30.8,5.88,2026-03-10 14:25:16
+Erie County Medical Center,Buffalo,NY,42.8864,-78.8784,A+,11,2026-03-20,4.2,Spring,5.5,6.9,29.0,2.673,2026-03-10 14:25:16
+Erie County Medical Center,Buffalo,NY,42.8864,-78.8784,A-,5,2026-04-07,2.4,Spring,5.5,6.9,16.9,3.36,2026-03-10 14:25:16
+Erie County Medical Center,Buffalo,NY,42.8864,-78.8784,A-,10,2026-03-13,2.4,Spring,5.5,6.9,19.8,1.68,2026-03-10 14:25:16
+Erie County Medical Center,Buffalo,NY,42.8864,-78.8784,B+,6,2026-04-18,3.5,Spring,5.5,6.9,23.8,4.083,2026-03-10 14:25:16
+Erie County Medical Center,Buffalo,NY,42.8864,-78.8784,B+,12,2026-03-19,3.5,Spring,5.5,6.9,23.6,2.042,2026-03-10 14:25:16
+Erie County Medical Center,Buffalo,NY,42.8864,-78.8784,B-,4,2026-04-08,1.9,Spring,5.5,6.9,14.2,3.325,2026-03-10 14:25:16
+Erie County Medical Center,Buffalo,NY,42.8864,-78.8784,B-,8,2026-03-15,1.9,Spring,5.5,6.9,11.7,1.662,2026-03-10 14:25:16
+Erie County Medical Center,Buffalo,NY,42.8864,-78.8784,AB+,4,2026-04-09,1.7,Spring,5.5,6.9,11.7,2.975,2026-03-10 14:25:16
+Erie County Medical Center,Buffalo,NY,42.8864,-78.8784,AB+,9,2026-03-14,1.7,Spring,5.5,6.9,13.0,1.322,2026-03-10 14:25:16
+Erie County Medical Center,Buffalo,NY,42.8864,-78.8784,AB-,1,2026-04-09,1.2,Spring,5.5,6.9,9.1,8.4,2026-03-10 14:25:16
+Erie County Medical Center,Buffalo,NY,42.8864,-78.8784,AB-,3,2026-03-19,1.2,Spring,5.5,6.9,8.2,2.8,2026-03-10 14:25:16
+Erie County Medical Center,Buffalo,NY,42.8864,-78.8784,O+,14,2026-04-08,6.6,Spring,5.5,6.9,48.9,3.3,2026-03-10 14:25:16
+Erie County Medical Center,Buffalo,NY,42.8864,-78.8784,O+,36,2026-03-20,6.6,Spring,5.5,6.9,41.0,1.283,2026-03-10 14:25:16
+Erie County Medical Center,Buffalo,NY,42.8864,-78.8784,O-,16,2026-04-03,6.3,Spring,5.5,6.9,48.0,2.756,2026-03-10 14:25:16
+Erie County Medical Center,Buffalo,NY,42.8864,-78.8784,O-,32,2026-03-18,6.3,Spring,5.5,6.9,42.8,1.378,2026-03-10 14:25:16
+Strong Memorial Hospital,Rochester,NY,43.1247,-77.6093,A+,24,2026-04-11,4.4,Spring,8.0,6.0,30.8,1.283,2026-03-10 14:25:16
+Strong Memorial Hospital,Rochester,NY,43.1247,-77.6093,A+,26,2026-04-02,4.4,Spring,8.0,6.0,31.0,1.185,2026-03-10 14:25:16
+Strong Memorial Hospital,Rochester,NY,43.1247,-77.6093,A+,52,2026-03-21,4.4,Spring,8.0,6.0,35.4,0.592,2026-03-10 14:25:16
+Strong Memorial Hospital,Rochester,NY,43.1247,-77.6093,A-,10,2026-03-30,2.8,Spring,8.0,6.0,21.2,1.96,2026-03-10 14:25:16
+Strong Memorial Hospital,Rochester,NY,43.1247,-77.6093,A-,13,2026-03-22,2.8,Spring,8.0,6.0,23.0,1.508,2026-03-10 14:25:16
+Strong Memorial Hospital,Rochester,NY,43.1247,-77.6093,A-,47,2026-04-10,2.8,Spring,8.0,6.0,19.2,0.417,2026-03-10 14:25:16
+Strong Memorial Hospital,Rochester,NY,43.1247,-77.6093,B+,12,2026-03-31,4.3,Spring,8.0,6.0,31.2,2.508,2026-03-10 14:25:16
+Strong Memorial Hospital,Rochester,NY,43.1247,-77.6093,B+,15,2026-04-04,4.3,Spring,8.0,6.0,29.9,2.007,2026-03-10 14:25:16
+Strong Memorial Hospital,Rochester,NY,43.1247,-77.6093,B+,43,2026-04-03,4.3,Spring,8.0,6.0,31.0,0.7,2026-03-10 14:25:16
+Strong Memorial Hospital,Rochester,NY,43.1247,-77.6093,B-,6,2026-03-31,2.0,Spring,8.0,6.0,12.7,2.333,2026-03-10 14:25:16
+Strong Memorial Hospital,Rochester,NY,43.1247,-77.6093,B-,5,2026-03-21,2.0,Spring,8.0,6.0,15.6,2.8,2026-03-10 14:25:16
+Strong Memorial Hospital,Rochester,NY,43.1247,-77.6093,B-,18,2026-04-05,2.0,Spring,8.0,6.0,14.2,0.778,2026-03-10 14:25:16
+Strong Memorial Hospital,Rochester,NY,43.1247,-77.6093,AB+,6,2026-04-06,1.9,Spring,8.0,6.0,11.8,2.217,2026-03-10 14:25:16
+Strong Memorial Hospital,Rochester,NY,43.1247,-77.6093,AB+,9,2026-03-27,1.9,Spring,8.0,6.0,12.4,1.478,2026-03-10 14:25:16
+Strong Memorial Hospital,Rochester,NY,43.1247,-77.6093,AB+,22,2026-03-27,1.9,Spring,8.0,6.0,13.0,0.605,2026-03-10 14:25:16
+Strong Memorial Hospital,Rochester,NY,43.1247,-77.6093,AB-,5,2026-04-09,1.2,Spring,8.0,6.0,9.0,1.68,2026-03-10 14:25:16
+Strong Memorial Hospital,Rochester,NY,43.1247,-77.6093,AB-,4,2026-03-29,1.2,Spring,8.0,6.0,7.9,2.1,2026-03-10 14:25:16
+Strong Memorial Hospital,Rochester,NY,43.1247,-77.6093,AB-,13,2026-04-07,1.2,Spring,8.0,6.0,7.9,0.646,2026-03-10 14:25:16
+Strong Memorial Hospital,Rochester,NY,43.1247,-77.6093,O+,40,2026-03-30,6.6,Spring,8.0,6.0,48.1,1.155,2026-03-10 14:25:16
+Strong Memorial Hospital,Rochester,NY,43.1247,-77.6093,O+,31,2026-03-28,6.6,Spring,8.0,6.0,44.3,1.49,2026-03-10 14:25:16
+Strong Memorial Hospital,Rochester,NY,43.1247,-77.6093,O+,105,2026-04-04,6.6,Spring,8.0,6.0,48.9,0.44,2026-03-10 14:25:16
+Strong Memorial Hospital,Rochester,NY,43.1247,-77.6093,O-,27,2026-04-08,6.0,Spring,8.0,6.0,39.1,1.556,2026-03-10 14:25:16
+Strong Memorial Hospital,Rochester,NY,43.1247,-77.6093,O-,38,2026-03-26,6.0,Spring,8.0,6.0,45.4,1.105,2026-03-10 14:25:16
+Strong Memorial Hospital,Rochester,NY,43.1247,-77.6093,O-,80,2026-03-30,6.0,Spring,8.0,6.0,39.3,0.525,2026-03-10 14:25:16
+Samaritan Medical Center,Watertown,NY,43.9748,-75.9108,A+,33,2026-04-09,4.3,Spring,6.1,4.8,31.3,0.912,2026-03-10 14:25:16
+Samaritan Medical Center,Watertown,NY,43.9748,-75.9108,A+,68,2026-03-22,4.3,Spring,6.1,4.8,27.8,0.443,2026-03-10 14:25:16
+Samaritan Medical Center,Watertown,NY,43.9748,-75.9108,A-,34,2026-03-29,2.6,Spring,6.1,4.8,18.7,0.535,2026-03-10 14:25:16
+Samaritan Medical Center,Watertown,NY,43.9748,-75.9108,A-,60,2026-03-23,2.6,Spring,6.1,4.8,18.8,0.303,2026-03-10 14:25:16
+Samaritan Medical Center,Watertown,NY,43.9748,-75.9108,B+,49,2026-04-10,3.9,Spring,6.1,4.8,25.4,0.557,2026-03-10 14:25:16
+Samaritan Medical Center,Watertown,NY,43.9748,-75.9108,B+,99,2026-04-04,3.9,Spring,6.1,4.8,26.4,0.276,2026-03-10 14:25:16
+Samaritan Medical Center,Watertown,NY,43.9748,-75.9108,B-,23,2026-04-02,1.9,Spring,6.1,4.8,14.8,0.578,2026-03-10 14:25:16
+Samaritan Medical Center,Watertown,NY,43.9748,-75.9108,B-,36,2026-04-01,1.9,Spring,6.1,4.8,12.2,0.369,2026-03-10 14:25:16
+Samaritan Medical Center,Watertown,NY,43.9748,-75.9108,AB+,27,2026-04-08,2.0,Spring,6.1,4.8,15.5,0.519,2026-03-10 14:25:16
+Samaritan Medical Center,Watertown,NY,43.9748,-75.9108,AB+,58,2026-03-31,2.0,Spring,6.1,4.8,12.8,0.241,2026-03-10 14:25:16
+Samaritan Medical Center,Watertown,NY,43.9748,-75.9108,AB-,15,2026-04-06,1.3,Spring,6.1,4.8,8.7,0.607,2026-03-10 14:25:16
+Samaritan Medical Center,Watertown,NY,43.9748,-75.9108,AB-,36,2026-03-19,1.3,Spring,6.1,4.8,10.1,0.253,2026-03-10 14:25:16
+Samaritan Medical Center,Watertown,NY,43.9748,-75.9108,O+,98,2026-04-15,6.5,Spring,6.1,4.8,48.4,0.464,2026-03-10 14:25:16
+Samaritan Medical Center,Watertown,NY,43.9748,-75.9108,O+,146,2026-03-30,6.5,Spring,6.1,4.8,42.9,0.312,2026-03-10 14:25:16
+Samaritan Medical Center,Watertown,NY,43.9748,-75.9108,O-,39,2026-04-08,5.1,Spring,6.1,4.8,33.2,0.915,2026-03-10 14:25:16
+Samaritan Medical Center,Watertown,NY,43.9748,-75.9108,O-,70,2026-03-26,5.1,Spring,6.1,4.8,40.6,0.51,2026-03-10 14:25:16
+Hackensack University Medical Ctr,Hackensack,NJ,40.8839,-74.0439,A+,105,2026-04-10,3.8,Spring,5.5,4.0,30.3,0.253,2026-03-10 14:25:16
+Hackensack University Medical Ctr,Hackensack,NJ,40.8839,-74.0439,A+,139,2026-03-21,3.8,Spring,5.5,4.0,24.6,0.191,2026-03-10 14:25:16
+Hackensack University Medical Ctr,Hackensack,NJ,40.8839,-74.0439,A-,29,2026-04-18,2.6,Spring,5.5,4.0,19.5,0.628,2026-03-10 14:25:16
+Hackensack University Medical Ctr,Hackensack,NJ,40.8839,-74.0439,A-,61,2026-03-30,2.6,Spring,5.5,4.0,20.4,0.298,2026-03-10 14:25:16
+Hackensack University Medical Ctr,Hackensack,NJ,40.8839,-74.0439,B+,66,2026-04-20,4.3,Spring,5.5,4.0,29.8,0.456,2026-03-10 14:25:16
+Hackensack University Medical Ctr,Hackensack,NJ,40.8839,-74.0439,B+,109,2026-04-01,4.3,Spring,5.5,4.0,33.5,0.276,2026-03-10 14:25:16
+Hackensack University Medical Ctr,Hackensack,NJ,40.8839,-74.0439,B-,47,2026-04-11,2.3,Spring,5.5,4.0,18.3,0.343,2026-03-10 14:25:16
+Hackensack University Medical Ctr,Hackensack,NJ,40.8839,-74.0439,B-,96,2026-04-03,2.3,Spring,5.5,4.0,18.2,0.168,2026-03-10 14:25:16
+Hackensack University Medical Ctr,Hackensack,NJ,40.8839,-74.0439,AB+,24,2026-04-06,1.8,Spring,5.5,4.0,13.2,0.525,2026-03-10 14:25:16
+Hackensack University Medical Ctr,Hackensack,NJ,40.8839,-74.0439,AB+,57,2026-04-01,1.8,Spring,5.5,4.0,14.0,0.221,2026-03-10 14:25:16
+Hackensack University Medical Ctr,Hackensack,NJ,40.8839,-74.0439,AB-,15,2026-04-11,1.0,Spring,5.5,4.0,6.5,0.467,2026-03-10 14:25:16
+Hackensack University Medical Ctr,Hackensack,NJ,40.8839,-74.0439,AB-,39,2026-03-31,1.0,Spring,5.5,4.0,6.6,0.179,2026-03-10 14:25:16
+Hackensack University Medical Ctr,Hackensack,NJ,40.8839,-74.0439,O+,97,2026-04-17,7.7,Spring,5.5,4.0,61.6,0.556,2026-03-10 14:25:16
+Hackensack University Medical Ctr,Hackensack,NJ,40.8839,-74.0439,O+,175,2026-03-19,7.7,Spring,5.5,4.0,53.4,0.308,2026-03-10 14:25:16
+Hackensack University Medical Ctr,Hackensack,NJ,40.8839,-74.0439,O-,95,2026-04-09,6.7,Spring,5.5,4.0,51.9,0.494,2026-03-10 14:25:16
+Hackensack University Medical Ctr,Hackensack,NJ,40.8839,-74.0439,O-,179,2026-03-30,6.7,Spring,5.5,4.0,41.3,0.262,2026-03-10 14:25:16
+RWJBarnabas Medical Center,Newark,NJ,40.7357,-74.1724,A+,36,2026-03-28,4.0,Spring,5.4,3.5,25.7,0.778,2026-03-10 14:25:16
+RWJBarnabas Medical Center,Newark,NJ,40.7357,-74.1724,A+,93,2026-03-30,4.0,Spring,5.4,3.5,26.6,0.301,2026-03-10 14:25:16
+RWJBarnabas Medical Center,Newark,NJ,40.7357,-74.1724,A-,31,2026-03-31,2.4,Spring,5.4,3.5,15.5,0.542,2026-03-10 14:25:16
+RWJBarnabas Medical Center,Newark,NJ,40.7357,-74.1724,A-,63,2026-03-21,2.4,Spring,5.4,3.5,15.1,0.267,2026-03-10 14:25:16
+RWJBarnabas Medical Center,Newark,NJ,40.7357,-74.1724,B+,46,2026-04-02,4.0,Spring,5.4,3.5,29.9,0.609,2026-03-10 14:25:16
+RWJBarnabas Medical Center,Newark,NJ,40.7357,-74.1724,B+,93,2026-03-21,4.0,Spring,5.4,3.5,28.4,0.301,2026-03-10 14:25:16
+RWJBarnabas Medical Center,Newark,NJ,40.7357,-74.1724,B-,28,2026-04-01,1.9,Spring,5.4,3.5,13.2,0.475,2026-03-10 14:25:16
+RWJBarnabas Medical Center,Newark,NJ,40.7357,-74.1724,B-,44,2026-03-30,1.9,Spring,5.4,3.5,12.8,0.302,2026-03-10 14:25:16
+RWJBarnabas Medical Center,Newark,NJ,40.7357,-74.1724,AB+,16,2026-04-16,1.5,Spring,5.4,3.5,12.2,0.656,2026-03-10 14:25:16
+RWJBarnabas Medical Center,Newark,NJ,40.7357,-74.1724,AB+,34,2026-03-17,1.5,Spring,5.4,3.5,10.2,0.309,2026-03-10 14:25:16
+RWJBarnabas Medical Center,Newark,NJ,40.7357,-74.1724,AB-,12,2026-04-20,1.2,Spring,5.4,3.5,9.4,0.7,2026-03-10 14:25:16
+RWJBarnabas Medical Center,Newark,NJ,40.7357,-74.1724,AB-,22,2026-03-24,1.2,Spring,5.4,3.5,8.7,0.382,2026-03-10 14:25:16
+RWJBarnabas Medical Center,Newark,NJ,40.7357,-74.1724,O+,106,2026-03-28,7.4,Spring,5.4,3.5,47.6,0.489,2026-03-10 14:25:16
+RWJBarnabas Medical Center,Newark,NJ,40.7357,-74.1724,O+,160,2026-04-04,7.4,Spring,5.4,3.5,48.3,0.324,2026-03-10 14:25:16
+RWJBarnabas Medical Center,Newark,NJ,40.7357,-74.1724,O-,55,2026-03-30,5.7,Spring,5.4,3.5,38.3,0.725,2026-03-10 14:25:16
+RWJBarnabas Medical Center,Newark,NJ,40.7357,-74.1724,O-,179,2026-03-18,5.7,Spring,5.4,3.5,39.9,0.223,2026-03-10 14:25:16
+Cooper University Hospital,Camden,NJ,39.944,-75.116,A+,7,2026-04-09,4.9,Spring,6.4,8.1,36.5,4.9,2026-03-10 14:25:16
+Cooper University Hospital,Camden,NJ,39.944,-75.116,A+,15,2026-03-16,4.9,Spring,6.4,8.1,39.7,2.287,2026-03-10 14:25:16
+Cooper University Hospital,Camden,NJ,39.944,-75.116,A-,4,2026-04-07,3.3,Spring,6.4,8.1,26.1,5.775,2026-03-10 14:25:16
+Cooper University Hospital,Camden,NJ,39.944,-75.116,A-,8,2026-03-13,3.3,Spring,6.4,8.1,26.9,2.887,2026-03-10 14:25:16
+Cooper University Hospital,Camden,NJ,39.944,-75.116,B+,4,2026-04-10,3.5,Spring,6.4,8.1,22.0,6.125,2026-03-10 14:25:16
+Cooper University Hospital,Camden,NJ,39.944,-75.116,B+,11,2026-03-14,3.5,Spring,6.4,8.1,26.7,2.227,2026-03-10 14:25:16
+Cooper University Hospital,Camden,NJ,39.944,-75.116,B-,5,2026-04-13,1.8,Spring,6.4,8.1,12.1,2.52,2026-03-10 14:25:16
+Cooper University Hospital,Camden,NJ,39.944,-75.116,B-,11,2026-03-17,1.8,Spring,6.4,8.1,12.1,1.145,2026-03-10 14:25:16
+Cooper University Hospital,Camden,NJ,39.944,-75.116,AB+,4,2026-03-28,2.1,Spring,6.4,8.1,15.2,3.675,2026-03-10 14:25:16
+Cooper University Hospital,Camden,NJ,39.944,-75.116,AB+,10,2026-03-16,2.1,Spring,6.4,8.1,13.3,1.47,2026-03-10 14:25:16
+Cooper University Hospital,Camden,NJ,39.944,-75.116,AB-,2,2026-04-12,1.2,Spring,6.4,8.1,7.8,4.2,2026-03-10 14:25:16
+Cooper University Hospital,Camden,NJ,39.944,-75.116,AB-,4,2026-03-13,1.2,Spring,6.4,8.1,7.7,2.1,2026-03-10 14:25:16
+Cooper University Hospital,Camden,NJ,39.944,-75.116,O+,6,2026-03-28,7.8,Spring,6.4,8.1,54.3,9.1,2026-03-10 14:25:16
+Cooper University Hospital,Camden,NJ,39.944,-75.116,O+,17,2026-03-14,7.8,Spring,6.4,8.1,48.6,3.212,2026-03-10 14:25:16
+Cooper University Hospital,Camden,NJ,39.944,-75.116,O-,14,2026-04-17,6.5,Spring,6.4,8.1,45.7,3.25,2026-03-10 14:25:16
+Cooper University Hospital,Camden,NJ,39.944,-75.116,O-,27,2026-03-17,6.5,Spring,6.4,8.1,45.1,1.685,2026-03-10 14:25:16
+Morristown Medical Center,Morristown,NJ,40.7968,-74.4774,A+,50,2026-03-29,3.9,Spring,5.5,6.2,27.8,0.546,2026-03-10 14:25:16
+Morristown Medical Center,Morristown,NJ,40.7968,-74.4774,A+,92,2026-03-26,3.9,Spring,5.5,6.2,24.7,0.297,2026-03-10 14:25:16
+Morristown Medical Center,Morristown,NJ,40.7968,-74.4774,A-,24,2026-04-06,2.7,Spring,5.5,6.2,20.2,0.788,2026-03-10 14:25:16
+Morristown Medical Center,Morristown,NJ,40.7968,-74.4774,A-,59,2026-03-31,2.7,Spring,5.5,6.2,22.3,0.32,2026-03-10 14:25:16
+Morristown Medical Center,Morristown,NJ,40.7968,-74.4774,B+,53,2026-04-14,4.3,Spring,5.5,6.2,26.5,0.568,2026-03-10 14:25:16
+Morristown Medical Center,Morristown,NJ,40.7968,-74.4774,B+,105,2026-03-30,4.3,Spring,5.5,6.2,32.2,0.287,2026-03-10 14:25:16
+Morristown Medical Center,Morristown,NJ,40.7968,-74.4774,B-,13,2026-04-07,2.2,Spring,5.5,6.2,17.5,1.185,2026-03-10 14:25:16
+Morristown Medical Center,Morristown,NJ,40.7968,-74.4774,B-,31,2026-03-26,2.2,Spring,5.5,6.2,14.7,0.497,2026-03-10 14:25:16
+Morristown Medical Center,Morristown,NJ,40.7968,-74.4774,AB+,12,2026-04-01,1.8,Spring,5.5,6.2,14.6,1.05,2026-03-10 14:25:16
+Morristown Medical Center,Morristown,NJ,40.7968,-74.4774,AB+,29,2026-04-02,1.8,Spring,5.5,6.2,12.8,0.434,2026-03-10 14:25:16
+Morristown Medical Center,Morristown,NJ,40.7968,-74.4774,AB-,13,2026-04-13,1.3,Spring,5.5,6.2,8.2,0.7,2026-03-10 14:25:16
+Morristown Medical Center,Morristown,NJ,40.7968,-74.4774,AB-,30,2026-04-04,1.3,Spring,5.5,6.2,8.4,0.303,2026-03-10 14:25:16
+Morristown Medical Center,Morristown,NJ,40.7968,-74.4774,O+,98,2026-04-09,6.6,Spring,5.5,6.2,45.1,0.471,2026-03-10 14:25:16
+Morristown Medical Center,Morristown,NJ,40.7968,-74.4774,O+,193,2026-03-25,6.6,Spring,5.5,6.2,42.5,0.239,2026-03-10 14:25:16
+Morristown Medical Center,Morristown,NJ,40.7968,-74.4774,O-,42,2026-03-31,6.4,Spring,5.5,6.2,44.9,1.067,2026-03-10 14:25:16
+Morristown Medical Center,Morristown,NJ,40.7968,-74.4774,O-,107,2026-04-03,6.4,Spring,5.5,6.2,45.5,0.419,2026-03-10 14:25:16
+AtlantiCare Regional Medical Ctr,Atlantic City,NJ,39.3643,-74.4229,A+,57,2026-04-06,3.8,Spring,5.4,6.0,23.7,0.467,2026-03-10 14:25:16
+AtlantiCare Regional Medical Ctr,Atlantic City,NJ,39.3643,-74.4229,A+,102,2026-03-27,3.8,Spring,5.4,6.0,31.1,0.261,2026-03-10 14:25:16
+AtlantiCare Regional Medical Ctr,Atlantic City,NJ,39.3643,-74.4229,A-,20,2026-04-06,2.7,Spring,5.4,6.0,16.8,0.945,2026-03-10 14:25:16
+AtlantiCare Regional Medical Ctr,Atlantic City,NJ,39.3643,-74.4229,A-,40,2026-03-29,2.7,Spring,5.4,6.0,19.8,0.473,2026-03-10 14:25:16
+AtlantiCare Regional Medical Ctr,Atlantic City,NJ,39.3643,-74.4229,B+,18,2026-04-01,3.3,Spring,5.4,6.0,25.7,1.283,2026-03-10 14:25:16
+AtlantiCare Regional Medical Ctr,Atlantic City,NJ,39.3643,-74.4229,B+,55,2026-03-24,3.3,Spring,5.4,6.0,22.9,0.42,2026-03-10 14:25:16
+AtlantiCare Regional Medical Ctr,Atlantic City,NJ,39.3643,-74.4229,B-,29,2026-04-15,2.2,Spring,5.4,6.0,13.9,0.531,2026-03-10 14:25:16
+AtlantiCare Regional Medical Ctr,Atlantic City,NJ,39.3643,-74.4229,B-,52,2026-03-19,2.2,Spring,5.4,6.0,17.3,0.296,2026-03-10 14:25:16
+AtlantiCare Regional Medical Ctr,Atlantic City,NJ,39.3643,-74.4229,AB+,18,2026-04-07,1.5,Spring,5.4,6.0,9.4,0.583,2026-03-10 14:25:16
+AtlantiCare Regional Medical Ctr,Atlantic City,NJ,39.3643,-74.4229,AB+,41,2026-04-04,1.5,Spring,5.4,6.0,10.8,0.256,2026-03-10 14:25:16
+AtlantiCare Regional Medical Ctr,Atlantic City,NJ,39.3643,-74.4229,AB-,8,2026-04-08,1.1,Spring,5.4,6.0,7.4,0.963,2026-03-10 14:25:16
+AtlantiCare Regional Medical Ctr,Atlantic City,NJ,39.3643,-74.4229,AB-,22,2026-03-21,1.1,Spring,5.4,6.0,7.3,0.35,2026-03-10 14:25:16
+AtlantiCare Regional Medical Ctr,Atlantic City,NJ,39.3643,-74.4229,O+,56,2026-04-14,6.6,Spring,5.4,6.0,46.0,0.825,2026-03-10 14:25:16
+AtlantiCare Regional Medical Ctr,Atlantic City,NJ,39.3643,-74.4229,O+,145,2026-03-30,6.6,Spring,5.4,6.0,47.9,0.319,2026-03-10 14:25:16
+AtlantiCare Regional Medical Ctr,Atlantic City,NJ,39.3643,-74.4229,O-,99,2026-03-28,6.1,Spring,5.4,6.0,42.2,0.431,2026-03-10 14:25:16
+AtlantiCare Regional Medical Ctr,Atlantic City,NJ,39.3643,-74.4229,O-,146,2026-04-03,6.1,Spring,5.4,6.0,44.8,0.292,2026-03-10 14:25:16
+Overlook Medical Center,Summit,NJ,40.6951,-74.3701,A+,51,2026-03-28,3.7,Spring,5.0,3.9,23.2,0.508,2026-03-10 14:25:16
+Overlook Medical Center,Summit,NJ,40.6951,-74.3701,A+,89,2026-04-01,3.7,Spring,5.0,3.9,30.6,0.291,2026-03-10 14:25:16
+Overlook Medical Center,Summit,NJ,40.6951,-74.3701,A-,23,2026-04-18,3.3,Spring,5.0,3.9,25.8,1.004,2026-03-10 14:25:16
+Overlook Medical Center,Summit,NJ,40.6951,-74.3701,A-,57,2026-03-18,3.3,Spring,5.0,3.9,24.3,0.405,2026-03-10 14:25:16
+Overlook Medical Center,Summit,NJ,40.6951,-74.3701,B+,39,2026-04-02,4.6,Spring,5.0,3.9,36.1,0.826,2026-03-10 14:25:16
+Overlook Medical Center,Summit,NJ,40.6951,-74.3701,B+,76,2026-03-28,4.6,Spring,5.0,3.9,35.1,0.424,2026-03-10 14:25:16
+Overlook Medical Center,Summit,NJ,40.6951,-74.3701,B-,35,2026-04-15,2.5,Spring,5.0,3.9,19.7,0.5,2026-03-10 14:25:16
+Overlook Medical Center,Summit,NJ,40.6951,-74.3701,B-,49,2026-04-01,2.5,Spring,5.0,3.9,15.6,0.357,2026-03-10 14:25:16
+Overlook Medical Center,Summit,NJ,40.6951,-74.3701,AB+,14,2026-03-28,1.5,Spring,5.0,3.9,12.1,0.75,2026-03-10 14:25:16
+Overlook Medical Center,Summit,NJ,40.6951,-74.3701,AB+,32,2026-03-23,1.5,Spring,5.0,3.9,9.8,0.328,2026-03-10 14:25:16
+Overlook Medical Center,Summit,NJ,40.6951,-74.3701,AB-,14,2026-03-29,1.3,Spring,5.0,3.9,10.5,0.65,2026-03-10 14:25:16
+Overlook Medical Center,Summit,NJ,40.6951,-74.3701,AB-,37,2026-03-20,1.3,Spring,5.0,3.9,10.6,0.246,2026-03-10 14:25:16
+Overlook Medical Center,Summit,NJ,40.6951,-74.3701,O+,90,2026-04-09,6.8,Spring,5.0,3.9,46.5,0.529,2026-03-10 14:25:16
+Overlook Medical Center,Summit,NJ,40.6951,-74.3701,O+,181,2026-03-22,6.8,Spring,5.0,3.9,51.0,0.263,2026-03-10 14:25:16
+Overlook Medical Center,Summit,NJ,40.6951,-74.3701,O-,67,2026-04-19,5.8,Spring,5.0,3.9,47.0,0.606,2026-03-10 14:25:16
+Overlook Medical Center,Summit,NJ,40.6951,-74.3701,O-,109,2026-03-28,5.8,Spring,5.0,3.9,37.9,0.372,2026-03-10 14:25:16
+Saint Barnabas Medical Center,Livingston,NJ,40.7879,-74.3224,A+,81,2026-04-19,3.9,Spring,3.4,4.1,32.2,0.337,2026-03-10 14:25:16
+Saint Barnabas Medical Center,Livingston,NJ,40.7879,-74.3224,A+,147,2026-04-04,3.9,Spring,3.4,4.1,31.6,0.186,2026-03-10 14:25:16
+Saint Barnabas Medical Center,Livingston,NJ,40.7879,-74.3224,A-,36,2026-04-15,3.3,Spring,3.4,4.1,22.6,0.642,2026-03-10 14:25:16
+Saint Barnabas Medical Center,Livingston,NJ,40.7879,-74.3224,A-,99,2026-03-19,3.3,Spring,3.4,4.1,21.5,0.233,2026-03-10 14:25:16
+Saint Barnabas Medical Center,Livingston,NJ,40.7879,-74.3224,B+,61,2026-04-19,4.5,Spring,3.4,4.1,30.9,0.516,2026-03-10 14:25:16
+Saint Barnabas Medical Center,Livingston,NJ,40.7879,-74.3224,B+,98,2026-03-17,4.5,Spring,3.4,4.1,28.4,0.321,2026-03-10 14:25:16
+Saint Barnabas Medical Center,Livingston,NJ,40.7879,-74.3224,B-,18,2026-03-28,1.9,Spring,3.4,4.1,13.4,0.739,2026-03-10 14:25:16
+Saint Barnabas Medical Center,Livingston,NJ,40.7879,-74.3224,B-,45,2026-03-22,1.9,Spring,3.4,4.1,13.2,0.296,2026-03-10 14:25:16
+Saint Barnabas Medical Center,Livingston,NJ,40.7879,-74.3224,AB+,24,2026-04-12,1.8,Spring,3.4,4.1,14.0,0.525,2026-03-10 14:25:16
+Saint Barnabas Medical Center,Livingston,NJ,40.7879,-74.3224,AB+,37,2026-03-24,1.8,Spring,3.4,4.1,14.3,0.341,2026-03-10 14:25:16
+Saint Barnabas Medical Center,Livingston,NJ,40.7879,-74.3224,AB-,11,2026-03-31,1.1,Spring,3.4,4.1,7.6,0.7,2026-03-10 14:25:16
+Saint Barnabas Medical Center,Livingston,NJ,40.7879,-74.3224,AB-,34,2026-03-19,1.1,Spring,3.4,4.1,7.0,0.226,2026-03-10 14:25:16
+Saint Barnabas Medical Center,Livingston,NJ,40.7879,-74.3224,O+,134,2026-04-12,7.4,Spring,3.4,4.1,55.7,0.387,2026-03-10 14:25:16
+Saint Barnabas Medical Center,Livingston,NJ,40.7879,-74.3224,O+,223,2026-03-30,7.4,Spring,3.4,4.1,48.8,0.232,2026-03-10 14:25:16
+Saint Barnabas Medical Center,Livingston,NJ,40.7879,-74.3224,O-,108,2026-04-20,5.1,Spring,3.4,4.1,38.5,0.331,2026-03-10 14:25:16
+Saint Barnabas Medical Center,Livingston,NJ,40.7879,-74.3224,O-,158,2026-03-26,5.1,Spring,3.4,4.1,37.5,0.226,2026-03-10 14:25:16
+Robert Wood Johnson University,New Brunswick,NJ,40.5027,-74.4479,A+,23,2026-04-06,4.3,Spring,9.2,6.0,30.8,1.309,2026-03-10 14:25:16
+Robert Wood Johnson University,New Brunswick,NJ,40.5027,-74.4479,A+,12,2026-03-20,4.3,Spring,9.2,6.0,29.1,2.508,2026-03-10 14:25:16
+Robert Wood Johnson University,New Brunswick,NJ,40.5027,-74.4479,A+,48,2026-03-22,4.3,Spring,9.2,6.0,33.6,0.627,2026-03-10 14:25:16
+Robert Wood Johnson University,New Brunswick,NJ,40.5027,-74.4479,A-,12,2026-04-05,2.8,Spring,9.2,6.0,18.3,1.633,2026-03-10 14:25:16
+Robert Wood Johnson University,New Brunswick,NJ,40.5027,-74.4479,A-,15,2026-03-29,2.8,Spring,9.2,6.0,18.8,1.307,2026-03-10 14:25:16
+Robert Wood Johnson University,New Brunswick,NJ,40.5027,-74.4479,A-,52,2026-04-03,2.8,Spring,9.2,6.0,20.6,0.377,2026-03-10 14:25:16
+Robert Wood Johnson University,New Brunswick,NJ,40.5027,-74.4479,B+,13,2026-03-31,3.4,Spring,9.2,6.0,24.8,1.831,2026-03-10 14:25:16
+Robert Wood Johnson University,New Brunswick,NJ,40.5027,-74.4479,B+,13,2026-04-04,3.4,Spring,9.2,6.0,23.7,1.831,2026-03-10 14:25:16
+Robert Wood Johnson University,New Brunswick,NJ,40.5027,-74.4479,B+,52,2026-04-05,3.4,Spring,9.2,6.0,27.1,0.458,2026-03-10 14:25:16
+Robert Wood Johnson University,New Brunswick,NJ,40.5027,-74.4479,B-,10,2026-04-12,2.1,Spring,9.2,6.0,16.7,1.47,2026-03-10 14:25:16
+Robert Wood Johnson University,New Brunswick,NJ,40.5027,-74.4479,B-,13,2026-03-18,2.1,Spring,9.2,6.0,16.5,1.131,2026-03-10 14:25:16
+Robert Wood Johnson University,New Brunswick,NJ,40.5027,-74.4479,B-,31,2026-04-10,2.1,Spring,9.2,6.0,17.1,0.474,2026-03-10 14:25:16
+Robert Wood Johnson University,New Brunswick,NJ,40.5027,-74.4479,AB+,15,2026-04-02,1.8,Spring,9.2,6.0,11.6,0.84,2026-03-10 14:25:16
+Robert Wood Johnson University,New Brunswick,NJ,40.5027,-74.4479,AB+,8,2026-03-30,1.8,Spring,9.2,6.0,11.9,1.575,2026-03-10 14:25:16
+Robert Wood Johnson University,New Brunswick,NJ,40.5027,-74.4479,AB+,32,2026-04-09,1.8,Spring,9.2,6.0,12.3,0.394,2026-03-10 14:25:16
+Robert Wood Johnson University,New Brunswick,NJ,40.5027,-74.4479,AB-,6,2026-03-30,1.3,Spring,9.2,6.0,8.9,1.517,2026-03-10 14:25:16
+Robert Wood Johnson University,New Brunswick,NJ,40.5027,-74.4479,AB-,8,2026-03-25,1.3,Spring,9.2,6.0,8.0,1.137,2026-03-10 14:25:16
+Robert Wood Johnson University,New Brunswick,NJ,40.5027,-74.4479,AB-,21,2026-04-11,1.3,Spring,9.2,6.0,9.2,0.433,2026-03-10 14:25:16
+Robert Wood Johnson University,New Brunswick,NJ,40.5027,-74.4479,O+,29,2026-04-15,6.9,Spring,9.2,6.0,44.0,1.666,2026-03-10 14:25:16
+Robert Wood Johnson University,New Brunswick,NJ,40.5027,-74.4479,O+,22,2026-03-20,6.9,Spring,9.2,6.0,46.6,2.195,2026-03-10 14:25:16
+Robert Wood Johnson University,New Brunswick,NJ,40.5027,-74.4479,O+,79,2026-04-06,6.9,Spring,9.2,6.0,46.3,0.611,2026-03-10 14:25:16
+Robert Wood Johnson University,New Brunswick,NJ,40.5027,-74.4479,O-,20,2026-04-12,6.1,Spring,9.2,6.0,39.4,2.135,2026-03-10 14:25:16
+Robert Wood Johnson University,New Brunswick,NJ,40.5027,-74.4479,O-,24,2026-03-29,6.1,Spring,9.2,6.0,41.8,1.779,2026-03-10 14:25:16
+Robert Wood Johnson University,New Brunswick,NJ,40.5027,-74.4479,O-,85,2026-03-27,6.1,Spring,9.2,6.0,41.0,0.502,2026-03-10 14:25:16
+JFK University Medical Center,Edison,NJ,40.5215,-74.3487,A+,55,2026-04-12,5.0,Spring,5.1,4.2,41.0,0.636,2026-03-10 14:25:16
+JFK University Medical Center,Edison,NJ,40.5215,-74.3487,A+,104,2026-03-24,5.0,Spring,5.1,4.2,35.5,0.337,2026-03-10 14:25:16
+JFK University Medical Center,Edison,NJ,40.5215,-74.3487,A-,25,2026-04-10,3.1,Spring,5.1,4.2,22.0,0.868,2026-03-10 14:25:16
+JFK University Medical Center,Edison,NJ,40.5215,-74.3487,A-,59,2026-03-30,3.1,Spring,5.1,4.2,24.7,0.368,2026-03-10 14:25:16
+JFK University Medical Center,Edison,NJ,40.5215,-74.3487,B+,40,2026-04-02,4.4,Spring,5.1,4.2,30.8,0.77,2026-03-10 14:25:16
+JFK University Medical Center,Edison,NJ,40.5215,-74.3487,B+,80,2026-04-02,4.4,Spring,5.1,4.2,28.9,0.385,2026-03-10 14:25:16
+JFK University Medical Center,Edison,NJ,40.5215,-74.3487,B-,21,2026-04-04,2.4,Spring,5.1,4.2,16.6,0.8,2026-03-10 14:25:16
+JFK University Medical Center,Edison,NJ,40.5215,-74.3487,B-,67,2026-03-23,2.4,Spring,5.1,4.2,17.3,0.251,2026-03-10 14:25:16
+JFK University Medical Center,Edison,NJ,40.5215,-74.3487,AB+,13,2026-03-28,1.9,Spring,5.1,4.2,13.5,1.023,2026-03-10 14:25:16
+JFK University Medical Center,Edison,NJ,40.5215,-74.3487,AB+,28,2026-04-01,1.9,Spring,5.1,4.2,12.4,0.475,2026-03-10 14:25:16
+JFK University Medical Center,Edison,NJ,40.5215,-74.3487,AB-,12,2026-04-19,1.4,Spring,5.1,4.2,8.8,0.817,2026-03-10 14:25:16
+JFK University Medical Center,Edison,NJ,40.5215,-74.3487,AB-,31,2026-04-04,1.4,Spring,5.1,4.2,9.3,0.316,2026-03-10 14:25:16
+JFK University Medical Center,Edison,NJ,40.5215,-74.3487,O+,44,2026-04-17,6.4,Spring,5.1,4.2,49.9,1.018,2026-03-10 14:25:16
+JFK University Medical Center,Edison,NJ,40.5215,-74.3487,O+,96,2026-03-17,6.4,Spring,5.1,4.2,41.8,0.467,2026-03-10 14:25:16
+JFK University Medical Center,Edison,NJ,40.5215,-74.3487,O-,57,2026-04-16,6.4,Spring,5.1,4.2,52.4,0.786,2026-03-10 14:25:16
+JFK University Medical Center,Edison,NJ,40.5215,-74.3487,O-,105,2026-03-25,6.4,Spring,5.1,4.2,44.1,0.427,2026-03-10 14:25:16
+Virtua Health — Marlton,Marlton,NJ,39.8913,-74.9219,A+,54,2026-04-09,4.8,Spring,4.8,4.6,39.6,0.622,2026-03-10 14:25:16
+Virtua Health — Marlton,Marlton,NJ,39.8913,-74.9219,A+,126,2026-03-28,4.8,Spring,4.8,4.6,32.4,0.267,2026-03-10 14:25:16
+Virtua Health — Marlton,Marlton,NJ,39.8913,-74.9219,A-,38,2026-04-07,3.0,Spring,4.8,4.6,23.9,0.553,2026-03-10 14:25:16
+Virtua Health — Marlton,Marlton,NJ,39.8913,-74.9219,A-,70,2026-03-25,3.0,Spring,4.8,4.6,22.6,0.3,2026-03-10 14:25:16
+Virtua Health — Marlton,Marlton,NJ,39.8913,-74.9219,B+,45,2026-04-04,3.4,Spring,4.8,4.6,26.7,0.529,2026-03-10 14:25:16
+Virtua Health — Marlton,Marlton,NJ,39.8913,-74.9219,B+,76,2026-03-29,3.4,Spring,4.8,4.6,26.1,0.313,2026-03-10 14:25:16
+Virtua Health — Marlton,Marlton,NJ,39.8913,-74.9219,B-,34,2026-04-05,2.2,Spring,4.8,4.6,17.0,0.453,2026-03-10 14:25:16
+Virtua Health — Marlton,Marlton,NJ,39.8913,-74.9219,B-,62,2026-04-04,2.2,Spring,4.8,4.6,14.4,0.248,2026-03-10 14:25:16
+Virtua Health — Marlton,Marlton,NJ,39.8913,-74.9219,AB+,17,2026-04-14,2.0,Spring,4.8,4.6,16.3,0.824,2026-03-10 14:25:16
+Virtua Health — Marlton,Marlton,NJ,39.8913,-74.9219,AB+,37,2026-03-28,2.0,Spring,4.8,4.6,15.9,0.378,2026-03-10 14:25:16
+Virtua Health — Marlton,Marlton,NJ,39.8913,-74.9219,AB-,12,2026-03-31,1.4,Spring,4.8,4.6,10.8,0.817,2026-03-10 14:25:16
+Virtua Health — Marlton,Marlton,NJ,39.8913,-74.9219,AB-,20,2026-04-03,1.4,Spring,4.8,4.6,10.6,0.49,2026-03-10 14:25:16
+Virtua Health — Marlton,Marlton,NJ,39.8913,-74.9219,O+,50,2026-04-08,6.7,Spring,4.8,4.6,47.2,0.938,2026-03-10 14:25:16
+Virtua Health — Marlton,Marlton,NJ,39.8913,-74.9219,O+,104,2026-03-27,6.7,Spring,4.8,4.6,47.8,0.451,2026-03-10 14:25:16
+Virtua Health — Marlton,Marlton,NJ,39.8913,-74.9219,O-,42,2026-04-17,4.9,Spring,4.8,4.6,30.9,0.817,2026-03-10 14:25:16
+Virtua Health — Marlton,Marlton,NJ,39.8913,-74.9219,O-,80,2026-03-23,4.9,Spring,4.8,4.6,34.1,0.429,2026-03-10 14:25:16
+Massachusetts General Hospital,Boston,MA,42.3628,-71.0686,A+,19,2026-04-03,5.1,Spring,8.1,5.7,41.0,1.879,2026-03-10 14:25:16
+Massachusetts General Hospital,Boston,MA,42.3628,-71.0686,A+,16,2026-03-31,5.1,Spring,8.1,5.7,33.3,2.231,2026-03-10 14:25:16
+Massachusetts General Hospital,Boston,MA,42.3628,-71.0686,A+,54,2026-03-22,5.1,Spring,8.1,5.7,33.3,0.661,2026-03-10 14:25:16
+Massachusetts General Hospital,Boston,MA,42.3628,-71.0686,A-,8,2026-04-05,2.9,Spring,8.1,5.7,21.4,2.538,2026-03-10 14:25:16
+Massachusetts General Hospital,Boston,MA,42.3628,-71.0686,A-,9,2026-03-22,2.9,Spring,8.1,5.7,18.4,2.256,2026-03-10 14:25:16
+Massachusetts General Hospital,Boston,MA,42.3628,-71.0686,A-,25,2026-04-08,2.9,Spring,8.1,5.7,20.5,0.812,2026-03-10 14:25:16
+Massachusetts General Hospital,Boston,MA,42.3628,-71.0686,B+,9,2026-04-14,3.9,Spring,8.1,5.7,24.1,3.033,2026-03-10 14:25:16
+Massachusetts General Hospital,Boston,MA,42.3628,-71.0686,B+,14,2026-03-27,3.9,Spring,8.1,5.7,24.2,1.95,2026-03-10 14:25:16
+Massachusetts General Hospital,Boston,MA,42.3628,-71.0686,B+,32,2026-03-20,3.9,Spring,8.1,5.7,29.7,0.853,2026-03-10 14:25:16
+Massachusetts General Hospital,Boston,MA,42.3628,-71.0686,B-,6,2026-04-09,2.0,Spring,8.1,5.7,12.6,2.333,2026-03-10 14:25:16
+Massachusetts General Hospital,Boston,MA,42.3628,-71.0686,B-,5,2026-03-18,2.0,Spring,8.1,5.7,15.4,2.8,2026-03-10 14:25:16
+Massachusetts General Hospital,Boston,MA,42.3628,-71.0686,B-,19,2026-04-08,2.0,Spring,8.1,5.7,15.2,0.737,2026-03-10 14:25:16
+Massachusetts General Hospital,Boston,MA,42.3628,-71.0686,AB+,7,2026-04-12,1.5,Spring,8.1,5.7,12.2,1.5,2026-03-10 14:25:16
+Massachusetts General Hospital,Boston,MA,42.3628,-71.0686,AB+,6,2026-03-29,1.5,Spring,8.1,5.7,12.3,1.75,2026-03-10 14:25:16
+Massachusetts General Hospital,Boston,MA,42.3628,-71.0686,AB+,27,2026-03-26,1.5,Spring,8.1,5.7,9.8,0.389,2026-03-10 14:25:16
+Massachusetts General Hospital,Boston,MA,42.3628,-71.0686,AB-,5,2026-03-29,1.1,Spring,8.1,5.7,8.6,1.54,2026-03-10 14:25:16
+Massachusetts General Hospital,Boston,MA,42.3628,-71.0686,AB-,5,2026-03-18,1.1,Spring,8.1,5.7,7.0,1.54,2026-03-10 14:25:16
+Massachusetts General Hospital,Boston,MA,42.3628,-71.0686,AB-,14,2026-03-20,1.1,Spring,8.1,5.7,7.8,0.55,2026-03-10 14:25:16
+Massachusetts General Hospital,Boston,MA,42.3628,-71.0686,O+,20,2026-04-19,6.2,Spring,8.1,5.7,46.4,2.17,2026-03-10 14:25:16
+Massachusetts General Hospital,Boston,MA,42.3628,-71.0686,O+,20,2026-03-26,6.2,Spring,8.1,5.7,45.0,2.17,2026-03-10 14:25:16
+Massachusetts General Hospital,Boston,MA,42.3628,-71.0686,O+,62,2026-04-08,6.2,Spring,8.1,5.7,49.0,0.7,2026-03-10 14:25:16
+Massachusetts General Hospital,Boston,MA,42.3628,-71.0686,O-,25,2026-03-31,4.9,Spring,8.1,5.7,35.3,1.372,2026-03-10 14:25:16
+Massachusetts General Hospital,Boston,MA,42.3628,-71.0686,O-,33,2026-03-23,4.9,Spring,8.1,5.7,40.2,1.039,2026-03-10 14:25:16
+Massachusetts General Hospital,Boston,MA,42.3628,-71.0686,O-,71,2026-03-31,4.9,Spring,8.1,5.7,30.6,0.483,2026-03-10 14:25:16
+Brigham and Women's Hospital,Boston,MA,42.3359,-71.1067,A+,13,2026-03-28,5.2,Spring,8.5,6.2,33.2,2.8,2026-03-10 14:25:16
+Brigham and Women's Hospital,Boston,MA,42.3359,-71.1067,A+,21,2026-04-04,5.2,Spring,8.5,6.2,33.0,1.733,2026-03-10 14:25:16
+Brigham and Women's Hospital,Boston,MA,42.3359,-71.1067,A+,66,2026-04-05,5.2,Spring,8.5,6.2,41.9,0.552,2026-03-10 14:25:16
+Brigham and Women's Hospital,Boston,MA,42.3359,-71.1067,A-,9,2026-04-06,2.9,Spring,8.5,6.2,22.8,2.256,2026-03-10 14:25:16
+Brigham and Women's Hospital,Boston,MA,42.3359,-71.1067,A-,15,2026-03-18,2.9,Spring,8.5,6.2,22.0,1.353,2026-03-10 14:25:16
+Brigham and Women's Hospital,Boston,MA,42.3359,-71.1067,A-,33,2026-04-02,2.9,Spring,8.5,6.2,22.5,0.615,2026-03-10 14:25:16
+Brigham and Women's Hospital,Boston,MA,42.3359,-71.1067,B+,19,2026-04-18,3.2,Spring,8.5,6.2,25.7,1.179,2026-03-10 14:25:16
+Brigham and Women's Hospital,Boston,MA,42.3359,-71.1067,B+,19,2026-03-25,3.2,Spring,8.5,6.2,25.2,1.179,2026-03-10 14:25:16
+Brigham and Women's Hospital,Boston,MA,42.3359,-71.1067,B+,51,2026-03-25,3.2,Spring,8.5,6.2,22.8,0.439,2026-03-10 14:25:16
+Brigham and Women's Hospital,Boston,MA,42.3359,-71.1067,B-,15,2026-04-12,2.4,Spring,8.5,6.2,18.8,1.12,2026-03-10 14:25:16
+Brigham and Women's Hospital,Boston,MA,42.3359,-71.1067,B-,10,2026-03-20,2.4,Spring,8.5,6.2,19.7,1.68,2026-03-10 14:25:16
+Brigham and Women's Hospital,Boston,MA,42.3359,-71.1067,B-,41,2026-03-25,2.4,Spring,8.5,6.2,17.2,0.41,2026-03-10 14:25:16
+Brigham and Women's Hospital,Boston,MA,42.3359,-71.1067,AB+,7,2026-04-16,1.8,Spring,8.5,6.2,11.2,1.8,2026-03-10 14:25:16
+Brigham and Women's Hospital,Boston,MA,42.3359,-71.1067,AB+,8,2026-03-21,1.8,Spring,8.5,6.2,14.4,1.575,2026-03-10 14:25:16
+Brigham and Women's Hospital,Boston,MA,42.3359,-71.1067,AB+,21,2026-04-03,1.8,Spring,8.5,6.2,12.3,0.6,2026-03-10 14:25:16
+Brigham and Women's Hospital,Boston,MA,42.3359,-71.1067,AB-,8,2026-04-21,1.3,Spring,8.5,6.2,8.6,1.137,2026-03-10 14:25:16
+Brigham and Women's Hospital,Boston,MA,42.3359,-71.1067,AB-,7,2026-03-27,1.3,Spring,8.5,6.2,9.7,1.3,2026-03-10 14:25:16
+Brigham and Women's Hospital,Boston,MA,42.3359,-71.1067,AB-,18,2026-04-02,1.3,Spring,8.5,6.2,9.0,0.506,2026-03-10 14:25:16
+Brigham and Women's Hospital,Boston,MA,42.3359,-71.1067,O+,42,2026-04-14,7.7,Spring,8.5,6.2,47.6,1.283,2026-03-10 14:25:16
+Brigham and Women's Hospital,Boston,MA,42.3359,-71.1067,O+,33,2026-03-22,7.7,Spring,8.5,6.2,55.4,1.633,2026-03-10 14:25:16
+Brigham and Women's Hospital,Boston,MA,42.3359,-71.1067,O+,95,2026-03-25,7.7,Spring,8.5,6.2,51.3,0.567,2026-03-10 14:25:16
+Brigham and Women's Hospital,Boston,MA,42.3359,-71.1067,O-,22,2026-04-04,6.8,Spring,8.5,6.2,53.6,2.164,2026-03-10 14:25:16
+Brigham and Women's Hospital,Boston,MA,42.3359,-71.1067,O-,23,2026-03-19,6.8,Spring,8.5,6.2,48.3,2.07,2026-03-10 14:25:16
+Brigham and Women's Hospital,Boston,MA,42.3359,-71.1067,O-,56,2026-04-04,6.8,Spring,8.5,6.2,49.0,0.85,2026-03-10 14:25:16
+Boston Medical Center,Boston,MA,42.3355,-71.0711,A+,11,2026-03-28,4.3,Spring,7.5,6.3,35.2,2.736,2026-03-10 14:25:16
+Boston Medical Center,Boston,MA,42.3355,-71.0711,A+,18,2026-03-16,4.3,Spring,7.5,6.3,32.4,1.672,2026-03-10 14:25:16
+Boston Medical Center,Boston,MA,42.3355,-71.0711,A-,5,2026-03-29,2.7,Spring,7.5,6.3,18.5,3.78,2026-03-10 14:25:16
+Boston Medical Center,Boston,MA,42.3355,-71.0711,A-,8,2026-03-19,2.7,Spring,7.5,6.3,19.2,2.363,2026-03-10 14:25:16
+Boston Medical Center,Boston,MA,42.3355,-71.0711,B+,7,2026-03-28,3.3,Spring,7.5,6.3,27.0,3.3,2026-03-10 14:25:16
+Boston Medical Center,Boston,MA,42.3355,-71.0711,B+,14,2026-03-16,3.3,Spring,7.5,6.3,21.1,1.65,2026-03-10 14:25:16
+Boston Medical Center,Boston,MA,42.3355,-71.0711,B-,5,2026-04-19,2.4,Spring,7.5,6.3,16.1,3.36,2026-03-10 14:25:16
+Boston Medical Center,Boston,MA,42.3355,-71.0711,B-,10,2026-03-15,2.4,Spring,7.5,6.3,16.8,1.68,2026-03-10 14:25:16
+Boston Medical Center,Boston,MA,42.3355,-71.0711,AB+,4,2026-04-19,1.8,Spring,7.5,6.3,11.3,3.15,2026-03-10 14:25:16
+Boston Medical Center,Boston,MA,42.3355,-71.0711,AB+,9,2026-03-13,1.8,Spring,7.5,6.3,13.6,1.4,2026-03-10 14:25:16
+Boston Medical Center,Boston,MA,42.3355,-71.0711,AB-,1,2026-04-12,1.4,Spring,7.5,6.3,10.3,9.8,2026-03-10 14:25:16
+Boston Medical Center,Boston,MA,42.3355,-71.0711,AB-,3,2026-03-18,1.4,Spring,7.5,6.3,10.1,3.267,2026-03-10 14:25:16
+Boston Medical Center,Boston,MA,42.3355,-71.0711,O+,10,2026-04-15,8.3,Spring,7.5,6.3,52.9,5.81,2026-03-10 14:25:16
+Boston Medical Center,Boston,MA,42.3355,-71.0711,O+,21,2026-03-17,8.3,Spring,7.5,6.3,68.2,2.767,2026-03-10 14:25:16
+Boston Medical Center,Boston,MA,42.3355,-71.0711,O-,15,2026-04-05,6.7,Spring,7.5,6.3,45.4,3.127,2026-03-10 14:25:16
+Boston Medical Center,Boston,MA,42.3355,-71.0711,O-,34,2026-03-14,6.7,Spring,7.5,6.3,53.7,1.379,2026-03-10 14:25:16
+Tufts Medical Center,Boston,MA,42.3492,-71.0629,A+,24,2026-04-20,4.6,Spring,8.5,8.5,30.3,1.342,2026-03-10 14:25:16
+Tufts Medical Center,Boston,MA,42.3492,-71.0629,A+,23,2026-03-26,4.6,Spring,8.5,8.5,29.6,1.4,2026-03-10 14:25:16
+Tufts Medical Center,Boston,MA,42.3492,-71.0629,A+,61,2026-04-11,4.6,Spring,8.5,8.5,33.2,0.528,2026-03-10 14:25:16
+Tufts Medical Center,Boston,MA,42.3492,-71.0629,A-,14,2026-03-31,3.0,Spring,8.5,8.5,22.2,1.5,2026-03-10 14:25:16
+Tufts Medical Center,Boston,MA,42.3492,-71.0629,A-,15,2026-03-30,3.0,Spring,8.5,8.5,21.8,1.4,2026-03-10 14:25:16
+Tufts Medical Center,Boston,MA,42.3492,-71.0629,A-,35,2026-04-02,3.0,Spring,8.5,8.5,18.6,0.6,2026-03-10 14:25:16
+Tufts Medical Center,Boston,MA,42.3492,-71.0629,B+,16,2026-04-03,3.4,Spring,8.5,8.5,28.0,1.488,2026-03-10 14:25:16
+Tufts Medical Center,Boston,MA,42.3492,-71.0629,B+,12,2026-03-25,3.4,Spring,8.5,8.5,26.5,1.983,2026-03-10 14:25:16
+Tufts Medical Center,Boston,MA,42.3492,-71.0629,B+,43,2026-03-26,3.4,Spring,8.5,8.5,26.8,0.553,2026-03-10 14:25:16
+Tufts Medical Center,Boston,MA,42.3492,-71.0629,B-,10,2026-04-20,1.8,Spring,8.5,8.5,13.5,1.26,2026-03-10 14:25:16
+Tufts Medical Center,Boston,MA,42.3492,-71.0629,B-,9,2026-03-29,1.8,Spring,8.5,8.5,14.1,1.4,2026-03-10 14:25:16
+Tufts Medical Center,Boston,MA,42.3492,-71.0629,B-,26,2026-03-29,1.8,Spring,8.5,8.5,12.5,0.485,2026-03-10 14:25:16
+Tufts Medical Center,Boston,MA,42.3492,-71.0629,AB+,8,2026-04-18,1.7,Spring,8.5,8.5,10.5,1.488,2026-03-10 14:25:16
+Tufts Medical Center,Boston,MA,42.3492,-71.0629,AB+,8,2026-03-25,1.7,Spring,8.5,8.5,13.5,1.488,2026-03-10 14:25:16
+Tufts Medical Center,Boston,MA,42.3492,-71.0629,AB+,30,2026-04-03,1.7,Spring,8.5,8.5,13.0,0.397,2026-03-10 14:25:16
+Tufts Medical Center,Boston,MA,42.3492,-71.0629,AB-,7,2026-04-14,1.3,Spring,8.5,8.5,10.0,1.3,2026-03-10 14:25:16
+Tufts Medical Center,Boston,MA,42.3492,-71.0629,AB-,5,2026-03-23,1.3,Spring,8.5,8.5,9.9,1.82,2026-03-10 14:25:16
+Tufts Medical Center,Boston,MA,42.3492,-71.0629,AB-,21,2026-03-25,1.3,Spring,8.5,8.5,8.3,0.433,2026-03-10 14:25:16
+Tufts Medical Center,Boston,MA,42.3492,-71.0629,O+,19,2026-04-05,5.9,Spring,8.5,8.5,39.5,2.174,2026-03-10 14:25:16
+Tufts Medical Center,Boston,MA,42.3492,-71.0629,O+,26,2026-03-27,5.9,Spring,8.5,8.5,36.8,1.588,2026-03-10 14:25:16
+Tufts Medical Center,Boston,MA,42.3492,-71.0629,O+,73,2026-03-30,5.9,Spring,8.5,8.5,44.1,0.566,2026-03-10 14:25:16
+Tufts Medical Center,Boston,MA,42.3492,-71.0629,O-,23,2026-04-15,6.5,Spring,8.5,8.5,49.7,1.978,2026-03-10 14:25:16
+Tufts Medical Center,Boston,MA,42.3492,-71.0629,O-,20,2026-04-02,6.5,Spring,8.5,8.5,41.0,2.275,2026-03-10 14:25:16
+Tufts Medical Center,Boston,MA,42.3492,-71.0629,O-,77,2026-04-05,6.5,Spring,8.5,8.5,45.5,0.591,2026-03-10 14:25:16
+Beth Israel Deaconess Medical Ctr,Boston,MA,42.338,-71.1053,A+,18,2026-04-06,4.8,Spring,8.2,8.6,34.9,1.867,2026-03-10 14:25:16
+Beth Israel Deaconess Medical Ctr,Boston,MA,42.338,-71.1053,A+,27,2026-04-03,4.8,Spring,8.2,8.6,29.7,1.244,2026-03-10 14:25:16
+Beth Israel Deaconess Medical Ctr,Boston,MA,42.338,-71.1053,A+,53,2026-04-10,4.8,Spring,8.2,8.6,36.0,0.634,2026-03-10 14:25:16
+Beth Israel Deaconess Medical Ctr,Boston,MA,42.338,-71.1053,A-,13,2026-03-29,3.2,Spring,8.2,8.6,25.9,1.723,2026-03-10 14:25:16
+Beth Israel Deaconess Medical Ctr,Boston,MA,42.338,-71.1053,A-,11,2026-03-20,3.2,Spring,8.2,8.6,21.6,2.036,2026-03-10 14:25:16
+Beth Israel Deaconess Medical Ctr,Boston,MA,42.338,-71.1053,A-,34,2026-04-05,3.2,Spring,8.2,8.6,25.1,0.659,2026-03-10 14:25:16
+Beth Israel Deaconess Medical Ctr,Boston,MA,42.338,-71.1053,B+,10,2026-04-17,3.8,Spring,8.2,8.6,31.0,2.66,2026-03-10 14:25:16
+Beth Israel Deaconess Medical Ctr,Boston,MA,42.338,-71.1053,B+,17,2026-03-22,3.8,Spring,8.2,8.6,27.7,1.565,2026-03-10 14:25:16
+Beth Israel Deaconess Medical Ctr,Boston,MA,42.338,-71.1053,B+,37,2026-04-09,3.8,Spring,8.2,8.6,29.6,0.719,2026-03-10 14:25:16
+Beth Israel Deaconess Medical Ctr,Boston,MA,42.338,-71.1053,B-,9,2026-03-31,2.4,Spring,8.2,8.6,19.2,1.867,2026-03-10 14:25:16
+Beth Israel Deaconess Medical Ctr,Boston,MA,42.338,-71.1053,B-,13,2026-03-30,2.4,Spring,8.2,8.6,18.5,1.292,2026-03-10 14:25:16
+Beth Israel Deaconess Medical Ctr,Boston,MA,42.338,-71.1053,B-,32,2026-03-24,2.4,Spring,8.2,8.6,15.0,0.525,2026-03-10 14:25:16
+Beth Israel Deaconess Medical Ctr,Boston,MA,42.338,-71.1053,AB+,5,2026-04-05,1.5,Spring,8.2,8.6,10.0,2.1,2026-03-10 14:25:16
+Beth Israel Deaconess Medical Ctr,Boston,MA,42.338,-71.1053,AB+,5,2026-03-25,1.5,Spring,8.2,8.6,10.5,2.1,2026-03-10 14:25:16
+Beth Israel Deaconess Medical Ctr,Boston,MA,42.338,-71.1053,AB+,16,2026-03-30,1.5,Spring,8.2,8.6,10.9,0.656,2026-03-10 14:25:16
+Beth Israel Deaconess Medical Ctr,Boston,MA,42.338,-71.1053,AB-,6,2026-04-21,1.3,Spring,8.2,8.6,10.3,1.517,2026-03-10 14:25:16
+Beth Israel Deaconess Medical Ctr,Boston,MA,42.338,-71.1053,AB-,7,2026-03-28,1.3,Spring,8.2,8.6,10.2,1.3,2026-03-10 14:25:16
+Beth Israel Deaconess Medical Ctr,Boston,MA,42.338,-71.1053,AB-,17,2026-03-29,1.3,Spring,8.2,8.6,10.5,0.535,2026-03-10 14:25:16
+Beth Israel Deaconess Medical Ctr,Boston,MA,42.338,-71.1053,O+,39,2026-03-28,6.9,Spring,8.2,8.6,44.5,1.238,2026-03-10 14:25:16
+Beth Israel Deaconess Medical Ctr,Boston,MA,42.338,-71.1053,O+,51,2026-03-29,6.9,Spring,8.2,8.6,46.8,0.947,2026-03-10 14:25:16
+Beth Israel Deaconess Medical Ctr,Boston,MA,42.338,-71.1053,O+,119,2026-04-09,6.9,Spring,8.2,8.6,55.8,0.406,2026-03-10 14:25:16
+Beth Israel Deaconess Medical Ctr,Boston,MA,42.338,-71.1053,O-,37,2026-04-08,6.4,Spring,8.2,8.6,51.2,1.211,2026-03-10 14:25:16
+Beth Israel Deaconess Medical Ctr,Boston,MA,42.338,-71.1053,O-,23,2026-03-21,6.4,Spring,8.2,8.6,47.4,1.948,2026-03-10 14:25:16
+Beth Israel Deaconess Medical Ctr,Boston,MA,42.338,-71.1053,O-,87,2026-04-06,6.4,Spring,8.2,8.6,42.2,0.515,2026-03-10 14:25:16
+Northeast Blood Services (ARC),Boston,MA,42.3601,-71.0589,A+,62,2026-04-13,4.0,Spring,4.7,4.2,29.8,0.452,2026-03-10 14:25:16
+Northeast Blood Services (ARC),Boston,MA,42.3601,-71.0589,A+,145,2026-03-25,4.0,Spring,4.7,4.2,31.4,0.193,2026-03-10 14:25:16
+Northeast Blood Services (ARC),Boston,MA,42.3601,-71.0589,A-,62,2026-04-14,3.2,Spring,4.7,4.2,21.7,0.361,2026-03-10 14:25:16
+Northeast Blood Services (ARC),Boston,MA,42.3601,-71.0589,A-,113,2026-03-19,3.2,Spring,4.7,4.2,23.6,0.198,2026-03-10 14:25:16
+Northeast Blood Services (ARC),Boston,MA,42.3601,-71.0589,B+,62,2026-04-18,4.6,Spring,4.7,4.2,34.3,0.519,2026-03-10 14:25:16
+Northeast Blood Services (ARC),Boston,MA,42.3601,-71.0589,B+,132,2026-03-23,4.6,Spring,4.7,4.2,34.3,0.244,2026-03-10 14:25:16
+Northeast Blood Services (ARC),Boston,MA,42.3601,-71.0589,B-,35,2026-04-15,1.9,Spring,4.7,4.2,15.5,0.38,2026-03-10 14:25:16
+Northeast Blood Services (ARC),Boston,MA,42.3601,-71.0589,B-,59,2026-03-22,1.9,Spring,4.7,4.2,12.6,0.225,2026-03-10 14:25:16
+Northeast Blood Services (ARC),Boston,MA,42.3601,-71.0589,AB+,28,2026-04-08,2.0,Spring,4.7,4.2,16.0,0.5,2026-03-10 14:25:16
+Northeast Blood Services (ARC),Boston,MA,42.3601,-71.0589,AB+,66,2026-03-31,2.0,Spring,4.7,4.2,14.4,0.212,2026-03-10 14:25:16
+Northeast Blood Services (ARC),Boston,MA,42.3601,-71.0589,AB-,21,2026-03-30,1.0,Spring,4.7,4.2,6.5,0.333,2026-03-10 14:25:16
+Northeast Blood Services (ARC),Boston,MA,42.3601,-71.0589,AB-,37,2026-04-03,1.0,Spring,4.7,4.2,7.5,0.189,2026-03-10 14:25:16
+Northeast Blood Services (ARC),Boston,MA,42.3601,-71.0589,O+,178,2026-04-13,7.8,Spring,4.7,4.2,57.5,0.307,2026-03-10 14:25:16
+Northeast Blood Services (ARC),Boston,MA,42.3601,-71.0589,O+,267,2026-04-04,7.8,Spring,4.7,4.2,52.3,0.204,2026-03-10 14:25:16
+Northeast Blood Services (ARC),Boston,MA,42.3601,-71.0589,O-,117,2026-04-17,6.7,Spring,4.7,4.2,44.4,0.401,2026-03-10 14:25:16
+Northeast Blood Services (ARC),Boston,MA,42.3601,-71.0589,O-,205,2026-04-04,6.7,Spring,4.7,4.2,47.8,0.229,2026-03-10 14:25:16
+UMass Memorial Medical Center,Worcester,MA,42.2626,-71.7938,A+,60,2026-04-16,4.5,Spring,5.5,4.4,29.0,0.525,2026-03-10 14:25:16
+UMass Memorial Medical Center,Worcester,MA,42.2626,-71.7938,A+,118,2026-03-22,4.5,Spring,5.5,4.4,34.0,0.267,2026-03-10 14:25:16
+UMass Memorial Medical Center,Worcester,MA,42.2626,-71.7938,A-,40,2026-04-12,3.3,Spring,5.5,4.4,25.6,0.577,2026-03-10 14:25:16
+UMass Memorial Medical Center,Worcester,MA,42.2626,-71.7938,A-,77,2026-03-24,3.3,Spring,5.5,4.4,20.6,0.3,2026-03-10 14:25:16
+UMass Memorial Medical Center,Worcester,MA,42.2626,-71.7938,B+,50,2026-04-08,3.5,Spring,5.5,4.4,28.0,0.49,2026-03-10 14:25:16
+UMass Memorial Medical Center,Worcester,MA,42.2626,-71.7938,B+,88,2026-03-18,3.5,Spring,5.5,4.4,26.7,0.278,2026-03-10 14:25:16
+UMass Memorial Medical Center,Worcester,MA,42.2626,-71.7938,B-,24,2026-04-20,2.1,Spring,5.5,4.4,13.7,0.613,2026-03-10 14:25:16
+UMass Memorial Medical Center,Worcester,MA,42.2626,-71.7938,B-,56,2026-03-29,2.1,Spring,5.5,4.4,16.6,0.263,2026-03-10 14:25:16
+UMass Memorial Medical Center,Worcester,MA,42.2626,-71.7938,AB+,16,2026-04-04,1.8,Spring,5.5,4.4,14.4,0.787,2026-03-10 14:25:16
+UMass Memorial Medical Center,Worcester,MA,42.2626,-71.7938,AB+,38,2026-04-01,1.8,Spring,5.5,4.4,11.1,0.332,2026-03-10 14:25:16
+UMass Memorial Medical Center,Worcester,MA,42.2626,-71.7938,AB-,12,2026-04-04,1.4,Spring,5.5,4.4,9.2,0.817,2026-03-10 14:25:16
+UMass Memorial Medical Center,Worcester,MA,42.2626,-71.7938,AB-,29,2026-03-22,1.4,Spring,5.5,4.4,11.0,0.338,2026-03-10 14:25:16
+UMass Memorial Medical Center,Worcester,MA,42.2626,-71.7938,O+,81,2026-04-07,7.6,Spring,5.5,4.4,54.5,0.657,2026-03-10 14:25:16
+UMass Memorial Medical Center,Worcester,MA,42.2626,-71.7938,O+,157,2026-03-23,7.6,Spring,5.5,4.4,53.4,0.339,2026-03-10 14:25:16
+UMass Memorial Medical Center,Worcester,MA,42.2626,-71.7938,O-,36,2026-04-15,5.2,Spring,5.5,4.4,32.5,1.011,2026-03-10 14:25:16
+UMass Memorial Medical Center,Worcester,MA,42.2626,-71.7938,O-,73,2026-04-04,5.2,Spring,5.5,4.4,42.1,0.499,2026-03-10 14:25:16
+Baystate Medical Center,Springfield,MA,42.1051,-72.59,A+,72,2026-04-20,5.3,Spring,5.5,4.4,43.2,0.515,2026-03-10 14:25:16
+Baystate Medical Center,Springfield,MA,42.1051,-72.59,A+,139,2026-03-23,5.3,Spring,5.5,4.4,42.3,0.267,2026-03-10 14:25:16
+Baystate Medical Center,Springfield,MA,42.1051,-72.59,A-,27,2026-04-16,2.4,Spring,5.5,4.4,18.7,0.622,2026-03-10 14:25:16
+Baystate Medical Center,Springfield,MA,42.1051,-72.59,A-,65,2026-04-02,2.4,Spring,5.5,4.4,16.5,0.258,2026-03-10 14:25:16
+Baystate Medical Center,Springfield,MA,42.1051,-72.59,B+,35,2026-04-04,3.8,Spring,5.5,4.4,23.5,0.76,2026-03-10 14:25:16
+Baystate Medical Center,Springfield,MA,42.1051,-72.59,B+,84,2026-04-02,3.8,Spring,5.5,4.4,26.8,0.317,2026-03-10 14:25:16
+Baystate Medical Center,Springfield,MA,42.1051,-72.59,B-,16,2026-04-12,1.8,Spring,5.5,4.4,14.4,0.787,2026-03-10 14:25:16
+Baystate Medical Center,Springfield,MA,42.1051,-72.59,B-,24,2026-04-03,1.8,Spring,5.5,4.4,12.9,0.525,2026-03-10 14:25:16
+Baystate Medical Center,Springfield,MA,42.1051,-72.59,AB+,21,2026-03-28,1.5,Spring,5.5,4.4,11.3,0.5,2026-03-10 14:25:16
+Baystate Medical Center,Springfield,MA,42.1051,-72.59,AB+,37,2026-04-02,1.5,Spring,5.5,4.4,11.4,0.284,2026-03-10 14:25:16
+Baystate Medical Center,Springfield,MA,42.1051,-72.59,AB-,17,2026-04-12,1.2,Spring,5.5,4.4,8.9,0.494,2026-03-10 14:25:16
+Baystate Medical Center,Springfield,MA,42.1051,-72.59,AB-,28,2026-04-04,1.2,Spring,5.5,4.4,8.6,0.3,2026-03-10 14:25:16
+Baystate Medical Center,Springfield,MA,42.1051,-72.59,O+,89,2026-04-06,6.5,Spring,5.5,4.4,43.6,0.511,2026-03-10 14:25:16
+Baystate Medical Center,Springfield,MA,42.1051,-72.59,O+,183,2026-03-17,6.5,Spring,5.5,4.4,47.9,0.249,2026-03-10 14:25:16
+Baystate Medical Center,Springfield,MA,42.1051,-72.59,O-,33,2026-04-17,4.9,Spring,5.5,4.4,34.4,1.039,2026-03-10 14:25:16
+Baystate Medical Center,Springfield,MA,42.1051,-72.59,O-,72,2026-03-20,4.9,Spring,5.5,4.4,32.8,0.476,2026-03-10 14:25:16
+Lowell General Hospital,Lowell,MA,42.6356,-71.3145,A+,33,2026-04-18,4.3,Spring,6.6,4.5,31.5,0.912,2026-03-10 14:25:16
+Lowell General Hospital,Lowell,MA,42.6356,-71.3145,A+,73,2026-04-03,4.3,Spring,6.6,4.5,31.5,0.412,2026-03-10 14:25:16
+Lowell General Hospital,Lowell,MA,42.6356,-71.3145,A-,24,2026-04-08,2.5,Spring,6.6,4.5,16.1,0.729,2026-03-10 14:25:16
+Lowell General Hospital,Lowell,MA,42.6356,-71.3145,A-,45,2026-03-20,2.5,Spring,6.6,4.5,19.1,0.389,2026-03-10 14:25:16
+Lowell General Hospital,Lowell,MA,42.6356,-71.3145,B+,35,2026-04-09,3.4,Spring,6.6,4.5,25.3,0.68,2026-03-10 14:25:16
+Lowell General Hospital,Lowell,MA,42.6356,-71.3145,B+,65,2026-03-18,3.4,Spring,6.6,4.5,21.0,0.366,2026-03-10 14:25:16
+Lowell General Hospital,Lowell,MA,42.6356,-71.3145,B-,12,2026-04-16,1.8,Spring,6.6,4.5,11.9,1.05,2026-03-10 14:25:16
+Lowell General Hospital,Lowell,MA,42.6356,-71.3145,B-,30,2026-03-19,1.8,Spring,6.6,4.5,14.6,0.42,2026-03-10 14:25:16
+Lowell General Hospital,Lowell,MA,42.6356,-71.3145,AB+,22,2026-04-06,1.7,Spring,6.6,4.5,13.8,0.541,2026-03-10 14:25:16
+Lowell General Hospital,Lowell,MA,42.6356,-71.3145,AB+,38,2026-03-22,1.7,Spring,6.6,4.5,11.2,0.313,2026-03-10 14:25:16
+Lowell General Hospital,Lowell,MA,42.6356,-71.3145,AB-,15,2026-04-06,1.3,Spring,6.6,4.5,9.4,0.607,2026-03-10 14:25:16
+Lowell General Hospital,Lowell,MA,42.6356,-71.3145,AB-,34,2026-03-24,1.3,Spring,6.6,4.5,9.0,0.268,2026-03-10 14:25:16
+Lowell General Hospital,Lowell,MA,42.6356,-71.3145,O+,136,2026-03-30,7.6,Spring,6.6,4.5,52.5,0.391,2026-03-10 14:25:16
+Lowell General Hospital,Lowell,MA,42.6356,-71.3145,O+,191,2026-03-29,7.6,Spring,6.6,4.5,47.1,0.279,2026-03-10 14:25:16
+Lowell General Hospital,Lowell,MA,42.6356,-71.3145,O-,83,2026-04-14,6.2,Spring,6.6,4.5,50.1,0.523,2026-03-10 14:25:16
+Lowell General Hospital,Lowell,MA,42.6356,-71.3145,O-,182,2026-03-28,6.2,Spring,6.6,4.5,41.1,0.238,2026-03-10 14:25:16
+South Shore Hospital,Weymouth,MA,42.1787,-70.941,A+,25,2026-04-02,4.3,Spring,6.9,4.6,27.1,1.204,2026-03-10 14:25:16
+South Shore Hospital,Weymouth,MA,42.1787,-70.941,A+,53,2026-03-26,4.3,Spring,6.9,4.6,31.1,0.568,2026-03-10 14:25:16
+South Shore Hospital,Weymouth,MA,42.1787,-70.941,A-,23,2026-04-15,2.5,Spring,6.9,4.6,17.4,0.761,2026-03-10 14:25:16
+South Shore Hospital,Weymouth,MA,42.1787,-70.941,A-,57,2026-04-01,2.5,Spring,6.9,4.6,20.4,0.307,2026-03-10 14:25:16
+South Shore Hospital,Weymouth,MA,42.1787,-70.941,B+,44,2026-04-15,3.8,Spring,6.9,4.6,25.5,0.605,2026-03-10 14:25:16
+South Shore Hospital,Weymouth,MA,42.1787,-70.941,B+,89,2026-03-29,3.8,Spring,6.9,4.6,28.8,0.299,2026-03-10 14:25:16
+South Shore Hospital,Weymouth,MA,42.1787,-70.941,B-,15,2026-04-08,1.9,Spring,6.9,4.6,15.0,0.887,2026-03-10 14:25:16
+South Shore Hospital,Weymouth,MA,42.1787,-70.941,B-,33,2026-03-24,1.9,Spring,6.9,4.6,14.7,0.403,2026-03-10 14:25:16
+South Shore Hospital,Weymouth,MA,42.1787,-70.941,AB+,17,2026-04-02,1.7,Spring,6.9,4.6,13.7,0.7,2026-03-10 14:25:16
+South Shore Hospital,Weymouth,MA,42.1787,-70.941,AB+,39,2026-03-25,1.7,Spring,6.9,4.6,13.8,0.305,2026-03-10 14:25:16
+South Shore Hospital,Weymouth,MA,42.1787,-70.941,AB-,16,2026-04-04,1.1,Spring,6.9,4.6,7.3,0.481,2026-03-10 14:25:16
+South Shore Hospital,Weymouth,MA,42.1787,-70.941,AB-,29,2026-03-23,1.1,Spring,6.9,4.6,7.6,0.266,2026-03-10 14:25:16
+South Shore Hospital,Weymouth,MA,42.1787,-70.941,O+,69,2026-03-30,7.9,Spring,6.9,4.6,58.8,0.801,2026-03-10 14:25:16
+South Shore Hospital,Weymouth,MA,42.1787,-70.941,O+,136,2026-04-03,7.9,Spring,6.9,4.6,54.8,0.407,2026-03-10 14:25:16
+South Shore Hospital,Weymouth,MA,42.1787,-70.941,O-,82,2026-04-15,5.4,Spring,6.9,4.6,44.4,0.461,2026-03-10 14:25:16
+South Shore Hospital,Weymouth,MA,42.1787,-70.941,O-,131,2026-04-02,5.4,Spring,6.9,4.6,39.8,0.289,2026-03-10 14:25:16
+Lahey Hospital & Medical Center,Burlington,MA,42.4973,-71.199,A+,76,2026-04-13,4.5,Spring,2.7,4.4,35.1,0.414,2026-03-10 14:25:16
+Lahey Hospital & Medical Center,Burlington,MA,42.4973,-71.199,A+,156,2026-03-31,4.5,Spring,2.7,4.4,32.1,0.202,2026-03-10 14:25:16
+Lahey Hospital & Medical Center,Burlington,MA,42.4973,-71.199,A-,27,2026-04-03,3.0,Spring,2.7,4.4,20.8,0.778,2026-03-10 14:25:16
+Lahey Hospital & Medical Center,Burlington,MA,42.4973,-71.199,A-,61,2026-03-25,3.0,Spring,2.7,4.4,20.2,0.344,2026-03-10 14:25:16
+Lahey Hospital & Medical Center,Burlington,MA,42.4973,-71.199,B+,60,2026-04-02,4.6,Spring,2.7,4.4,35.1,0.537,2026-03-10 14:25:16
+Lahey Hospital & Medical Center,Burlington,MA,42.4973,-71.199,B+,128,2026-03-28,4.6,Spring,2.7,4.4,32.7,0.252,2026-03-10 14:25:16
+Lahey Hospital & Medical Center,Burlington,MA,42.4973,-71.199,B-,35,2026-04-18,2.2,Spring,2.7,4.4,14.8,0.44,2026-03-10 14:25:16
+Lahey Hospital & Medical Center,Burlington,MA,42.4973,-71.199,B-,101,2026-03-24,2.2,Spring,2.7,4.4,14.5,0.152,2026-03-10 14:25:16
+Lahey Hospital & Medical Center,Burlington,MA,42.4973,-71.199,AB+,37,2026-04-12,2.0,Spring,2.7,4.4,14.4,0.378,2026-03-10 14:25:16
+Lahey Hospital & Medical Center,Burlington,MA,42.4973,-71.199,AB+,69,2026-04-02,2.0,Spring,2.7,4.4,14.4,0.203,2026-03-10 14:25:16
+Lahey Hospital & Medical Center,Burlington,MA,42.4973,-71.199,AB-,21,2026-03-29,1.1,Spring,2.7,4.4,6.9,0.367,2026-03-10 14:25:16
+Lahey Hospital & Medical Center,Burlington,MA,42.4973,-71.199,AB-,44,2026-03-25,1.1,Spring,2.7,4.4,7.8,0.175,2026-03-10 14:25:16
+Lahey Hospital & Medical Center,Burlington,MA,42.4973,-71.199,O+,109,2026-04-14,6.7,Spring,2.7,4.4,46.1,0.43,2026-03-10 14:25:16
+Lahey Hospital & Medical Center,Burlington,MA,42.4973,-71.199,O+,217,2026-03-30,6.7,Spring,2.7,4.4,54.8,0.216,2026-03-10 14:25:16
+Lahey Hospital & Medical Center,Burlington,MA,42.4973,-71.199,O-,99,2026-04-17,5.1,Spring,2.7,4.4,34.5,0.361,2026-03-10 14:25:16
+Lahey Hospital & Medical Center,Burlington,MA,42.4973,-71.199,O-,170,2026-03-27,5.1,Spring,2.7,4.4,39.3,0.21,2026-03-10 14:25:16
+Yale New Haven Hospital,New Haven,CT,41.3042,-72.9349,A+,26,2026-04-01,4.1,Spring,9.3,6.8,33.3,1.104,2026-03-10 14:25:16
+Yale New Haven Hospital,New Haven,CT,41.3042,-72.9349,A+,23,2026-03-30,4.1,Spring,9.3,6.8,32.6,1.248,2026-03-10 14:25:16
+Yale New Haven Hospital,New Haven,CT,41.3042,-72.9349,A+,57,2026-03-22,4.1,Spring,9.3,6.8,28.0,0.504,2026-03-10 14:25:16
+Yale New Haven Hospital,New Haven,CT,41.3042,-72.9349,A-,16,2026-04-16,3.0,Spring,9.3,6.8,21.3,1.312,2026-03-10 14:25:16
+Yale New Haven Hospital,New Haven,CT,41.3042,-72.9349,A-,18,2026-03-28,3.0,Spring,9.3,6.8,21.3,1.167,2026-03-10 14:25:16
+Yale New Haven Hospital,New Haven,CT,41.3042,-72.9349,A-,39,2026-03-25,3.0,Spring,9.3,6.8,23.1,0.538,2026-03-10 14:25:16
+Yale New Haven Hospital,New Haven,CT,41.3042,-72.9349,B+,26,2026-04-19,4.1,Spring,9.3,6.8,28.7,1.104,2026-03-10 14:25:16
+Yale New Haven Hospital,New Haven,CT,41.3042,-72.9349,B+,20,2026-03-20,4.1,Spring,9.3,6.8,30.0,1.435,2026-03-10 14:25:16
+Yale New Haven Hospital,New Haven,CT,41.3042,-72.9349,B+,72,2026-03-20,4.1,Spring,9.3,6.8,33.8,0.399,2026-03-10 14:25:16
+Yale New Haven Hospital,New Haven,CT,41.3042,-72.9349,B-,11,2026-03-30,1.8,Spring,9.3,6.8,12.3,1.145,2026-03-10 14:25:16
+Yale New Haven Hospital,New Haven,CT,41.3042,-72.9349,B-,10,2026-03-24,1.8,Spring,9.3,6.8,11.6,1.26,2026-03-10 14:25:16
+Yale New Haven Hospital,New Haven,CT,41.3042,-72.9349,B-,22,2026-04-05,1.8,Spring,9.3,6.8,13.6,0.573,2026-03-10 14:25:16
+Yale New Haven Hospital,New Haven,CT,41.3042,-72.9349,AB+,9,2026-04-12,2.0,Spring,9.3,6.8,16.2,1.556,2026-03-10 14:25:16
+Yale New Haven Hospital,New Haven,CT,41.3042,-72.9349,AB+,9,2026-04-03,2.0,Spring,9.3,6.8,15.3,1.556,2026-03-10 14:25:16
+Yale New Haven Hospital,New Haven,CT,41.3042,-72.9349,AB+,23,2026-03-25,2.0,Spring,9.3,6.8,15.5,0.609,2026-03-10 14:25:16
+Yale New Haven Hospital,New Haven,CT,41.3042,-72.9349,AB-,6,2026-04-17,1.4,Spring,9.3,6.8,9.6,1.633,2026-03-10 14:25:16
+Yale New Haven Hospital,New Haven,CT,41.3042,-72.9349,AB-,4,2026-04-03,1.4,Spring,9.3,6.8,9.5,2.45,2026-03-10 14:25:16
+Yale New Haven Hospital,New Haven,CT,41.3042,-72.9349,AB-,17,2026-04-02,1.4,Spring,9.3,6.8,8.6,0.576,2026-03-10 14:25:16
+Yale New Haven Hospital,New Haven,CT,41.3042,-72.9349,O+,41,2026-04-08,8.0,Spring,9.3,6.8,60.8,1.366,2026-03-10 14:25:16
+Yale New Haven Hospital,New Haven,CT,41.3042,-72.9349,O+,58,2026-04-01,8.0,Spring,9.3,6.8,49.4,0.966,2026-03-10 14:25:16
+Yale New Haven Hospital,New Haven,CT,41.3042,-72.9349,O+,136,2026-04-02,8.0,Spring,9.3,6.8,62.7,0.412,2026-03-10 14:25:16
+Yale New Haven Hospital,New Haven,CT,41.3042,-72.9349,O-,19,2026-04-14,5.9,Spring,9.3,6.8,45.2,2.174,2026-03-10 14:25:16
+Yale New Haven Hospital,New Haven,CT,41.3042,-72.9349,O-,24,2026-03-29,5.9,Spring,9.3,6.8,37.3,1.721,2026-03-10 14:25:16
+Yale New Haven Hospital,New Haven,CT,41.3042,-72.9349,O-,68,2026-04-09,5.9,Spring,9.3,6.8,47.6,0.607,2026-03-10 14:25:16
+Hartford Hospital,Hartford,CT,41.7637,-72.6901,A+,53,2026-04-05,4.1,Spring,6.4,5.4,26.8,0.542,2026-03-10 14:25:16
+Hartford Hospital,Hartford,CT,41.7637,-72.6901,A+,98,2026-03-26,4.1,Spring,6.4,5.4,29.2,0.293,2026-03-10 14:25:16
+Hartford Hospital,Hartford,CT,41.7637,-72.6901,A-,21,2026-04-07,3.0,Spring,6.4,5.4,21.9,1.0,2026-03-10 14:25:16
+Hartford Hospital,Hartford,CT,41.7637,-72.6901,A-,58,2026-03-22,3.0,Spring,6.4,5.4,19.3,0.362,2026-03-10 14:25:16
+Hartford Hospital,Hartford,CT,41.7637,-72.6901,B+,23,2026-03-30,3.8,Spring,6.4,5.4,26.1,1.157,2026-03-10 14:25:16
+Hartford Hospital,Hartford,CT,41.7637,-72.6901,B+,53,2026-03-26,3.8,Spring,6.4,5.4,26.4,0.502,2026-03-10 14:25:16
+Hartford Hospital,Hartford,CT,41.7637,-72.6901,B-,21,2026-03-30,2.3,Spring,6.4,5.4,14.4,0.767,2026-03-10 14:25:16
+Hartford Hospital,Hartford,CT,41.7637,-72.6901,B-,32,2026-03-29,2.3,Spring,6.4,5.4,15.1,0.503,2026-03-10 14:25:16
+Hartford Hospital,Hartford,CT,41.7637,-72.6901,AB+,23,2026-03-28,2.0,Spring,6.4,5.4,13.4,0.609,2026-03-10 14:25:16
+Hartford Hospital,Hartford,CT,41.7637,-72.6901,AB+,58,2026-03-31,2.0,Spring,6.4,5.4,13.2,0.241,2026-03-10 14:25:16
+Hartford Hospital,Hartford,CT,41.7637,-72.6901,AB-,11,2026-04-18,1.3,Spring,6.4,5.4,9.9,0.827,2026-03-10 14:25:16
+Hartford Hospital,Hartford,CT,41.7637,-72.6901,AB-,17,2026-03-26,1.3,Spring,6.4,5.4,10.0,0.535,2026-03-10 14:25:16
+Hartford Hospital,Hartford,CT,41.7637,-72.6901,O+,80,2026-03-31,7.9,Spring,6.4,5.4,52.0,0.691,2026-03-10 14:25:16
+Hartford Hospital,Hartford,CT,41.7637,-72.6901,O+,156,2026-03-18,7.9,Spring,6.4,5.4,50.5,0.354,2026-03-10 14:25:16
+Hartford Hospital,Hartford,CT,41.7637,-72.6901,O-,64,2026-04-02,6.1,Spring,6.4,5.4,42.6,0.667,2026-03-10 14:25:16
+Hartford Hospital,Hartford,CT,41.7637,-72.6901,O-,97,2026-03-24,6.1,Spring,6.4,5.4,47.6,0.44,2026-03-10 14:25:16
+Bridgeport Hospital,Bridgeport,CT,41.1665,-73.1957,A+,34,2026-04-02,4.3,Spring,5.4,5.1,29.5,0.885,2026-03-10 14:25:16
+Bridgeport Hospital,Bridgeport,CT,41.1665,-73.1957,A+,68,2026-03-18,4.3,Spring,5.4,5.1,32.8,0.443,2026-03-10 14:25:16
+Bridgeport Hospital,Bridgeport,CT,41.1665,-73.1957,A-,23,2026-04-04,3.1,Spring,5.4,5.1,23.3,0.943,2026-03-10 14:25:16
+Bridgeport Hospital,Bridgeport,CT,41.1665,-73.1957,A-,47,2026-03-28,3.1,Spring,5.4,5.1,20.4,0.462,2026-03-10 14:25:16
+Bridgeport Hospital,Bridgeport,CT,41.1665,-73.1957,B+,30,2026-04-01,4.2,Spring,5.4,5.1,32.1,0.98,2026-03-10 14:25:16
+Bridgeport Hospital,Bridgeport,CT,41.1665,-73.1957,B+,84,2026-04-03,4.2,Spring,5.4,5.1,27.5,0.35,2026-03-10 14:25:16
+Bridgeport Hospital,Bridgeport,CT,41.1665,-73.1957,B-,18,2026-04-20,1.8,Spring,5.4,5.1,13.4,0.7,2026-03-10 14:25:16
+Bridgeport Hospital,Bridgeport,CT,41.1665,-73.1957,B-,34,2026-04-03,1.8,Spring,5.4,5.1,12.8,0.371,2026-03-10 14:25:16
+Bridgeport Hospital,Bridgeport,CT,41.1665,-73.1957,AB+,17,2026-04-11,2.0,Spring,5.4,5.1,13.9,0.824,2026-03-10 14:25:16
+Bridgeport Hospital,Bridgeport,CT,41.1665,-73.1957,AB+,44,2026-03-22,2.0,Spring,5.4,5.1,13.8,0.318,2026-03-10 14:25:16
+Bridgeport Hospital,Bridgeport,CT,41.1665,-73.1957,AB-,12,2026-03-30,1.3,Spring,5.4,5.1,9.1,0.758,2026-03-10 14:25:16
+Bridgeport Hospital,Bridgeport,CT,41.1665,-73.1957,AB-,25,2026-04-02,1.3,Spring,5.4,5.1,8.4,0.364,2026-03-10 14:25:16
+Bridgeport Hospital,Bridgeport,CT,41.1665,-73.1957,O+,55,2026-04-07,6.6,Spring,5.4,5.1,41.6,0.84,2026-03-10 14:25:16
+Bridgeport Hospital,Bridgeport,CT,41.1665,-73.1957,O+,111,2026-03-21,6.6,Spring,5.4,5.1,42.1,0.416,2026-03-10 14:25:16
+Bridgeport Hospital,Bridgeport,CT,41.1665,-73.1957,O-,43,2026-04-17,5.1,Spring,5.4,5.1,37.0,0.83,2026-03-10 14:25:16
+Bridgeport Hospital,Bridgeport,CT,41.1665,-73.1957,O-,70,2026-04-04,5.1,Spring,5.4,5.1,37.9,0.51,2026-03-10 14:25:16
+Stamford Hospital,Stamford,CT,41.0534,-73.5387,A+,42,2026-03-30,4.0,Spring,4.2,6.3,27.7,0.667,2026-03-10 14:25:16
+Stamford Hospital,Stamford,CT,41.0534,-73.5387,A+,90,2026-03-30,4.0,Spring,4.2,6.3,25.1,0.311,2026-03-10 14:25:16
+Stamford Hospital,Stamford,CT,41.0534,-73.5387,A-,24,2026-04-20,2.9,Spring,4.2,6.3,23.6,0.846,2026-03-10 14:25:16
+Stamford Hospital,Stamford,CT,41.0534,-73.5387,A-,66,2026-04-02,2.9,Spring,4.2,6.3,21.1,0.308,2026-03-10 14:25:16
+Stamford Hospital,Stamford,CT,41.0534,-73.5387,B+,42,2026-04-04,3.4,Spring,4.2,6.3,24.9,0.567,2026-03-10 14:25:16
+Stamford Hospital,Stamford,CT,41.0534,-73.5387,B+,64,2026-04-03,3.4,Spring,4.2,6.3,25.5,0.372,2026-03-10 14:25:16
+Stamford Hospital,Stamford,CT,41.0534,-73.5387,B-,17,2026-04-18,2.0,Spring,4.2,6.3,15.6,0.824,2026-03-10 14:25:16
+Stamford Hospital,Stamford,CT,41.0534,-73.5387,B-,38,2026-04-03,2.0,Spring,4.2,6.3,13.0,0.368,2026-03-10 14:25:16
+Stamford Hospital,Stamford,CT,41.0534,-73.5387,AB+,24,2026-04-08,2.1,Spring,4.2,6.3,17.3,0.613,2026-03-10 14:25:16
+Stamford Hospital,Stamford,CT,41.0534,-73.5387,AB+,44,2026-03-28,2.1,Spring,4.2,6.3,16.6,0.334,2026-03-10 14:25:16
+Stamford Hospital,Stamford,CT,41.0534,-73.5387,AB-,9,2026-04-14,1.1,Spring,4.2,6.3,8.9,0.856,2026-03-10 14:25:16
+Stamford Hospital,Stamford,CT,41.0534,-73.5387,AB-,18,2026-03-25,1.1,Spring,4.2,6.3,9.0,0.428,2026-03-10 14:25:16
+Stamford Hospital,Stamford,CT,41.0534,-73.5387,O+,43,2026-04-06,5.8,Spring,4.2,6.3,47.8,0.944,2026-03-10 14:25:16
+Stamford Hospital,Stamford,CT,41.0534,-73.5387,O+,96,2026-03-26,5.8,Spring,4.2,6.3,38.3,0.423,2026-03-10 14:25:16
+Stamford Hospital,Stamford,CT,41.0534,-73.5387,O-,85,2026-04-19,5.4,Spring,4.2,6.3,39.1,0.445,2026-03-10 14:25:16
+Stamford Hospital,Stamford,CT,41.0534,-73.5387,O-,120,2026-04-04,5.4,Spring,4.2,6.3,33.7,0.315,2026-03-10 14:25:16
+Waterbury Hospital,Waterbury,CT,41.5562,-73.039,A+,7,2026-04-04,4.3,Spring,6.6,6.4,31.6,4.3,2026-03-10 14:25:16
+Waterbury Hospital,Waterbury,CT,41.5562,-73.039,A+,19,2026-03-15,4.3,Spring,6.6,6.4,33.6,1.584,2026-03-10 14:25:16
+Waterbury Hospital,Waterbury,CT,41.5562,-73.039,A-,7,2026-04-19,2.4,Spring,6.6,6.4,15.3,2.4,2026-03-10 14:25:16
+Waterbury Hospital,Waterbury,CT,41.5562,-73.039,A-,13,2026-03-16,2.4,Spring,6.6,6.4,16.7,1.292,2026-03-10 14:25:16
+Waterbury Hospital,Waterbury,CT,41.5562,-73.039,B+,12,2026-04-07,4.3,Spring,6.6,6.4,30.2,2.508,2026-03-10 14:25:16
+Waterbury Hospital,Waterbury,CT,41.5562,-73.039,B+,22,2026-03-13,4.3,Spring,6.6,6.4,32.4,1.368,2026-03-10 14:25:16
+Waterbury Hospital,Waterbury,CT,41.5562,-73.039,B-,2,2026-04-21,2.2,Spring,6.6,6.4,16.0,7.7,2026-03-10 14:25:16
+Waterbury Hospital,Waterbury,CT,41.5562,-73.039,B-,4,2026-03-17,2.2,Spring,6.6,6.4,15.9,3.85,2026-03-10 14:25:16
+Waterbury Hospital,Waterbury,CT,41.5562,-73.039,AB+,2,2026-04-20,1.6,Spring,6.6,6.4,12.4,5.6,2026-03-10 14:25:16
+Waterbury Hospital,Waterbury,CT,41.5562,-73.039,AB+,3,2026-03-20,1.6,Spring,6.6,6.4,12.5,3.733,2026-03-10 14:25:16
+Waterbury Hospital,Waterbury,CT,41.5562,-73.039,AB-,1,2026-04-12,1.0,Spring,6.6,6.4,7.0,7.0,2026-03-10 14:25:16
+Waterbury Hospital,Waterbury,CT,41.5562,-73.039,AB-,3,2026-03-13,1.0,Spring,6.6,6.4,7.6,2.333,2026-03-10 14:25:16
+Waterbury Hospital,Waterbury,CT,41.5562,-73.039,O+,16,2026-04-03,7.9,Spring,6.6,6.4,51.9,3.456,2026-03-10 14:25:16
+Waterbury Hospital,Waterbury,CT,41.5562,-73.039,O+,27,2026-03-20,7.9,Spring,6.6,6.4,61.6,2.048,2026-03-10 14:25:16
+Waterbury Hospital,Waterbury,CT,41.5562,-73.039,O-,12,2026-03-30,5.4,Spring,6.6,6.4,37.4,3.15,2026-03-10 14:25:16
+Waterbury Hospital,Waterbury,CT,41.5562,-73.039,O-,31,2026-03-15,5.4,Spring,6.6,6.4,33.5,1.219,2026-03-10 14:25:16
+St. Francis Hospital Hartford,Hartford,CT,41.7612,-72.7004,A+,67,2026-04-11,4.7,Spring,4.9,6.5,38.1,0.491,2026-03-10 14:25:16
+St. Francis Hospital Hartford,Hartford,CT,41.7612,-72.7004,A+,125,2026-03-24,4.7,Spring,4.9,6.5,36.4,0.263,2026-03-10 14:25:16
+St. Francis Hospital Hartford,Hartford,CT,41.7612,-72.7004,A-,23,2026-03-29,3.2,Spring,4.9,6.5,20.7,0.974,2026-03-10 14:25:16
+St. Francis Hospital Hartford,Hartford,CT,41.7612,-72.7004,A-,52,2026-03-26,3.2,Spring,4.9,6.5,20.5,0.431,2026-03-10 14:25:16
+St. Francis Hospital Hartford,Hartford,CT,41.7612,-72.7004,B+,27,2026-04-03,3.8,Spring,4.9,6.5,27.8,0.985,2026-03-10 14:25:16
+St. Francis Hospital Hartford,Hartford,CT,41.7612,-72.7004,B+,56,2026-03-25,3.8,Spring,4.9,6.5,31.3,0.475,2026-03-10 14:25:16
+St. Francis Hospital Hartford,Hartford,CT,41.7612,-72.7004,B-,29,2026-04-09,2.3,Spring,4.9,6.5,14.4,0.555,2026-03-10 14:25:16
+St. Francis Hospital Hartford,Hartford,CT,41.7612,-72.7004,B-,48,2026-03-22,2.3,Spring,4.9,6.5,17.5,0.335,2026-03-10 14:25:16
+St. Francis Hospital Hartford,Hartford,CT,41.7612,-72.7004,AB+,14,2026-03-28,1.6,Spring,4.9,6.5,12.1,0.8,2026-03-10 14:25:16
+St. Francis Hospital Hartford,Hartford,CT,41.7612,-72.7004,AB+,28,2026-03-28,1.6,Spring,4.9,6.5,12.8,0.4,2026-03-10 14:25:16
+St. Francis Hospital Hartford,Hartford,CT,41.7612,-72.7004,AB-,11,2026-04-09,1.3,Spring,4.9,6.5,10.5,0.827,2026-03-10 14:25:16
+St. Francis Hospital Hartford,Hartford,CT,41.7612,-72.7004,AB-,22,2026-04-01,1.3,Spring,4.9,6.5,8.5,0.414,2026-03-10 14:25:16
+St. Francis Hospital Hartford,Hartford,CT,41.7612,-72.7004,O+,54,2026-04-19,7.2,Spring,4.9,6.5,52.4,0.933,2026-03-10 14:25:16
+St. Francis Hospital Hartford,Hartford,CT,41.7612,-72.7004,O+,157,2026-03-27,7.2,Spring,4.9,6.5,44.6,0.321,2026-03-10 14:25:16
+St. Francis Hospital Hartford,Hartford,CT,41.7612,-72.7004,O-,60,2026-04-06,6.2,Spring,4.9,6.5,44.7,0.723,2026-03-10 14:25:16
+St. Francis Hospital Hartford,Hartford,CT,41.7612,-72.7004,O-,131,2026-03-18,6.2,Spring,4.9,6.5,49.8,0.331,2026-03-10 14:25:16
+Rhode Island Hospital,Providence,RI,41.8236,-71.4222,A+,16,2026-04-01,4.6,Spring,9.1,5.6,29.7,2.012,2026-03-10 14:25:16
+Rhode Island Hospital,Providence,RI,41.8236,-71.4222,A+,24,2026-03-15,4.6,Spring,9.1,5.6,34.4,1.342,2026-03-10 14:25:16
+Rhode Island Hospital,Providence,RI,41.8236,-71.4222,A+,54,2026-03-27,4.6,Spring,9.1,5.6,32.5,0.596,2026-03-10 14:25:16
+Rhode Island Hospital,Providence,RI,41.8236,-71.4222,A-,12,2026-04-11,2.6,Spring,9.1,5.6,16.8,1.517,2026-03-10 14:25:16
+Rhode Island Hospital,Providence,RI,41.8236,-71.4222,A-,14,2026-03-12,2.6,Spring,9.1,5.6,19.9,1.3,2026-03-10 14:25:16
+Rhode Island Hospital,Providence,RI,41.8236,-71.4222,A-,36,2026-04-05,2.6,Spring,9.1,5.6,21.0,0.506,2026-03-10 14:25:16
+Rhode Island Hospital,Providence,RI,41.8236,-71.4222,B+,26,2026-04-15,4.3,Spring,9.1,5.6,31.5,1.158,2026-03-10 14:25:16
+Rhode Island Hospital,Providence,RI,41.8236,-71.4222,B+,22,2026-03-12,4.3,Spring,9.1,5.6,33.1,1.368,2026-03-10 14:25:16
+Rhode Island Hospital,Providence,RI,41.8236,-71.4222,B+,62,2026-03-30,4.3,Spring,9.1,5.6,30.2,0.485,2026-03-10 14:25:16
+Rhode Island Hospital,Providence,RI,41.8236,-71.4222,B-,14,2026-04-17,2.0,Spring,9.1,5.6,15.6,1.0,2026-03-10 14:25:16
+Rhode Island Hospital,Providence,RI,41.8236,-71.4222,B-,10,2026-03-12,2.0,Spring,9.1,5.6,14.9,1.4,2026-03-10 14:25:16
+Rhode Island Hospital,Providence,RI,41.8236,-71.4222,B-,35,2026-03-28,2.0,Spring,9.1,5.6,14.8,0.4,2026-03-10 14:25:16
+Rhode Island Hospital,Providence,RI,41.8236,-71.4222,AB+,5,2026-03-30,1.6,Spring,9.1,5.6,11.5,2.24,2026-03-10 14:25:16
+Rhode Island Hospital,Providence,RI,41.8236,-71.4222,AB+,4,2026-03-13,1.6,Spring,9.1,5.6,11.4,2.8,2026-03-10 14:25:16
+Rhode Island Hospital,Providence,RI,41.8236,-71.4222,AB+,12,2026-03-25,1.6,Spring,9.1,5.6,12.4,0.933,2026-03-10 14:25:16
+Rhode Island Hospital,Providence,RI,41.8236,-71.4222,AB-,3,2026-04-10,1.0,Spring,9.1,5.6,6.6,2.333,2026-03-10 14:25:16
+Rhode Island Hospital,Providence,RI,41.8236,-71.4222,AB-,3,2026-03-11,1.0,Spring,9.1,5.6,7.1,2.333,2026-03-10 14:25:16
+Rhode Island Hospital,Providence,RI,41.8236,-71.4222,AB-,10,2026-04-08,1.0,Spring,9.1,5.6,7.1,0.7,2026-03-10 14:25:16
+Rhode Island Hospital,Providence,RI,41.8236,-71.4222,O+,33,2026-03-29,6.5,Spring,9.1,5.6,49.9,1.379,2026-03-10 14:25:16
+Rhode Island Hospital,Providence,RI,41.8236,-71.4222,O+,36,2026-03-15,6.5,Spring,9.1,5.6,47.4,1.264,2026-03-10 14:25:16
+Rhode Island Hospital,Providence,RI,41.8236,-71.4222,O+,89,2026-04-09,6.5,Spring,9.1,5.6,47.1,0.511,2026-03-10 14:25:16
+Rhode Island Hospital,Providence,RI,41.8236,-71.4222,O-,36,2026-03-29,5.7,Spring,9.1,5.6,41.6,1.108,2026-03-10 14:25:16
+Rhode Island Hospital,Providence,RI,41.8236,-71.4222,O-,33,2026-03-15,5.7,Spring,9.1,5.6,46.6,1.209,2026-03-10 14:25:16
+Rhode Island Hospital,Providence,RI,41.8236,-71.4222,O-,90,2026-03-26,5.7,Spring,9.1,5.6,38.8,0.443,2026-03-10 14:25:16
+Miriam Hospital,Providence,RI,41.838,-71.3972,A+,59,2026-03-29,4.4,Spring,6.5,4.6,31.4,0.522,2026-03-10 14:25:16
+Miriam Hospital,Providence,RI,41.838,-71.3972,A+,99,2026-03-31,4.4,Spring,6.5,4.6,28.8,0.311,2026-03-10 14:25:16
+Miriam Hospital,Providence,RI,41.838,-71.3972,A-,31,2026-04-14,2.9,Spring,6.5,4.6,20.6,0.655,2026-03-10 14:25:16
+Miriam Hospital,Providence,RI,41.838,-71.3972,A-,86,2026-03-22,2.9,Spring,6.5,4.6,23.3,0.236,2026-03-10 14:25:16
+Miriam Hospital,Providence,RI,41.838,-71.3972,B+,41,2026-04-07,4.5,Spring,6.5,4.6,35.2,0.768,2026-03-10 14:25:16
+Miriam Hospital,Providence,RI,41.838,-71.3972,B+,72,2026-03-20,4.5,Spring,6.5,4.6,33.7,0.438,2026-03-10 14:25:16
+Miriam Hospital,Providence,RI,41.838,-71.3972,B-,24,2026-04-20,1.8,Spring,6.5,4.6,14.7,0.525,2026-03-10 14:25:16
+Miriam Hospital,Providence,RI,41.838,-71.3972,B-,37,2026-03-29,1.8,Spring,6.5,4.6,11.7,0.341,2026-03-10 14:25:16
+Miriam Hospital,Providence,RI,41.838,-71.3972,AB+,17,2026-04-01,1.7,Spring,6.5,4.6,13.2,0.7,2026-03-10 14:25:16
+Miriam Hospital,Providence,RI,41.838,-71.3972,AB+,41,2026-03-18,1.7,Spring,6.5,4.6,13.2,0.29,2026-03-10 14:25:16
+Miriam Hospital,Providence,RI,41.838,-71.3972,AB-,18,2026-03-31,1.2,Spring,6.5,4.6,7.4,0.467,2026-03-10 14:25:16
+Miriam Hospital,Providence,RI,41.838,-71.3972,AB-,27,2026-03-25,1.2,Spring,6.5,4.6,8.6,0.311,2026-03-10 14:25:16
+Miriam Hospital,Providence,RI,41.838,-71.3972,O+,82,2026-04-12,8.0,Spring,6.5,4.6,57.3,0.683,2026-03-10 14:25:16
+Miriam Hospital,Providence,RI,41.838,-71.3972,O+,185,2026-03-30,8.0,Spring,6.5,4.6,49.4,0.303,2026-03-10 14:25:16
+Miriam Hospital,Providence,RI,41.838,-71.3972,O-,66,2026-04-17,6.6,Spring,6.5,4.6,41.3,0.7,2026-03-10 14:25:16
+Miriam Hospital,Providence,RI,41.838,-71.3972,O-,112,2026-03-21,6.6,Spring,6.5,4.6,42.7,0.412,2026-03-10 14:25:16
+Kent County Hospital,Warwick,RI,41.7193,-71.4626,A+,34,2026-03-30,4.7,Spring,4.1,5.0,30.7,0.968,2026-03-10 14:25:16
+Kent County Hospital,Warwick,RI,41.7193,-71.4626,A+,92,2026-03-26,4.7,Spring,4.1,5.0,34.8,0.358,2026-03-10 14:25:16
+Kent County Hospital,Warwick,RI,41.7193,-71.4626,A-,26,2026-04-11,3.1,Spring,4.1,5.0,19.3,0.835,2026-03-10 14:25:16
+Kent County Hospital,Warwick,RI,41.7193,-71.4626,A-,57,2026-03-26,3.1,Spring,4.1,5.0,24.4,0.381,2026-03-10 14:25:16
+Kent County Hospital,Warwick,RI,41.7193,-71.4626,B+,45,2026-03-30,4.3,Spring,4.1,5.0,32.8,0.669,2026-03-10 14:25:16
+Kent County Hospital,Warwick,RI,41.7193,-71.4626,B+,108,2026-03-25,4.3,Spring,4.1,5.0,28.4,0.279,2026-03-10 14:25:16
+Kent County Hospital,Warwick,RI,41.7193,-71.4626,B-,15,2026-04-15,1.9,Spring,4.1,5.0,15.6,0.887,2026-03-10 14:25:16
+Kent County Hospital,Warwick,RI,41.7193,-71.4626,B-,29,2026-04-01,1.9,Spring,4.1,5.0,14.8,0.459,2026-03-10 14:25:16
+Kent County Hospital,Warwick,RI,41.7193,-71.4626,AB+,17,2026-04-07,1.9,Spring,4.1,5.0,14.2,0.782,2026-03-10 14:25:16
+Kent County Hospital,Warwick,RI,41.7193,-71.4626,AB+,37,2026-03-21,1.9,Spring,4.1,5.0,14.6,0.359,2026-03-10 14:25:16
+Kent County Hospital,Warwick,RI,41.7193,-71.4626,AB-,12,2026-04-16,1.2,Spring,4.1,5.0,7.9,0.7,2026-03-10 14:25:16
+Kent County Hospital,Warwick,RI,41.7193,-71.4626,AB-,31,2026-03-20,1.2,Spring,4.1,5.0,7.7,0.271,2026-03-10 14:25:16
+Kent County Hospital,Warwick,RI,41.7193,-71.4626,O+,93,2026-04-10,8.1,Spring,4.1,5.0,59.4,0.61,2026-03-10 14:25:16
+Kent County Hospital,Warwick,RI,41.7193,-71.4626,O+,185,2026-03-23,8.1,Spring,4.1,5.0,54.7,0.306,2026-03-10 14:25:16
+Kent County Hospital,Warwick,RI,41.7193,-71.4626,O-,64,2026-04-13,6.4,Spring,4.1,5.0,41.0,0.7,2026-03-10 14:25:16
+Kent County Hospital,Warwick,RI,41.7193,-71.4626,O-,125,2026-03-27,6.4,Spring,4.1,5.0,47.7,0.358,2026-03-10 14:25:16
+UVM Medical Center,Burlington,VT,44.4759,-73.2121,A+,38,2026-04-18,4.2,Spring,4.1,3.6,26.2,0.774,2026-03-10 14:25:16
+UVM Medical Center,Burlington,VT,44.4759,-73.2121,A+,81,2026-03-21,4.2,Spring,4.1,3.6,33.7,0.363,2026-03-10 14:25:16
+UVM Medical Center,Burlington,VT,44.4759,-73.2121,A-,26,2026-04-10,2.8,Spring,4.1,3.6,20.3,0.754,2026-03-10 14:25:16
+UVM Medical Center,Burlington,VT,44.4759,-73.2121,A-,49,2026-04-04,2.8,Spring,4.1,3.6,20.4,0.4,2026-03-10 14:25:16
+UVM Medical Center,Burlington,VT,44.4759,-73.2121,B+,30,2026-04-08,3.5,Spring,4.1,3.6,27.7,0.817,2026-03-10 14:25:16
+UVM Medical Center,Burlington,VT,44.4759,-73.2121,B+,85,2026-03-27,3.5,Spring,4.1,3.6,27.8,0.288,2026-03-10 14:25:16
+UVM Medical Center,Burlington,VT,44.4759,-73.2121,B-,19,2026-04-16,2.2,Spring,4.1,3.6,15.0,0.811,2026-03-10 14:25:16
+UVM Medical Center,Burlington,VT,44.4759,-73.2121,B-,39,2026-03-27,2.2,Spring,4.1,3.6,14.0,0.395,2026-03-10 14:25:16
+UVM Medical Center,Burlington,VT,44.4759,-73.2121,AB+,16,2026-04-06,2.1,Spring,4.1,3.6,13.4,0.919,2026-03-10 14:25:16
+UVM Medical Center,Burlington,VT,44.4759,-73.2121,AB+,45,2026-03-18,2.1,Spring,4.1,3.6,14.9,0.327,2026-03-10 14:25:16
+UVM Medical Center,Burlington,VT,44.4759,-73.2121,AB-,8,2026-04-13,1.0,Spring,4.1,3.6,7.2,0.875,2026-03-10 14:25:16
+UVM Medical Center,Burlington,VT,44.4759,-73.2121,AB-,19,2026-04-02,1.0,Spring,4.1,3.6,7.8,0.368,2026-03-10 14:25:16
+UVM Medical Center,Burlington,VT,44.4759,-73.2121,O+,80,2026-04-13,6.1,Spring,4.1,3.6,46.9,0.534,2026-03-10 14:25:16
+UVM Medical Center,Burlington,VT,44.4759,-73.2121,O+,187,2026-03-31,6.1,Spring,4.1,3.6,39.1,0.228,2026-03-10 14:25:16
+UVM Medical Center,Burlington,VT,44.4759,-73.2121,O-,43,2026-04-16,5.4,Spring,4.1,3.6,43.3,0.879,2026-03-10 14:25:16
+UVM Medical Center,Burlington,VT,44.4759,-73.2121,O-,82,2026-03-20,5.4,Spring,4.1,3.6,36.8,0.461,2026-03-10 14:25:16
+Rutland Regional Medical Center,Rutland,VT,43.6106,-72.9726,A+,44,2026-04-03,5.2,Spring,5.7,4.1,40.5,0.827,2026-03-10 14:25:16
+Rutland Regional Medical Center,Rutland,VT,43.6106,-72.9726,A+,86,2026-03-20,5.2,Spring,5.7,4.1,33.3,0.423,2026-03-10 14:25:16
+Rutland Regional Medical Center,Rutland,VT,43.6106,-72.9726,A-,30,2026-03-31,3.3,Spring,5.7,4.1,22.5,0.77,2026-03-10 14:25:16
+Rutland Regional Medical Center,Rutland,VT,43.6106,-72.9726,A-,78,2026-03-21,3.3,Spring,5.7,4.1,24.3,0.296,2026-03-10 14:25:16
+Rutland Regional Medical Center,Rutland,VT,43.6106,-72.9726,B+,27,2026-04-07,3.4,Spring,5.7,4.1,21.2,0.881,2026-03-10 14:25:16
+Rutland Regional Medical Center,Rutland,VT,43.6106,-72.9726,B+,54,2026-03-18,3.4,Spring,5.7,4.1,24.0,0.441,2026-03-10 14:25:16
+Rutland Regional Medical Center,Rutland,VT,43.6106,-72.9726,B-,22,2026-04-15,1.8,Spring,5.7,4.1,12.8,0.573,2026-03-10 14:25:16
+Rutland Regional Medical Center,Rutland,VT,43.6106,-72.9726,B-,44,2026-03-28,1.8,Spring,5.7,4.1,13.8,0.286,2026-03-10 14:25:16
+Rutland Regional Medical Center,Rutland,VT,43.6106,-72.9726,AB+,23,2026-04-21,1.9,Spring,5.7,4.1,12.1,0.578,2026-03-10 14:25:16
+Rutland Regional Medical Center,Rutland,VT,43.6106,-72.9726,AB+,38,2026-03-31,1.9,Spring,5.7,4.1,14.3,0.35,2026-03-10 14:25:16
+Rutland Regional Medical Center,Rutland,VT,43.6106,-72.9726,AB-,12,2026-04-04,1.3,Spring,5.7,4.1,8.7,0.758,2026-03-10 14:25:16
+Rutland Regional Medical Center,Rutland,VT,43.6106,-72.9726,AB-,28,2026-03-28,1.3,Spring,5.7,4.1,9.8,0.325,2026-03-10 14:25:16
+Rutland Regional Medical Center,Rutland,VT,43.6106,-72.9726,O+,91,2026-04-11,8.0,Spring,5.7,4.1,51.2,0.615,2026-03-10 14:25:16
+Rutland Regional Medical Center,Rutland,VT,43.6106,-72.9726,O+,190,2026-04-01,8.0,Spring,5.7,4.1,62.2,0.295,2026-03-10 14:25:16
+Rutland Regional Medical Center,Rutland,VT,43.6106,-72.9726,O-,48,2026-03-31,6.0,Spring,5.7,4.1,38.3,0.875,2026-03-10 14:25:16
+Rutland Regional Medical Center,Rutland,VT,43.6106,-72.9726,O-,103,2026-04-03,6.0,Spring,5.7,4.1,43.7,0.408,2026-03-10 14:25:16
+Dartmouth-Hitchcock Medical Center,Lebanon,NH,43.6435,-72.3276,A+,70,2026-04-12,4.7,Spring,3.7,3.2,37.0,0.47,2026-03-10 14:25:16
+Dartmouth-Hitchcock Medical Center,Lebanon,NH,43.6435,-72.3276,A+,177,2026-04-04,4.7,Spring,3.7,3.2,34.6,0.186,2026-03-10 14:25:16
+Dartmouth-Hitchcock Medical Center,Lebanon,NH,43.6435,-72.3276,A-,43,2026-04-02,2.6,Spring,3.7,3.2,21.1,0.423,2026-03-10 14:25:16
+Dartmouth-Hitchcock Medical Center,Lebanon,NH,43.6435,-72.3276,A-,82,2026-04-04,2.6,Spring,3.7,3.2,19.3,0.222,2026-03-10 14:25:16
+Dartmouth-Hitchcock Medical Center,Lebanon,NH,43.6435,-72.3276,B+,42,2026-04-11,3.6,Spring,3.7,3.2,22.7,0.6,2026-03-10 14:25:16
+Dartmouth-Hitchcock Medical Center,Lebanon,NH,43.6435,-72.3276,B+,88,2026-03-20,3.6,Spring,3.7,3.2,28.4,0.286,2026-03-10 14:25:16
+Dartmouth-Hitchcock Medical Center,Lebanon,NH,43.6435,-72.3276,B-,31,2026-03-29,2.0,Spring,3.7,3.2,16.0,0.452,2026-03-10 14:25:16
+Dartmouth-Hitchcock Medical Center,Lebanon,NH,43.6435,-72.3276,B-,73,2026-03-17,2.0,Spring,3.7,3.2,14.2,0.192,2026-03-10 14:25:16
+Dartmouth-Hitchcock Medical Center,Lebanon,NH,43.6435,-72.3276,AB+,27,2026-04-11,1.7,Spring,3.7,3.2,11.6,0.441,2026-03-10 14:25:16
+Dartmouth-Hitchcock Medical Center,Lebanon,NH,43.6435,-72.3276,AB+,61,2026-04-04,1.7,Spring,3.7,3.2,13.8,0.195,2026-03-10 14:25:16
+Dartmouth-Hitchcock Medical Center,Lebanon,NH,43.6435,-72.3276,AB-,31,2026-04-08,1.4,Spring,3.7,3.2,10.4,0.316,2026-03-10 14:25:16
+Dartmouth-Hitchcock Medical Center,Lebanon,NH,43.6435,-72.3276,AB-,45,2026-04-02,1.4,Spring,3.7,3.2,9.5,0.218,2026-03-10 14:25:16
+Dartmouth-Hitchcock Medical Center,Lebanon,NH,43.6435,-72.3276,O+,91,2026-03-29,6.8,Spring,3.7,3.2,55.9,0.523,2026-03-10 14:25:16
+Dartmouth-Hitchcock Medical Center,Lebanon,NH,43.6435,-72.3276,O+,248,2026-03-20,6.8,Spring,3.7,3.2,45.2,0.192,2026-03-10 14:25:16
+Dartmouth-Hitchcock Medical Center,Lebanon,NH,43.6435,-72.3276,O-,97,2026-04-07,6.2,Spring,3.7,3.2,43.9,0.447,2026-03-10 14:25:16
+Dartmouth-Hitchcock Medical Center,Lebanon,NH,43.6435,-72.3276,O-,183,2026-03-23,6.2,Spring,3.7,3.2,40.6,0.237,2026-03-10 14:25:16
+Concord Hospital,Concord,NH,43.2081,-71.5376,A+,29,2026-04-18,5.1,Spring,5.2,6.2,38.4,1.231,2026-03-10 14:25:16
+Concord Hospital,Concord,NH,43.2081,-71.5376,A+,82,2026-03-21,5.1,Spring,5.2,6.2,36.1,0.435,2026-03-10 14:25:16
+Concord Hospital,Concord,NH,43.2081,-71.5376,A-,31,2026-04-17,3.3,Spring,5.2,6.2,26.5,0.745,2026-03-10 14:25:16
+Concord Hospital,Concord,NH,43.2081,-71.5376,A-,49,2026-03-30,3.3,Spring,5.2,6.2,23.3,0.471,2026-03-10 14:25:16
+Concord Hospital,Concord,NH,43.2081,-71.5376,B+,38,2026-04-04,4.4,Spring,5.2,6.2,32.4,0.811,2026-03-10 14:25:16
+Concord Hospital,Concord,NH,43.2081,-71.5376,B+,79,2026-03-24,4.4,Spring,5.2,6.2,35.7,0.39,2026-03-10 14:25:16
+Concord Hospital,Concord,NH,43.2081,-71.5376,B-,17,2026-03-29,2.2,Spring,5.2,6.2,14.1,0.906,2026-03-10 14:25:16
+Concord Hospital,Concord,NH,43.2081,-71.5376,B-,27,2026-04-01,2.2,Spring,5.2,6.2,16.9,0.57,2026-03-10 14:25:16
+Concord Hospital,Concord,NH,43.2081,-71.5376,AB+,25,2026-04-21,1.8,Spring,5.2,6.2,11.4,0.504,2026-03-10 14:25:16
+Concord Hospital,Concord,NH,43.2081,-71.5376,AB+,48,2026-03-19,1.8,Spring,5.2,6.2,13.6,0.263,2026-03-10 14:25:16
+Concord Hospital,Concord,NH,43.2081,-71.5376,AB-,16,2026-04-14,1.3,Spring,5.2,6.2,8.2,0.569,2026-03-10 14:25:16
+Concord Hospital,Concord,NH,43.2081,-71.5376,AB-,26,2026-03-27,1.3,Spring,5.2,6.2,9.2,0.35,2026-03-10 14:25:16
+Concord Hospital,Concord,NH,43.2081,-71.5376,O+,100,2026-04-07,8.3,Spring,5.2,6.2,65.0,0.581,2026-03-10 14:25:16
+Concord Hospital,Concord,NH,43.2081,-71.5376,O+,193,2026-03-26,8.3,Spring,5.2,6.2,61.5,0.301,2026-03-10 14:25:16
+Concord Hospital,Concord,NH,43.2081,-71.5376,O-,55,2026-04-05,5.4,Spring,5.2,6.2,35.2,0.687,2026-03-10 14:25:16
+Concord Hospital,Concord,NH,43.2081,-71.5376,O-,126,2026-03-18,5.4,Spring,5.2,6.2,41.6,0.3,2026-03-10 14:25:16
+Portsmouth Regional Hospital,Portsmouth,NH,43.0784,-70.7626,A+,27,2026-04-05,3.9,Spring,4.1,4.7,26.3,1.011,2026-03-10 14:25:16
+Portsmouth Regional Hospital,Portsmouth,NH,43.0784,-70.7626,A+,51,2026-03-25,3.9,Spring,4.1,4.7,25.5,0.535,2026-03-10 14:25:16
+Portsmouth Regional Hospital,Portsmouth,NH,43.0784,-70.7626,A-,19,2026-04-11,2.9,Spring,4.1,4.7,22.6,1.068,2026-03-10 14:25:16
+Portsmouth Regional Hospital,Portsmouth,NH,43.0784,-70.7626,A-,50,2026-03-24,2.9,Spring,4.1,4.7,23.1,0.406,2026-03-10 14:25:16
+Portsmouth Regional Hospital,Portsmouth,NH,43.0784,-70.7626,B+,31,2026-04-01,3.7,Spring,4.1,4.7,29.3,0.835,2026-03-10 14:25:16
+Portsmouth Regional Hospital,Portsmouth,NH,43.0784,-70.7626,B+,51,2026-03-30,3.7,Spring,4.1,4.7,26.2,0.508,2026-03-10 14:25:16
+Portsmouth Regional Hospital,Portsmouth,NH,43.0784,-70.7626,B-,18,2026-04-20,2.2,Spring,4.1,4.7,14.8,0.856,2026-03-10 14:25:16
+Portsmouth Regional Hospital,Portsmouth,NH,43.0784,-70.7626,B-,36,2026-03-20,2.2,Spring,4.1,4.7,15.8,0.428,2026-03-10 14:25:16
+Portsmouth Regional Hospital,Portsmouth,NH,43.0784,-70.7626,AB+,23,2026-04-14,1.8,Spring,4.1,4.7,12.6,0.548,2026-03-10 14:25:16
+Portsmouth Regional Hospital,Portsmouth,NH,43.0784,-70.7626,AB+,54,2026-03-25,1.8,Spring,4.1,4.7,11.1,0.233,2026-03-10 14:25:16
+Portsmouth Regional Hospital,Portsmouth,NH,43.0784,-70.7626,AB-,13,2026-04-18,1.4,Spring,4.1,4.7,11.4,0.754,2026-03-10 14:25:16
+Portsmouth Regional Hospital,Portsmouth,NH,43.0784,-70.7626,AB-,29,2026-03-20,1.4,Spring,4.1,4.7,11.4,0.338,2026-03-10 14:25:16
+Portsmouth Regional Hospital,Portsmouth,NH,43.0784,-70.7626,O+,81,2026-04-05,7.0,Spring,4.1,4.7,44.6,0.605,2026-03-10 14:25:16
+Portsmouth Regional Hospital,Portsmouth,NH,43.0784,-70.7626,O+,203,2026-04-04,7.0,Spring,4.1,4.7,54.1,0.241,2026-03-10 14:25:16
+Portsmouth Regional Hospital,Portsmouth,NH,43.0784,-70.7626,O-,74,2026-04-03,6.3,Spring,4.1,4.7,51.9,0.596,2026-03-10 14:25:16
+Portsmouth Regional Hospital,Portsmouth,NH,43.0784,-70.7626,O-,147,2026-03-27,6.3,Spring,4.1,4.7,49.8,0.3,2026-03-10 14:25:16
+Maine Medical Center,Portland,ME,43.6591,-70.2568,A+,38,2026-04-04,3.8,Spring,4.0,3.3,23.7,0.7,2026-03-10 14:25:16
+Maine Medical Center,Portland,ME,43.6591,-70.2568,A+,79,2026-03-19,3.8,Spring,4.0,3.3,30.5,0.337,2026-03-10 14:25:16
+Maine Medical Center,Portland,ME,43.6591,-70.2568,A-,26,2026-03-31,2.5,Spring,4.0,3.3,19.9,0.673,2026-03-10 14:25:16
+Maine Medical Center,Portland,ME,43.6591,-70.2568,A-,60,2026-03-21,2.5,Spring,4.0,3.3,18.8,0.292,2026-03-10 14:25:16
+Maine Medical Center,Portland,ME,43.6591,-70.2568,B+,35,2026-03-31,4.3,Spring,4.0,3.3,30.7,0.86,2026-03-10 14:25:16
+Maine Medical Center,Portland,ME,43.6591,-70.2568,B+,80,2026-03-19,4.3,Spring,4.0,3.3,29.0,0.376,2026-03-10 14:25:16
+Maine Medical Center,Portland,ME,43.6591,-70.2568,B-,27,2026-04-21,2.0,Spring,4.0,3.3,15.6,0.519,2026-03-10 14:25:16
+Maine Medical Center,Portland,ME,43.6591,-70.2568,B-,51,2026-03-25,2.0,Spring,4.0,3.3,13.7,0.275,2026-03-10 14:25:16
+Maine Medical Center,Portland,ME,43.6591,-70.2568,AB+,15,2026-04-05,1.5,Spring,4.0,3.3,12.3,0.7,2026-03-10 14:25:16
+Maine Medical Center,Portland,ME,43.6591,-70.2568,AB+,37,2026-03-23,1.5,Spring,4.0,3.3,10.8,0.284,2026-03-10 14:25:16
+Maine Medical Center,Portland,ME,43.6591,-70.2568,AB-,11,2026-04-03,1.0,Spring,4.0,3.3,7.1,0.636,2026-03-10 14:25:16
+Maine Medical Center,Portland,ME,43.6591,-70.2568,AB-,21,2026-03-25,1.0,Spring,4.0,3.3,7.4,0.333,2026-03-10 14:25:16
+Maine Medical Center,Portland,ME,43.6591,-70.2568,O+,58,2026-04-12,6.5,Spring,4.0,3.3,52.8,0.784,2026-03-10 14:25:16
+Maine Medical Center,Portland,ME,43.6591,-70.2568,O+,139,2026-03-29,6.5,Spring,4.0,3.3,52.4,0.327,2026-03-10 14:25:16
+Maine Medical Center,Portland,ME,43.6591,-70.2568,O-,62,2026-04-21,6.0,Spring,4.0,3.3,47.6,0.677,2026-03-10 14:25:16
+Maine Medical Center,Portland,ME,43.6591,-70.2568,O-,108,2026-03-19,6.0,Spring,4.0,3.3,49.0,0.389,2026-03-10 14:25:16
+Eastern Maine Medical Center,Bangor,ME,44.8016,-68.7712,A+,11,2026-04-08,4.6,Spring,8.0,7.4,28.9,2.927,2026-03-10 14:25:16
+Eastern Maine Medical Center,Bangor,ME,44.8016,-68.7712,A+,30,2026-03-13,4.6,Spring,8.0,7.4,29.1,1.073,2026-03-10 14:25:16
+Eastern Maine Medical Center,Bangor,ME,44.8016,-68.7712,A-,6,2026-04-17,2.8,Spring,8.0,7.4,22.9,3.267,2026-03-10 14:25:16
+Eastern Maine Medical Center,Bangor,ME,44.8016,-68.7712,A-,15,2026-03-13,2.8,Spring,8.0,7.4,21.0,1.307,2026-03-10 14:25:16
+Eastern Maine Medical Center,Bangor,ME,44.8016,-68.7712,B+,3,2026-04-17,3.7,Spring,8.0,7.4,23.1,8.633,2026-03-10 14:25:16
+Eastern Maine Medical Center,Bangor,ME,44.8016,-68.7712,B+,8,2026-03-15,3.7,Spring,8.0,7.4,29.0,3.238,2026-03-10 14:25:16
+Eastern Maine Medical Center,Bangor,ME,44.8016,-68.7712,B-,4,2026-04-11,2.2,Spring,8.0,7.4,15.1,3.85,2026-03-10 14:25:16
+Eastern Maine Medical Center,Bangor,ME,44.8016,-68.7712,B-,8,2026-03-11,2.2,Spring,8.0,7.4,16.6,1.925,2026-03-10 14:25:16
+Eastern Maine Medical Center,Bangor,ME,44.8016,-68.7712,AB+,4,2026-04-14,1.8,Spring,8.0,7.4,14.6,3.15,2026-03-10 14:25:16
+Eastern Maine Medical Center,Bangor,ME,44.8016,-68.7712,AB+,8,2026-03-12,1.8,Spring,8.0,7.4,14.5,1.575,2026-03-10 14:25:16
+Eastern Maine Medical Center,Bangor,ME,44.8016,-68.7712,AB-,1,2026-04-17,1.3,Spring,8.0,7.4,8.1,9.1,2026-03-10 14:25:16
+Eastern Maine Medical Center,Bangor,ME,44.8016,-68.7712,AB-,3,2026-03-11,1.3,Spring,8.0,7.4,9.6,3.033,2026-03-10 14:25:16
+Eastern Maine Medical Center,Bangor,ME,44.8016,-68.7712,O+,10,2026-04-12,8.1,Spring,8.0,7.4,51.0,5.67,2026-03-10 14:25:16
+Eastern Maine Medical Center,Bangor,ME,44.8016,-68.7712,O+,21,2026-03-14,8.1,Spring,8.0,7.4,62.4,2.7,2026-03-10 14:25:16
+Eastern Maine Medical Center,Bangor,ME,44.8016,-68.7712,O-,6,2026-04-18,5.6,Spring,8.0,7.4,44.3,6.533,2026-03-10 14:25:16
+Eastern Maine Medical Center,Bangor,ME,44.8016,-68.7712,O-,13,2026-03-11,5.6,Spring,8.0,7.4,35.9,3.015,2026-03-10 14:25:16
+Central Maine Medical Center,Lewiston,ME,44.1003,-70.2259,A+,47,2026-04-11,4.8,Spring,4.4,4.5,30.9,0.715,2026-03-10 14:25:16
+Central Maine Medical Center,Lewiston,ME,44.1003,-70.2259,A+,89,2026-03-29,4.8,Spring,4.4,4.5,34.5,0.378,2026-03-10 14:25:16
+Central Maine Medical Center,Lewiston,ME,44.1003,-70.2259,A-,21,2026-03-30,2.3,Spring,4.4,4.5,15.5,0.767,2026-03-10 14:25:16
+Central Maine Medical Center,Lewiston,ME,44.1003,-70.2259,A-,34,2026-04-01,2.3,Spring,4.4,4.5,17.3,0.474,2026-03-10 14:25:16
+Central Maine Medical Center,Lewiston,ME,44.1003,-70.2259,B+,34,2026-04-02,3.9,Spring,4.4,4.5,25.5,0.803,2026-03-10 14:25:16
+Central Maine Medical Center,Lewiston,ME,44.1003,-70.2259,B+,67,2026-04-01,3.9,Spring,4.4,4.5,30.8,0.407,2026-03-10 14:25:16
+Central Maine Medical Center,Lewiston,ME,44.1003,-70.2259,B-,14,2026-04-14,1.9,Spring,4.4,4.5,13.8,0.95,2026-03-10 14:25:16
+Central Maine Medical Center,Lewiston,ME,44.1003,-70.2259,B-,41,2026-03-20,1.9,Spring,4.4,4.5,15.6,0.324,2026-03-10 14:25:16
+Central Maine Medical Center,Lewiston,ME,44.1003,-70.2259,AB+,18,2026-04-17,1.8,Spring,4.4,4.5,11.8,0.7,2026-03-10 14:25:16
+Central Maine Medical Center,Lewiston,ME,44.1003,-70.2259,AB+,42,2026-03-21,1.8,Spring,4.4,4.5,12.9,0.3,2026-03-10 14:25:16
+Central Maine Medical Center,Lewiston,ME,44.1003,-70.2259,AB-,9,2026-03-29,1.0,Spring,4.4,4.5,6.6,0.778,2026-03-10 14:25:16
+Central Maine Medical Center,Lewiston,ME,44.1003,-70.2259,AB-,25,2026-03-25,1.0,Spring,4.4,4.5,7.8,0.28,2026-03-10 14:25:16
+Central Maine Medical Center,Lewiston,ME,44.1003,-70.2259,O+,67,2026-04-14,5.9,Spring,4.4,4.5,42.4,0.616,2026-03-10 14:25:16
+Central Maine Medical Center,Lewiston,ME,44.1003,-70.2259,O+,132,2026-03-20,5.9,Spring,4.4,4.5,41.9,0.313,2026-03-10 14:25:16
+Central Maine Medical Center,Lewiston,ME,44.1003,-70.2259,O-,60,2026-04-20,6.0,Spring,4.4,4.5,46.8,0.7,2026-03-10 14:25:16
+Central Maine Medical Center,Lewiston,ME,44.1003,-70.2259,O-,109,2026-03-27,6.0,Spring,4.4,4.5,42.2,0.385,2026-03-10 14:25:16
+Mercy Hospital Portland,Portland,ME,43.6474,-70.2703,A+,43,2026-03-29,3.8,Spring,4.6,6.1,30.8,0.619,2026-03-10 14:25:16
+Mercy Hospital Portland,Portland,ME,43.6474,-70.2703,A+,81,2026-03-31,3.8,Spring,4.6,6.1,27.1,0.328,2026-03-10 14:25:16
+Mercy Hospital Portland,Portland,ME,43.6474,-70.2703,A-,18,2026-04-05,2.5,Spring,4.6,6.1,19.0,0.972,2026-03-10 14:25:16
+Mercy Hospital Portland,Portland,ME,43.6474,-70.2703,A-,42,2026-03-18,2.5,Spring,4.6,6.1,17.8,0.417,2026-03-10 14:25:16
+Mercy Hospital Portland,Portland,ME,43.6474,-70.2703,B+,55,2026-04-04,3.8,Spring,4.6,6.1,29.7,0.484,2026-03-10 14:25:16
+Mercy Hospital Portland,Portland,ME,43.6474,-70.2703,B+,95,2026-03-22,3.8,Spring,4.6,6.1,25.2,0.28,2026-03-10 14:25:16
+Mercy Hospital Portland,Portland,ME,43.6474,-70.2703,B-,24,2026-04-03,2.0,Spring,4.6,6.1,13.5,0.583,2026-03-10 14:25:16
+Mercy Hospital Portland,Portland,ME,43.6474,-70.2703,B-,39,2026-03-30,2.0,Spring,4.6,6.1,13.7,0.359,2026-03-10 14:25:16
+Mercy Hospital Portland,Portland,ME,43.6474,-70.2703,AB+,31,2026-04-15,1.8,Spring,4.6,6.1,14.5,0.406,2026-03-10 14:25:16
+Mercy Hospital Portland,Portland,ME,43.6474,-70.2703,AB+,41,2026-03-30,1.8,Spring,4.6,6.1,12.9,0.307,2026-03-10 14:25:16
+Mercy Hospital Portland,Portland,ME,43.6474,-70.2703,AB-,9,2026-04-13,1.3,Spring,4.6,6.1,9.9,1.011,2026-03-10 14:25:16
+Mercy Hospital Portland,Portland,ME,43.6474,-70.2703,AB-,17,2026-03-20,1.3,Spring,4.6,6.1,9.5,0.535,2026-03-10 14:25:16
+Mercy Hospital Portland,Portland,ME,43.6474,-70.2703,O+,56,2026-04-03,5.8,Spring,4.6,6.1,43.6,0.725,2026-03-10 14:25:16
+Mercy Hospital Portland,Portland,ME,43.6474,-70.2703,O+,147,2026-03-19,5.8,Spring,4.6,6.1,37.7,0.276,2026-03-10 14:25:16
+Mercy Hospital Portland,Portland,ME,43.6474,-70.2703,O-,50,2026-04-15,5.7,Spring,4.6,6.1,44.4,0.798,2026-03-10 14:25:16
+Mercy Hospital Portland,Portland,ME,43.6474,-70.2703,O-,139,2026-03-29,5.7,Spring,4.6,6.1,42.6,0.287,2026-03-10 14:25:16
+Penn Medicine - HUP,Philadelphia,PA,39.9498,-75.1939,A+,15,2026-04-19,4.7,Spring,8.9,5.5,33.2,2.193,2026-03-10 14:25:16
+Penn Medicine - HUP,Philadelphia,PA,39.9498,-75.1939,A+,23,2026-03-25,4.7,Spring,8.9,5.5,34.6,1.43,2026-03-10 14:25:16
+Penn Medicine - HUP,Philadelphia,PA,39.9498,-75.1939,A+,51,2026-03-26,4.7,Spring,8.9,5.5,37.6,0.645,2026-03-10 14:25:16
+Penn Medicine - HUP,Philadelphia,PA,39.9498,-75.1939,A-,7,2026-04-18,3.0,Spring,8.9,5.5,20.9,3.0,2026-03-10 14:25:16
+Penn Medicine - HUP,Philadelphia,PA,39.9498,-75.1939,A-,10,2026-03-31,3.0,Spring,8.9,5.5,19.6,2.1,2026-03-10 14:25:16
+Penn Medicine - HUP,Philadelphia,PA,39.9498,-75.1939,A-,28,2026-04-06,3.0,Spring,8.9,5.5,23.4,0.75,2026-03-10 14:25:16
+Penn Medicine - HUP,Philadelphia,PA,39.9498,-75.1939,B+,11,2026-04-14,3.4,Spring,8.9,5.5,27.6,2.164,2026-03-10 14:25:16
+Penn Medicine - HUP,Philadelphia,PA,39.9498,-75.1939,B+,18,2026-04-04,3.4,Spring,8.9,5.5,26.3,1.322,2026-03-10 14:25:16
+Penn Medicine - HUP,Philadelphia,PA,39.9498,-75.1939,B+,45,2026-03-27,3.4,Spring,8.9,5.5,24.5,0.529,2026-03-10 14:25:16
+Penn Medicine - HUP,Philadelphia,PA,39.9498,-75.1939,B-,6,2026-04-08,2.0,Spring,8.9,5.5,14.5,2.333,2026-03-10 14:25:16
+Penn Medicine - HUP,Philadelphia,PA,39.9498,-75.1939,B-,6,2026-03-20,2.0,Spring,8.9,5.5,15.8,2.333,2026-03-10 14:25:16
+Penn Medicine - HUP,Philadelphia,PA,39.9498,-75.1939,B-,18,2026-03-29,2.0,Spring,8.9,5.5,15.1,0.778,2026-03-10 14:25:16
+Penn Medicine - HUP,Philadelphia,PA,39.9498,-75.1939,AB+,10,2026-03-30,1.9,Spring,8.9,5.5,12.1,1.33,2026-03-10 14:25:16
+Penn Medicine - HUP,Philadelphia,PA,39.9498,-75.1939,AB+,13,2026-03-29,1.9,Spring,8.9,5.5,15.5,1.023,2026-03-10 14:25:16
+Penn Medicine - HUP,Philadelphia,PA,39.9498,-75.1939,AB+,29,2026-03-23,1.9,Spring,8.9,5.5,12.3,0.459,2026-03-10 14:25:16
+Penn Medicine - HUP,Philadelphia,PA,39.9498,-75.1939,AB-,2,2026-04-17,1.0,Spring,8.9,5.5,7.6,3.5,2026-03-10 14:25:16
+Penn Medicine - HUP,Philadelphia,PA,39.9498,-75.1939,AB-,3,2026-03-21,1.0,Spring,8.9,5.5,7.7,2.333,2026-03-10 14:25:16
+Penn Medicine - HUP,Philadelphia,PA,39.9498,-75.1939,AB-,9,2026-03-20,1.0,Spring,8.9,5.5,8.0,0.778,2026-03-10 14:25:16
+Penn Medicine - HUP,Philadelphia,PA,39.9498,-75.1939,O+,36,2026-04-17,6.4,Spring,8.9,5.5,48.2,1.244,2026-03-10 14:25:16
+Penn Medicine - HUP,Philadelphia,PA,39.9498,-75.1939,O+,40,2026-03-27,6.4,Spring,8.9,5.5,46.5,1.12,2026-03-10 14:25:16
+Penn Medicine - HUP,Philadelphia,PA,39.9498,-75.1939,O+,105,2026-04-06,6.4,Spring,8.9,5.5,41.2,0.427,2026-03-10 14:25:16
+Penn Medicine - HUP,Philadelphia,PA,39.9498,-75.1939,O-,19,2026-04-05,6.4,Spring,8.9,5.5,43.3,2.358,2026-03-10 14:25:16
+Penn Medicine - HUP,Philadelphia,PA,39.9498,-75.1939,O-,17,2026-03-18,6.4,Spring,8.9,5.5,52.3,2.635,2026-03-10 14:25:16
+Penn Medicine - HUP,Philadelphia,PA,39.9498,-75.1939,O-,71,2026-04-08,6.4,Spring,8.9,5.5,43.3,0.631,2026-03-10 14:25:16
+Temple University Hospital,Philadelphia,PA,39.9786,-75.1499,A+,8,2026-04-01,4.8,Spring,8.4,8.5,39.6,4.2,2026-03-10 14:25:16
+Temple University Hospital,Philadelphia,PA,39.9786,-75.1499,A+,21,2026-03-14,4.8,Spring,8.4,8.5,31.6,1.6,2026-03-10 14:25:16
+Temple University Hospital,Philadelphia,PA,39.9786,-75.1499,A-,5,2026-04-08,3.0,Spring,8.4,8.5,24.6,4.2,2026-03-10 14:25:16
+Temple University Hospital,Philadelphia,PA,39.9786,-75.1499,A-,15,2026-03-20,3.0,Spring,8.4,8.5,21.0,1.4,2026-03-10 14:25:16
+Temple University Hospital,Philadelphia,PA,39.9786,-75.1499,B+,5,2026-04-11,3.9,Spring,8.4,8.5,32.0,5.46,2026-03-10 14:25:16
+Temple University Hospital,Philadelphia,PA,39.9786,-75.1499,B+,9,2026-03-20,3.9,Spring,8.4,8.5,29.8,3.033,2026-03-10 14:25:16
+Temple University Hospital,Philadelphia,PA,39.9786,-75.1499,B-,4,2026-04-21,2.1,Spring,8.4,8.5,13.6,3.675,2026-03-10 14:25:16
+Temple University Hospital,Philadelphia,PA,39.9786,-75.1499,B-,5,2026-03-19,2.1,Spring,8.4,8.5,15.0,2.94,2026-03-10 14:25:16
+Temple University Hospital,Philadelphia,PA,39.9786,-75.1499,AB+,3,2026-03-31,1.5,Spring,8.4,8.5,11.9,3.5,2026-03-10 14:25:16
+Temple University Hospital,Philadelphia,PA,39.9786,-75.1499,AB+,6,2026-03-19,1.5,Spring,8.4,8.5,11.2,1.75,2026-03-10 14:25:16
+Temple University Hospital,Philadelphia,PA,39.9786,-75.1499,AB-,1,2026-04-21,1.1,Spring,8.4,8.5,8.0,7.7,2026-03-10 14:25:16
+Temple University Hospital,Philadelphia,PA,39.9786,-75.1499,AB-,5,2026-03-19,1.1,Spring,8.4,8.5,9.0,1.54,2026-03-10 14:25:16
+Temple University Hospital,Philadelphia,PA,39.9786,-75.1499,O+,8,2026-04-16,6.9,Spring,8.4,8.5,47.7,6.038,2026-03-10 14:25:16
+Temple University Hospital,Philadelphia,PA,39.9786,-75.1499,O+,4,2026-03-14,6.9,Spring,8.4,8.5,42.7,12.0,2026-03-10 14:25:16
+Temple University Hospital,Philadelphia,PA,39.9786,-75.1499,O-,2,2026-04-11,5.4,Spring,8.4,8.5,38.3,12.0,2026-03-10 14:25:16
+Temple University Hospital,Philadelphia,PA,39.9786,-75.1499,O-,4,2026-03-18,5.4,Spring,8.4,8.5,44.3,9.45,2026-03-10 14:25:16
+Jefferson Hospital,Philadelphia,PA,39.9496,-75.1577,A+,34,2026-03-30,3.9,Spring,5.3,6.1,32.1,0.803,2026-03-10 14:25:16
+Jefferson Hospital,Philadelphia,PA,39.9496,-75.1577,A+,75,2026-04-02,3.9,Spring,5.3,6.1,31.9,0.364,2026-03-10 14:25:16
+Jefferson Hospital,Philadelphia,PA,39.9496,-75.1577,A-,23,2026-04-10,3.1,Spring,5.3,6.1,20.2,0.943,2026-03-10 14:25:16
+Jefferson Hospital,Philadelphia,PA,39.9496,-75.1577,A-,50,2026-03-31,3.1,Spring,5.3,6.1,20.0,0.434,2026-03-10 14:25:16
+Jefferson Hospital,Philadelphia,PA,39.9496,-75.1577,B+,35,2026-04-14,3.4,Spring,5.3,6.1,23.1,0.68,2026-03-10 14:25:16
+Jefferson Hospital,Philadelphia,PA,39.9496,-75.1577,B+,66,2026-04-04,3.4,Spring,5.3,6.1,24.3,0.361,2026-03-10 14:25:16
+Jefferson Hospital,Philadelphia,PA,39.9496,-75.1577,B-,11,2026-04-05,1.7,Spring,5.3,6.1,12.7,1.082,2026-03-10 14:25:16
+Jefferson Hospital,Philadelphia,PA,39.9496,-75.1577,B-,26,2026-03-20,1.7,Spring,5.3,6.1,12.0,0.458,2026-03-10 14:25:16
+Jefferson Hospital,Philadelphia,PA,39.9496,-75.1577,AB+,18,2026-04-04,1.8,Spring,5.3,6.1,13.0,0.7,2026-03-10 14:25:16
+Jefferson Hospital,Philadelphia,PA,39.9496,-75.1577,AB+,40,2026-03-19,1.8,Spring,5.3,6.1,12.9,0.315,2026-03-10 14:25:16
+Jefferson Hospital,Philadelphia,PA,39.9496,-75.1577,AB-,11,2026-04-18,1.2,Spring,5.3,6.1,7.7,0.764,2026-03-10 14:25:16
+Jefferson Hospital,Philadelphia,PA,39.9496,-75.1577,AB-,18,2026-04-02,1.2,Spring,5.3,6.1,8.0,0.467,2026-03-10 14:25:16
+Jefferson Hospital,Philadelphia,PA,39.9496,-75.1577,O+,60,2026-04-11,7.4,Spring,5.3,6.1,48.1,0.863,2026-03-10 14:25:16
+Jefferson Hospital,Philadelphia,PA,39.9496,-75.1577,O+,123,2026-03-25,7.4,Spring,5.3,6.1,60.4,0.421,2026-03-10 14:25:16
+Jefferson Hospital,Philadelphia,PA,39.9496,-75.1577,O-,51,2026-04-17,4.8,Spring,5.3,6.1,37.3,0.659,2026-03-10 14:25:16
+Jefferson Hospital,Philadelphia,PA,39.9496,-75.1577,O-,89,2026-03-22,4.8,Spring,5.3,6.1,31.3,0.378,2026-03-10 14:25:16
+UPMC Presbyterian,Pittsburgh,PA,40.4438,-79.9601,A+,33,2026-04-05,5.1,Spring,8.1,6.6,32.4,1.082,2026-03-10 14:25:16
+UPMC Presbyterian,Pittsburgh,PA,40.4438,-79.9601,A+,23,2026-04-04,5.1,Spring,8.1,6.6,32.9,1.552,2026-03-10 14:25:16
+UPMC Presbyterian,Pittsburgh,PA,40.4438,-79.9601,A+,82,2026-03-29,5.1,Spring,8.1,6.6,35.1,0.435,2026-03-10 14:25:16
+UPMC Presbyterian,Pittsburgh,PA,40.4438,-79.9601,A-,12,2026-04-01,3.2,Spring,8.1,6.6,25.1,1.867,2026-03-10 14:25:16
+UPMC Presbyterian,Pittsburgh,PA,40.4438,-79.9601,A-,13,2026-04-03,3.2,Spring,8.1,6.6,23.2,1.723,2026-03-10 14:25:16
+UPMC Presbyterian,Pittsburgh,PA,40.4438,-79.9601,A-,33,2026-04-06,3.2,Spring,8.1,6.6,25.1,0.679,2026-03-10 14:25:16
+UPMC Presbyterian,Pittsburgh,PA,40.4438,-79.9601,B+,30,2026-03-31,3.8,Spring,8.1,6.6,27.2,0.887,2026-03-10 14:25:16
+UPMC Presbyterian,Pittsburgh,PA,40.4438,-79.9601,B+,22,2026-03-26,3.8,Spring,8.1,6.6,26.9,1.209,2026-03-10 14:25:16
+UPMC Presbyterian,Pittsburgh,PA,40.4438,-79.9601,B+,74,2026-04-08,3.8,Spring,8.1,6.6,24.8,0.359,2026-03-10 14:25:16
+UPMC Presbyterian,Pittsburgh,PA,40.4438,-79.9601,B-,9,2026-03-31,1.9,Spring,8.1,6.6,12.3,1.478,2026-03-10 14:25:16
+UPMC Presbyterian,Pittsburgh,PA,40.4438,-79.9601,B-,8,2026-03-24,1.9,Spring,8.1,6.6,15.6,1.662,2026-03-10 14:25:16
+UPMC Presbyterian,Pittsburgh,PA,40.4438,-79.9601,B-,32,2026-04-02,1.9,Spring,8.1,6.6,12.0,0.416,2026-03-10 14:25:16
+UPMC Presbyterian,Pittsburgh,PA,40.4438,-79.9601,AB+,7,2026-03-29,2.0,Spring,8.1,6.6,15.1,2.0,2026-03-10 14:25:16
+UPMC Presbyterian,Pittsburgh,PA,40.4438,-79.9601,AB+,7,2026-04-04,2.0,Spring,8.1,6.6,13.4,2.0,2026-03-10 14:25:16
+UPMC Presbyterian,Pittsburgh,PA,40.4438,-79.9601,AB+,26,2026-03-22,2.0,Spring,8.1,6.6,12.7,0.538,2026-03-10 14:25:16
+UPMC Presbyterian,Pittsburgh,PA,40.4438,-79.9601,AB-,5,2026-04-15,1.0,Spring,8.1,6.6,6.9,1.4,2026-03-10 14:25:16
+UPMC Presbyterian,Pittsburgh,PA,40.4438,-79.9601,AB-,4,2026-03-19,1.0,Spring,8.1,6.6,6.7,1.75,2026-03-10 14:25:16
+UPMC Presbyterian,Pittsburgh,PA,40.4438,-79.9601,AB-,12,2026-04-07,1.0,Spring,8.1,6.6,7.2,0.583,2026-03-10 14:25:16
+UPMC Presbyterian,Pittsburgh,PA,40.4438,-79.9601,O+,25,2026-04-15,7.8,Spring,8.1,6.6,60.5,2.184,2026-03-10 14:25:16
+UPMC Presbyterian,Pittsburgh,PA,40.4438,-79.9601,O+,23,2026-04-02,7.8,Spring,8.1,6.6,52.7,2.374,2026-03-10 14:25:16
+UPMC Presbyterian,Pittsburgh,PA,40.4438,-79.9601,O+,93,2026-04-06,7.8,Spring,8.1,6.6,63.2,0.587,2026-03-10 14:25:16
+UPMC Presbyterian,Pittsburgh,PA,40.4438,-79.9601,O-,37,2026-04-12,6.7,Spring,8.1,6.6,47.5,1.268,2026-03-10 14:25:16
+UPMC Presbyterian,Pittsburgh,PA,40.4438,-79.9601,O-,30,2026-03-20,6.7,Spring,8.1,6.6,46.6,1.563,2026-03-10 14:25:16
+UPMC Presbyterian,Pittsburgh,PA,40.4438,-79.9601,O-,108,2026-03-26,6.7,Spring,8.1,6.6,52.0,0.434,2026-03-10 14:25:16
+Lehigh Valley Hospital,Allentown,PA,40.5929,-75.4697,A+,51,2026-04-08,4.5,Spring,4.9,4.6,28.1,0.618,2026-03-10 14:25:16
+Lehigh Valley Hospital,Allentown,PA,40.5929,-75.4697,A+,90,2026-03-27,4.5,Spring,4.9,4.6,32.0,0.35,2026-03-10 14:25:16
+Lehigh Valley Hospital,Allentown,PA,40.5929,-75.4697,A-,30,2026-04-11,3.0,Spring,4.9,4.6,24.7,0.7,2026-03-10 14:25:16
+Lehigh Valley Hospital,Allentown,PA,40.5929,-75.4697,A-,61,2026-03-30,3.0,Spring,4.9,4.6,23.8,0.344,2026-03-10 14:25:16
+Lehigh Valley Hospital,Allentown,PA,40.5929,-75.4697,B+,38,2026-04-02,3.9,Spring,4.9,4.6,29.5,0.718,2026-03-10 14:25:16
+Lehigh Valley Hospital,Allentown,PA,40.5929,-75.4697,B+,96,2026-03-29,3.9,Spring,4.9,4.6,24.7,0.284,2026-03-10 14:25:16
+Lehigh Valley Hospital,Allentown,PA,40.5929,-75.4697,B-,22,2026-04-15,1.8,Spring,4.9,4.6,14.5,0.573,2026-03-10 14:25:16
+Lehigh Valley Hospital,Allentown,PA,40.5929,-75.4697,B-,40,2026-03-22,1.8,Spring,4.9,4.6,12.4,0.315,2026-03-10 14:25:16
+Lehigh Valley Hospital,Allentown,PA,40.5929,-75.4697,AB+,23,2026-03-31,1.9,Spring,4.9,4.6,13.7,0.578,2026-03-10 14:25:16
+Lehigh Valley Hospital,Allentown,PA,40.5929,-75.4697,AB+,57,2026-04-04,1.9,Spring,4.9,4.6,14.9,0.233,2026-03-10 14:25:16
+Lehigh Valley Hospital,Allentown,PA,40.5929,-75.4697,AB-,13,2026-04-18,1.4,Spring,4.9,4.6,10.0,0.754,2026-03-10 14:25:16
+Lehigh Valley Hospital,Allentown,PA,40.5929,-75.4697,AB-,26,2026-03-25,1.4,Spring,4.9,4.6,9.0,0.377,2026-03-10 14:25:16
+Lehigh Valley Hospital,Allentown,PA,40.5929,-75.4697,O+,53,2026-04-01,7.2,Spring,4.9,4.6,56.9,0.951,2026-03-10 14:25:16
+Lehigh Valley Hospital,Allentown,PA,40.5929,-75.4697,O+,141,2026-04-01,7.2,Spring,4.9,4.6,50.1,0.357,2026-03-10 14:25:16
+Lehigh Valley Hospital,Allentown,PA,40.5929,-75.4697,O-,56,2026-04-16,6.2,Spring,4.9,4.6,46.8,0.775,2026-03-10 14:25:16
+Lehigh Valley Hospital,Allentown,PA,40.5929,-75.4697,O-,108,2026-04-02,6.2,Spring,4.9,4.6,40.8,0.402,2026-03-10 14:25:16
+Reading Hospital,Reading,PA,40.3296,-75.9263,A+,44,2026-04-14,4.1,Spring,6.0,4.7,25.5,0.652,2026-03-10 14:25:16
+Reading Hospital,Reading,PA,40.3296,-75.9263,A+,68,2026-03-30,4.1,Spring,6.0,4.7,29.1,0.422,2026-03-10 14:25:16
+Reading Hospital,Reading,PA,40.3296,-75.9263,A-,26,2026-03-29,3.2,Spring,6.0,4.7,25.5,0.862,2026-03-10 14:25:16
+Reading Hospital,Reading,PA,40.3296,-75.9263,A-,58,2026-03-26,3.2,Spring,6.0,4.7,22.6,0.386,2026-03-10 14:25:16
+Reading Hospital,Reading,PA,40.3296,-75.9263,B+,31,2026-04-21,3.6,Spring,6.0,4.7,27.2,0.813,2026-03-10 14:25:16
+Reading Hospital,Reading,PA,40.3296,-75.9263,B+,69,2026-04-03,3.6,Spring,6.0,4.7,28.6,0.365,2026-03-10 14:25:16
+Reading Hospital,Reading,PA,40.3296,-75.9263,B-,20,2026-04-12,2.1,Spring,6.0,4.7,15.9,0.735,2026-03-10 14:25:16
+Reading Hospital,Reading,PA,40.3296,-75.9263,B-,35,2026-03-26,2.1,Spring,6.0,4.7,13.1,0.42,2026-03-10 14:25:16
+Reading Hospital,Reading,PA,40.3296,-75.9263,AB+,21,2026-04-20,2.0,Spring,6.0,4.7,14.9,0.667,2026-03-10 14:25:16
+Reading Hospital,Reading,PA,40.3296,-75.9263,AB+,36,2026-03-29,2.0,Spring,6.0,4.7,13.8,0.389,2026-03-10 14:25:16
+Reading Hospital,Reading,PA,40.3296,-75.9263,AB-,10,2026-04-04,1.1,Spring,6.0,4.7,7.0,0.77,2026-03-10 14:25:16
+Reading Hospital,Reading,PA,40.3296,-75.9263,AB-,22,2026-03-19,1.1,Spring,6.0,4.7,7.2,0.35,2026-03-10 14:25:16
+Reading Hospital,Reading,PA,40.3296,-75.9263,O+,61,2026-04-18,7.3,Spring,6.0,4.7,58.8,0.838,2026-03-10 14:25:16
+Reading Hospital,Reading,PA,40.3296,-75.9263,O+,105,2026-03-25,7.3,Spring,6.0,4.7,45.3,0.487,2026-03-10 14:25:16
+Reading Hospital,Reading,PA,40.3296,-75.9263,O-,66,2026-04-07,5.4,Spring,6.0,4.7,34.4,0.573,2026-03-10 14:25:16
+Reading Hospital,Reading,PA,40.3296,-75.9263,O-,118,2026-03-23,5.4,Spring,6.0,4.7,41.9,0.32,2026-03-10 14:25:16
+Lancaster General Hospital,Lancaster,PA,40.0427,-76.3149,A+,52,2026-04-12,4.3,Spring,5.0,5.2,27.2,0.579,2026-03-10 14:25:16
+Lancaster General Hospital,Lancaster,PA,40.0427,-76.3149,A+,80,2026-04-03,4.3,Spring,5.0,5.2,29.2,0.376,2026-03-10 14:25:16
+Lancaster General Hospital,Lancaster,PA,40.0427,-76.3149,A-,35,2026-04-16,2.9,Spring,5.0,5.2,23.0,0.58,2026-03-10 14:25:16
+Lancaster General Hospital,Lancaster,PA,40.0427,-76.3149,A-,68,2026-03-20,2.9,Spring,5.0,5.2,21.3,0.299,2026-03-10 14:25:16
+Lancaster General Hospital,Lancaster,PA,40.0427,-76.3149,B+,45,2026-04-08,3.9,Spring,5.0,5.2,26.5,0.607,2026-03-10 14:25:16
+Lancaster General Hospital,Lancaster,PA,40.0427,-76.3149,B+,78,2026-03-26,3.9,Spring,5.0,5.2,25.7,0.35,2026-03-10 14:25:16
+Lancaster General Hospital,Lancaster,PA,40.0427,-76.3149,B-,24,2026-04-11,2.0,Spring,5.0,5.2,16.0,0.583,2026-03-10 14:25:16
+Lancaster General Hospital,Lancaster,PA,40.0427,-76.3149,B-,46,2026-04-02,2.0,Spring,5.0,5.2,13.2,0.304,2026-03-10 14:25:16
+Lancaster General Hospital,Lancaster,PA,40.0427,-76.3149,AB+,24,2026-04-11,2.1,Spring,5.0,5.2,16.5,0.613,2026-03-10 14:25:16
+Lancaster General Hospital,Lancaster,PA,40.0427,-76.3149,AB+,54,2026-03-30,2.1,Spring,5.0,5.2,13.2,0.272,2026-03-10 14:25:16
+Lancaster General Hospital,Lancaster,PA,40.0427,-76.3149,AB-,10,2026-04-04,1.1,Spring,5.0,5.2,7.5,0.77,2026-03-10 14:25:16
+Lancaster General Hospital,Lancaster,PA,40.0427,-76.3149,AB-,24,2026-03-30,1.1,Spring,5.0,5.2,8.9,0.321,2026-03-10 14:25:16
+Lancaster General Hospital,Lancaster,PA,40.0427,-76.3149,O+,114,2026-04-05,7.5,Spring,5.0,5.2,50.2,0.461,2026-03-10 14:25:16
+Lancaster General Hospital,Lancaster,PA,40.0427,-76.3149,O+,171,2026-03-24,7.5,Spring,5.0,5.2,49.2,0.307,2026-03-10 14:25:16
+Lancaster General Hospital,Lancaster,PA,40.0427,-76.3149,O-,75,2026-04-11,5.2,Spring,5.0,5.2,36.6,0.485,2026-03-10 14:25:16
+Lancaster General Hospital,Lancaster,PA,40.0427,-76.3149,O-,123,2026-03-18,5.2,Spring,5.0,5.2,32.4,0.296,2026-03-10 14:25:16
+Geisinger Medical Center,Danville,PA,40.9626,-76.6157,A+,94,2026-03-29,4.6,Spring,4.9,2.8,28.5,0.343,2026-03-10 14:25:16
+Geisinger Medical Center,Danville,PA,40.9626,-76.6157,A+,150,2026-03-19,4.6,Spring,4.9,2.8,29.0,0.215,2026-03-10 14:25:16
+Geisinger Medical Center,Danville,PA,40.9626,-76.6157,A-,61,2026-04-18,3.3,Spring,4.9,2.8,26.9,0.379,2026-03-10 14:25:16
+Geisinger Medical Center,Danville,PA,40.9626,-76.6157,A-,134,2026-03-21,3.3,Spring,4.9,2.8,23.8,0.172,2026-03-10 14:25:16
+Geisinger Medical Center,Danville,PA,40.9626,-76.6157,B+,77,2026-04-15,3.3,Spring,4.9,2.8,22.1,0.3,2026-03-10 14:25:16
+Geisinger Medical Center,Danville,PA,40.9626,-76.6157,B+,103,2026-03-19,3.3,Spring,4.9,2.8,25.9,0.224,2026-03-10 14:25:16
+Geisinger Medical Center,Danville,PA,40.9626,-76.6157,B-,40,2026-04-09,2.0,Spring,4.9,2.8,16.2,0.35,2026-03-10 14:25:16
+Geisinger Medical Center,Danville,PA,40.9626,-76.6157,B-,60,2026-03-23,2.0,Spring,4.9,2.8,16.4,0.233,2026-03-10 14:25:16
+Geisinger Medical Center,Danville,PA,40.9626,-76.6157,AB+,20,2026-04-15,1.8,Spring,4.9,2.8,13.7,0.63,2026-03-10 14:25:16
+Geisinger Medical Center,Danville,PA,40.9626,-76.6157,AB+,47,2026-03-20,1.8,Spring,4.9,2.8,13.7,0.268,2026-03-10 14:25:16
+Geisinger Medical Center,Danville,PA,40.9626,-76.6157,AB-,27,2026-04-01,1.4,Spring,4.9,2.8,11.0,0.363,2026-03-10 14:25:16
+Geisinger Medical Center,Danville,PA,40.9626,-76.6157,AB-,62,2026-03-17,1.4,Spring,4.9,2.8,8.7,0.158,2026-03-10 14:25:16
+Geisinger Medical Center,Danville,PA,40.9626,-76.6157,O+,173,2026-03-29,7.8,Spring,4.9,2.8,52.0,0.316,2026-03-10 14:25:16
+Geisinger Medical Center,Danville,PA,40.9626,-76.6157,O+,308,2026-04-03,7.8,Spring,4.9,2.8,59.5,0.177,2026-03-10 14:25:16
+Geisinger Medical Center,Danville,PA,40.9626,-76.6157,O-,151,2026-04-14,6.7,Spring,4.9,2.8,46.7,0.311,2026-03-10 14:25:16
+Geisinger Medical Center,Danville,PA,40.9626,-76.6157,O-,269,2026-03-29,6.7,Spring,4.9,2.8,45.5,0.174,2026-03-10 14:25:16
+Christiana Hospital,Newark,DE,39.6817,-75.6572,A+,30,2026-04-02,4.1,Spring,9.4,8.1,32.8,0.957,2026-03-10 14:25:16
+Christiana Hospital,Newark,DE,39.6817,-75.6572,A+,26,2026-03-30,4.1,Spring,9.4,8.1,25.9,1.104,2026-03-10 14:25:16
+Christiana Hospital,Newark,DE,39.6817,-75.6572,A+,66,2026-04-04,4.1,Spring,9.4,8.1,32.5,0.435,2026-03-10 14:25:16
+Christiana Hospital,Newark,DE,39.6817,-75.6572,A-,22,2026-03-31,3.0,Spring,9.4,8.1,21.7,0.955,2026-03-10 14:25:16
+Christiana Hospital,Newark,DE,39.6817,-75.6572,A-,18,2026-03-28,3.0,Spring,9.4,8.1,21.9,1.167,2026-03-10 14:25:16
+Christiana Hospital,Newark,DE,39.6817,-75.6572,A-,43,2026-03-30,3.0,Spring,9.4,8.1,18.8,0.488,2026-03-10 14:25:16
+Christiana Hospital,Newark,DE,39.6817,-75.6572,B+,16,2026-04-17,4.1,Spring,9.4,8.1,30.7,1.794,2026-03-10 14:25:16
+Christiana Hospital,Newark,DE,39.6817,-75.6572,B+,19,2026-03-27,4.1,Spring,9.4,8.1,27.4,1.511,2026-03-10 14:25:16
+Christiana Hospital,Newark,DE,39.6817,-75.6572,B+,66,2026-04-11,4.1,Spring,9.4,8.1,31.8,0.435,2026-03-10 14:25:16
+Christiana Hospital,Newark,DE,39.6817,-75.6572,B-,13,2026-04-07,2.4,Spring,9.4,8.1,15.5,1.292,2026-03-10 14:25:16
+Christiana Hospital,Newark,DE,39.6817,-75.6572,B-,15,2026-03-22,2.4,Spring,9.4,8.1,18.8,1.12,2026-03-10 14:25:16
+Christiana Hospital,Newark,DE,39.6817,-75.6572,B-,34,2026-03-26,2.4,Spring,9.4,8.1,16.8,0.494,2026-03-10 14:25:16
+Christiana Hospital,Newark,DE,39.6817,-75.6572,AB+,9,2026-04-15,1.7,Spring,9.4,8.1,13.8,1.322,2026-03-10 14:25:16
+Christiana Hospital,Newark,DE,39.6817,-75.6572,AB+,13,2026-03-24,1.7,Spring,9.4,8.1,11.2,0.915,2026-03-10 14:25:16
+Christiana Hospital,Newark,DE,39.6817,-75.6572,AB+,24,2026-04-11,1.7,Spring,9.4,8.1,12.7,0.496,2026-03-10 14:25:16
+Christiana Hospital,Newark,DE,39.6817,-75.6572,AB-,3,2026-04-08,1.2,Spring,9.4,8.1,7.4,2.8,2026-03-10 14:25:16
+Christiana Hospital,Newark,DE,39.6817,-75.6572,AB-,4,2026-04-02,1.2,Spring,9.4,8.1,8.5,2.1,2026-03-10 14:25:16
+Christiana Hospital,Newark,DE,39.6817,-75.6572,AB-,11,2026-04-10,1.2,Spring,9.4,8.1,7.9,0.764,2026-03-10 14:25:16
+Christiana Hospital,Newark,DE,39.6817,-75.6572,O+,42,2026-04-05,8.4,Spring,9.4,8.1,54.0,1.4,2026-03-10 14:25:16
+Christiana Hospital,Newark,DE,39.6817,-75.6572,O+,58,2026-03-23,8.4,Spring,9.4,8.1,56.7,1.014,2026-03-10 14:25:16
+Christiana Hospital,Newark,DE,39.6817,-75.6572,O+,123,2026-04-10,8.4,Spring,9.4,8.1,65.7,0.478,2026-03-10 14:25:16
+Christiana Hospital,Newark,DE,39.6817,-75.6572,O-,35,2026-04-04,4.7,Spring,9.4,8.1,32.6,0.94,2026-03-10 14:25:16
+Christiana Hospital,Newark,DE,39.6817,-75.6572,O-,22,2026-03-31,4.7,Spring,9.4,8.1,37.6,1.495,2026-03-10 14:25:16
+Christiana Hospital,Newark,DE,39.6817,-75.6572,O-,76,2026-04-11,4.7,Spring,9.4,8.1,32.7,0.433,2026-03-10 14:25:16
+Johns Hopkins Hospital,Baltimore,MD,39.2963,-76.5927,A+,15,2026-03-29,3.8,Spring,8.3,7.6,30.7,1.773,2026-03-10 14:25:16
+Johns Hopkins Hospital,Baltimore,MD,39.2963,-76.5927,A+,13,2026-03-18,3.8,Spring,8.3,7.6,26.4,2.046,2026-03-10 14:25:16
+Johns Hopkins Hospital,Baltimore,MD,39.2963,-76.5927,A+,47,2026-04-01,3.8,Spring,8.3,7.6,30.5,0.566,2026-03-10 14:25:16
+Johns Hopkins Hospital,Baltimore,MD,39.2963,-76.5927,A-,9,2026-04-02,2.3,Spring,8.3,7.6,18.4,1.789,2026-03-10 14:25:16
+Johns Hopkins Hospital,Baltimore,MD,39.2963,-76.5927,A-,6,2026-03-21,2.3,Spring,8.3,7.6,16.3,2.683,2026-03-10 14:25:16
+Johns Hopkins Hospital,Baltimore,MD,39.2963,-76.5927,A-,21,2026-03-28,2.3,Spring,8.3,7.6,14.8,0.767,2026-03-10 14:25:16
+Johns Hopkins Hospital,Baltimore,MD,39.2963,-76.5927,B+,22,2026-04-20,4.4,Spring,8.3,7.6,35.4,1.4,2026-03-10 14:25:16
+Johns Hopkins Hospital,Baltimore,MD,39.2963,-76.5927,B+,29,2026-03-25,4.4,Spring,8.3,7.6,29.5,1.062,2026-03-10 14:25:16
+Johns Hopkins Hospital,Baltimore,MD,39.2963,-76.5927,B+,65,2026-03-30,4.4,Spring,8.3,7.6,33.9,0.474,2026-03-10 14:25:16
+Johns Hopkins Hospital,Baltimore,MD,39.2963,-76.5927,B-,16,2026-04-14,2.1,Spring,8.3,7.6,16.5,0.919,2026-03-10 14:25:16
+Johns Hopkins Hospital,Baltimore,MD,39.2963,-76.5927,B-,9,2026-03-18,2.1,Spring,8.3,7.6,13.7,1.633,2026-03-10 14:25:16
+Johns Hopkins Hospital,Baltimore,MD,39.2963,-76.5927,B-,39,2026-04-04,2.1,Spring,8.3,7.6,14.9,0.377,2026-03-10 14:25:16
+Johns Hopkins Hospital,Baltimore,MD,39.2963,-76.5927,AB+,14,2026-03-29,2.1,Spring,8.3,7.6,15.4,1.05,2026-03-10 14:25:16
+Johns Hopkins Hospital,Baltimore,MD,39.2963,-76.5927,AB+,14,2026-03-31,2.1,Spring,8.3,7.6,16.8,1.05,2026-03-10 14:25:16
+Johns Hopkins Hospital,Baltimore,MD,39.2963,-76.5927,AB+,33,2026-03-23,2.1,Spring,8.3,7.6,14.2,0.445,2026-03-10 14:25:16
+Johns Hopkins Hospital,Baltimore,MD,39.2963,-76.5927,AB-,7,2026-04-05,1.3,Spring,8.3,7.6,8.6,1.3,2026-03-10 14:25:16
+Johns Hopkins Hospital,Baltimore,MD,39.2963,-76.5927,AB-,7,2026-03-17,1.3,Spring,8.3,7.6,9.1,1.3,2026-03-10 14:25:16
+Johns Hopkins Hospital,Baltimore,MD,39.2963,-76.5927,AB-,20,2026-03-22,1.3,Spring,8.3,7.6,8.3,0.455,2026-03-10 14:25:16
+Johns Hopkins Hospital,Baltimore,MD,39.2963,-76.5927,O+,20,2026-04-18,6.7,Spring,8.3,7.6,54.3,2.345,2026-03-10 14:25:16
+Johns Hopkins Hospital,Baltimore,MD,39.2963,-76.5927,O+,28,2026-03-20,6.7,Spring,8.3,7.6,42.4,1.675,2026-03-10 14:25:16
+Johns Hopkins Hospital,Baltimore,MD,39.2963,-76.5927,O+,76,2026-04-11,6.7,Spring,8.3,7.6,54.7,0.617,2026-03-10 14:25:16
+Johns Hopkins Hospital,Baltimore,MD,39.2963,-76.5927,O-,23,2026-03-29,6.0,Spring,8.3,7.6,41.1,1.826,2026-03-10 14:25:16
+Johns Hopkins Hospital,Baltimore,MD,39.2963,-76.5927,O-,16,2026-04-04,6.0,Spring,8.3,7.6,47.1,2.625,2026-03-10 14:25:16
+Johns Hopkins Hospital,Baltimore,MD,39.2963,-76.5927,O-,47,2026-03-29,6.0,Spring,8.3,7.6,37.9,0.894,2026-03-10 14:25:16
+University of Maryland Medical Ctr,Baltimore,MD,39.2972,-76.6243,A+,16,2026-04-21,4.3,Spring,9.4,6.8,34.2,1.881,2026-03-10 14:25:16
+University of Maryland Medical Ctr,Baltimore,MD,39.2972,-76.6243,A+,14,2026-03-22,4.3,Spring,9.4,6.8,32.3,2.15,2026-03-10 14:25:16
+University of Maryland Medical Ctr,Baltimore,MD,39.2972,-76.6243,A+,42,2026-04-09,4.3,Spring,9.4,6.8,33.7,0.717,2026-03-10 14:25:16
+University of Maryland Medical Ctr,Baltimore,MD,39.2972,-76.6243,A-,18,2026-04-18,3.0,Spring,9.4,6.8,19.1,1.167,2026-03-10 14:25:16
+University of Maryland Medical Ctr,Baltimore,MD,39.2972,-76.6243,A-,18,2026-03-28,3.0,Spring,9.4,6.8,24.1,1.167,2026-03-10 14:25:16
+University of Maryland Medical Ctr,Baltimore,MD,39.2972,-76.6243,A-,53,2026-04-04,3.0,Spring,9.4,6.8,19.0,0.396,2026-03-10 14:25:16
+University of Maryland Medical Ctr,Baltimore,MD,39.2972,-76.6243,B+,15,2026-04-02,3.8,Spring,9.4,6.8,23.7,1.773,2026-03-10 14:25:16
+University of Maryland Medical Ctr,Baltimore,MD,39.2972,-76.6243,B+,21,2026-03-27,3.8,Spring,9.4,6.8,28.6,1.267,2026-03-10 14:25:16
+University of Maryland Medical Ctr,Baltimore,MD,39.2972,-76.6243,B+,46,2026-04-11,3.8,Spring,9.4,6.8,28.4,0.578,2026-03-10 14:25:16
+University of Maryland Medical Ctr,Baltimore,MD,39.2972,-76.6243,B-,7,2026-04-10,2.1,Spring,9.4,6.8,14.3,2.1,2026-03-10 14:25:16
+University of Maryland Medical Ctr,Baltimore,MD,39.2972,-76.6243,B-,8,2026-03-21,2.1,Spring,9.4,6.8,14.0,1.838,2026-03-10 14:25:16
+University of Maryland Medical Ctr,Baltimore,MD,39.2972,-76.6243,B-,21,2026-04-02,2.1,Spring,9.4,6.8,13.3,0.7,2026-03-10 14:25:16
+University of Maryland Medical Ctr,Baltimore,MD,39.2972,-76.6243,AB+,4,2026-04-10,1.5,Spring,9.4,6.8,11.5,2.625,2026-03-10 14:25:16
+University of Maryland Medical Ctr,Baltimore,MD,39.2972,-76.6243,AB+,4,2026-03-25,1.5,Spring,9.4,6.8,11.7,2.625,2026-03-10 14:25:16
+University of Maryland Medical Ctr,Baltimore,MD,39.2972,-76.6243,AB+,15,2026-03-20,1.5,Spring,9.4,6.8,9.8,0.7,2026-03-10 14:25:16
+University of Maryland Medical Ctr,Baltimore,MD,39.2972,-76.6243,AB-,4,2026-03-30,1.1,Spring,9.4,6.8,7.5,1.925,2026-03-10 14:25:16
+University of Maryland Medical Ctr,Baltimore,MD,39.2972,-76.6243,AB-,5,2026-03-31,1.1,Spring,9.4,6.8,8.6,1.54,2026-03-10 14:25:16
+University of Maryland Medical Ctr,Baltimore,MD,39.2972,-76.6243,AB-,15,2026-03-30,1.1,Spring,9.4,6.8,7.2,0.513,2026-03-10 14:25:16
+University of Maryland Medical Ctr,Baltimore,MD,39.2972,-76.6243,O+,31,2026-04-16,6.3,Spring,9.4,6.8,44.5,1.423,2026-03-10 14:25:16
+University of Maryland Medical Ctr,Baltimore,MD,39.2972,-76.6243,O+,22,2026-03-17,6.3,Spring,9.4,6.8,41.1,2.005,2026-03-10 14:25:16
+University of Maryland Medical Ctr,Baltimore,MD,39.2972,-76.6243,O+,96,2026-04-04,6.3,Spring,9.4,6.8,47.5,0.459,2026-03-10 14:25:16
+University of Maryland Medical Ctr,Baltimore,MD,39.2972,-76.6243,O-,41,2026-04-06,6.3,Spring,9.4,6.8,43.6,1.076,2026-03-10 14:25:16
+University of Maryland Medical Ctr,Baltimore,MD,39.2972,-76.6243,O-,35,2026-03-29,6.3,Spring,9.4,6.8,40.6,1.26,2026-03-10 14:25:16
+University of Maryland Medical Ctr,Baltimore,MD,39.2972,-76.6243,O-,83,2026-03-26,6.3,Spring,9.4,6.8,51.6,0.531,2026-03-10 14:25:16
+Sinai Hospital of Baltimore,Baltimore,MD,39.3622,-76.6559,A+,68,2026-04-10,4.7,Spring,6.6,3.7,34.3,0.484,2026-03-10 14:25:16
+Sinai Hospital of Baltimore,Baltimore,MD,39.3622,-76.6559,A+,107,2026-03-19,4.7,Spring,6.6,3.7,33.6,0.307,2026-03-10 14:25:16
+Sinai Hospital of Baltimore,Baltimore,MD,39.3622,-76.6559,A-,20,2026-04-01,2.3,Spring,6.6,3.7,16.5,0.805,2026-03-10 14:25:16
+Sinai Hospital of Baltimore,Baltimore,MD,39.3622,-76.6559,A-,38,2026-03-17,2.3,Spring,6.6,3.7,15.1,0.424,2026-03-10 14:25:16
+Sinai Hospital of Baltimore,Baltimore,MD,39.3622,-76.6559,B+,42,2026-03-29,4.0,Spring,6.6,3.7,31.8,0.667,2026-03-10 14:25:16
+Sinai Hospital of Baltimore,Baltimore,MD,39.3622,-76.6559,B+,113,2026-03-30,4.0,Spring,6.6,3.7,30.8,0.248,2026-03-10 14:25:16
+Sinai Hospital of Baltimore,Baltimore,MD,39.3622,-76.6559,B-,18,2026-04-06,2.2,Spring,6.6,3.7,15.9,0.856,2026-03-10 14:25:16
+Sinai Hospital of Baltimore,Baltimore,MD,39.3622,-76.6559,B-,41,2026-04-01,2.2,Spring,6.6,3.7,13.6,0.376,2026-03-10 14:25:16
+Sinai Hospital of Baltimore,Baltimore,MD,39.3622,-76.6559,AB+,22,2026-04-05,1.8,Spring,6.6,3.7,12.9,0.573,2026-03-10 14:25:16
+Sinai Hospital of Baltimore,Baltimore,MD,39.3622,-76.6559,AB+,40,2026-04-01,1.8,Spring,6.6,3.7,12.8,0.315,2026-03-10 14:25:16
+Sinai Hospital of Baltimore,Baltimore,MD,39.3622,-76.6559,AB-,8,2026-04-20,1.2,Spring,6.6,3.7,8.0,1.05,2026-03-10 14:25:16
+Sinai Hospital of Baltimore,Baltimore,MD,39.3622,-76.6559,AB-,20,2026-03-24,1.2,Spring,6.6,3.7,9.7,0.42,2026-03-10 14:25:16
+Sinai Hospital of Baltimore,Baltimore,MD,39.3622,-76.6559,O+,77,2026-04-11,8.1,Spring,6.6,3.7,62.0,0.736,2026-03-10 14:25:16
+Sinai Hospital of Baltimore,Baltimore,MD,39.3622,-76.6559,O+,204,2026-03-30,8.1,Spring,6.6,3.7,62.4,0.278,2026-03-10 14:25:16
+Sinai Hospital of Baltimore,Baltimore,MD,39.3622,-76.6559,O-,79,2026-04-02,6.4,Spring,6.6,3.7,49.5,0.567,2026-03-10 14:25:16
+Sinai Hospital of Baltimore,Baltimore,MD,39.3622,-76.6559,O-,146,2026-04-01,6.4,Spring,6.6,3.7,47.6,0.307,2026-03-10 14:25:16

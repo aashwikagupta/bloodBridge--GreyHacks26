@@ -1,25 +1,17 @@
-"""
-algorithms.py
--------------
-Operational logic for BloodBridge:
-  - Expiry + low-inventory warnings
-  - Haversine distance between hospitals
-  - Shortage score (7-day demand / current units)
-  - Best transfer partner ranking (by distance AND by stock)
-  - Per-hospital inventory aggregation
-  - Blood-type availability lookup
-  - Heatmap stress score generation
-"""
+#ALGORITHMS:  
+#Expiry + low-inventory warnings
+#Haversine (distance km between hospitals)
+#Shortage score (7-day demand / current units)
+#Best transfer partner ranking (by distance AND by stock)
+#Per-hospital inventory aggregation
+#Blood-type availability lookup
+#Heatmap stress score generation
 
 import math
 import pandas as pd
 from datetime import datetime
 
-
-# ---------------------------------------------------------------------------
-# Core utilities
-# ---------------------------------------------------------------------------
-
+#core utilities
 def haversine_km(lat1: float, lon1: float, lat2: float, lon2: float) -> float:
     """Haversine great-circle distance between two geographic points (km)."""
     R = 6371.0
@@ -29,25 +21,19 @@ def haversine_km(lat1: float, lon1: float, lat2: float, lon2: float) -> float:
     a = math.sin(dphi / 2) ** 2 + math.cos(phi1) * math.cos(phi2) * math.sin(dlambda / 2) ** 2
     return round(2 * R * math.asin(math.sqrt(a)), 1)
 
-
 def days_until_expiry(expiration_date_str: str) -> int:
-    """Days from today until expiration. Negative = already expired."""
+    #Days from today until expiration. Negative = already expired.
     try:
         exp = datetime.strptime(str(expiration_date_str), "%Y-%m-%d").date()
         return (exp - datetime.now().date()).days
     except Exception:
         return 999
 
-
 def shortage_score(daily_usage: float, units_available: int, horizon_days: int = 7) -> float:
-    """
-    Ratio of expected 7-day demand to current supply.
-    > 1.0 means demand outpaces supply within the horizon.
-    """
+    #7-day demand/current supply. >1.0 means demand outpaces supply
     if units_available <= 0:
         return 99.0
     return round((daily_usage * horizon_days) / units_available, 3)
-
 
 def _status_label(score: float, days_supply: float) -> str:
     if score >= 1.5 or days_supply < 2:
@@ -58,13 +44,8 @@ def _status_label(score: float, days_supply: float) -> str:
         return "warning"
     return "stable"
 
-
-# ---------------------------------------------------------------------------
-# Warning detectors
-# ---------------------------------------------------------------------------
-
+#warnings
 def get_expiry_warnings(df: pd.DataFrame, threshold_days: int = 7) -> list:
-    """All batches expiring within threshold_days, sorted soonest-first."""
     warnings = []
     for _, row in df.iterrows():
         days = days_until_expiry(str(row["expiration_date"]))
@@ -79,9 +60,7 @@ def get_expiry_warnings(df: pd.DataFrame, threshold_days: int = 7) -> list:
             })
     return sorted(warnings, key=lambda x: x["days_until_expiry"])
 
-
 def get_low_inventory_warnings(df: pd.DataFrame, threshold_units: int = 10) -> list:
-    """All entries with units below threshold, sorted by days of supply."""
     warnings = []
     for _, row in df.iterrows():
         units = int(row["units_available"])
@@ -97,16 +76,9 @@ def get_low_inventory_warnings(df: pd.DataFrame, threshold_units: int = 10) -> l
             })
     return sorted(warnings, key=lambda x: x["days_of_supply"])
 
-
-# ---------------------------------------------------------------------------
-# Hospital summary
-# ---------------------------------------------------------------------------
-
+#hospital summary
 def get_hospital_summary(df: pd.DataFrame, hospital_name: str) -> list:
-    """
-    Aggregate all batches for a hospital, returning one entry per blood type
-    with total units, soonest expiry, near-expiry flag, and shortage score.
-    """
+    #aggregate all info for a hospital, returning one entry per blood type with total units, soonest expiry, near-expiry flag, and shortage score.
     h_df = df[df["hospital_name"] == hospital_name].copy()
     if h_df.empty:
         return []
@@ -122,7 +94,7 @@ def get_hospital_summary(df: pd.DataFrame, hospital_name: str) -> list:
         days_supply   = round(total_units / max(avg_daily, 0.1), 1)
         s_score       = shortage_score(avg_daily, total_units)
 
-        # Units in batches expiring within 7 days
+        #units in batches expiring within 7 days
         near_exp_units = int(
             bt_rows[bt_rows["expiration_date"].apply(
                 lambda d: 0 <= days_until_expiry(str(d)) <= 7
@@ -145,21 +117,12 @@ def get_hospital_summary(df: pd.DataFrame, hospital_name: str) -> list:
 
     return summary
 
-
-# ---------------------------------------------------------------------------
-# Transfer partner finder
-# ---------------------------------------------------------------------------
-
+#transfer partner finder
 def find_transfer_partners(df: pd.DataFrame, requesting_hospital: str,
                            blood_type: str, min_surplus_units: int = 8) -> dict:
-    """
-    Find the best hospitals to source blood_type from.
-    Returns:
-        closest       – nearest hospital with adequate supply
-        highest_stock – hospital with most units
-        best_overall  – closest (primary recommendation)
-        all_candidates – full ranked list
-    """
+    
+    #Find the best hospitals to source blood_type from.
+    #returns: closest, highest stock, best overall, all candidates
     req_rows = df[df["hospital_name"] == requesting_hospital]
     if req_rows.empty:
         return {"error": "Requesting hospital not found", "candidates": []}
@@ -167,7 +130,7 @@ def find_transfer_partners(df: pd.DataFrame, requesting_hospital: str,
     req_lat = float(req_rows.iloc[0]["latitude"])
     req_lon = float(req_rows.iloc[0]["longitude"])
 
-    # Hospitals other than the requester that have this blood type
+    #hospitals other than the requester that have this blood type
     other_df = df[
         (df["hospital_name"] != requesting_hospital) &
         (df["blood_type"] == blood_type)
@@ -176,7 +139,7 @@ def find_transfer_partners(df: pd.DataFrame, requesting_hospital: str,
     if other_df.empty:
         return {"error": f"No data for {blood_type} at other hospitals", "candidates": []}
 
-    # Aggregate by hospital
+    #aggregate by hospital
     hospital_agg: dict = {}
     for _, row in other_df.iterrows():
         h = row["hospital_name"]
@@ -217,17 +180,12 @@ def find_transfer_partners(df: pd.DataFrame, requesting_hospital: str,
         "candidates":    by_distance,   # full list sorted by distance
     }
 
-
-# ---------------------------------------------------------------------------
-# Heatmap data
-# ---------------------------------------------------------------------------
-
+#heatmap data
 def get_heatmap_data(df: pd.DataFrame) -> list:
-    """
-    Compute a composite stress intensity score [0,1] per hospital for the map overlay.
-    Aggregates across batches per blood type first so multi-batch hospitals
-    aren't unfairly penalised for having older smaller batches alongside fresh ones.
-    """
+    #Compute a composite stress intensity score [0,1] per hospital for the map overlay.
+    #Aggregates across batches per blood type first so multi-batch hospitals
+    #aren't unfairly penalised for having older smaller batches alongside fresh ones.
+ 
     results = []
     for hospital in df["hospital_name"].unique():
         h_df = df[df["hospital_name"] == hospital]
@@ -235,7 +193,7 @@ def get_heatmap_data(df: pd.DataFrame) -> list:
         lon  = float(h_df.iloc[0]["longitude"])
         city = h_df.iloc[0]["city"]
 
-        # Aggregate by blood type (mirrors get_hospital_summary logic)
+        #Aggregate by blood type (mirrors get_hospital_summary logic)
         blood_type_scores = []
         critical_types    = 0
         near_expiry_ct    = 0
@@ -273,11 +231,7 @@ def get_heatmap_data(df: pd.DataFrame) -> list:
 
     return sorted(results, key=lambda x: x["stress_intensity"], reverse=True)
 
-
-# ---------------------------------------------------------------------------
-# Blood-type availability across all hospitals
-# ---------------------------------------------------------------------------
-
+#Blood-type availability across all hospitals
 def get_blood_type_availability(df: pd.DataFrame, blood_type: str) -> list:
     """Which hospitals have blood_type and how much, with status labels."""
     bt_df = df[df["blood_type"] == blood_type].groupby("hospital_name").agg(

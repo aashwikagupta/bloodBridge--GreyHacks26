@@ -18,9 +18,7 @@
 
 "use strict";
 
-// ---------------------------------------------------------------------------
-// Global state
-// ---------------------------------------------------------------------------
+//global state
 let currentUser     = null;
 let currentHospital = null;
 let donorBloodType  = null;
@@ -40,10 +38,7 @@ let heatmapData    = [];
 let transferLine   = null;
 let pendingHeatmap = false;   // true if heatmap loaded before Google Maps ready
 
-// ---------------------------------------------------------------------------
-// Constants
-// ---------------------------------------------------------------------------
-
+//Constants
 const BLOOD_TYPES = ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"];
 
 const STATUS_COLORS = {
@@ -82,10 +77,7 @@ const NE_CENTER_GOOGLE   = { lat: 42.2, lng: -72.8 };
 const NE_ZOOM            = 7;
 
 
-// ---------------------------------------------------------------------------
-// Utility helpers
-// ---------------------------------------------------------------------------
-
+//Utility Helpers
 function el(id) { return document.getElementById(id); }
 function setText(id, val) { const e = el(id); if (e) e.textContent = val; }
 function fmt(n) { return typeof n === "number" ? n.toLocaleString("en-US") : n; }
@@ -125,10 +117,7 @@ function intensityToColor(intensity) {
 }
 
 
-// ---------------------------------------------------------------------------
 // AUTH — Landing page modals + session handling
-// ---------------------------------------------------------------------------
-
 function applySession(user) {
   currentUser     = user;
   isDonorRole     = user.role === "Donor";
@@ -264,11 +253,7 @@ async function doLogout() {
   }
 })();
 
-
-// ---------------------------------------------------------------------------
 // BOOT
-// ---------------------------------------------------------------------------
-
 async function bootApp() {
   if (isDonorRole) {
     // Show donor header, hide hospital selector
@@ -324,10 +309,7 @@ async function bootApp() {
 }
 
 
-// ---------------------------------------------------------------------------
 // TAB SWITCHING
-// ---------------------------------------------------------------------------
-
 function switchTab(tabId, btn) {
   document.querySelectorAll(".tab-panel").forEach(p => {
     p.classList.remove("active");
@@ -348,10 +330,7 @@ function switchTab(tabId, btn) {
 }
 
 
-// ---------------------------------------------------------------------------
 // OVERVIEW (KPIs + Banner)
-// ---------------------------------------------------------------------------
-
 async function loadOverview() {
   try {
     const resp   = await fetch("/api/overview");
@@ -463,10 +442,8 @@ function switchSidebarTab(tab) {
 }
 
 
-// ---------------------------------------------------------------------------
-// HOSPITAL DASHBOARD (staff)
-// ---------------------------------------------------------------------------
 
+// HOSPITAL DASHBOARD (staff)
 async function loadDashboard(hospitalName) {
   if (!hospitalName) return;
   setText("hospital-name-display", hospitalName);
@@ -546,10 +523,7 @@ function requestTransfer(bloodType, hospital) {
 }
 
 
-// ---------------------------------------------------------------------------
 // DONOR HUB
-// ---------------------------------------------------------------------------
-
 let donorDataLoaded = false;
 let donorData       = null;
 let donorLat        = 40.7128;   // Default: NYC
@@ -776,11 +750,7 @@ function handleDonateNow() {
   }
 }
 
-
-// ---------------------------------------------------------------------------
 // EXCHANGE NETWORK — MAP
-// ---------------------------------------------------------------------------
-
 function initExchangeTab() {
   if (mapInitialized) {
     // Map already up — just invalidate size for Leaflet layout refresh
@@ -932,7 +902,7 @@ async function loadHeatmap() {
 }
 
 
-// ── Leaflet marker rendering ──────────────────────────────────────────────
+//Leaflet marker rendering
 
 function clearMapMarkers() {
   mapMarkers.forEach(m => { try { m.remove ? m.remove() : (m.setMap && m.setMap(null)); } catch (e) {} });
@@ -976,8 +946,7 @@ function drawLeafletMarkers(data) {
 }
 
 
-// ── Google Maps marker rendering ──────────────────────────────────────────
-
+//Google Maps marker rendering 
 function drawGoogleMarkers(data) {
   if (!googleMap) return;
   clearMapMarkers();
@@ -1140,10 +1109,7 @@ async function filterMapByBloodType(bt, btn) {
 }
 
 
-// ---------------------------------------------------------------------------
 // TRANSFER RECOMMENDATION
-// ---------------------------------------------------------------------------
-
 async function runTransferRecommendation() {
   const hospital   = el("transfer-hospital").value;
   const blood_type = el("transfer-bt").value;
@@ -1316,10 +1282,8 @@ function renderTransferResults(data) {
 }
 
 
-// ---------------------------------------------------------------------------
-// AI PREDICTIONS
-// ---------------------------------------------------------------------------
 
+// AI PREDICTIONS
 let allPredictions  = [];
 let predLoadAttempt = 0;
 
@@ -1462,11 +1426,7 @@ function renderFeatureImportance(features) {
   }).join("");
 }
 
-
-// ---------------------------------------------------------------------------
 // ANALYTICS
-// ---------------------------------------------------------------------------
-
 async function loadAnalytics() {
   // Always re-load analytics on tab visit (destroy old charts first)
   destroyChart("inventory");

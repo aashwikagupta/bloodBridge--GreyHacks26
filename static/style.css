@@ -1,7 +1,7 @@
-/* ==========================================================================
+/* 
    bloodBridge — Premium Northeast Blood Intelligence Platform
    Dark navy theme · Cyan accents · Red/amber/green status system
-   ========================================================================== */
+    */
 
 :root {
   --bg-0:     #000000;
@@ -61,9 +61,8 @@ a { color: var(--cyan); }
 ::-webkit-scrollbar-thumb:hover { background: var(--text-3); }
 
 
-/* ==========================================================================
-   LOGIN SCREEN
-   ========================================================================== */
+
+/*LOGIN SCREEN*/
 
 #login-overlay {
   position: fixed; inset: 0;
@@ -221,9 +220,9 @@ a { color: var(--cyan); }
 .login-disclaimer svg { flex-shrink: 0; margin-top: 1px; }
 
 
-/* ==========================================================================
+/* 
    APP SHELL
-   ========================================================================== */
+    */
 
 #app { display: flex; flex-direction: column; min-height: 100vh; }
 
@@ -302,9 +301,9 @@ a { color: var(--cyan); }
 /* Alert banner placeholder (removed in favour of bell badge + panel) */
 
 
-/* ==========================================================================
+/* 
    TAB NAVIGATION
-   ========================================================================== */
+    */
 
 .tab-nav {
   display: flex; background: #000;
@@ -333,9 +332,9 @@ a { color: var(--cyan); }
 #donor-tab-btn.active svg { color: #ff5252; }
 
 
-/* ==========================================================================
+/* 
    MAIN CONTENT
-   ========================================================================== */
+    */
 
 .main-content {
   flex: 1; overflow-y: auto; padding: 24px; background: var(--bg-0);
@@ -348,9 +347,9 @@ a { color: var(--cyan); }
 }
 
 
-/* ==========================================================================
+/* 
    KPI CARDS
-   ========================================================================== */
+    */
 
 .kpi-row {
   display: grid; grid-template-columns: repeat(4, 1fr);
@@ -382,9 +381,9 @@ a { color: var(--cyan); }
 .kpi-green-text { color: var(--green); }
 
 
-/* ==========================================================================
+/* 
    SUMMARY BANNER
-   ========================================================================== */
+    */
 
 .summary-banner {
   display: flex; gap: 10px; margin-bottom: 22px; flex-wrap: wrap;
@@ -400,9 +399,9 @@ a { color: var(--cyan); }
 .summary-chip span  { font-size: 15px; font-weight: 800; }
 
 
-/* ==========================================================================
+/* 
    ALERT BELL & PANEL
-   ========================================================================== */
+    */
 
 .alert-bell-btn {
   position: relative; background: var(--bg-2); border: 1px solid var(--border);
@@ -447,9 +446,9 @@ a { color: var(--cyan); }
 .alert-action-btn:hover { background: rgba(0,212,255,0.15); }
 
 
-/* ==========================================================================
+/* 
    SIDEBAR TABS
-   ========================================================================== */
+    */
 
 .sidebar-tabs {
   display: flex; border-bottom: 1px solid var(--border);
@@ -465,9 +464,9 @@ a { color: var(--cyan); }
 .sidebar-tab.active { color: var(--text-1); border-bottom-color: var(--cyan); }
 
 
-/* ==========================================================================
+/* 
    DASHBOARD
-   ========================================================================== */
+    */
 
 .dashboard-grid {
   display: grid; grid-template-columns: 1fr 300px; gap: 20px;
@@ -551,9 +550,9 @@ a { color: var(--cyan); }
 .supply-bar-fill  { height: 100%; border-radius: 2px; transition: width 0.7s ease; }
 
 
-/* ==========================================================================
+/* 
    ALERTS PANEL
-   ========================================================================== */
+    */
 
 .alerts-panel {
   background: var(--bg-card); border: 1px solid var(--border);
@@ -584,9 +583,9 @@ a { color: var(--cyan); }
 .empty-state-sm { padding: 18px 16px; font-size: 12px; color: var(--text-4); text-align: center; }
 
 
-/* ==========================================================================
+/* 
    DONOR HUB
-   ========================================================================== */
+    */
 
 .donor-hero {
   display: flex; align-items: center; justify-content: space-between;
@@ -821,9 +820,9 @@ a { color: var(--cyan); }
 .btn-donate-primary:hover { opacity: 0.9; transform: translateY(-1px); box-shadow: 0 6px 28px rgba(255,23,68,0.38); }
 
 
-/* ==========================================================================
+/* 
    EXCHANGE NETWORK / MAP
-   ========================================================================== */
+    */
 
 .exchange-layout {
   display: grid; grid-template-columns: 1fr 330px; gap: 18px;
@@ -909,9 +908,9 @@ a { color: var(--cyan); }
 .transfer-all-list { margin-top: 6px; }
 
 
-/* ==========================================================================
+/* 
    AI PREDICTIONS
-   ========================================================================== */
+    */
 
 .risk-summary-row {
   display: grid; grid-template-columns: repeat(4, 1fr);
@@ -1007,9 +1006,9 @@ a { color: var(--cyan); }
 .chart-wrap  { position: relative; }
 
 
-/* ==========================================================================
+/* 
    ANALYTICS
-   ========================================================================== */
+    */
 
 .analytics-grid {
   display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
@@ -1045,9 +1044,9 @@ a { color: var(--cyan); }
 .status-pill.critical { background: rgba(255,23,68,0.12);  color: var(--red);    }
 
 
-/* ==========================================================================
+/* 
    FOOTER
-   ========================================================================== */
+    */
 
 .footer-disclaimer {
   display: flex; align-items: center; justify-content: center; gap: 6px;
@@ -1056,9 +1055,9 @@ a { color: var(--cyan); }
 }
 
 
-/* ==========================================================================
+/* 
    LEAFLET POPUP OVERRIDES
-   ========================================================================== */
+    */
 
 .leaflet-popup-content-wrapper {
   background: var(--bg-card) !important; border: 1px solid var(--border-light) !important;
@@ -1069,9 +1068,9 @@ a { color: var(--cyan); }
 .leaflet-popup-close-button { color: var(--text-3) !important; }
 
 
-/* ==========================================================================
+/* 
    RESPONSIVE
-   ========================================================================== */
+    */
 
 @media (max-width: 1280px) {
   .donor-bt-grid { grid-template-columns: repeat(4, 1fr); }
@@ -1103,9 +1102,9 @@ a { color: var(--cyan); }
 }
 
 
-/* ==========================================================================
+/* 
    LANDING PAGE — Apple-style full-screen sections
-   ========================================================================== */
+    */
 
 #landing {
   background: #000;
@@ -1380,9 +1379,9 @@ a { color: var(--cyan); }
   filter: brightness(0) invert(1) drop-shadow(0 0 6px rgba(255,23,68,0.3));
 }
 
-/* ==========================================================================
+/* 
    TRANSFER DRIVE INFO
-   ========================================================================== */
+    */
 
 .transfer-drive-info {
   font-size: 12px;
@@ -1392,9 +1391,9 @@ a { color: var(--cyan); }
   letter-spacing: 0.2px;
 }
 
-/* ==========================================================================
+/* 
    DONOR BT CARD — Enhanced with clinical context
-   ========================================================================== */
+    */
 
 .bt-my-type-tag {
   font-size: 9px; font-weight: 700; text-transform: uppercase;
@@ -1416,9 +1415,9 @@ a { color: var(--cyan); }
   padding-top: 5px;
 }
 
-/* ==========================================================================
+/* 
    RESPONSIVE — Landing page
-   ========================================================================== */
+    */
 
 @media (max-width: 900px) {
   .landing-nav { padding: 0 24px; }
@@ -1435,9 +1434,9 @@ a { color: var(--cyan); }
   .modal-box { padding: 36px 24px; }
 }
 
-/* ==========================================================================
+/* 
    HOME TAB
-   ========================================================================== */
+    */
 
 .home-tab-hero {
   position: relative;
@@ -1693,9 +1692,9 @@ a { color: var(--cyan); }
   line-height: 1.6;
 }
 
-/* ==========================================================================
+/* 
    LOGOUT BUTTON
-   ========================================================================== */
+    */
 
 .logout-btn {
   display: flex;
@@ -1717,9 +1716,9 @@ a { color: var(--cyan); }
   border-color: rgba(255,23,68,0.3);
 }
 
-/* ==========================================================================
+/* 
    PREDICTION FACTOR BARS
-   ========================================================================== */
+    */
 
 .pred-factors-section {
   margin-top: 10px;
@@ -1784,13 +1783,13 @@ a { color: var(--cyan); }
 }
 
 
-/* ==========================================================================
+/* 
    APPLE GLASS SYSTEM
    Frosted-glass surfaces, depth shadows, spring hover lifts.
    Appended after all component styles — uses !important to override bg-card.
-   ========================================================================== */
+    */
 
-/* ── Background scene so glass blur is visible ──────────────────────────── */
+/*  Background scene so glass blur is visible  */
 body {
   background:
     radial-gradient(ellipse 80% 50% at 20% 30%,  rgba(255,0,51,0.06)   0%, transparent 60%),
@@ -1802,7 +1801,7 @@ body {
   background: transparent !important;
 }
 
-/* ── Glass surface base ──────────────────────────────────────────────────── */
+/*  Glass surface base  */
 .kpi-card,
 .bt-card,
 .alerts-panel,
@@ -1830,7 +1829,7 @@ body {
     border-color  0.22s;
 }
 
-/* ── Hover lift + deepen ─────────────────────────────────────────────────── */
+/*  Hover lift + deepen  */
 .kpi-card:hover,
 .bt-card:hover,
 .donor-stat-card:hover,
@@ -1849,7 +1848,7 @@ body {
     0 16px 52px rgba(0,0,0,0.52);
 }
 
-/* ── Status-coloured glows on bt-cards (hover) ───────────────────────────── */
+/*  Status-coloured glows on bt-cards (hover)  */
 .bt-card.status-stable:hover {
   border-color: rgba(0,255,136,0.3) !important;
   box-shadow: 0 1px 0 rgba(255,255,255,0.08) inset, 0 8px 40px rgba(0,255,136,0.18), 0 2px 10px rgba(0,0,0,0.6) !important;
@@ -1867,19 +1866,19 @@ body {
   box-shadow: 0 1px 0 rgba(255,255,255,0.08) inset, 0 8px 44px rgba(255,0,51,0.28),   0 2px 10px rgba(0,0,0,0.6) !important;
 }
 
-/* ── Risk-level glows on pred-cards ─────────────────────────────────────── */
+/*  Risk-level glows on pred-cards  */
 .pred-card[data-risk="3"]:hover { border-color: rgba(255,0,51,0.35)   !important; box-shadow: 0 1px 0 rgba(255,255,255,0.08) inset, 0 8px 44px rgba(255,0,51,0.24),   0 2px 10px rgba(0,0,0,0.6) !important; }
 .pred-card[data-risk="2"]:hover { border-color: rgba(255,106,26,0.32) !important; box-shadow: 0 1px 0 rgba(255,255,255,0.08) inset, 0 8px 40px rgba(255,106,26,0.22), 0 2px 10px rgba(0,0,0,0.6) !important; }
 .pred-card[data-risk="1"]:hover { border-color: rgba(255,204,0,0.3)   !important; box-shadow: 0 1px 0 rgba(255,255,255,0.08) inset, 0 8px 40px rgba(255,204,0,0.18),  0 2px 10px rgba(0,0,0,0.6) !important; }
 .pred-card[data-risk="0"]:hover { border-color: rgba(0,255,136,0.28)  !important; box-shadow: 0 1px 0 rgba(255,255,255,0.08) inset, 0 8px 40px rgba(0,255,136,0.15),  0 2px 10px rgba(0,0,0,0.6) !important; }
 
-/* ── Risk summary card glows ─────────────────────────────────────────────── */
+/*  Risk summary card glows  */
 .risk-summary-card.stable:hover    { border-color: rgba(0,255,136,0.28)  !important; box-shadow: 0 1px 0 rgba(255,255,255,0.08) inset, 0 8px 40px rgba(0,255,136,0.18),  0 2px 10px rgba(0,0,0,0.6) !important; }
 .risk-summary-card.watchlist:hover { border-color: rgba(255,204,0,0.3)   !important; box-shadow: 0 1px 0 rgba(255,255,255,0.08) inset, 0 8px 40px rgba(255,204,0,0.18),  0 2px 10px rgba(0,0,0,0.6) !important; }
 .risk-summary-card.high-risk:hover { border-color: rgba(255,106,26,0.32) !important; box-shadow: 0 1px 0 rgba(255,255,255,0.08) inset, 0 8px 40px rgba(255,106,26,0.22), 0 2px 10px rgba(0,0,0,0.6) !important; }
 .risk-summary-card.critical:hover  { border-color: rgba(255,0,51,0.4)    !important; box-shadow: 0 1px 0 rgba(255,255,255,0.08) inset, 0 8px 44px rgba(255,0,51,0.28),   0 2px 10px rgba(0,0,0,0.6) !important; }
 
-/* ── Critical pulse — glass version ──────────────────────────────────────── */
+/*  Critical pulse — glass version  */
 @keyframes critical-pulse-glass {
   0%, 100% { box-shadow: 0 1px 0 rgba(255,255,255,0.06) inset, 0 2px 10px rgba(0,0,0,0.55), 0 8px 32px rgba(0,0,0,0.42); }
   50%       { box-shadow: 0 1px 0 rgba(255,255,255,0.08) inset, 0 2px 10px rgba(0,0,0,0.55), 0 8px 44px rgba(255,0,51,0.28); }
@@ -1887,14 +1886,14 @@ body {
 .bt-card.status-critical,
 .donor-bt-card.urgency-CRITICAL { animation: critical-pulse-glass 2.5s ease infinite; }
 
-/* ── KPI icon glow ───────────────────────────────────────────────────────── */
+/*  KPI icon glow  */
 .kpi-blue  { box-shadow: 0 0 22px rgba(77,159,255,0.25) !important; }
 .kpi-amber { box-shadow: 0 0 22px rgba(255,204,0,0.25)  !important; }
 .kpi-red   { box-shadow: 0 0 22px rgba(255,0,51,0.28)   !important; }
 .kpi-green { box-shadow: 0 0 22px rgba(0,255,136,0.22)  !important; }
 .kpi-value { font-size: 30px !important; }
 
-/* ── Frosted header & nav ────────────────────────────────────────────────── */
+/*  Frosted header & nav  */
 .app-header {
   background:     rgba(0,0,0,0.78) !important;
   backdrop-filter: blur(28px) saturate(200%);
@@ -1912,7 +1911,7 @@ body {
   text-shadow: 0 0 14px rgba(0,240,255,0.5);
 }
 
-/* ── Login card ──────────────────────────────────────────────────────────── */
+/*  Login card  */
 .login-card {
   background:     rgba(8,8,8,0.88) !important;
   backdrop-filter: blur(36px) saturate(160%);
@@ -1932,7 +1931,7 @@ body {
   transform:   translateY(-2px) !important;
 }
 
-/* ── Alert panel glass ───────────────────────────────────────────────────── */
+/*  Alert panel glass  */
 .alert-panel {
   background:     rgba(4,4,4,0.92) !important;
   backdrop-filter: blur(28px);
@@ -1943,7 +1942,7 @@ body {
 .alert-panel-header { background: rgba(255,255,255,0.03) !important; border-bottom: 1px solid rgba(255,255,255,0.06) !important; }
 .alert-panel-item:hover { background: rgba(255,255,255,0.04) !important; }
 
-/* ── Transfer & map glass ────────────────────────────────────────────────── */
+/*  Transfer & map glass  */
 .transfer-panel,
 .map-container {
   background:     rgba(255,255,255,0.035) !important;
@@ -1955,7 +1954,7 @@ body {
 .map-toolbar  { background: rgba(255,255,255,0.025) !important; border-bottom: 1px solid rgba(255,255,255,0.06) !important; }
 .transfer-card.best { border-color: rgba(0,240,255,0.35) !important; background: rgba(0,240,255,0.04) !important; box-shadow: 0 0 24px rgba(0,240,255,0.1), 0 1px 0 rgba(255,255,255,0.06) inset, 0 4px 16px rgba(0,0,0,0.5) !important; }
 
-/* ── Home tab glass ──────────────────────────────────────────────────────── */
+/*  Home tab glass  */
 .home-feature-card {
   background:     rgba(255,255,255,0.04) !important;
   backdrop-filter: blur(18px);
@@ -1978,7 +1977,7 @@ body {
   box-shadow:     0 1px 0 rgba(255,255,255,0.05) inset, 0 4px 24px rgba(0,0,0,0.42);
 }
 
-/* ── Donor section glass ─────────────────────────────────────────────────── */
+/*  Donor section glass  */
 .donor-hero {
   background: linear-gradient(135deg, rgba(255,0,51,0.08) 0%, rgba(255,255,255,0.025) 60%) !important;
   backdrop-filter: blur(20px);
@@ -2003,10 +2002,10 @@ body {
   box-shadow:   0 0 28px rgba(0,240,255,0.18) !important;
 }
 
-/* ── Risk summary numbers bigger ─────────────────────────────────────────── */
+/*  Risk summary numbers bigger  */
 .risk-summary-num { font-size: 46px !important; }
 
-/* ── Header glass UI elements ────────────────────────────────────────────── */
+/*  Header glass UI elements  */
 .user-pill {
   background: rgba(255,255,255,0.05) !important;
   border: 1px solid rgba(255,255,255,0.09) !important;
@@ -2024,24 +2023,24 @@ body {
   -webkit-backdrop-filter: blur(14px);
 }
 
-/* ── Summary chips glass glow ────────────────────────────────────────────── */
+/*  Summary chips glass glow  */
 .summary-chip { backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
 .summary-chip-red   { background: rgba(255,0,51,0.12)   !important; box-shadow: 0 0 18px rgba(255,0,51,0.12); }
 .summary-chip-amber { background: rgba(255,204,0,0.11)  !important; box-shadow: 0 0 18px rgba(255,204,0,0.1); }
 .summary-chip-green { background: rgba(0,255,136,0.09)  !important; box-shadow: 0 0 18px rgba(0,255,136,0.08); }
 .summary-chip-blue  { background: rgba(77,159,255,0.1)  !important; box-shadow: 0 0 18px rgba(77,159,255,0.08); }
 
-/* ── Supply bar track brighter ───────────────────────────────────────────── */
+/*  Supply bar track brighter  */
 .supply-bar-track { height: 4px !important; background: rgba(255,255,255,0.07) !important; }
 
-/* ── Tab panel spring animation ──────────────────────────────────────────── */
+/*  Tab panel spring animation  */
 @keyframes appleSlideIn {
   from { opacity: 0; transform: translateY(14px) scale(0.988); }
   to   { opacity: 1; transform: translateY(0)    scale(1); }
 }
 .tab-panel.active { animation: appleSlideIn 0.38s cubic-bezier(0.25,0.46,0.45,0.94); }
 
-/* ── Form inputs glass ───────────────────────────────────────────────────── */
+/*  Form inputs glass  */
 .form-group input,
 .form-group select,
 .form-select {
@@ -2057,7 +2056,7 @@ body {
   box-shadow: 0 0 0 3px rgba(0,240,255,0.1), 0 0 16px rgba(0,240,255,0.08) !important;
 }
 
-/* ── Leaflet popup glass ─────────────────────────────────────────────────── */
+/*  Leaflet popup glass  */
 .leaflet-popup-content-wrapper {
   background: rgba(6,6,6,0.92) !important;
   backdrop-filter: blur(20px) !important;
@@ -2066,7 +2065,7 @@ body {
   box-shadow: 0 8px 32px rgba(0,0,0,0.7) !important;
 }
 
-/* ── Footer glass ────────────────────────────────────────────────────────── */
+/*  Footer glass  */
 .footer-disclaimer {
   background: rgba(0,0,0,0.7) !important;
   backdrop-filter: blur(20px);

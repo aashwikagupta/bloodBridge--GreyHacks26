@@ -1,10 +1,6 @@
-"""
-app.py
-------
-bloodBridge Flask backend.
-Loads (or regenerates) dataset.csv, trains the shortage predictor,
-and exposes REST API endpoints consumed by the single-page frontend.
-"""
+#bloodBridge Flask backend
+#Loads (or regenerates) dataset.csv, trains the shortage predictor,
+#and exposes REST API endpoints consumed by the single-page frontend.
 
 import os
 import random as _random
@@ -26,25 +22,18 @@ from algorithms import (
 )
 from ml_model import train_model, get_predictions, get_feature_importance
 
-# ---------------------------------------------------------------------------
 app = Flask(__name__)
 app.secret_key = "bloodbridge-greyhacks26-secret"
 DATASET_PATH = "dataset.csv"
 
-# Google Maps API key — set via environment variable GOOGLE_MAPS_API_KEY
-# Once provided, the frontend automatically switches from Leaflet to Google Maps.
+#Google Maps API key
+#Once provided, the frontend automatically switches from Leaflet to Google Maps.
 GOOGLE_MAPS_API_KEY = os.environ.get("GOOGLE_MAPS_API_KEY", "")
 
-
-# ---------------------------------------------------------------------------
-# Startup: load data + train model
-# ---------------------------------------------------------------------------
-
+#load data + train model
 def load_data() -> pd.DataFrame:
-    """
-    Load dataset.csv if it has ≥30 Northeast hospitals, otherwise regenerate.
-    This ensures stale Midwest data is automatically replaced on first run.
-    """
+    #Load dataset.csv if it has ≥30 Northeast hospitals, otherwise regenerate.
+    #This ensures stale Midwest data is automatically replaced on first run.
     need_regen = True
     if os.path.exists(DATASET_PATH):
         try:
@@ -69,10 +58,7 @@ train_model(df)
 print(f"[bloodBridge] Ready — {len(df)} records, {df['hospital_name'].nunique()} hospitals.")
 
 
-# ---------------------------------------------------------------------------
-# Auth
-# ---------------------------------------------------------------------------
-
+#auth
 @app.route("/api/login", methods=["POST"])
 def login():
     data     = request.get_json() or {}
@@ -107,11 +93,7 @@ def register():
     session["user"] = user
     return jsonify({"success": True, "user": user})
 
-
-# ---------------------------------------------------------------------------
-# Overview / system-wide stats
-# ---------------------------------------------------------------------------
-
+#Overview / system-wide stats
 @app.route("/api/overview")
 def overview():
     total_units     = int(df["units_available"].sum())
@@ -123,14 +105,14 @@ def overview():
         if 0 <= d <= 7:
             near_expiry_units += int(row["units_available"])
 
-    # Critical blood-type situations (aggregated per hospital+bt)
+    #Critical blood-type situations (aggregated per hospital+bt)
     critical_count = 0
     for (hospital, bt), grp in df.groupby(["hospital_name", "blood_type"]):
         s = shortage_score(float(grp["daily_usage"].mean()), int(grp["units_available"].sum()))
         if s >= 1.5:
             critical_count += 1
 
-    # Transfer opportunities
+    #Transfer opportunities
     transfer_opps = 0
     for bt in df["blood_type"].unique():
         bt_df = df[df["blood_type"] == bt]
@@ -153,11 +135,7 @@ def overview():
         "last_updated":             datetime.now().strftime("%b %d, %Y %H:%M"),
     })
 
-
-# ---------------------------------------------------------------------------
-# Hospital list
-# ---------------------------------------------------------------------------
-
+#Hospital list
 @app.route("/api/hospitals")
 def get_hospitals():
     agg = df.groupby("hospital_name").agg(
@@ -190,10 +168,7 @@ def get_hospitals():
     return jsonify(result)
 
 
-# ---------------------------------------------------------------------------
-# Single hospital inventory
-# ---------------------------------------------------------------------------
-
+#Single hospital inventory
 @app.route("/api/hospital/<path:hospital_name>")
 def get_hospital(hospital_name):
     inventory = get_hospital_summary(df, hospital_name)
@@ -209,11 +184,7 @@ def get_hospital(hospital_name):
         "inventory": inventory,
     })
 
-
-# ---------------------------------------------------------------------------
-# Blood type availability
-# ---------------------------------------------------------------------------
-
+#Blood type availability
 @app.route("/api/blood-types")
 def blood_types():
     bt_filter = request.args.get("type")
@@ -226,20 +197,12 @@ def blood_types():
         "daily_usage": {k: float(v) for k, v in usage.items()},
     })
 
-
-# ---------------------------------------------------------------------------
-# Heatmap
-# ---------------------------------------------------------------------------
-
+#Heatmap
 @app.route("/api/heatmap")
 def heatmap():
     return jsonify(get_heatmap_data(df))
 
-
-# ---------------------------------------------------------------------------
-# Transfer recommendation
-# ---------------------------------------------------------------------------
-
+#Transfer recommendation
 @app.route("/api/transfer-recommendation", methods=["POST"])
 def transfer_recommendation():
     data       = request.get_json() or {}
@@ -249,11 +212,7 @@ def transfer_recommendation():
         return jsonify({"error": "hospital and blood_type are required"}), 400
     return jsonify(find_transfer_partners(df, hospital, blood_type))
 
-
-# ---------------------------------------------------------------------------
-# AI shortage predictions
-# ---------------------------------------------------------------------------
-
+#AI shortage predictions
 @app.route("/api/predictions")
 def predictions():
     preds    = get_predictions(df)
@@ -274,11 +233,7 @@ def predictions():
         "top_high_risk": by_level[2][:8],
     })
 
-
-# ---------------------------------------------------------------------------
-# Analytics
-# ---------------------------------------------------------------------------
-
+#Analytics
 @app.route("/api/analytics")
 def analytics():
     bt_inventory = df.groupby("blood_type")["units_available"].sum().to_dict()
@@ -342,11 +297,7 @@ def analytics():
         "top_stressed":            hospital_stress[:5],
     })
 
-
-# ---------------------------------------------------------------------------
 # Donor API endpoints
-# ---------------------------------------------------------------------------
-
 def _donor_why_it_matters(blood_type: str, urgency: str,
                            days_supply: float, hospital: str) -> str:
     hosp_short = hospital.split()[0]
@@ -521,11 +472,7 @@ def donor_nearest_centers():
     results.sort(key=lambda x: x["distance_km"])
     return jsonify(results[:18])
 
-
-# ---------------------------------------------------------------------------
 # Frontend
-# ---------------------------------------------------------------------------
-
 @app.route("/")
 def home():
     user = session.get("user")
@@ -533,11 +480,9 @@ def home():
                            google_maps_key=GOOGLE_MAPS_API_KEY,
                            session_user=user)
 
-
 @app.route("/app")
 def app_redirect():
     return redirect("/")
-
 
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0", port=8080)
